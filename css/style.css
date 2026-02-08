@@ -246,3 +246,9 @@ hr.line{border:none; border-top:1px solid var(--line); margin:18px 0}
 p, span, li{
   text-align: justify;
 }
+.badge{
+  cursor: pointer;
+}
+.badge:hover{
+  background: rgba(255,255,255,.08);
+}
