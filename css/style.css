@@ -252,3 +252,16 @@ p, span, li{
 .badge:hover{
   background: rgba(255,255,255,.08);
 }
+/* Capability workflow image */
+.capability-visual{
+  margin: 24px auto 0;
+  text-align: center;
+}
+
+.capability-visual img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
