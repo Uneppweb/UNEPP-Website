@@ -265,3 +265,11 @@ p, span, li{
   box-shadow: var(--shadow);
   border: 1px solid var(--line);
 }
+html{
+  scroll-behavior: smooth;
+}
+
+/* Prevent sticky header from hiding section titles */
+.section{
+  scroll-margin-top: 90px;
+}
