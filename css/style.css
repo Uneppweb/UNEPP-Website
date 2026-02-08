@@ -218,3 +218,10 @@ hr.line{border:none; border-top:1px solid var(--line); margin:18px 0}
     grid-template-columns: 1fr;
   }
 }
+/* Leadership role descriptions */
+.leader-desc{
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
