@@ -243,3 +243,6 @@ hr.line{border:none; border-top:1px solid var(--line); margin:18px 0}
   margin-right: auto;
   max-width: 78ch; /* wider so it feels 'full' and not cramped */
 }
+p, span, li{
+  text-align: justify;
+}
