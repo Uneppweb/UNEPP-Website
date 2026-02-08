@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Company Name | Oil & Gas Engineering Services</title>
+  <meta name="description" content="Oil & gas engineering services: FEED, detailed engineering, pipeline & facilities, HSE, procurement support."/>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Company Name</h1>
+          <small>Oil & Gas Engineering & Project Services</small>
+        </div>
+      </a>
+
+      <nav class="menu" aria-label="Primary">
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="services.html">Services</a>
+        <a data-nav href="projects.html">Projects</a>
+        <a data-nav href="hse-quality.html">HSE & Quality</a>
+        <a data-nav class="cta" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="card">
+          <div class="kicker">Engineering you can execute</div>
+          <h2>Oil & Gas services for pipelines, facilities, and offshore/onshore projects.</h2>
+          <p class="lead">
+            We deliver fit-for-purpose engineering, disciplined documentation, and practical support
+            from early concept through FEED, detailed engineering, and execution interfaces.
+          </p>
+
+          <div class="badges">
+            <div class="badge">FEED & Detailed Engineering</div>
+            <div class="badge">Pipelines & Facilities</div>
+            <div class="badge">Procurement / Vendor Data</div>
+            <div class="badge">HSE Studies (HAZID/HAZOP)</div>
+          </div>
+
+          <hr class="line"/>
+
+          <div class="split">
+            <div>
+              <b>Typical deliverables</b>
+              <span class="muted">PFD/P&ID support, specs, MTOs, datasheets, layouts, reports</span>
+            </div>
+            <div>
+              <b>Industries</b>
+              <span class="muted">Upstream, midstream, terminals, utilities, brownfield upgrades</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-cards">
+          <div class="card">
+            <h3>Fast mobilization</h3>
+            <p>Structured deliverables, clear registers, and tracking from day one.</p>
+          </div>
+          <div class="card">
+            <h3>Codes & compliance</h3>
+            <p>Work aligned to applicable international standards and client procedures.</p>
+          </div>
+          <div class="card">
+            <h3>Execution mindset</h3>
+            <p>Engineering that considers constructability, operability, and procurement realities.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h3>Core capabilities</h3>
+        <div class="grid">
+          <div class="item"><b>Pipelines</b><span>Route, hydraulics support, materials, crossings, HDD support, integrity</span></div>
+          <div class="item"><b>Facilities</b><span>Station layouts, piping, mechanical packages, utilities, tie-ins, brownfield</span></div>
+          <div class="item"><b>Studies</b><span>HAZID/HAZOP, SIL input, risk registers, ALARP support, bow-tie inputs</span></div>
+          <div class="item"><b>Procurement support</b><span>Datasheets, TBE, vendor document control, clarifications, inspections support</span></div>
+          <div class="item"><b>Project controls</b><span>CTR / manhour estimates, schedules, deliverable matrices, progress reporting</span></div>
+          <div class="item"><b>Site interfaces</b><span>Constructability, method statements inputs, pre-commissioning inputs</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card">
+        <h3>Why clients choose us</h3>
+        <div class="split">
+          <div class="item">
+            <b>Traceable documentation</b>
+            <span>Clear revision control, registers, and disciplined deliverable quality.</span>
+          </div>
+          <div class="item">
+            <b>Practical engineering</b>
+            <span>Solutions that reduce execution risk and change orders.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="y"></span> Company Name. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
