@@ -197,3 +197,9 @@ hr.line{border:none; border-top:1px solid var(--line); margin:18px 0}
 .card.full {
   grid-column: 1 / -1;
 }
+/* Force this specific card to fill available width */
+.card.leadership-note{
+  width: 100%;
+  max-width: none;
+  display: block;
+}
