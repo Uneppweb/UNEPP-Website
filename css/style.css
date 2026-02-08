@@ -203,3 +203,18 @@ hr.line{border:none; border-top:1px solid var(--line); margin:18px 0}
   max-width: none;
   display: block;
 }
+/* Leadership layout refinements */
+.leader.ceo{
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.leadership.two-col{
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+}
+
+@media (max-width: 700px){
+  .leadership.two-col{
+    grid-template-columns: 1fr;
+  }
+}
