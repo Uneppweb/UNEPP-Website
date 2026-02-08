@@ -194,3 +194,6 @@ hr.line{border:none; border-top:1px solid var(--line); margin:18px 0}
 .section li b{
   color: var(--text);
 }
+.card.full {
+  grid-column: 1 / -1;
+}
