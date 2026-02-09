@@ -584,3 +584,8 @@ html{
 .company-overview .lead{
   max-width: none;
 }
+/* Regulatory / authority names (EGAS, EGPC) */
+.brand-regulator{
+  color: #9bb3c9;      /* subtle steel-blue */
+  font-weight: 700;
+}
