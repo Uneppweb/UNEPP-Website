@@ -776,3 +776,11 @@ html{
   border-left: 4px solid #000000;
   padding-left: 6px;
 }
+/* Highlight clicked section link (CSS-only) */
+.about-index a:focus,
+.about-index a:active{
+  font-weight: 700;
+  background: #f2f2f2;
+  border-left: 4px solid #000000;
+  padding-left: 6px;
+}
