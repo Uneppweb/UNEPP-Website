@@ -791,3 +791,18 @@ html{
 .about-index a:hover{
   background: #f2f2f2;
 }
+/* Office cards: push buttons to bottom */
+.office-card{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.office-content{
+  flex-grow: 1;
+}
+
+.office-card .btn{
+  margin-top: 16px;
+  align-self: flex-start; /* keeps button left-aligned */
+}
