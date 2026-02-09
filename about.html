@@ -32,276 +32,272 @@
     </div>
   </header>
 
-  <main class="container">
+  <!-- NOTE:
+       - Added left index (aside) + content wrapper
+       - Added section IDs for in-page navigation
+       - Fixed missing closing tags in Leadership section
+  -->
+  <main class="container about-layout">
+    <!-- Left index -->
+    <aside class="about-index">
+      <b>On this page</b>
+      <nav>
+        <a href="#company-overview">Company Overview</a>
+        <a href="#our-values">Our Values</a>
+        <a href="#leadership">Leadership Team</a>
+        <a href="#milestones">Company Milestones</a>
+        <a href="#locations">Office Locations</a>
+        <a href="#hse-quality">HSE &amp; Quality</a>
+      </nav>
+    </aside>
 
-    <!-- Company Overview -->
-<section class="section company-overview">
+    <!-- Page content -->
+    <div class="about-content">
 
-  <div class="kicker">About Us</div>
-  <h2>Company Overview</h2>
+      <!-- Company Overview -->
+      <section class="section company-overview" id="company-overview">
+        <div class="kicker">About Us</div>
+        <h2>Company Overview</h2>
 
-  <!-- UNEPP -->
-  <div class="company-line">
-    <img src="assets/unepp-logo.png" alt="UNEPP logo" class="company-logo" />
-    <p class="lead company-highlight">
-      <strong class="brand-unepp">United Engineers for Petroleum Projects (UNEPP)</strong> is an independently registered company,
-      established in Egypt in 2008. We deliver comprehensive technical services across all phases of oil and gas development — from
-      concept to commissioning — built on a strong foundation of engineering excellence and reliable project execution.
-    </p>
-  </div>
+        <!-- UNEPP -->
+        <div class="company-line">
+          <img src="assets/unepp-logo.png" alt="UNEPP logo" class="company-logo" />
+          <p class="lead company-highlight">
+            <strong class="brand-unepp">United Engineers for Petroleum Projects (UNEPP)</strong> is an independently registered company,
+            established in Egypt in 2008. We deliver comprehensive technical services across all phases of oil and gas development — from
+            concept to commissioning — built on a strong foundation of engineering excellence and reliable project execution.
+          </p>
+        </div>
 
-  <!-- UNIFIED -->
-  <div class="company-line">
-    <img src="assets/unified-logo.png" alt="UNIFIED logo" class="company-logo" />
-    <p class="lead company-highlight">
-      To extend our regional presence across the MENA region, our UAE-registered sister company,
-      <strong class="brand-unified">Unified Engineering Consultancy Limited (UNIFIED)</strong>, was independently established in 2023.
-    </p>
-  </div>
+        <!-- UNIFIED -->
+        <div class="company-line">
+          <img src="assets/unified-logo.png" alt="UNIFIED logo" class="company-logo" />
+          <p class="lead company-highlight">
+            To extend our regional presence across the MENA region, our UAE-registered sister company,
+            <strong class="brand-unified">Unified Engineering Consultancy Limited (UNIFIED)</strong>, was independently established in 2023.
+          </p>
+        </div>
 
-  <!-- Group statement -->
-  <p class="lead">
-    Although UNEPP and UNIFIED are independently registered entities, they share the same group of shareholders and operate in close
-    coordination. Together, they provide integrated engineering, procurement, and project management services across the full project
-    lifecycle — including feasibility studies, concept selection, basic and detailed design, procurement support, construction supervision,
-    commissioning, and operational support.
-  </p>
+        <!-- Group statement -->
+        <p class="lead">
+          Although UNEPP and UNIFIED are independently registered entities, they share the same group of shareholders and operate in close
+          coordination. Together, they provide integrated engineering, procurement, and project management services across the full project
+          lifecycle — including feasibility studies, concept selection, basic and detailed design, procurement support, construction supervision,
+          commissioning, and operational support.
+        </p>
 
-  <p class="lead">
-  UNEPP has been officially registered with the
-  <strong class="brand-regulator">Egyptian Natural Gas Holding Company (EGAS)</strong>
-  since February 2009 under Registration No. 1258, and with the
-  <strong class="brand-regulator">Egyptian General Petroleum Corporation (EGPC)</strong>
-  since December 2010 under Registration No. 68.
-</p>
+        <p class="lead">
+          UNEPP has been officially registered with the
+          <strong class="brand-regulator">Egyptian Natural Gas Holding Company (EGAS)</strong>
+          since February 2009 under Registration No. 1258, and with the
+          <strong class="brand-regulator">Egyptian General Petroleum Corporation (EGPC)</strong>
+          since December 2010 under Registration No. 68.
+        </p>
 
+        <p class="lead">
+          Both UNEPP and UNIFIED are certified to ISO 9001 (Quality Management), ISO 14001 (Environmental Management), and ISO 45001 (Occupational
+          Health &amp; Safety), demonstrating our commitment to delivering services that meet the highest international standards of quality, safety,
+          and environmental responsibility.
+        </p>
 
-  <p class="lead">
-    Both UNEPP and UNIFIED are certified to ISO 9001 (Quality Management), ISO 14001 (Environmental Management), and ISO 45001 (Occupational
-    Health & Safety), demonstrating our commitment to delivering services that meet the highest international standards of quality, safety,
-    and environmental responsibility.
-  </p>
+        <a class="btn" href="#">➤ Watch Our Company Overview</a>
+      </section>
 
-  <a class="btn" href="#">➤ Watch Our Company Overview</a>
-</section>
+      <!-- Our Values -->
+      <section class="section" id="our-values">
+        <div class="section-intro full-width">
+          <h2>Our Values</h2>
+          <p class="lead">
+            Our value drivers are not just theoretical ideals; they are the pillars upon which we build our daily activities,
+            our long-term strategies, and our vision for the future.
+          </p>
+        </div>
 
+        <div class="values-layout">
+          <!-- Values diagram -->
+          <div class="values-visual">
+            <img
+              src="assets/images/our-values.png"
+              alt="UNEPP core values: HSE, Quality, Best Resources, Client Integration, Codes and Standards, Responsive to Market"
+            />
+          </div>
 
+          <!-- Values boxes -->
+          <div class="grid values-grid">
+            <div class="item value-hse">
+              <b>HSE</b>
+              <span>Our commitment to HSE is unwavering. We believe that a safe working environment is a fundamental right.</span>
+            </div>
 
-    <!-- Our Values -->
-<section class="section">
-  <div class="section-intro full-width">
-    <h2>Our Values</h2>
-    <p class="lead">
-      Our value drivers are not just theoretical ideals; they are the pillars upon which we build our daily activities,
-      our long-term strategies, and our vision for the future.
-    </p>
-  </div>
+            <div class="item value-quality">
+              <b>Quality</b>
+              <span>Quality is the hallmark of our brand. We strive for excellence in everything we do.</span>
+            </div>
 
-  <div class="values-layout">
-    <!-- Values diagram -->
-    <div class="values-visual">
-      <img
-        src="assets/images/our-values.png"
-        alt="UNEPP core values: HSE, Quality, Best Resources, Client Integration, Codes and Standards, Responsive to Market"
-      />
-    </div>
+            <div class="item value-responsive">
+              <b>Responsive to Market</b>
+              <span>We adapt quickly to changing conditions, anticipate trends, and turn challenges into opportunities.</span>
+            </div>
 
-    <!-- Values boxes -->
-    <div class="grid values-grid">
-<div class="item value-hse">
-  <b>HSE</b>
-  <span>Our commitment to HSE is unwavering. We believe that a safe working environment is a fundamental right.</span>
-</div>
+            <div class="item value-resources">
+              <b>Best Resources</b>
+              <span>We invest in the best people, tools, and technologies to deliver efficient, innovative solutions.</span>
+            </div>
 
-<div class="item value-quality">
-  <b>Quality</b>
-  <span>Quality is the hallmark of our brand. We strive for excellence in everything we do.</span>
-</div>
+            <div class="item value-standards">
+              <b>Codes and Standards</b>
+              <span>Adherence to international codes and standards is non-negotiable.</span>
+            </div>
 
-<div class="item value-responsive">
-  <b>Responsive to Market</b>
-  <span>We adapt quickly to changing conditions, anticipate trends, and turn challenges into opportunities.</span>
-</div>
+            <div class="item value-client">
+              <b>Client Integration</b>
+              <span>We work collaboratively with clients, co-creating solutions through trust and communication.</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<div class="item value-resources">
-  <b>Best Resources</b>
-  <span>We invest in the best people, tools, and technologies to deliver efficient, innovative solutions.</span>
-</div>
+      <!-- Leadership Team -->
+      <section class="section" id="leadership">
+        <div class="section-intro">
+          <h2>Leadership Team</h2>
+          <p class="lead">
+            At UNEPP, our leadership team comprises dynamic and experienced professionals who drive the company’s vision and strategy forward.
+            Together, they bring over 100 years of cumulative experience in the oil and gas industry.
+          </p>
+        </div>
 
-<div class="item value-standards">
-  <b>Codes and Standards</b>
-  <span>Adherence to international codes and standards is non-negotiable.</span>
-</div>
+        <!-- CEO – full width -->
+        <div class="grid leadership">
+          <div class="leader ceo leader-ceo">
+            <img src="assets/leadership/ahmed-sanad.jpg" alt="Ahmed Sanad - Chief Executive Officer (CEO)" />
+            <b>Ahmed Sanad</b>
+            <span>Chief Executive Officer (CEO)</span>
 
-<div class="item value-client">
-  <b>Client Integration</b>
-  <span>We work collaboratively with clients, co-creating solutions through trust and communication.</span>
-</div>
+            <p class="leader-desc">
+              Responsible for setting the strategic direction, overseeing corporate governance,
+              and ensuring overall business performance.
+            </p>
+          </div>
+        </div>
 
-    </div>
-  </div>
-</section>
+        <!-- VPP + VPO – one line -->
+        <div class="grid leadership two-col" style="margin-top:14px;">
+          <div class="leader leader-exec">
+            <img src="assets/leadership/sameh-kassem.png" alt="Sameh Kassem - Vice President of Projects (VPP)" />
+            <b>Sameh Kassem</b>
+            <span>Vice President of Projects (VPP)</span>
 
+            <p class="leader-desc">
+              Responsible for all aspects of engineering and project management. This includes strategic planning, technical leadership,
+              and cross-functional coordination across both onshore and offshore teams to ensure resource optimization and project success.
+            </p>
+          </div>
 
+          <div class="leader leader-exec">
+            <img src="assets/leadership/ahmed-elnaggari.png" alt="Ahmed Elnaggari - Vice President of Operations (VPO)" />
+            <b>Ahmed Elnaggari</b>
+            <span>Vice President of Operations (VPO)</span>
 
-    <!-- Leadership Team -->
-    <section class="section">
-<div class="section-intro">
-  <h2>Leadership Team</h2>
-  <p class="lead">
-    At UNEPP, our leadership team comprises dynamic and experienced professionals who drive the company’s vision and strategy forward.
-    Together, they bring over 100 years of cumulative experience in the oil and gas industry.
-  </p>
-</div>
+            <p class="leader-desc">
+              Leads key corporate functions including business development, project services, procurement, quality management, HSE, IT, and legal affairs.
+              This role ensures operational continuity, regulatory compliance, and cost-effective execution across the company’s portfolio of projects.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <!-- Leadership photos (kept as grid) -->
-    <!-- CEO – full width -->
-<div class="grid leadership">
-<div class="leader ceo leader-ceo">
-  <img src="assets/leadership/ahmed-sanad.jpg" alt="Ahmed Sanad - Chief Executive Officer (CEO)" />
-  <b>Ahmed Sanad</b>
-  <span>Chief Executive Officer (CEO)</span>
+      <!-- Company Milestones -->
+      <section class="section" id="milestones">
+        <h2>Company Milestones</h2>
+        <div class="card">
+          <ul>
+            <li><b>2008 – Company Inception:</b> UNEPP established in Egypt to deliver value-driven multidisciplinary solutions across oil &amp; gas projects.</li>
+            <li><b>2008 – First Feasibility &amp; Basic Engineering:</b> Techno-economic study for a 32” transmission pipeline (El Sadat – Dahshour) for TAQA.</li>
+            <li><b>2009 – First Detailed Engineering Services:</b> Firefighting network detailed engineering for RAS BAKR Oil Facilities (GPC).</li>
+            <li><b>2009 – First Operating Procedures Manual:</b> Start-up and operating procedures manual for WDDM Phase V (BURULLUS).</li>
+            <li><b>2012 – First Pipeline Construction Project:</b> Installation of a 16-inch, 40 km high-pressure underground gas pipeline for NAT Gas.</li>
+            <li><b>2012 – First HAZOP Study:</b> HAZOP study for South ANNAJMA EPF (ECG) for STAROIL.</li>
+            <li><b>2015 – First Process Skids Fabrication:</b> Fabrication of two knockout drum skids for WASCO’s El Basant Compression Station.</li>
+            <li><b>2021 – First Offshore Platform Detailed Engineering:</b> Full detailed engineering for Petrogulf’s offshore platform.</li>
+          </ul>
+        </div>
+      </section>
 
-  <p class="leader-desc">
-    Responsible for setting the strategic direction, overseeing corporate governance,
-    and ensuring overall business performance.
-  </p>
-</div>
+      <!-- Office Locations -->
+      <section class="section" id="locations">
+        <div class="section-intro">
+          <h2>Our Office Locations</h2>
+          <p class="lead">
+            UNEPP operates from two strategic hubs in the MENA region, enabling close coordination with clients
+            and efficient support for regional and international projects.
+          </p>
+        </div>
 
-</div>
+        <div class="split">
+          <div class="item">
+            <b>Cairo Office – Egypt</b>
+            <span>
+              Located in the heart of New Cairo, our Cairo office serves as our main engineering and operations center,
+              housing multi-disciplinary engineering teams and project management personnel.
+            </span><br/><br/>
+            <a class="btn" href="#">➤ View Cairo Office Contact Details</a>
+          </div>
 
-<!-- VPP + VPO – one line -->
-<div class="grid leadership two-col" style="margin-top:14px;">
+          <div class="item">
+            <b>Abu Dhabi Office – United Arab Emirates</b>
+            <span>
+              Our Abu Dhabi presence strengthens our capability to serve clients across the GCC region,
+              supporting business development, client interface, and project execution in collaboration
+              with local and international stakeholders.
+            </span><br/><br/>
+            <a class="btn" href="#">➤ View Abu Dhabi Office Contact Details</a>
+          </div>
+        </div>
+      </section>
 
-<div class="leader leader-exec">
-    <img src="assets/leadership/sameh-kassem.png" alt="Sameh Kassem - Vice President of Projects (VPP)" />
-    <b>Sameh Kassem</b>
-    <span>Vice President of Projects (VPP)</span>
+      <!-- HSE and Quality -->
+      <section class="section" id="hse-quality">
+        <div class="section-intro">
+          <h3>HSE and Quality</h3>
+          <p class="lead">
+            Our management systems reflect our commitment to safeguarding people, assets, and the environment,
+            while delivering engineering services that meet the highest standards of reliability and client satisfaction.
+          </p>
+        </div>
 
-    <p class="leader-desc">
-    Responsible for all aspects of engineering and project management. This includes strategic planning, technical leadership, and cross-functional coordination across both onshore and offshore teams to ensure resource optimization and project success.
-    </p>
-  </div>
+        <div class="card">
+          <h3 style="margin-top:0;">HSE</h3>
+          <p>
+            Our HSE Policy reflects our unwavering commitment to safeguarding people, assets, and the environment by upholding
+            the highest standards of health, safety, and environmental performance. Our HSE Management System ensures proactive risk management
+            by setting clear objectives and integrating preventive controls throughout the project lifecycle. Implementation is achieved through
+            structured procedures, comprehensive training, and consistent application of safe work practices. Continuous monitoring via audits,
+            inspections, and reporting enables timely corrective actions and drives ongoing improvement. Regular management reviews reinforce leadership
+            commitment, ensuring compliance and the setting of new performance goals. At its core, the system embraces continuous improvement by incorporating
+            lessons learned, best practices, and stakeholder feedback to enhance safety, efficiency, and environmental outcomes.
+          </p>
 
-<div class="leader leader-exec">
-    <img src="assets/leadership/ahmed-elnaggari.png" alt="Ahmed Elnaggari - Vice President of Operations (VPO)" />
-    <b>Ahmed Elnaggari</b>
-    <span>Vice President of Operations (VPO)</span>
+          <a class="btn" href="assets/HSE Certificate/ISO-45001.pdf" target="_blank" rel="noopener">➤ View Our ISO 45001 Certification</a>
+          <a class="btn" href="assets/Environment Certificate/ISO-14001.pdf" target="_blank" rel="noopener" style="margin-left:10px;">➤ View Our ISO 14001 Certification</a>
+        </div>
 
-    <p class="leader-desc">
-      Leads key corporate functions including business development, project services, procurement, quality management, HSE, IT, and legal affairs. This role ensures operational continuity, regulatory compliance, and cost-effective execution across the company’s portfolio of projects.
-    </p>
- 
-      </div>
-    </section>
+        <div class="card" style="margin-top:14px;">
+          <h3 style="margin-top:0;">Quality</h3>
+          <p>
+            Our Quality Policy demonstrates our commitment to delivering engineering services that meet the highest standards of performance,
+            reliability, and client satisfaction. Our Quality Management System (QMS), certified to ISO 9001, ensures that services are delivered
+            in line with international quality standards and best practices. It enables client-focused delivery through consistent, reliable, and
+            traceable performance across all project phases. Quality is embedded from concept to commissioning through integrated controls that ensure
+            technical accuracy and compliance. Competent, process-driven teams apply standardized procedures and tailored quality plans to uphold excellence,
+            while continuous improvement is driven by audits and performance monitoring to enhance service and client satisfaction.
+          </p>
 
-    <!-- Company Milestones -->
-    <section class="section">
-      <h2>Company Milestones</h2>
-      <div class="card">
-        <ul>
-          <li><b>2008 – Company Inception:</b> UNEPP established in Egypt to deliver value-driven multidisciplinary solutions across oil & gas projects.</li>
-          <li><b>2008 – First Feasibility & Basic Engineering:</b> Techno-economic study for a 32” transmission pipeline (El Sadat – Dahshour) for TAQA.</li>
-          <li><b>2009 – First Detailed Engineering Services:</b> Firefighting network detailed engineering for RAS BAKR Oil Facilities (GPC).</li>
-          <li><b>2009 – First Operating Procedures Manual:</b> Start-up and operating procedures manual for WDDM Phase V (BURULLUS).</li>
-          <li><b>2012 – First Pipeline Construction Project:</b> Installation of a 16-inch, 40 km high-pressure underground gas pipeline for NAT Gas.</li>
-          <li><b>2012 – First HAZOP Study:</b> HAZOP study for South ANNAJMA EPF (ECG) for STAROIL.</li>
-          <li><b>2015 – First Process Skids Fabrication:</b> Fabrication of two knockout drum skids for WASCO’s El Basant Compression Station.</li>
-          <li><b>2021 – First Offshore Platform Detailed Engineering:</b> Full detailed engineering for Petrogulf’s offshore platform.</li>
-        </ul>
-      </div>
-    </section>
+          <a class="btn" href="assets/Quality Certificate/ISO-9001.pdf" target="_blank" rel="noopener">➤ View Our ISO 9001 Certification</a>
+        </div>
+      </section>
 
-    <!-- Office Locations -->
-<section class="section">
-
-  <div class="section-intro">
-    <h2>Our Office Locations</h2>
-    <p class="lead">
-      UNEPP operates from two strategic hubs in the MENA region, enabling close coordination with clients
-      and efficient support for regional and international projects.
-    </p>
-  </div>
-
-  <div class="split">
-    <div class="item">
-      <b>Cairo Office – Egypt</b>
-      <span>
-        Located in the heart of New Cairo, our Cairo office serves as our main engineering and operations center,
-        housing multi-disciplinary engineering teams and project management personnel.
-      </span><br/><br/>
-      <a class="btn" href="#">➤ View Cairo Office Contact Details</a>
-    </div>
-
-    <div class="item">
-      <b>Abu Dhabi Office – United Arab Emirates</b>
-      <span>
-        Our Abu Dhabi presence strengthens our capability to serve clients across the GCC region,
-        supporting business development, client interface, and project execution in collaboration
-        with local and international stakeholders.
-      </span><br/><br/>
-      <a class="btn" href="#">➤ View Abu Dhabi Office Contact Details</a>
-    </div>
-  </div>
-
-</section>
-
-
-    <!-- HSE and Quality -->
-    <!-- HSE and Quality -->
-<section class="section">
-
-  <div class="section-intro">
-    <h3>HSE and Quality</h3>
-    <p class="lead">
-      Our management systems reflect our commitment to safeguarding people, assets, and the environment,
-      while delivering engineering services that meet the highest standards of reliability and client satisfaction.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3 style="margin-top:0;">HSE</h3>
-    <p class="lead">
-      
-    </p>
-    <p>
-      Our HSE Policy reflects our unwavering commitment to safeguarding people, assets, and the environment by upholding
-      the highest standards of health, safety, and environmental performance. Our HSE Management System ensures proactive risk management by setting clear objectives and integrating preventive controls
-      throughout the project lifecycle. Implementation is achieved through structured procedures, comprehensive training, and consistent
-      application of safe work practices. Continuous monitoring via audits, inspections, and reporting enables timely corrective actions and
-      drives ongoing improvement. Regular management reviews reinforce leadership commitment, ensuring compliance and the setting of new
-      performance goals. At its core, the system embraces continuous improvement by incorporating lessons learned, best practices, and
-      stakeholder feedback to enhance safety, efficiency, and environmental outcomes.
-    </p>
- <a class="btn" href="assets/HSE Certificate/ISO-45001.pdf" target="_blank" rel="noopener">
-  ➤ View Our ISO 45001 Certification
-</a>
- <a class="btn" href="assets/Environment Certificate/ISO-14001.pdf" target="_blank" rel="noopener">
-  ➤ View Our ISO 14001 Certification
-</a>
-  </div>
-
-  <div class="card" style="margin-top:14px;">
-    <h3 style="margin-top:0;">Quality</h3>
-    <p class="lead">
-      
-    </p>
-    <p>
-      Our Quality Policy demonstrates our commitment to delivering engineering services that meet the highest standards of performance,
-      reliability, and client satisfaction. Our Quality Management System (QMS), certified to ISO 9001, ensures that services are delivered in line with international quality
-      standards and best practices. It enables client-focused delivery through consistent, reliable, and traceable performance across all
-      project phases. Quality is embedded from concept to commissioning through integrated controls that ensure technical accuracy and
-      compliance. Competent, process-driven teams apply standardized procedures and tailored quality plans to uphold excellence, while
-      continuous improvement is driven by audits and performance monitoring to enhance service and client satisfaction.
-    </p>
- <a class="btn" href="assets/Quality Certificate/ISO-9001.pdf" target="_blank" rel="noopener">
-  ➤ View Our ISO 9001 Certification
-</a>
-  </div>
-
-</section>
-
-
+    </div><!-- /.about-content -->
   </main>
 
   <!-- Footer -->
