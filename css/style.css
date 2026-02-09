@@ -644,3 +644,6 @@ html{
   background: rgba(255,255,255,0.35);
   border-radius: 2px;
 }
+.leader span::after{
+  opacity: 0.6;
+}
