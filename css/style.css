@@ -628,12 +628,12 @@ html{
 .leader span{
   display: block;
   margin-top: 2px;
-  font-size: 15px;          /* slightly larger */
-  font-weight: 700;         /* stronger emphasis */
-  letter-spacing: 0.02em;   /* executive feel */
-  color: #ffffff;           /* brighter than body text */
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-align: center;   /* ✅ THIS is the missing piece */
 }
-
 /* Optional: subtle separator effect */
 .leader span::after{
   content: "";
