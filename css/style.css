@@ -811,3 +811,7 @@ html{
   margin-top: 14px;
   margin-right: 10px;
 }
+/* Improve spacing between lead paragraphs */
+.lead{
+  margin-bottom: 16px;
+}
