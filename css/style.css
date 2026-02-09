@@ -589,3 +589,38 @@ html{
   color: #9bb3c9;      /* subtle steel-blue */
   font-weight: 700;
 }
+/* =========================
+   Leadership color styling
+   ========================= */
+
+/* CEO – primary leadership (same family as Values main tone) */
+.leader-ceo{
+  background: linear-gradient(
+    135deg,
+    rgba(70,176,255,0.18),
+    rgba(70,176,255,0.08)
+  );
+  border-color: rgba(70,176,255,0.45);
+}
+
+/* VPP & VPO – executive leadership (same color for both) */
+.leader-exec{
+  background: linear-gradient(
+    135deg,
+    rgba(124,247,208,0.18),
+    rgba(124,247,208,0.08)
+  );
+  border-color: rgba(124,247,208,0.45);
+}
+
+/* Keep text crisp */
+.leader-ceo b,
+.leader-exec b{
+  color: var(--text);
+}
+
+/* Optional: slightly emphasize leadership photos */
+.leader-ceo img,
+.leader-exec img{
+  border: 2px solid rgba(255,255,255,0.25);
+}
