@@ -549,3 +549,34 @@ html{
   .company-line{ grid-template-columns: 1fr; }
   .company-logo{ width: 110px; margin-top: 0; }
 }
+.company-line{
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 18px;
+  align-items: start;
+  margin: 18px 0;
+}
+
+.company-line p{ margin: 0; }
+.company-line .lead{ max-width: none; }
+
+.company-logo{
+  width: 130px;
+  height: auto;
+  display: block;
+  margin-top: 6px;
+}
+
+.company-highlight{
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.brand-unepp{ color: var(--brand); font-weight: 700; }
+.brand-unified{ color: #3bb54a; font-weight: 700; }
+
+@media (max-width: 768px){
+  .company-line{ grid-template-columns: 1fr; }
+  .company-logo{ width: 110px; margin-top: 0; }
+}
