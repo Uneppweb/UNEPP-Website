@@ -580,3 +580,7 @@ html{
   .company-line{ grid-template-columns: 1fr; }
   .company-logo{ width: 110px; margin-top: 0; }
 }
+/* Company Overview: let lead paragraphs use full width */
+.company-overview .lead{
+  max-width: none;
+}
