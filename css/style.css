@@ -414,3 +414,13 @@ html{
     grid-template-columns: 1fr;
   }
 }
+/* HSE value styling – match diagram color */
+.value-hse{
+  background: linear-gradient(135deg, #e12a7b, #b21e5d);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.value-hse b,
+.value-hse span{
+  color: #ffffff;
+}
