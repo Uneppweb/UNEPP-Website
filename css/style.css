@@ -424,6 +424,57 @@ html{
 .value-hse span{
   color: #ffffff;
 }
+
+/* ================================
+   Our Values – Color Matched Boxes
+   ================================ */
+
+/* Common text color for colored boxes */
+.value-hse b, .value-hse span,
+.value-quality b, .value-quality span,
+.value-responsive b, .value-responsive span,
+.value-resources b, .value-resources span,
+.value-standards b, .value-standards span,
+.value-client b, .value-client span{
+  color: #ffffff;
+}
+
+/* HSE – Magenta */
+.value-hse{
+  background: linear-gradient(135deg, #e12a7b, #b21e5d);
+  border-color: rgba(255,255,255,0.25);
+}
+
+/* Quality – Gold */
+.value-quality{
+  background: linear-gradient(135deg, #f2b705, #c99700);
+  border-color: rgba(255,255,255,0.25);
+}
+
+/* Responsive to Market – Purple */
+.value-responsive{
+  background: linear-gradient(135deg, #8a1c8f, #5e1361);
+  border-color: rgba(255,255,255,0.25);
+}
+
+/* Best Resources – Green */
+.value-resources{
+  background: linear-gradient(135deg, #3bb54a, #278a34);
+  border-color: rgba(255,255,255,0.25);
+}
+
+/* Codes and Standards – Red */
+.value-standards{
+  background: linear-gradient(135deg, #e53935, #b71c1c);
+  border-color: rgba(255,255,255,0.25);
+}
+
+/* Client Integration – Blue */
+.value-client{
+  background: linear-gradient(135deg, #00a3e0, #0077b6);
+  border-color: rgba(255,255,255,0.25);
+}
+
 .item[class^="value-"]:hover{
   transform: translateY(-4px);
   transition: transform .2s ease;
