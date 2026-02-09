@@ -677,3 +677,70 @@ html{
 .section h3{
   text-align: center;
 }
+/* =========================
+   About page: LEFT INDEX COLUMN
+   ========================= */
+
+.about-layout{
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+
+/* Left index column */
+.about-index{
+  position: sticky;
+  top: 96px; /* below header */
+  height: fit-content;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.04);
+}
+
+/* Index title */
+.about-index b{
+  display: block;
+  margin-bottom: 12px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Index links */
+.about-index nav{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-index a{
+  font-size: 14px;
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.about-index a:hover{
+  background: var(--card);
+  color: var(--text);
+}
+
+/* Content column */
+.about-content{
+  min-width: 0;
+}
+
+/* Mobile: hide index */
+@media (max-width: 900px){
+  .about-layout{
+    grid-template-columns: 1fr;
+  }
+
+  .about-index{
+    display: none;
+  }
+}
+.about-index{ outline: 3px solid red; }
