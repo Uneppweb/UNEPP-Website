@@ -336,3 +336,38 @@ html{
 .footer a{
   color: #111827;
 }
+/* Company overview: logo + text layout (fixed alignment + full width text) */
+.company-line{
+  display: grid;
+  grid-template-columns: 130px 1fr; /* logo column + text column */
+  gap: 18px;
+  align-items: start;              /* align to top (first line area) */
+  margin: 18px 0;
+}
+
+.company-line p{
+  margin: 0;                       /* remove default paragraph top margin */
+}
+
+.company-line .lead{
+  max-width: none;                 /* IMPORTANT: remove 58ch limit */
+}
+
+/* Bigger logos */
+.company-logo{
+  width: 130px;                    /* increase size */
+  height: auto;
+  display: block;
+  margin-top: 6px;                 /* nudges to align with first text line */
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  .company-line{
+    grid-template-columns: 1fr;
+  }
+  .company-logo{
+    width: 110px;
+    margin-top: 0;
+  }
+}
