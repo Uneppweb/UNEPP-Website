@@ -273,3 +273,41 @@ html{
 .section{
   scroll-margin-top: 90px;
 }
+/* ================================
+   Header & Footer – Light Theme
+   ================================ */
+
+/* Header */
+.nav{
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  backdrop-filter: none;
+}
+
+.nav .brand h1,
+.nav .brand small,
+.nav .menu a{
+  color: #111827; /* near-black */
+}
+
+/* Navigation hover */
+.nav .menu a:hover{
+  background: rgba(0,0,0,0.04);
+  color: #000;
+}
+
+/* Keep CTA readable */
+.nav .menu .cta{
+  color: #07101f !important;
+}
+
+/* Footer */
+.footer{
+  background: #ffffff;
+  color: #111827;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footer a{
+  color: #111827;
+}
