@@ -479,3 +479,32 @@ html{
   transform: translateY(-4px);
   transition: transform .2s ease;
 }
+.company-line{
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 18px;
+  align-items: start;
+  margin: 18px 0;
+}
+
+.company-line p{ margin: 0; }
+.company-line .lead{ max-width: none; }
+
+.company-logo{
+  width: 130px;
+  height: auto;
+  display: block;
+  margin-top: 6px;
+}
+
+/* Emphasis style (optional but consistent) */
+.company-highlight{
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+@media (max-width: 768px){
+  .company-line{ grid-template-columns: 1fr; }
+  .company-logo{ width: 110px; margin-top: 0; }
+}
