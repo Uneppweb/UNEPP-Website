@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
   <!-- Header / Navigation -->
   <header class="nav">
     <div class="container nav-inner">
@@ -20,15 +21,14 @@
         </div>
       </a>
 
-      <!-- Updated navigation -->
       <nav class="menu" aria-label="Primary">
-        <a data-nav href="index.html">Home</a>
-        <a data-nav href="about.html">About Us</a>
-        <a data-nav href="capabilities.html">Capabilities</a>
-        <a data-nav href="projects.html">Projects</a>
-        <a data-nav href="news.html">News</a>
-        <a data-nav href="careers.html">Career</a>
-        <a data-nav class="cta" href="contact.html">Contact Us</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="capabilities.html">Capabilities</a>
+        <a href="projects.html">Projects</a>
+        <a href="news.html">News</a>
+        <a href="careers.html">Career</a>
+        <a class="cta" href="contact.html">Contact Us</a>
       </nav>
     </div>
   </header>
@@ -37,50 +37,56 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div class="card">
-          <div class="kicker">Driving Excellence. From Concept to Delivery.</div>
 
-          <h2>YOUR PARTNER IN SUCCESS</h2>
+        <!-- LEFT COLUMN -->
+        <div>
+          <div class="card">
+            <div class="kicker">Driving Excellence. From Concept to Delivery.</div>
 
-          <p class="lead">
-            United Engineers for Petroleum Projects (UNEPP) is an independent, privately owned company,
-            established and registered in Egypt in 2008. We deliver comprehensive engineering and project
-            services across all phases of oil and gas development — from concept to commissioning — built on
-            a strong foundation of engineering excellence and reliable project execution.
-          </p>
-          </div>
+            <h2>YOUR PARTNER IN SUCCESS</h2>
 
-          <hr class="line" />
+            <p class="lead">
+              United Engineers for Petroleum Projects (UNEPP) is an independent, privately owned company,
+              established and registered in Egypt in 2008. We deliver comprehensive engineering and project
+              services across all phases of oil and gas development — from concept to commissioning — built on
+              a strong foundation of engineering excellence and reliable project execution.
+            </p>
 
-          <div class="split">
-            <div class="item">
-              <b>Established in Egypt</b>
-              <span>Founded in 2008 with a strong local and regional footprint.</span>
-            </div>
-            <div class="item">
-              <b>MENA coverage</b>
-              <span>Operating in coordination with UNIFIED (UAE, established 2023).</span>
+            <hr class="line" />
+
+            <div class="split">
+              <div class="item">
+                <b>Established in Egypt</b>
+                <span>Founded in 2008 with a strong local and regional footprint.</span>
+              </div>
+              <div class="item">
+                <b>MENA Coverage</b>
+                <span>Operating in coordination with UNIFIED (UAE, established 2023).</span>
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- RIGHT COLUMN -->
         <aside class="hero-cards">
           <div class="card">
             <h3>Capabilities that Power Project Success</h3>
             <p>Integrated Thinking. Measurable Results.</p>
           </div>
+
           <div class="card">
             <h3>Our Work in Action</h3>
             <p>Real Projects. Real Performance.</p>
           </div>
         </aside>
+
       </div>
     </section>
 
-    <!-- Capabilities -->
+    <!-- Core Capabilities -->
     <section class="section">
       <div class="container">
-        <h3>Core capabilities</h3>
+        <h3>Core Capabilities</h3>
 
         <div class="grid">
           <div class="item">
@@ -102,10 +108,6 @@
             <b>Commissioning Interfaces</b>
           </div>
         </div>
-
- 
-          </p>
-        </div>
       </div>
     </section>
   </main>
@@ -117,9 +119,9 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
