@@ -508,3 +508,13 @@ html{
   .company-line{ grid-template-columns: 1fr; }
   .company-logo{ width: 110px; margin-top: 0; }
 }
+/* Company name color accents */
+.brand-unepp{
+  color: var(--brand);        /* your main UNEPP blue */
+  font-weight: 700;
+}
+
+.brand-unified{
+  color: #3bb54a;             /* muted professional green */
+  font-weight: 700;
+}
