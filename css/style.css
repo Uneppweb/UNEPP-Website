@@ -784,3 +784,10 @@ html{
   border-left: 4px solid #000000;
   padding-left: 6px;
 }
+.about-index a{
+  outline: none;
+}
+
+.about-index a:hover{
+  background: #f2f2f2;
+}
