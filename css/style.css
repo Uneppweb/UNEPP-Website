@@ -371,3 +371,8 @@ html{
     margin-top: 0;
   }
 }
+/* Force justification inside Our Values boxes */
+.section .item span{
+  text-align: justify;
+  display: block;          /* important for justification */
+}
