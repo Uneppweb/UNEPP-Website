@@ -815,3 +815,7 @@ html{
 .lead{
   margin-bottom: 16px;
 }
+/* Force spacing between consecutive lead paragraphs */
+.lead + .lead{
+  margin-top: 16px;
+}
