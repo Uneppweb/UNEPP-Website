@@ -376,3 +376,6 @@ html{
   text-align: justify;
   display: block;          /* important for justification */
 }
+.section .item span{
+  hyphens: auto;
+}
