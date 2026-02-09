@@ -624,3 +624,23 @@ html{
 .leader-exec img{
   border: 2px solid rgba(255,255,255,0.25);
 }
+/* Leadership titles – make roles more visible */
+.leader span{
+  display: block;
+  margin-top: 2px;
+  font-size: 15px;          /* slightly larger */
+  font-weight: 700;         /* stronger emphasis */
+  letter-spacing: 0.02em;   /* executive feel */
+  color: #ffffff;           /* brighter than body text */
+}
+
+/* Optional: subtle separator effect */
+.leader span::after{
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  margin: 6px auto 0;
+  background: rgba(255,255,255,0.35);
+  border-radius: 2px;
+}
