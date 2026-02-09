@@ -672,3 +672,8 @@ html{
 .section > h3{
   text-align: center;
 }
+/* Force-center section titles (Leadership, Milestones, etc.) */
+.section h2,
+.section h3{
+  text-align: center;
+}
