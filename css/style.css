@@ -379,3 +379,38 @@ html{
 .section .item span{
   hyphens: auto;
 }
+/* Our Values layout */
+.values-layout{
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+/* Values diagram */
+.values-visual{
+  text-align: center;
+}
+
+.values-visual img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+}
+
+/* Ensure grid behaves inside values section */
+.values-grid{
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .values-layout{
+    grid-template-columns: 1fr;
+  }
+
+  .values-grid{
+    grid-template-columns: 1fr;
+  }
+}
