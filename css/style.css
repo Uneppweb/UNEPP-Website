@@ -424,3 +424,7 @@ html{
 .value-hse span{
   color: #ffffff;
 }
+.item[class^="value-"]:hover{
+  transform: translateY(-4px);
+  transition: transform .2s ease;
+}
