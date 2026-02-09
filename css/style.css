@@ -667,3 +667,8 @@ html{
   color: var(--text);
   margin-bottom: 2px;
 }
+/* Center major section titles (Leadership, Milestones, etc.) */
+.section > h2,
+.section > h3{
+  text-align: center;
+}
