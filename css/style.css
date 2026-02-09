@@ -769,3 +769,10 @@ html{
 .about-index{
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
+/* Active section highlight in About index */
+.about-index a.active{
+  font-weight: 700;
+  background: #f2f2f2;
+  border-left: 4px solid #000000;
+  padding-left: 6px;
+}
