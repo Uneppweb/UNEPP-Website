@@ -647,3 +647,23 @@ html{
 .leader span::after{
   opacity: 0.6;
 }
+/* =========================
+   Company Milestones styling
+   (match Leadership Team)
+   ========================= */
+
+.section ul li{
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Milestone year + title (like leadership names) */
+.section ul li b{
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin-bottom: 2px;
+}
