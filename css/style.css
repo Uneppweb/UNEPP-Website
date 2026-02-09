@@ -589,3 +589,6 @@ html{
   color: #9bb3c9;      /* subtle steel-blue */
   font-weight: 700;
 }
+.brand-regulator{
+  opacity: 0.9;
+}
