@@ -967,3 +967,15 @@ html{
   background: #0f1a31 !important;
   border: 1px solid rgba(255,255,255,0.18) !important;
 }
+/* CEO ONLY – distinctive executive color */
+#leadership .leadership-card .leader.ceo,
+#leadership .leadership-card .leader-ceo{
+  background: linear-gradient(
+    135deg,
+    #1c3faa,   /* deep executive blue */
+    #0b1220   /* UNEPP dark */
+  ) !important;
+
+  border: 1px solid rgba(70,176,255,0.55) !important;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+}
