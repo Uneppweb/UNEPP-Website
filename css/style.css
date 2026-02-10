@@ -1126,3 +1126,33 @@ html{
     font-size: 19px;
   }
 }
+/* === Unified section header style (About Us + Capabilities) === */
+
+/* Main section titles */
+.section-intro h2,
+.section-intro h3{
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+/* Lead text under section headers */
+.section-intro .lead{
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 75ch;
+}
+
+/* Desktop enhancement */
+@media (min-width: 900px){
+  .section-intro h2,
+  .section-intro h3{
+    font-size: 30px;
+  }
+
+  .section-intro .lead{
+    font-size: 19px;
+  }
+}
