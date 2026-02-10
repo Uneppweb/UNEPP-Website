@@ -1083,3 +1083,16 @@ html{
 #locations .office-card .btn{
   margin-top: auto;
 }
+/* === Section lead text: larger & clearer across the site === */
+.section .lead{
+  font-size: 18px;          /* was ~16px */
+  line-height: 1.7;
+  max-width: 75ch;          /* better readability on large screens */
+}
+
+/* On larger screens, give it a bit more presence */
+@media (min-width: 900px){
+  .section .lead{
+    font-size: 19px;
+  }
+}
