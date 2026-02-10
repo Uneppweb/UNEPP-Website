@@ -1033,3 +1033,26 @@ html{
   margin: 10px 0;
   line-height: 1.6;
 }
+/* === HSE & Quality – white cards with dark text (buttons untouched) === */
+#hse-quality .card{
+  background: #ffffff;
+  border: 1px solid #e4e8f0;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+  color: #0b1220;
+}
+
+/* Paragraph text inside HSE & Quality cards */
+#hse-quality .card p{
+  color: #2a2f3a;
+}
+
+/* Section headings inside cards (HSE / Quality titles) */
+#hse-quality .card h3{
+  color: #0b1220;
+  font-weight: 700;
+}
+
+/* Keep ISO buttons exactly as they are */
+#hse-quality .card .btn{
+  /* intentionally untouched */
+}
