@@ -979,3 +979,7 @@ html{
   border: 1px solid rgba(70,176,255,0.55) !important;
   box-shadow: 0 18px 40px rgba(0,0,0,0.45);
 }
+#leadership .leader.ceo span{
+  color: #9fc5ff !important;
+  font-weight: 700;
+}
