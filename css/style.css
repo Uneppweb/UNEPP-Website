@@ -868,3 +868,16 @@ html{
 #our-values .card .lead{
   color: #2a2f3a;
 }
+/* Leadership section – card background only */
+#leadership .leadership-card{
+  background: #ffffff;          /* or #f7f9fc if you want softer */
+  border: 1px solid #e4e8f0;
+  box-shadow: 0 12px 30px rgba(0,0,0,.10);
+  color: #0b1220;
+}
+
+/* Ensure section intro text stays readable on white */
+#leadership .leadership-card p,
+#leadership .leadership-card .lead{
+  color: #2a2f3a;
+}
