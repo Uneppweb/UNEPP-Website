@@ -983,3 +983,29 @@ html{
   color: #9fc5ff !important;
   font-weight: 700;
 }
+/* === Company Milestones – match Leadership styling === */
+#milestones .card{
+  background: #0f1a31;            /* same dark panel tone */
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #e8edf7;
+}
+
+/* Milestones list text */
+#milestones .card li{
+  color: #c7d0e6;
+}
+
+/* Emphasize milestone titles / years */
+#milestones .card li b{
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Improve spacing & readability */
+#milestones .card ul{
+  margin-top: 6px;
+}
+#milestones .card li{
+  margin: 10px 0;
+  line-height: 1.6;
+}
