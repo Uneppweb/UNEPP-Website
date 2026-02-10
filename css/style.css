@@ -902,3 +902,38 @@ html{
   background: rgba(255,255,255,0.85);
   border: 1px solid rgba(11,18,32,0.15);
 }
+/* === Leadership boxes: force dark backgrounds for all roles === */
+
+/* Base leader card */
+.leader{
+  background: #0f1a31; /* same as dark panel */
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #e8edf7;
+}
+
+/* Ensure text inside stays readable */
+.leader b{
+  color: #ffffff;
+}
+.leader span{
+  color: #a9b4cc;
+}
+.leader .leader-desc{
+  color: #c7d0e6;
+}
+
+/* CEO – slightly stronger accent */
+.leader-ceo{
+  background: linear-gradient(
+    135deg,
+    #102243,
+    #0f2f3a
+  );
+  border: 1px solid rgba(70,176,255,0.45);
+}
+
+/* VPP + VPO */
+.leader-exec{
+  background: #0f1a31;
+  border: 1px solid rgba(255,255,255,0.18);
+}
