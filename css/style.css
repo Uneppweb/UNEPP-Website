@@ -864,7 +864,7 @@ html{
 }
 
 /* Make “item” boxes readable when inside a white card */
-.light-card .item{
+.light-card .office-card{
   background: #f7f9fc;
   border: 1px solid #e4e8f0;
 }
@@ -885,4 +885,28 @@ html{
 .company-card .brand-regulator{
   color: #6b7a90;
   font-weight: 700;
+}
+/* Restore Our Values colors */
+.value-hse{ background: #e6f4f1; }
+.value-quality{ background: #eef2ff; }
+.value-responsive{ background: #fff4e6; }
+.value-resources{ background: #f0f9ff; }
+.value-standards{ background: #f5f5f5; }
+.value-client{ background: #f1f5f9; }
+/* Restore leadership cards */
+.leader{
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--line);
+}
+
+.leader-ceo{
+  background: linear-gradient(
+    135deg,
+    rgba(70,176,255,.18),
+    rgba(124,247,208,.14)
+  );
+}
+
+.leader-exec{
+  background: rgba(255,255,255,.05);
 }
