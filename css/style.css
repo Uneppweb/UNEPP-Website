@@ -850,3 +850,39 @@ html{
 .company-card .btn{
   color: #07101f;
 }
+/* About page: white cards with dark text */
+.light-card{
+  background: #ffffff;
+  border: 1px solid #e4e8f0;
+  box-shadow: 0 12px 30px rgba(0,0,0,.10);
+  color: #0b1220;
+}
+
+.light-card p,
+.light-card .lead{
+  color: #2a2f3a;
+}
+
+/* Make “item” boxes readable when inside a white card */
+.light-card .item{
+  background: #f7f9fc;
+  border: 1px solid #e4e8f0;
+}
+
+.light-card .item span{
+  color: #2a2f3a;
+}
+
+/* Brand accents on white (company overview) */
+.company-card .brand-unepp{
+  color: #0b5ed7;
+  font-weight: 800;
+}
+.company-card .brand-unified{
+  color: #2fae8f;
+  font-weight: 800;
+}
+.company-card .brand-regulator{
+  color: #6b7a90;
+  font-weight: 700;
+}
