@@ -856,3 +856,15 @@ html{
   letter-spacing: 0.04em;
   color: var(--text); /* or #0b1220 if inside white cards */
 }
+/* Our Values – card background only */
+#our-values .card{
+  background: #ffffff;          /* or very light grey */
+  border: 1px solid #e4e8f0;
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+/* Keep text readable on white card */
+#our-values .card p,
+#our-values .card .lead{
+  color: #2a2f3a;
+}
