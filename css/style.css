@@ -1056,3 +1056,30 @@ html{
 #hse-quality .card .btn{
   /* intentionally untouched */
 }
+/* === Office Locations – white cards with dark text (links untouched) === */
+#locations .office-card{
+  background: #ffffff;
+  border: 1px solid #e4e8f0;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+  color: #0b1220;
+
+  /* keep your bottom-aligned buttons working */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Text inside office cards */
+#locations .office-card span{
+  color: #2a2f3a;
+}
+
+/* Office titles */
+#locations .office-card b{
+  color: #0b1220;
+  font-weight: 700;
+}
+
+/* Keep buttons at the bottom and unchanged */
+#locations .office-card .btn{
+  margin-top: auto;
+}
