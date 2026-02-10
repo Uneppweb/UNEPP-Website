@@ -1009,3 +1009,27 @@ html{
   margin: 10px 0;
   line-height: 1.6;
 }
+/* === Company Milestones – white card with dark text === */
+#milestones .card{
+  background: #ffffff;
+  border: 1px solid #e4e8f0;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+  color: #0b1220;
+}
+
+/* Milestones text */
+#milestones .card li{
+  color: #2a2f3a;
+}
+
+/* Milestone titles / years */
+#milestones .card li b{
+  color: #0b1220;
+  font-weight: 700;
+}
+
+/* Improve spacing */
+#milestones .card li{
+  margin: 10px 0;
+  line-height: 1.6;
+}
