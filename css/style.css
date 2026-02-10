@@ -819,3 +819,34 @@ html{
 .lead + .lead{
   margin-top: 16px;
 }
+/* Company Overview – White card + dark text */
+.company-card{
+  background: #ffffff;
+  color: #0b1220;
+  border: 1px solid #e4e8f0;
+}
+
+/* Paragraphs inside the white card */
+.company-card .lead,
+.company-card p{
+  color: #2a2f3a;
+}
+
+/* Brand highlights on white */
+.company-card .brand-unepp{
+  color: #0b5ed7;
+  font-weight: 800;
+}
+.company-card .brand-unified{
+  color: #2fae8f;
+  font-weight: 800;
+}
+.company-card .brand-regulator{
+  color: #6b7a90;
+  font-weight: 700;
+}
+
+/* Keep button readable on white */
+.company-card .btn{
+  color: #07101f;
+}
