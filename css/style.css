@@ -850,3 +850,9 @@ html{
 .company-card .btn{
   color: #07101f;
 }
+/* ISO codes – strong, consistent emphasis */
+.iso-code{
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--text); /* or #0b1220 if inside white cards */
+}
