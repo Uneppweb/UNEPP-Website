@@ -9,43 +9,119 @@
 
   <!-- Page-local styling (move into css/style.css if you prefer) -->
   <style>
+    html { scroll-behavior: smooth; }
+
+    /* Filters (higher contrast) */
     .filters{
-      display:grid; gap:12px; padding:14px;
-      border:1px solid rgba(0,0,0,.08); border-radius:12px;
-      margin:12px 0 22px; background:rgba(0,0,0,.02);
+      display:grid;
+      gap:14px;
+      padding:18px;
+      border:1px solid #d5dbe3;
+      border-radius:14px;
+      margin:16px 0 28px;
+      background:#f7f9fc;
     }
-    .filters-row{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
-    .filters label{ font-weight:600; }
+    .filters-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+    }
+    .filters label{
+      font-weight:700;
+      color:#1f2a37;
+    }
     .filters input[type="search"]{
-      flex:1 1 260px; padding:10px 12px;
-      border:1px solid rgba(0,0,0,.15); border-radius:10px; background:#fff; outline:none;
+      flex:1 1 260px;
+      padding:10px 14px;
+      border:1px solid #cbd5e1;
+      border-radius:10px;
+      background:#ffffff;
+      color:#1f2a37;
+      font-size:0.95rem;
     }
-    .pill-group{ display:flex; flex-wrap:wrap; gap:8px; }
+    .pill-group{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
     .pill{
-      padding:8px 10px; border:1px solid rgba(0,0,0,.15);
-      border-radius:999px; background:#fff; cursor:pointer; font-size:.95rem; user-select:none;
+      padding:8px 14px;
+      border:1px solid #cbd5e1;
+      border-radius:999px;
+      background:#ffffff;
+      cursor:pointer;
+      font-size:0.9rem;
+      font-weight:600;
+      color:#1f2a37;
+      transition:all 0.2s ease;
+      user-select:none;
     }
-    .pill[aria-pressed="true"]{ border-color:rgba(0,0,0,.35); box-shadow:0 1px 0 rgba(0,0,0,.08); }
-    .filters .meta{ font-size:.95rem; opacity:.8; }
+    .pill:hover{ background:#e2e8f0; }
+    .pill[aria-pressed="true"]{
+      background:#0f172a;
+      color:#ffffff;
+      border-color:#0f172a;
+    }
+    .filters .meta{
+      font-size:0.95rem;
+      color:#334155;
+    }
     .filters .actions{ margin-left:auto; }
     .filters .btn{
-      padding:8px 10px; border:1px solid rgba(0,0,0,.15);
-      border-radius:10px; background:#fff; cursor:pointer; font-weight:600;
+      padding:8px 14px;
+      border:1px solid #cbd5e1;
+      border-radius:10px;
+      background:#ffffff;
+      font-weight:600;
+      cursor:pointer;
+      color:#1f2937;
+      transition:all 0.2s ease;
     }
+    .filters .btn:hover{ background:#e2e8f0; }
 
-    .projects-grid{ display:grid; grid-template-columns:1fr; gap:12px; margin:8px 0 24px; }
-    .project-card{
-      border:1px solid rgba(0,0,0,.08); border-radius:14px;
-      padding:14px 14px 12px; background:#fff;
+    /* Project cards */
+    .projects-grid{
+      display:grid;
+      gap:16px;
+      margin:12px 0 28px;
     }
-    .project-card h4{ margin:0 0 8px; font-size:1.05rem; line-height:1.3; }
-    .project-card h4 a{ text-decoration:none; }
+    .project-card{
+      border:1px solid #d5dbe3;
+      border-radius:16px;
+      padding:18px;
+      background:#ffffff;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      transition:all 0.2s ease;
+    }
+    .project-card:hover{
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      transform:translateY(-2px);
+    }
+    .project-card h4{
+      margin:0 0 10px;
+      font-size:1.05rem;
+      color:#0f172a;
+    }
+    .project-card h4 a{
+      color:#0f172a;
+      text-decoration:none;
+    }
+    .project-card h4 a:hover{ text-decoration:underline; }
     .tags{ display:flex; flex-wrap:wrap; gap:6px; }
     .tag{
-      font-size:.85rem; padding:4px 8px; border-radius:999px;
-      border:1px solid rgba(0,0,0,.12); background:rgba(0,0,0,.02); white-space:nowrap;
+      font-size:0.8rem;
+      padding:5px 10px;
+      border-radius:999px;
+      background:#e2e8f0;
+      color:#1e293b;
+      font-weight:600;
+      white-space:nowrap;
     }
-    .project-note{ margin:8px 0 0; opacity:.85; }
+    .project-note{
+      margin-top:8px;
+      color:#475569;
+    }
     .hidden{ display:none !important; }
   </style>
 </head>
@@ -100,7 +176,7 @@
         <h2>Selected Project Experience</h2>
         <p class="lead">
           UNEPP has delivered engineering and consultancy services across offshore, onshore, pipeline,
-          and terminal developments throughout the MENA region.
+          and terminal developments throughout Egypt and the wider MENA region.
         </p>
       </div>
 
@@ -118,7 +194,7 @@
           <span class="meta"><b>Region</b></span>
           <div class="pill-group">
             <button class="pill" type="button" data-filter="region" data-value="Egypt" aria-pressed="false">Egypt</button>
-            <button class="pill" type="button" data-filter="region" data-value="Iraq" aria-pressed="false">Iraq</button>
+            <button class="pill" type="button" data-filter="region" data-value="MENA" aria-pressed="false">MENA</button>
           </div>
         </div>
 
@@ -138,17 +214,21 @@
             <button class="pill" type="button" data-filter="client" data-value="ADNOC" aria-pressed="false">ADNOC</button>
             <button class="pill" type="button" data-filter="client" data-value="PhPC" aria-pressed="false">PhPC</button>
             <button class="pill" type="button" data-filter="client" data-value="EGPC" aria-pressed="false">EGPC</button>
+            <button class="pill" type="button" data-filter="client" data-value="Indorama" aria-pressed="false">Indorama</button>
           </div>
         </div>
 
         <div class="filters-row">
           <span class="meta"><b>Service</b></span>
           <div class="pill-group">
-            <button class="pill" type="button" data-filter="service" data-value="Feasibility" aria-pressed="false">Feasibility</button>
+            <button class="pill" type="button" data-filter="service" data-value="Feasibility & Concept Selection" aria-pressed="false">
+              Feasibility & Concept Selection
+            </button>
             <button class="pill" type="button" data-filter="service" data-value="FEED" aria-pressed="false">FEED</button>
-            <button class="pill" type="button" data-filter="service" data-value="Detailed" aria-pressed="false">Detailed</button>
-            <button class="pill" type="button" data-filter="service" data-value="PMC" aria-pressed="false">PMC</button>
-            <button class="pill" type="button" data-filter="service" data-value="HAZOP" aria-pressed="false">HAZOP</button>
+            <button class="pill" type="button" data-filter="service" data-value="Detailed Design" aria-pressed="false">Detailed Design</button>
+            <button class="pill" type="button" data-filter="service" data-value="Project Management" aria-pressed="false">Project Management</button>
+            <button class="pill" type="button" data-filter="service" data-value="Procurement Services" aria-pressed="false">Procurement Services</button>
+            <button class="pill" type="button" data-filter="service" data-value="Offshore Engineering" aria-pressed="false">Offshore Engineering</button>
           </div>
         </div>
 
@@ -167,13 +247,14 @@
           data-region="Egypt"
           data-type="Offshore"
           data-client="EGPC"
-          data-service="Detailed">
+          data-service="Offshore Engineering"
+          data-link="#">
           <h4><a href="#">MWP-6 Offshore Spider Platform – Detailed Engineering</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Offshore</span>
-            <span class="tag">EGPC</span><span class="tag">Detailed</span>
+            <span class="tag">EGPC</span><span class="tag">Offshore Engineering</span>
           </div>
-          <p class="project-note">Structural engineering and deliverables for offshore platform scope.</p>
+          <p class="project-note">Offshore structural engineering deliverables and installation interfaces.</p>
         </article>
 
         <article class="project-card project"
@@ -192,11 +273,11 @@
           data-region="Egypt"
           data-type="Offshore"
           data-client="BP"
-          data-service="Feasibility">
+          data-service="Feasibility & Concept Selection">
           <h4><a href="#">Float-over Engineering Study – Offshore Platform</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Offshore</span>
-            <span class="tag">BP</span><span class="tag">Feasibility</span>
+            <span class="tag">BP</span><span class="tag">Feasibility & Concept Selection</span>
           </div>
         </article>
       </div>
@@ -211,11 +292,11 @@
           data-region="Egypt"
           data-type="Onshore"
           data-client="PhPC"
-          data-service="Detailed">
+          data-service="Detailed Design">
           <h4><a href="#">Balsam Compression Station Relocation</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Onshore</span>
-            <span class="tag">PhPC</span><span class="tag">Detailed</span>
+            <span class="tag">PhPC</span><span class="tag">Detailed Design</span>
           </div>
         </article>
 
@@ -223,22 +304,22 @@
           data-region="Egypt"
           data-type="Onshore"
           data-client="ENI"
-          data-service="Detailed">
+          data-service="Detailed Design">
           <h4><a href="#">Atoll Development – Slipstream Modifications</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Onshore</span>
-            <span class="tag">ENI</span><span class="tag">Detailed</span>
+            <span class="tag">ENI</span><span class="tag">Detailed Design</span>
           </div>
         </article>
 
         <article class="project-card project"
-          data-region="Iraq"
+          data-region="MENA"
           data-type="Onshore"
           data-client="BP"
           data-service="FEED">
-          <h4><a href="#">West Qurna-2 GTPP Expansion – Iraq</a></h4>
+          <h4><a href="#">West Qurna-2 GTPP Expansion</a></h4>
           <div class="tags">
-            <span class="tag">Iraq</span><span class="tag">Onshore</span>
+            <span class="tag">MENA</span><span class="tag">Onshore</span>
             <span class="tag">BP</span><span class="tag">FEED</span>
           </div>
         </article>
@@ -254,11 +335,11 @@
           data-region="Egypt"
           data-type="Onshore"
           data-client="Indorama"
-          data-service="Detailed">
+          data-service="Detailed Design">
           <h4><a href="#">Indorama Ammonia Unloading Pipeline – Ain Sokhna</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Onshore</span>
-            <span class="tag">Indorama</span><span class="tag">Detailed</span>
+            <span class="tag">Indorama</span><span class="tag">Detailed Design</span>
           </div>
         </article>
 
@@ -285,11 +366,11 @@
           data-region="Egypt"
           data-type="Onshore"
           data-client="EGPC"
-          data-service="Feasibility">
+          data-service="Feasibility & Concept Selection">
           <h4><a href="#">UGDC LPG Terminal Development Study</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Onshore</span>
-            <span class="tag">EGPC</span><span class="tag">Feasibility</span>
+            <span class="tag">EGPC</span><span class="tag">Feasibility & Concept Selection</span>
           </div>
         </article>
 
@@ -297,11 +378,11 @@
           data-region="Egypt"
           data-type="Offshore"
           data-client="EGPC"
-          data-service="FEED">
+          data-service="Offshore Engineering">
           <h4><a href="#">SPM Concept & Mooring Analysis</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Offshore</span>
-            <span class="tag">EGPC</span><span class="tag">FEED</span>
+            <span class="tag">EGPC</span><span class="tag">Offshore Engineering</span>
           </div>
         </article>
       </div>
@@ -322,18 +403,20 @@
             <span class="tag">Egypt</span><span class="tag">Offshore</span>
             <span class="tag">ENI</span><span class="tag">HAZOP</span>
           </div>
+          <p class="project-note">Update service tag if this is not HAZOP (currently set as example).</p>
         </article>
 
         <article class="project-card project"
-          data-region="Iraq"
+          data-region="MENA"
           data-type="Onshore"
           data-client="BP"
-          data-service="HAZOP">
-          <h4><a href="#">HAZOP & Process Safety Studies – Multiple Assets</a></h4>
+          data-service="Project Management">
+          <h4><a href="#">Process Safety Studies – Multiple Assets</a></h4>
           <div class="tags">
-            <span class="tag">Iraq</span><span class="tag">Onshore</span>
-            <span class="tag">BP</span><span class="tag">HAZOP</span>
+            <span class="tag">MENA</span><span class="tag">Onshore</span>
+            <span class="tag">BP</span><span class="tag">Project Management</span>
           </div>
+          <p class="project-note">Update client/service tags as needed for accurate classification.</p>
         </article>
       </div>
     </section>
@@ -359,9 +442,17 @@
     };
 
     function normalize(s){ return (s || '').toLowerCase().trim(); }
+    function matchesMulti(value, set){ return set.size === 0 || set.has(value); }
 
-    function matchesMulti(value, set){
-      return set.size === 0 || set.has(value);
+    // Region logic: selecting MENA should include Egypt automatically.
+    // - If MENA is selected, any project with region "MENA" OR "Egypt" matches.
+    // - If only Egypt is selected, match Egypt only.
+    function regionMatches(projectRegion){
+      if (selected.region.size === 0) return true;
+      if (selected.region.has('MENA')) {
+        return projectRegion === 'MENA' || projectRegion === 'Egypt';
+      }
+      return selected.region.has(projectRegion);
     }
 
     function matchesPills(project){
@@ -371,7 +462,7 @@
       const service = project.getAttribute('data-service') || '';
 
       return (
-        matchesMulti(region, selected.region) &&
+        regionMatches(region) &&
         matchesMulti(type, selected.type) &&
         matchesMulti(client, selected.client) &&
         matchesMulti(service, selected.service)
