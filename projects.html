@@ -58,72 +58,7 @@
         </div>
 
         <!-- Filters -->
-        <div class="card" style="margin-top:14px;">
-          <div class="grid" style="grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr auto; gap:12px; align-items:end;">
 
-            <!-- Keyword search -->
-            <div>
-              <label class="kicker" for="keyword" style="display:block; margin-bottom:6px;">Search</label>
-              <input
-                type="search"
-                id="keyword"
-                placeholder="Search by title, client, service, country..."
-                style="width:100%;"
-                autocomplete="off"
-              />
-            </div>
-
-            <!-- Company -->
-            <div>
-              <label class="kicker" for="company" style="display:block; margin-bottom:6px;">Company</label>
-              <select id="company" style="width:100%;">
-                <option value="">All</option>
-              </select>
-            </div>
-
-            <!-- Client -->
-            <div>
-              <label class="kicker" for="client" style="display:block; margin-bottom:6px;">Client</label>
-              <select id="client" style="width:100%;">
-                <option value="">All</option>
-              </select>
-            </div>
-
-            <!-- Region -->
-            <div>
-              <label class="kicker" for="region" style="display:block; margin-bottom:6px;">Region</label>
-              <select id="region" style="width:100%;">
-                <option value="">All</option>
-              </select>
-            </div>
-
-            <!-- Service -->
-            <div>
-              <label class="kicker" for="service" style="display:block; margin-bottom:6px;">Service</label>
-              <select id="service" style="width:100%;">
-                <option value="">All</option>
-              </select>
-            </div>
-
-            <!-- Year -->
-            <div>
-              <label class="kicker" for="year" style="display:block; margin-bottom:6px;">Year</label>
-              <select id="year" style="width:100%;">
-                <option value="">All</option>
-              </select>
-            </div>
-
-            <button id="reset" class="btn" type="button">➤ Reset</button>
-          </div>
-
-          <hr class="line" />
-
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-            <div class="kicker" style="letter-spacing:.08em;">
-              Showing <span id="count">0</span> projects
-            </div>
-          </div>
-        </div>
 
         <!-- Cards appear here -->
         <div id="projectsGrid" class="projects-grid" style="margin-top:14px;"></div>
