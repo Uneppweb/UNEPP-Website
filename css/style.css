@@ -1292,3 +1292,24 @@ html{
   margin-top:8px;
   color:#475569;
 }
+/* --- Projects filters: improve dropdown visibility --- */
+select, input[type="search"]{
+  color: var(--text);
+  font-weight: 600;
+}
+
+select{
+  background: rgba(255,255,255,.10);
+  border: 1px solid var(--line);
+}
+
+/* Dropdown list (opened options) */
+select option{
+  background: #0b1220;   /* solid dark so text is readable */
+  color: #e8edf7;        /* bright text */
+}
+
+/* Placeholder-like text in search */
+input[type="search"]::placeholder{
+  color: rgba(232,237,247,.70);
+}
