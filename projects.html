@@ -213,13 +213,15 @@
       els.empty.style.display = projects.length ? "none" : "block";
 
       els.grid.innerHTML = projects.map(p => {
-        const badges = [
-          p.Client ? `<span class="badge">${escapeHtml(p.Client)}</span>` : "",
-          p.Region ? `<span class="badge">${escapeHtml(p.Region)}</span>` : "",
-          p.Country ? `<span class="badge">${escapeHtml(p.Country)}</span>` : "",
-          p.Service ? `<span class="badge">${escapeHtml(p.Service)}</span>` : "",
-          p.Year ? `<span class="badge">${escapeHtml(p.Year)}</span>` : "",
-        ].filter(Boolean).join("");
+const showCountry = p.Country && p.Country !== p.Region; // prevents Egypt/Egypt
+const badges = [
+  p.Client ? `<span class="badge">${escapeHtml(p.Client)}</span>` : "",
+  p.Region ? `<span class="badge">${escapeHtml(p.Region)}</span>` : "",
+  showCountry ? `<span class="badge">${escapeHtml(p.Country)}</span>` : "",
+  p.Service ? `<span class="badge">${escapeHtml(p.Service)}</span>` : "",
+  p.Year ? `<span class="badge">${escapeHtml(p.Year)}</span>` : "",
+].filter(Boolean).join("");
+
 
         return `
           <div class="card">
