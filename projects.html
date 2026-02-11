@@ -6,6 +6,84 @@
   <title>Projects | UNEPP</title>
   <meta name="description" content="UNEPP project portfolio across offshore, onshore, pipelines, terminals, and engineering consultancy services." />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Page-local styling (you can move this into css/style.css) -->
+  <style>
+    .filters {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 12px;
+      margin: 12px 0 22px;
+      background: rgba(0,0,0,.02);
+    }
+    .filters-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+    .filters label { font-weight: 600; }
+    .filters input[type="search"]{
+      flex: 1 1 260px;
+      padding: 10px 12px;
+      border: 1px solid rgba(0,0,0,.15);
+      border-radius: 10px;
+      background: #fff;
+      outline: none;
+    }
+    .pill-group { display:flex; flex-wrap:wrap; gap:8px; }
+    .pill {
+      padding: 8px 10px;
+      border: 1px solid rgba(0,0,0,.15);
+      border-radius: 999px;
+      background: #fff;
+      cursor: pointer;
+      font-size: .95rem;
+      user-select: none;
+    }
+    .pill[aria-pressed="true"]{
+      border-color: rgba(0,0,0,.35);
+      box-shadow: 0 1px 0 rgba(0,0,0,.08);
+    }
+    .filters .meta { font-size: .95rem; opacity: .8; }
+    .filters .actions { margin-left:auto; }
+    .filters .btn {
+      padding: 8px 10px;
+      border: 1px solid rgba(0,0,0,.15);
+      border-radius: 10px;
+      background: #fff;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* Projects list/cards */
+    .projects-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 8px 0 24px;
+    }
+    .project-card{
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 14px;
+      padding: 14px 14px 12px;
+      background: #fff;
+    }
+    .project-card h4{
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      line-height: 1.3;
+    }
+    .project-card h4 a { text-decoration: none; }
+    .tags { display:flex; flex-wrap:wrap; gap:6px; }
+    .tag{
+      font-size: .85rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(0,0,0,.02);
+      white-space: nowrap;
+    }
+    .project-note{ margin: 8px 0 0; opacity: .85; }
+    .hidden{ display:none !important; }
+  </style>
 </head>
 
 <body>
@@ -58,71 +136,285 @@
         <h2>Selected Project Experience</h2>
         <p class="lead">
           UNEPP has successfully delivered engineering and consultancy services across offshore,
-          onshore, pipeline, and terminal developments throughout the MENA region. 
-          Our experience spans feasibility studies, FEED, detailed engineering,
-          construction support, and commissioning assistance.
+          onshore, pipeline, and terminal developments throughout the MENA region.
         </p>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters" id="projectFilters">
+        <div class="filters-row">
+          <label for="projectSearch">Search</label>
+          <input id="projectSearch" type="search" placeholder="Search projects (name, client, scope…)" autocomplete="off" />
+          <div class="actions">
+            <button class="btn" type="button" id="clearFilters">Clear</button>
+          </div>
+        </div>
+
+        <div class="filters-row">
+          <span class="meta"><b>Region</b></span>
+          <div class="pill-group" id="regionPills">
+            <button class="pill" type="button" data-filter="region" data-value="Egypt" aria-pressed="false">Egypt</button>
+            <button class="pill" type="button" data-filter="region" data-value="Iraq" aria-pressed="false">Iraq</button>
+          </div>
+        </div>
+
+        <div class="filters-row">
+          <span class="meta"><b>Type</b></span>
+          <div class="pill-group" id="typePills">
+            <button class="pill" type="button" data-filter="type" data-value="Offshore" aria-pressed="false">Offshore</button>
+            <button class="pill" type="button" data-filter="type" data-value="Onshore" aria-pressed="false">Onshore</button>
+          </div>
+        </div>
+
+        <div class="filters-row">
+          <span class="meta">Showing <b id="shownCount">0</b> of <b id="totalCount">0</b></span>
+        </div>
       </div>
     </section>
 
     <!-- Offshore Projects -->
     <section id="offshore-projects">
       <h3>Offshore Projects</h3>
-      <ul class="project-list">
-        <li><a href="#">MWP-6 Offshore Spider Platform – Detailed Engineering</a></li>
-        <li><a href="#">Zaafarana Warda Gas Supply & Deck Extension</a></li>
-        <li><a href="#">Offshore Jacket Installation Engineering – Gulf of Suez</a></li>
-        <li><a href="#">Float-over Engineering Study – Offshore Platform</a></li>
-      </ul>
+
+      <div class="projects-grid projects" data-section="offshore">
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Offshore"
+          data-tags="Egypt,Offshore">
+          <h4><a href="#">MWP-6 Offshore Spider Platform – Detailed Engineering</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span>
+            <span class="tag">Offshore</span>
+          </div>
+          <p class="project-note">Structural engineering and deliverables for offshore platform scope.</p>
+        </article>
+
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Offshore"
+          data-tags="Egypt,Offshore">
+          <h4><a href="#">Zaafarana Warda Gas Supply & Deck Extension</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span>
+            <span class="tag">Offshore</span>
+          </div>
+        </article>
+
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Offshore"
+          data-tags="Egypt,Offshore">
+          <h4><a href="#">Float-over Engineering Study – Offshore Platform</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span>
+            <span class="tag">Offshore</span>
+          </div>
+        </article>
+      </div>
     </section>
 
     <!-- Onshore Projects -->
     <section id="onshore-projects">
       <h3>Onshore & Facilities</h3>
-      <ul class="project-list">
-        <li><a href="#">Balsam Compression Station Relocation</a></li>
-        <li><a href="#">Atoll Development – Slipstream Modifications</a></li>
-        <li><a href="#">West Qurna-2 GTPP Expansion – Iraq</a></li>
-        <li><a href="#">Gas Processing Facility Debottlenecking Study</a></li>
-      </ul>
+
+      <div class="projects-grid projects" data-section="onshore">
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Onshore"
+          data-tags="Egypt,Onshore">
+          <h4><a href="#">Balsam Compression Station Relocation</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span>
+            <span class="tag">Onshore</span>
+          </div>
+        </article>
+
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Onshore"
+          data-tags="Egypt,Onshore">
+          <h4><a href="#">Atoll Development – Slipstream Modifications</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span>
+            <span class="tag">Onshore</span>
+          </div>
+        </article>
+
+        <article class="project-card project"
+          data-region="Iraq"
+          data-type="Onshore"
+          data-tags="Iraq,Onshore">
+          <h4><a href="#">West Qurna-2 GTPP Expansion – Iraq</a></h4>
+          <div class="tags">
+            <span class="tag">Iraq</span>
+            <span class="tag">Onshore</span>
+          </div>
+        </article>
+      </div>
     </section>
 
     <!-- Pipeline Projects -->
     <section id="pipelines">
       <h3>Pipeline Projects</h3>
-      <ul class="project-list">
-        <li><a href="#">Indorama Ammonia Unloading Pipeline – Ain Sokhna</a></li>
-        <li><a href="#">North El Basant 6” Pipeline Engineering</a></li>
-        <li><a href="#">Offshore Riser & Conductor Protection Structures</a></li>
-        <li><a href="#">Multiphase Pipeline FEED Study</a></li>
-      </ul>
+
+      <div class="projects-grid projects" data-section="pipelines">
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Onshore"
+          data-tags="Egypt,Onshore">
+          <h4><a href="#">Indorama Ammonia Unloading Pipeline – Ain Sokhna</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span>
+            <span class="tag">Onshore</span>
+          </div>
+        </article>
+
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Onshore"
+          data-tags="Egypt,Onshore">
+          <h4><a href="#">North El Basant 6” Pipeline Engineering</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span>
+            <span class="tag">Onshore</span>
+          </div>
+        </article>
+      </div>
     </section>
 
     <!-- Terminals -->
     <section id="terminals">
       <h3>Terminals & Marine Infrastructure</h3>
-      <ul class="project-list">
-        <li><a href="#">UGDC LPG Terminal Development Study</a></li>
-        <li><a href="#">SPM Concept & Mooring Analysis</a></li>
-        <li><a href="#">Marine Loading Arms Structural Assessment</a></li>
-        <li><a href="#">Sea Transportation Engineering Study</a></li>
-      </ul>
+
+      <div class="projects-grid projects" data-section="terminals">
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Onshore"
+          data-tags="Egypt,Onshore">
+          <h4><a href="#">UGDC LPG Terminal Development Study</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span>
+            <span class="tag">Onshore</span>
+          </div>
+        </article>
+
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Offshore"
+          data-tags="Egypt,Offshore">
+          <h4><a href="#">SPM Concept & Mooring Analysis</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span>
+            <span class="tag">Offshore</span>
+          </div>
+        </article>
+      </div>
     </section>
 
     <!-- Studies -->
     <section id="studies">
       <h3>Engineering Studies & Consultancy</h3>
-      <ul class="project-list">
-        <li><a href="#">HAZOP & Process Safety Studies – Multiple Assets</a></li>
-        <li><a href="#">Structural Integrity & Fatigue Assessments</a></li>
-        <li><a href="#">EIA & Environmental Engineering Support</a></li>
-        <li><a href="#">Installation Manuals & Marine Operations Procedures</a></li>
-      </ul>
+
+      <div class="projects-grid projects" data-section="studies">
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Offshore"
+          data-tags="Egypt,Offshore">
+          <h4><a href="#">Structural Integrity & Fatigue Assessments</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span>
+            <span class="tag">Offshore</span>
+          </div>
+        </article>
+
+        <article class="project-card project"
+          data-region="Iraq"
+          data-type="Onshore"
+          data-tags="Iraq,Onshore">
+          <h4><a href="#">HAZOP & Process Safety Studies – Multiple Assets</a></h4>
+          <div class="tags">
+            <span class="tag">Iraq</span>
+            <span class="tag">Onshore</span>
+          </div>
+        </article>
+      </div>
     </section>
 
   </div>
-
 </main>
+
+<script>
+  (function () {
+    const search = document.getElementById('projectSearch');
+    const clearBtn = document.getElementById('clearFilters');
+    const pills = document.querySelectorAll('.pill[data-filter]');
+    const projects = Array.from(document.querySelectorAll('.project'));
+    const shownCount = document.getElementById('shownCount');
+    const totalCount = document.getElementById('totalCount');
+
+    // Selected filters (multi-select)
+    const selected = { region: new Set(), type: new Set() };
+
+    function normalize(s){ return (s || '').toLowerCase().trim(); }
+
+    function matchesPills(project){
+      const region = project.getAttribute('data-region') || '';
+      const type = project.getAttribute('data-type') || '';
+
+      const regionOk = selected.region.size === 0 || selected.region.has(region);
+      const typeOk   = selected.type.size === 0 || selected.type.has(type);
+
+      return regionOk && typeOk;
+    }
+
+    function matchesSearch(project){
+      const q = normalize(search.value);
+      if (!q) return true;
+      return normalize(project.textContent).includes(q);
+    }
+
+    function applyFilters(){
+      let shown = 0;
+
+      projects.forEach(p => {
+        const ok = matchesPills(p) && matchesSearch(p);
+        p.classList.toggle('hidden', !ok);
+        if (ok) shown++;
+      });
+
+      totalCount.textContent = String(projects.length);
+      shownCount.textContent = String(shown);
+    }
+
+    function togglePill(btn){
+      const filter = btn.getAttribute('data-filter');
+      const value = btn.getAttribute('data-value');
+
+      const set = selected[filter];
+      const isOn = set.has(value);
+
+      if (isOn) set.delete(value);
+      else set.add(value);
+
+      btn.setAttribute('aria-pressed', String(!isOn));
+      applyFilters();
+    }
+
+    pills.forEach(btn => btn.addEventListener('click', () => togglePill(btn)));
+    search.addEventListener('input', applyFilters);
+
+    clearBtn.addEventListener('click', () => {
+      search.value = '';
+      selected.region.clear();
+      selected.type.clear();
+      pills.forEach(btn => btn.setAttribute('aria-pressed', 'false'));
+      applyFilters();
+    });
+
+    // Init
+    applyFilters();
+  })();
+</script>
 
 </body>
 </html>
