@@ -1,370 +1,230 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects | UNEPP</title>
-  <meta name="description" content="UNEPP project portfolio across Egypt, MENA and international markets covering feasibility, FEED, detailed engineering, PMC and procurement." />
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects | UNEPP</title>
+<meta name="description" content="UNEPP project portfolio across Egypt, MENA and international markets." />
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-  <!-- Header -->
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/logo.png" alt="UNEPP logo" class="logo" />
-        <div>
-          <h1>UNEPP</h1>
-          <small>United Engineers for Petroleum Projects</small>
-        </div>
-      </a>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="UNEPP logo" class="logo" />
+      <div>
+        <h1>UNEPP</h1>
+        <small>United Engineers for Petroleum Projects</small>
+      </div>
+    </a>
 
-      <nav class="menu" aria-label="Primary">
-        <a data-nav href="index.html">Home</a>
-        <a data-nav href="about.html">About Us</a>
-        <a data-nav href="capabilities.html">Capabilities</a>
-        <a data-nav href="projects.html">Projects</a>
-        <a data-nav href="news.html">News</a>
-        <a data-nav href="careers.html">Career</a>
-        <a data-nav class="cta" href="contact.html">Contact Us</a>
-      </nav>
-    </div>
-  </header>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="projects.html">Projects</a>
+      <a href="news.html">News</a>
+      <a href="careers.html">Career</a>
+      <a class="cta" href="contact.html">Contact Us</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- Layout wrapper (same pattern as About Us) -->
-  <main class="container about-layout">
+<main class="container about-layout">
 
-    <!-- Left index -->
-    <aside class="about-index">
-      <b>Projects</b>
-      <nav>
-        <a href="#portfolio">Projects Portfolio</a>
-        <a href="#showcase">Projects Showcase</a>
-      </nav>
-    </aside>
+<!-- LEFT INDEX -->
+<aside class="about-index">
+  <b>Projects</b>
+  <nav>
+    <a href="#portfolio">Projects Portfolio</a>
+    <a href="#showcase">Projects Showcase</a>
+  </nav>
+</aside>
 
-    <!-- Page content -->
-    <div class="about-content">
+<div class="about-content">
 
-      <!-- Projects Portfolio -->
-      <section class="section" id="portfolio">
-        <div class="section-intro">
-          <h2>Projects Portfolio</h2>
-          <p class="lead">
-            Explore selected UNEPP and UNIFIED references across feasibility, FEED, detailed engineering,
-            procurement support, and project delivery.
-          </p>
-        </div>
+<!-- ========================= -->
+<!-- PROJECTS PORTFOLIO -->
+<!-- ========================= -->
+<section class="section" id="portfolio">
 
-        <!-- Filters -->
-        <div class="card" style="margin-top:14px;">
-          <div class="grid" style="grid-template-columns: 1.3fr 1fr 1fr 1fr .7fr; align-items:end;">
+<div class="section-intro">
+<h2>Projects Portfolio</h2>
+<p class="lead">
+Explore UNEPP’s full historical project portfolio across regions and services.
+</p>
+</div>
 
-            <div class="item" style="background:transparent;border:0;padding:0;">
-              <label class="kicker" for="q" style="display:block;margin-bottom:6px;">Search</label>
-              <input id="q" type="search" placeholder="Search projects, clients, country..." style="
-                width:100%;
-                padding:12px 12px;
-                border-radius:12px;
-                border:1px solid var(--line);
-                background: rgba(255,255,255,.04);
-                color: var(--text);
-                outline: none;
-              "/>
-            </div>
+<div class="card">
 
-            <div class="item" style="background:transparent;border:0;padding:0;">
-              <label class="kicker" for="client" style="display:block;margin-bottom:6px;">Client</label>
-              <select id="client" style="
-                width:100%;
-                padding:12px 12px;
-                border-radius:12px;
-                border:1px solid var(--line);
-                background: rgba(255,255,255,.04);
-                color: var(--text);
-                outline: none;
-              ">
-                <option value="">All</option>
-              </select>
-            </div>
+<div class="grid" style="grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap:12px;">
 
-            <div class="item" style="background:transparent;border:0;padding:0;">
-              <label class="kicker" for="region" style="display:block;margin-bottom:6px;">Region</label>
-              <select id="region" style="
-                width:100%;
-                padding:12px 12px;
-                border-radius:12px;
-                border:1px solid var(--line);
-                background: rgba(255,255,255,.04);
-                color: var(--text);
-                outline: none;
-              ">
-                <option value="">All</option>
-              </select>
-            </div>
+<select id="client">
+<option value="">Client</option>
+</select>
 
-            <div class="item" style="background:transparent;border:0;padding:0;">
-              <label class="kicker" for="service" style="display:block;margin-bottom:6px;">Service</label>
-              <select id="service" style="
-                width:100%;
-                padding:12px 12px;
-                border-radius:12px;
-                border:1px solid var(--line);
-                background: rgba(255,255,255,.04);
-                color: var(--text);
-                outline: none;
-              ">
-                <option value="">All</option>
-              </select>
-            </div>
+<select id="region">
+<option value="">Region</option>
+</select>
 
-            <div class="item" style="background:transparent;border:0;padding:0;">
-              <label class="kicker" for="year" style="display:block;margin-bottom:6px;">Year</label>
-              <select id="year" style="
-                width:100%;
-                padding:12px 12px;
-                border-radius:12px;
-                border:1px solid var(--line);
-                background: rgba(255,255,255,.04);
-                color: var(--text);
-                outline: none;
-              ">
-                <option value="">All</option>
-              </select>
-            </div>
+<select id="service">
+<option value="">Service</option>
+</select>
 
-          </div>
+<select id="year">
+<option value="">Year</option>
+</select>
 
-          <hr class="line" />
+<button id="reset" class="btn">Reset</button>
 
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-            <div class="kicker" style="letter-spacing:.08em;">
-              Showing <span id="count">0</span> projects
-            </div>
-            <button id="reset" class="btn" type="button">➤ Reset Filters</button>
-          </div>
-        </div>
+</div>
 
-        <!-- Cards appear here -->
-        <div id="projectsGrid" class="grid" style="margin-top:18px;"></div>
+</div>
 
-        <!-- Empty state -->
-        <div id="emptyState" class="card" style="display:none; margin-top:14px;">
-          <h3 style="margin:0 0 8px;">No matches</h3>
-          <p class="lead" style="margin:0;">Try clearing filters or adjusting the search terms.</p>
-        </div>
+<!-- PROJECT CARDS -->
+<section class="section">
+<div id="projectsGrid" class="projects-grid"></div>
 
-        <!-- Error state -->
-        <div id="errorState" class="card" style="display:none; margin-top:14px;">
-          <h3 style="margin:0 0 8px;">Couldn’t load projects</h3>
-          <p class="lead" style="margin:0;">
-            Please confirm <b>data/projects.json</b> exists in your repository and the file name matches exactly (case-sensitive).
-          </p>
-        </div>
-      </section>
+<div id="emptyState" class="card" style="display:none; margin-top:14px;">
+<h3>No matches</h3>
+<p class="lead">Adjust filters or reset.</p>
+</div>
+</section>
 
-      <!-- Projects Showcase (placeholder) -->
-      <section class="section" id="showcase">
-        <div class="section-intro">
-          <h2>Projects Showcase</h2>
-          <p class="lead">
-            A curated selection of flagship projects demonstrating UNEPP’s technical depth and delivery performance.
-            Detailed summaries and links will be added here.
-          </p>
-        </div>
+</section>
 
-        <div class="card">
-          <p class="lead" style="margin:0;">
-            Showcase content will be added in the next phase. This section will include clickable project summary pages.
-          </p>
-        </div>
-      </section>
+<!-- ========================= -->
+<!-- PROJECT SHOWCASE -->
+<!-- ========================= -->
+<section class="section" id="showcase">
 
-    </div><!-- /.about-content -->
-  </main>
+<div class="section-intro">
+<h2>Projects Showcase</h2>
+<p class="lead">
+Selected highlight projects will be presented here with detailed summaries and visuals.
+</p>
+</div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      © <span id="y"></span> United Engineers for Petroleum Projects (UNEPP)
-    </div>
-  </footer>
+<div class="card">
+<p class="lead" style="margin:0;">
+Coming soon – curated flagship project case studies.
+</p>
+</div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+</section>
 
-    const els = {
-      q: document.getElementById("q"),
-      client: document.getElementById("client"),
-      region: document.getElementById("region"),
-      service: document.getElementById("service"),
-      year: document.getElementById("year"),
-      reset: document.getElementById("reset"),
-      grid: document.getElementById("projectsGrid"),
-      count: document.getElementById("count"),
-      empty: document.getElementById("emptyState"),
-      error: document.getElementById("errorState"),
-    };
+</div>
+</main>
 
-    let allProjects = [];
+<footer class="footer">
+<div class="container">
+© <span id="y"></span> United Engineers for Petroleum Projects (UNEPP)
+</div>
+</footer>
 
-    function escapeHtml(str) {
-      return String(str ?? "")
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-    }
+<script>
+document.getElementById("y").textContent = new Date().getFullYear();
 
-    function uniqSorted(arr) {
-      return [...new Set(arr.filter(Boolean))].sort((a,b) => a.localeCompare(b));
-    }
+const els = {
+client: document.getElementById("client"),
+region: document.getElementById("region"),
+service: document.getElementById("service"),
+year: document.getElementById("year"),
+reset: document.getElementById("reset"),
+grid: document.getElementById("projectsGrid"),
+empty: document.getElementById("emptyState")
+};
 
-    function fillSelect(selectEl, values, { numericDesc = false } = {}) {
-      const current = selectEl.value;
-      const sorted = [...values].filter(Boolean);
+let allProjects = [];
 
-      if (numericDesc) {
-        sorted.sort((a,b) => (parseInt(b,10) || 0) - (parseInt(a,10) || 0));
-      } else {
-        sorted.sort((a,b) => a.localeCompare(b));
-      }
+function uniqSorted(arr){
+return [...new Set(arr.filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+}
 
-      selectEl.innerHTML =
-        '<option value="">All</option>' +
-        sorted.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("");
+function fillSelect(select, values){
+select.innerHTML = '<option value="">All</option>' +
+values.map(v=>`<option value="${v}">${v}</option>`).join("");
+}
 
-      selectEl.value = current;
-    }
+function render(projects){
 
-    function matchText(p, q) {
-      if (!q) return true;
-      const hay = [
-        p.Title, p.Year, p.Client, p.Company, p.Region, p.Country,
-        p.ServiceMain, p.Service2, p.Category
-      ].join(" ").toLowerCase();
-      return hay.includes(q.toLowerCase());
-    }
+// Sort by Year DESC
+projects.sort((a,b)=>(b.Year||0)-(a.Year||0));
 
-    function applyFilters() {
-      const q = els.q.value.trim();
-      const client = els.client.value;
-      const region = els.region.value;
-      const service = els.service.value;
-      const year = els.year.value;
+els.grid.innerHTML = projects.map(p=>{
 
-      const filtered = allProjects.filter(p => {
-        if (client && p.Client !== client) return false;
-        if (region && p.Region !== region) return false;
-        if (service && p.ServiceMain !== service) return false; // Service-Main
-        if (year && String(p.Year) !== year) return false;
-        if (!matchText(p, q)) return false;
-        return true;
-      });
+return `
+<div class="card">
+<h3 class="project-title">${p.Title || ""}</h3>
 
-      filtered.sort((a,b) => (parseInt(b.Year,10) || 0) - (parseInt(a.Year,10) || 0));
-      render(filtered);
-    }
+<div class="badges">
 
-    function render(projects) {
-      els.count.textContent = String(projects.length);
-      els.empty.style.display = projects.length ? "none" : "block";
+${p.Year ? `<span class="badge">${p.Year}</span>` : ""}
+${p.Client ? `<span class="badge">${p.Client}</span>` : ""}
+${p.Company ? `<span class="badge">${p.Company}</span>` : ""}
+${p.Region ? `<span class="badge">${p.Region}</span>` : ""}
+${p.Country ? `<span class="badge">${p.Country}</span>` : ""}
+${p["Service-Main"] ? `<span class="badge">${p["Service-Main"]}</span>` : ""}
+${p["Service-2"] ? `<span class="badge">${p["Service-2"]}</span>` : ""}
+${p.Category ? `<span class="badge">${p.Category}</span>` : ""}
 
-      els.grid.innerHTML = projects.map(p => {
-        const region = String(p.Region || "").trim();
-        const country = String(p.Country || "").trim();
+</div>
+</div>
+`;
+}).join("");
 
-        const showCountry =
-          country &&
-          region &&
-          country.toLowerCase() !== region.toLowerCase();
+els.empty.style.display = projects.length ? "none" : "block";
+}
 
-        // Required order:
-        // Client → Company → Region → Country → Service-Main → Service-2 (if any) → Category (if any) → Year
-        const badges = [
-          p.Client ? `<span class="badge">${escapeHtml(p.Client)}</span>` : "",
-          p.Company ? `<span class="badge">${escapeHtml(p.Company)}</span>` : "",
-          region ? `<span class="badge">${escapeHtml(region)}</span>` : "",
-          showCountry ? `<span class="badge">${escapeHtml(country)}</span>` : "",
-          p.ServiceMain ? `<span class="badge">${escapeHtml(p.ServiceMain)}</span>` : "",
-          p.Service2 ? `<span class="badge">${escapeHtml(p.Service2)}</span>` : "",
-          p.Category ? `<span class="badge">${escapeHtml(p.Category)}</span>` : "",
-          p.Year ? `<span class="badge">${escapeHtml(p.Year)}</span>` : "",
-        ].filter(Boolean).join("");
+function applyFilters(){
 
-        return `
-          <div class="card">
-<h3 class="project-title">${escapeHtml(p.Title || "")}</h3>
+const filtered = allProjects.filter(p=>{
+if(els.client.value && p.Client !== els.client.value) return false;
+if(els.region.value && p.Region !== els.region.value) return false;
+if(els.service.value && p["Service-Main"] !== els.service.value) return false;
+if(els.year.value && String(p.Year) !== els.year.value) return false;
+return true;
+});
 
-            <div class="badges" style="margin-top:12px;">${badges}</div>
-          </div>
-        `;
-      }).join("");
-    }
+render(filtered);
+}
 
-    async function initProjects() {
-      try {
-        const res = await fetch("data/projects.json", { cache: "no-store" });
-        if (!res.ok) throw new Error("Fetch failed: " + res.status);
-        const data = await res.json();
+async function init(){
 
-        // Normalize from your new headers:
-        // id, Title, Year, Client, Company, Region, Country, Service-Main, Service-2, Category
-        allProjects = (Array.isArray(data) ? data : []).map(p => ({
-          id: p.id ?? p.ID ?? "",
-          Title: p.Title ?? p.title ?? "",
-          Year: p.Year ?? p.year ?? "",
-          Client: p.Client ?? p.client ?? "",
-          Company: p.Company ?? p.company ?? "",
-          Region: p.Region ?? p.region ?? "",
-          Country: p.Country ?? p.country ?? "",
-          ServiceMain: p["Service-Main"] ?? p.ServiceMain ?? p.service_main ?? p.serviceMain ?? "",
-          Service2: p["Service-2"] ?? p.Service2 ?? p.service_2 ?? p.service2 ?? "",
-          Category: p.Category ?? p.category ?? "",
-        }));
+try{
+const res = await fetch("data/projects.json",{cache:"no-store"});
+const data = await res.json();
+allProjects = data;
 
-        // Fill dropdowns
-        fillSelect(els.client, uniqSorted(allProjects.map(p => p.Client)));
-        fillSelect(els.region, uniqSorted(allProjects.map(p => p.Region)));
-        fillSelect(els.service, uniqSorted(allProjects.map(p => p.ServiceMain))); // Service-Main
-        fillSelect(
-          els.year,
-          [...new Set(allProjects.map(p => String(p.Year || "").trim()).filter(Boolean))],
-          { numericDesc: true }
-        );
+fillSelect(els.client, uniqSorted(allProjects.map(p=>p.Client)));
+fillSelect(els.region, uniqSorted(allProjects.map(p=>p.Region)));
+fillSelect(els.service, uniqSorted(allProjects.map(p=>p["Service-Main"])));
+fillSelect(els.year, uniqSorted(allProjects.map(p=>String(p.Year))).reverse());
 
-        // Initial render
-        allProjects.sort((a,b) => (parseInt(b.Year,10) || 0) - (parseInt(a.Year,10) || 0));
-        render(allProjects);
+render(allProjects);
 
-        // Events
-        els.q.addEventListener("input", applyFilters);
-        els.client.addEventListener("change", applyFilters);
-        els.region.addEventListener("change", applyFilters);
-        els.service.addEventListener("change", applyFilters);
-        els.year.addEventListener("change", applyFilters);
+els.client.addEventListener("change",applyFilters);
+els.region.addEventListener("change",applyFilters);
+els.service.addEventListener("change",applyFilters);
+els.year.addEventListener("change",applyFilters);
 
-        els.reset.addEventListener("click", () => {
-          els.q.value = "";
-          els.client.value = "";
-          els.region.value = "";
-          els.service.value = "";
-          els.year.value = "";
-          allProjects.sort((a,b) => (parseInt(b.Year,10) || 0) - (parseInt(a.Year,10) || 0));
-          render(allProjects);
-        });
+els.reset.addEventListener("click",()=>{
+els.client.value="";
+els.region.value="";
+els.service.value="";
+els.year.value="";
+render(allProjects);
+});
 
-      } catch (e) {
-        console.error(e);
-        els.error.style.display = "block";
-      }
-    }
+}catch(e){
+console.error(e);
+}
+}
 
-    initProjects();
-  </script>
+init();
+</script>
 
 </body>
 </html>
