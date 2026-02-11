@@ -7,81 +7,45 @@
   <meta name="description" content="UNEPP project portfolio across offshore, onshore, pipelines, terminals, and engineering consultancy services." />
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Page-local styling (you can move this into css/style.css) -->
+  <!-- Page-local styling (move into css/style.css if you prefer) -->
   <style>
-    .filters {
-      display: grid;
-      gap: 12px;
-      padding: 14px;
-      border: 1px solid rgba(0,0,0,.08);
-      border-radius: 12px;
-      margin: 12px 0 22px;
-      background: rgba(0,0,0,.02);
+    .filters{
+      display:grid; gap:12px; padding:14px;
+      border:1px solid rgba(0,0,0,.08); border-radius:12px;
+      margin:12px 0 22px; background:rgba(0,0,0,.02);
     }
-    .filters-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
-    .filters label { font-weight: 600; }
+    .filters-row{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+    .filters label{ font-weight:600; }
     .filters input[type="search"]{
-      flex: 1 1 260px;
-      padding: 10px 12px;
-      border: 1px solid rgba(0,0,0,.15);
-      border-radius: 10px;
-      background: #fff;
-      outline: none;
+      flex:1 1 260px; padding:10px 12px;
+      border:1px solid rgba(0,0,0,.15); border-radius:10px; background:#fff; outline:none;
     }
-    .pill-group { display:flex; flex-wrap:wrap; gap:8px; }
-    .pill {
-      padding: 8px 10px;
-      border: 1px solid rgba(0,0,0,.15);
-      border-radius: 999px;
-      background: #fff;
-      cursor: pointer;
-      font-size: .95rem;
-      user-select: none;
+    .pill-group{ display:flex; flex-wrap:wrap; gap:8px; }
+    .pill{
+      padding:8px 10px; border:1px solid rgba(0,0,0,.15);
+      border-radius:999px; background:#fff; cursor:pointer; font-size:.95rem; user-select:none;
     }
-    .pill[aria-pressed="true"]{
-      border-color: rgba(0,0,0,.35);
-      box-shadow: 0 1px 0 rgba(0,0,0,.08);
-    }
-    .filters .meta { font-size: .95rem; opacity: .8; }
-    .filters .actions { margin-left:auto; }
-    .filters .btn {
-      padding: 8px 10px;
-      border: 1px solid rgba(0,0,0,.15);
-      border-radius: 10px;
-      background: #fff;
-      cursor: pointer;
-      font-weight: 600;
+    .pill[aria-pressed="true"]{ border-color:rgba(0,0,0,.35); box-shadow:0 1px 0 rgba(0,0,0,.08); }
+    .filters .meta{ font-size:.95rem; opacity:.8; }
+    .filters .actions{ margin-left:auto; }
+    .filters .btn{
+      padding:8px 10px; border:1px solid rgba(0,0,0,.15);
+      border-radius:10px; background:#fff; cursor:pointer; font-weight:600;
     }
 
-    /* Projects list/cards */
-    .projects-grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin: 8px 0 24px;
-    }
+    .projects-grid{ display:grid; grid-template-columns:1fr; gap:12px; margin:8px 0 24px; }
     .project-card{
-      border: 1px solid rgba(0,0,0,.08);
-      border-radius: 14px;
-      padding: 14px 14px 12px;
-      background: #fff;
+      border:1px solid rgba(0,0,0,.08); border-radius:14px;
+      padding:14px 14px 12px; background:#fff;
     }
-    .project-card h4{
-      margin: 0 0 8px;
-      font-size: 1.05rem;
-      line-height: 1.3;
-    }
-    .project-card h4 a { text-decoration: none; }
-    .tags { display:flex; flex-wrap:wrap; gap:6px; }
+    .project-card h4{ margin:0 0 8px; font-size:1.05rem; line-height:1.3; }
+    .project-card h4 a{ text-decoration:none; }
+    .tags{ display:flex; flex-wrap:wrap; gap:6px; }
     .tag{
-      font-size: .85rem;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.12);
-      background: rgba(0,0,0,.02);
-      white-space: nowrap;
+      font-size:.85rem; padding:4px 8px; border-radius:999px;
+      border:1px solid rgba(0,0,0,.12); background:rgba(0,0,0,.02); white-space:nowrap;
     }
-    .project-note{ margin: 8px 0 0; opacity: .85; }
+    .project-note{ margin:8px 0 0; opacity:.85; }
     .hidden{ display:none !important; }
   </style>
 </head>
@@ -135,8 +99,8 @@
       <div class="section-intro">
         <h2>Selected Project Experience</h2>
         <p class="lead">
-          UNEPP has successfully delivered engineering and consultancy services across offshore,
-          onshore, pipeline, and terminal developments throughout the MENA region.
+          UNEPP has delivered engineering and consultancy services across offshore, onshore, pipeline,
+          and terminal developments throughout the MENA region.
         </p>
       </div>
 
@@ -144,7 +108,7 @@
       <div class="filters" id="projectFilters">
         <div class="filters-row">
           <label for="projectSearch">Search</label>
-          <input id="projectSearch" type="search" placeholder="Search projects (name, client, scope…)" autocomplete="off" />
+          <input id="projectSearch" type="search" placeholder="Search projects (name, client, service…)" autocomplete="off" />
           <div class="actions">
             <button class="btn" type="button" id="clearFilters">Clear</button>
           </div>
@@ -152,7 +116,7 @@
 
         <div class="filters-row">
           <span class="meta"><b>Region</b></span>
-          <div class="pill-group" id="regionPills">
+          <div class="pill-group">
             <button class="pill" type="button" data-filter="region" data-value="Egypt" aria-pressed="false">Egypt</button>
             <button class="pill" type="button" data-filter="region" data-value="Iraq" aria-pressed="false">Iraq</button>
           </div>
@@ -160,9 +124,31 @@
 
         <div class="filters-row">
           <span class="meta"><b>Type</b></span>
-          <div class="pill-group" id="typePills">
+          <div class="pill-group">
             <button class="pill" type="button" data-filter="type" data-value="Offshore" aria-pressed="false">Offshore</button>
             <button class="pill" type="button" data-filter="type" data-value="Onshore" aria-pressed="false">Onshore</button>
+          </div>
+        </div>
+
+        <div class="filters-row">
+          <span class="meta"><b>Client</b></span>
+          <div class="pill-group">
+            <button class="pill" type="button" data-filter="client" data-value="ENI" aria-pressed="false">ENI</button>
+            <button class="pill" type="button" data-filter="client" data-value="BP" aria-pressed="false">BP</button>
+            <button class="pill" type="button" data-filter="client" data-value="ADNOC" aria-pressed="false">ADNOC</button>
+            <button class="pill" type="button" data-filter="client" data-value="PhPC" aria-pressed="false">PhPC</button>
+            <button class="pill" type="button" data-filter="client" data-value="EGPC" aria-pressed="false">EGPC</button>
+          </div>
+        </div>
+
+        <div class="filters-row">
+          <span class="meta"><b>Service</b></span>
+          <div class="pill-group">
+            <button class="pill" type="button" data-filter="service" data-value="Feasibility" aria-pressed="false">Feasibility</button>
+            <button class="pill" type="button" data-filter="service" data-value="FEED" aria-pressed="false">FEED</button>
+            <button class="pill" type="button" data-filter="service" data-value="Detailed" aria-pressed="false">Detailed</button>
+            <button class="pill" type="button" data-filter="service" data-value="PMC" aria-pressed="false">PMC</button>
+            <button class="pill" type="button" data-filter="service" data-value="HAZOP" aria-pressed="false">HAZOP</button>
           </div>
         </div>
 
@@ -176,15 +162,16 @@
     <section id="offshore-projects">
       <h3>Offshore Projects</h3>
 
-      <div class="projects-grid projects" data-section="offshore">
+      <div class="projects-grid">
         <article class="project-card project"
           data-region="Egypt"
           data-type="Offshore"
-          data-tags="Egypt,Offshore">
+          data-client="EGPC"
+          data-service="Detailed">
           <h4><a href="#">MWP-6 Offshore Spider Platform – Detailed Engineering</a></h4>
           <div class="tags">
-            <span class="tag">Egypt</span>
-            <span class="tag">Offshore</span>
+            <span class="tag">Egypt</span><span class="tag">Offshore</span>
+            <span class="tag">EGPC</span><span class="tag">Detailed</span>
           </div>
           <p class="project-note">Structural engineering and deliverables for offshore platform scope.</p>
         </article>
@@ -192,22 +179,24 @@
         <article class="project-card project"
           data-region="Egypt"
           data-type="Offshore"
-          data-tags="Egypt,Offshore">
+          data-client="ENI"
+          data-service="FEED">
           <h4><a href="#">Zaafarana Warda Gas Supply & Deck Extension</a></h4>
           <div class="tags">
-            <span class="tag">Egypt</span>
-            <span class="tag">Offshore</span>
+            <span class="tag">Egypt</span><span class="tag">Offshore</span>
+            <span class="tag">ENI</span><span class="tag">FEED</span>
           </div>
         </article>
 
         <article class="project-card project"
           data-region="Egypt"
           data-type="Offshore"
-          data-tags="Egypt,Offshore">
+          data-client="BP"
+          data-service="Feasibility">
           <h4><a href="#">Float-over Engineering Study – Offshore Platform</a></h4>
           <div class="tags">
-            <span class="tag">Egypt</span>
-            <span class="tag">Offshore</span>
+            <span class="tag">Egypt</span><span class="tag">Offshore</span>
+            <span class="tag">BP</span><span class="tag">Feasibility</span>
           </div>
         </article>
       </div>
@@ -217,37 +206,40 @@
     <section id="onshore-projects">
       <h3>Onshore & Facilities</h3>
 
-      <div class="projects-grid projects" data-section="onshore">
+      <div class="projects-grid">
         <article class="project-card project"
           data-region="Egypt"
           data-type="Onshore"
-          data-tags="Egypt,Onshore">
+          data-client="PhPC"
+          data-service="Detailed">
           <h4><a href="#">Balsam Compression Station Relocation</a></h4>
           <div class="tags">
-            <span class="tag">Egypt</span>
-            <span class="tag">Onshore</span>
+            <span class="tag">Egypt</span><span class="tag">Onshore</span>
+            <span class="tag">PhPC</span><span class="tag">Detailed</span>
           </div>
         </article>
 
         <article class="project-card project"
           data-region="Egypt"
           data-type="Onshore"
-          data-tags="Egypt,Onshore">
+          data-client="ENI"
+          data-service="Detailed">
           <h4><a href="#">Atoll Development – Slipstream Modifications</a></h4>
           <div class="tags">
-            <span class="tag">Egypt</span>
-            <span class="tag">Onshore</span>
+            <span class="tag">Egypt</span><span class="tag">Onshore</span>
+            <span class="tag">ENI</span><span class="tag">Detailed</span>
           </div>
         </article>
 
         <article class="project-card project"
           data-region="Iraq"
           data-type="Onshore"
-          data-tags="Iraq,Onshore">
+          data-client="BP"
+          data-service="FEED">
           <h4><a href="#">West Qurna-2 GTPP Expansion – Iraq</a></h4>
           <div class="tags">
-            <span class="tag">Iraq</span>
-            <span class="tag">Onshore</span>
+            <span class="tag">Iraq</span><span class="tag">Onshore</span>
+            <span class="tag">BP</span><span class="tag">FEED</span>
           </div>
         </article>
       </div>
@@ -257,26 +249,28 @@
     <section id="pipelines">
       <h3>Pipeline Projects</h3>
 
-      <div class="projects-grid projects" data-section="pipelines">
+      <div class="projects-grid">
         <article class="project-card project"
           data-region="Egypt"
           data-type="Onshore"
-          data-tags="Egypt,Onshore">
+          data-client="Indorama"
+          data-service="Detailed">
           <h4><a href="#">Indorama Ammonia Unloading Pipeline – Ain Sokhna</a></h4>
           <div class="tags">
-            <span class="tag">Egypt</span>
-            <span class="tag">Onshore</span>
+            <span class="tag">Egypt</span><span class="tag">Onshore</span>
+            <span class="tag">Indorama</span><span class="tag">Detailed</span>
           </div>
         </article>
 
         <article class="project-card project"
           data-region="Egypt"
           data-type="Onshore"
-          data-tags="Egypt,Onshore">
+          data-client="PhPC"
+          data-service="FEED">
           <h4><a href="#">North El Basant 6” Pipeline Engineering</a></h4>
           <div class="tags">
-            <span class="tag">Egypt</span>
-            <span class="tag">Onshore</span>
+            <span class="tag">Egypt</span><span class="tag">Onshore</span>
+            <span class="tag">PhPC</span><span class="tag">FEED</span>
           </div>
         </article>
       </div>
@@ -286,26 +280,28 @@
     <section id="terminals">
       <h3>Terminals & Marine Infrastructure</h3>
 
-      <div class="projects-grid projects" data-section="terminals">
+      <div class="projects-grid">
         <article class="project-card project"
           data-region="Egypt"
           data-type="Onshore"
-          data-tags="Egypt,Onshore">
+          data-client="EGPC"
+          data-service="Feasibility">
           <h4><a href="#">UGDC LPG Terminal Development Study</a></h4>
           <div class="tags">
-            <span class="tag">Egypt</span>
-            <span class="tag">Onshore</span>
+            <span class="tag">Egypt</span><span class="tag">Onshore</span>
+            <span class="tag">EGPC</span><span class="tag">Feasibility</span>
           </div>
         </article>
 
         <article class="project-card project"
           data-region="Egypt"
           data-type="Offshore"
-          data-tags="Egypt,Offshore">
+          data-client="EGPC"
+          data-service="FEED">
           <h4><a href="#">SPM Concept & Mooring Analysis</a></h4>
           <div class="tags">
-            <span class="tag">Egypt</span>
-            <span class="tag">Offshore</span>
+            <span class="tag">Egypt</span><span class="tag">Offshore</span>
+            <span class="tag">EGPC</span><span class="tag">FEED</span>
           </div>
         </article>
       </div>
@@ -315,26 +311,28 @@
     <section id="studies">
       <h3>Engineering Studies & Consultancy</h3>
 
-      <div class="projects-grid projects" data-section="studies">
+      <div class="projects-grid">
         <article class="project-card project"
           data-region="Egypt"
           data-type="Offshore"
-          data-tags="Egypt,Offshore">
+          data-client="ENI"
+          data-service="HAZOP">
           <h4><a href="#">Structural Integrity & Fatigue Assessments</a></h4>
           <div class="tags">
-            <span class="tag">Egypt</span>
-            <span class="tag">Offshore</span>
+            <span class="tag">Egypt</span><span class="tag">Offshore</span>
+            <span class="tag">ENI</span><span class="tag">HAZOP</span>
           </div>
         </article>
 
         <article class="project-card project"
           data-region="Iraq"
           data-type="Onshore"
-          data-tags="Iraq,Onshore">
+          data-client="BP"
+          data-service="HAZOP">
           <h4><a href="#">HAZOP & Process Safety Studies – Multiple Assets</a></h4>
           <div class="tags">
-            <span class="tag">Iraq</span>
-            <span class="tag">Onshore</span>
+            <span class="tag">Iraq</span><span class="tag">Onshore</span>
+            <span class="tag">BP</span><span class="tag">HAZOP</span>
           </div>
         </article>
       </div>
@@ -347,24 +345,37 @@
   (function () {
     const search = document.getElementById('projectSearch');
     const clearBtn = document.getElementById('clearFilters');
-    const pills = document.querySelectorAll('.pill[data-filter]');
+    const pills = Array.from(document.querySelectorAll('.pill[data-filter]'));
     const projects = Array.from(document.querySelectorAll('.project'));
     const shownCount = document.getElementById('shownCount');
     const totalCount = document.getElementById('totalCount');
 
-    // Selected filters (multi-select)
-    const selected = { region: new Set(), type: new Set() };
+    // Multi-select filters
+    const selected = {
+      region: new Set(),
+      type: new Set(),
+      client: new Set(),
+      service: new Set()
+    };
 
     function normalize(s){ return (s || '').toLowerCase().trim(); }
 
+    function matchesMulti(value, set){
+      return set.size === 0 || set.has(value);
+    }
+
     function matchesPills(project){
-      const region = project.getAttribute('data-region') || '';
-      const type = project.getAttribute('data-type') || '';
+      const region  = project.getAttribute('data-region')  || '';
+      const type    = project.getAttribute('data-type')    || '';
+      const client  = project.getAttribute('data-client')  || '';
+      const service = project.getAttribute('data-service') || '';
 
-      const regionOk = selected.region.size === 0 || selected.region.has(region);
-      const typeOk   = selected.type.size === 0 || selected.type.has(type);
-
-      return regionOk && typeOk;
+      return (
+        matchesMulti(region, selected.region) &&
+        matchesMulti(type, selected.type) &&
+        matchesMulti(client, selected.client) &&
+        matchesMulti(service, selected.service)
+      );
     }
 
     function matchesSearch(project){
@@ -375,7 +386,6 @@
 
     function applyFilters(){
       let shown = 0;
-
       projects.forEach(p => {
         const ok = matchesPills(p) && matchesSearch(p);
         p.classList.toggle('hidden', !ok);
@@ -389,10 +399,9 @@
     function togglePill(btn){
       const filter = btn.getAttribute('data-filter');
       const value = btn.getAttribute('data-value');
-
       const set = selected[filter];
-      const isOn = set.has(value);
 
+      const isOn = set.has(value);
       if (isOn) set.delete(value);
       else set.add(value);
 
@@ -405,8 +414,7 @@
 
     clearBtn.addEventListener('click', () => {
       search.value = '';
-      selected.region.clear();
-      selected.type.clear();
+      Object.values(selected).forEach(s => s.clear());
       pills.forEach(btn => btn.setAttribute('aria-pressed', 'false'));
       applyFilters();
     });
