@@ -148,35 +148,7 @@ select.innerHTML = '<option value="">All</option>' +
 values.map(v=>`<option value="${v}">${v}</option>`).join("");
 }
 
-function render(projects){
 
-// Sort by Year DESC
-projects.sort((a,b)=>(b.Year||0)-(a.Year||0));
-
-els.grid.innerHTML = projects.map(p=>{
-
-return `
-<div class="card">
-<h3 class="project-title">${p.Title || ""}</h3>
-
-<div class="badges">
-
-${p.Year ? `<span class="badge">${p.Year}</span>` : ""}
-${p.Client ? `<span class="badge">${p.Client}</span>` : ""}
-${p.Company ? `<span class="badge">${p.Company}</span>` : ""}
-${p.Region ? `<span class="badge">${p.Region}</span>` : ""}
-${p.Country ? `<span class="badge">${p.Country}</span>` : ""}
-${p["Service-Main"] ? `<span class="badge">${p["Service-Main"]}</span>` : ""}
-${p["Service-2"] ? `<span class="badge">${p["Service-2"]}</span>` : ""}
-${p.Category ? `<span class="badge">${p.Category}</span>` : ""}
-
-</div>
-</div>
-`;
-}).join("");
-
-els.empty.style.display = projects.length ? "none" : "block";
-}
 
 function applyFilters(){
 
