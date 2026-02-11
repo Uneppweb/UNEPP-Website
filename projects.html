@@ -57,7 +57,76 @@
           </p>
         </div>
 
-        <!-- Filters -->
+<!-- Filters -->
+<div class="card" style="margin-top:14px;">
+
+  <div class="filters-two-rows">
+
+    <!-- Row 1: General Search (one full line) -->
+    <div class="filters-row filters-row-search">
+      <div class="filter-field filter-search">
+        <label class="kicker" for="keyword" style="display:block; margin-bottom:6px;">Search</label>
+        <input
+          type="search"
+          id="keyword"
+          placeholder="Search by title, client, service, country..."
+          autocomplete="off"
+        />
+      </div>
+    </div>
+
+    <!-- Row 2: Dropdowns + Reset (one line) -->
+    <div class="filters-row filters-row-selects">
+
+      <div class="filter-field">
+        <label class="kicker" for="company" style="display:block; margin-bottom:6px;">Company</label>
+        <select id="company">
+          <option value="">All</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label class="kicker" for="client" style="display:block; margin-bottom:6px;">Client</label>
+        <select id="client">
+          <option value="">All</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label class="kicker" for="region" style="display:block; margin-bottom:6px;">Region</label>
+        <select id="region">
+          <option value="">All</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label class="kicker" for="service" style="display:block; margin-bottom:6px;">Service</label>
+        <select id="service">
+          <option value="">All</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label class="kicker" for="year" style="display:block; margin-bottom:6px;">Year</label>
+        <select id="year">
+          <option value="">All</option>
+        </select>
+      </div>
+
+      <button id="reset" class="btn" type="button">➤ Reset</button>
+    </div>
+
+  </div>
+
+  <hr class="line" />
+
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+    <div class="kicker" style="letter-spacing:.08em;">
+      Showing <span id="count">0</span> projects
+    </div>
+  </div>
+
+</div>
 
 
         <!-- Cards appear here -->
