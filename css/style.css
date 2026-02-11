@@ -1340,3 +1340,16 @@ input[type="search"]::placeholder{
   grid-template-columns: 1fr !important;
   gap: 14px;
 }
+/* ONE CARD PER LINE */
+.projects-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:16px;
+}
+
+/* Smaller white title */
+.project-title{
+font-size:1.05rem;
+color:#ffffff;
+margin:0 0 10px;
+}
