@@ -1484,3 +1484,12 @@ margin:0 0 10px;
   width: auto !important;
   padding: 8px 18px;
 }
+/* Space between filters card and first project card */
+#projects-portfolio .projects-filters{
+  margin-bottom: 16px;   /* same as project card gap */
+}
+
+/* Ensure project grid doesn't collapse spacing */
+#projects-portfolio .projects-grid{
+  margin-top: 0;
+}
