@@ -214,10 +214,19 @@
 
       els.grid.innerHTML = projects.map(p => {
 const showCountry = p.Country && p.Country !== p.Region; // prevents Egypt/Egypt
+const region = (p.Region || "").trim();
+const country = (p.Country || "").trim();
+
+const showCountry =
+  country &&
+  region &&
+  region !== "Egypt" &&                 // Egypt: don't show country
+  country.toLowerCase() !== region.toLowerCase(); // safety: avoid duplicates
+
 const badges = [
   p.Client ? `<span class="badge">${escapeHtml(p.Client)}</span>` : "",
-  p.Region ? `<span class="badge">${escapeHtml(p.Region)}</span>` : "",
-  showCountry ? `<span class="badge">${escapeHtml(p.Country)}</span>` : "",
+  region ? `<span class="badge">${escapeHtml(region)}</span>` : "",
+  showCountry ? `<span class="badge">${escapeHtml(country)}</span>` : "",
   p.Service ? `<span class="badge">${escapeHtml(p.Service)}</span>` : "",
   p.Year ? `<span class="badge">${escapeHtml(p.Year)}</span>` : "",
 ].filter(Boolean).join("");
