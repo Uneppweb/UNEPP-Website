@@ -1313,3 +1313,11 @@ select option{
 input[type="search"]::placeholder{
   color: rgba(232,237,247,.70);
 }
+/* Projects card title */
+.project-title{
+  margin: 0 0 6px;
+  font-size: 1.05rem;     /* smaller than section headers */
+  font-weight: 600;
+  line-height: 1.35;
+  color: #0b1220;         /* clean dark tone */
+}
