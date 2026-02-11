@@ -208,39 +208,42 @@
       render(filtered);
     }
 
-    function render(projects) {
-      els.count.textContent = String(projects.length);
-      els.empty.style.display = projects.length ? "none" : "block";
+function render(projects) {
+  els.count.textContent = String(projects.length);
+  els.empty.style.display = projects.length ? "none" : "block";
 
-      els.grid.innerHTML = projects.map(p => {
-const showCountry = p.Country && p.Country !== p.Region; // prevents Egypt/Egypt
-const region = (p.Region || "").trim();
-const country = (p.Country || "").trim();
+  els.grid.innerHTML = projects.map(p => {
+    const region = String(p.Region || "").trim();
+    const country = String(p.Country || "").trim();
 
-const showCountry =
-  country &&
-  region &&
-  region !== "Egypt" &&                 // Egypt: don't show country
-  country.toLowerCase() !== region.toLowerCase(); // safety: avoid duplicates
+    // Egypt projects: show only Egypt
+    // Other MENA / International: show Region + Country (if present)
+    const showCountry =
+      country &&
+      region &&
+      region !== "Egypt" &&
+      country.toLowerCase() !== region.toLowerCase();
 
-const badges = [
-  p.Client ? `<span class="badge">${escapeHtml(p.Client)}</span>` : "",
-  region ? `<span class="badge">${escapeHtml(region)}</span>` : "",
-  showCountry ? `<span class="badge">${escapeHtml(country)}</span>` : "",
-  p.Service ? `<span class="badge">${escapeHtml(p.Service)}</span>` : "",
-  p.Year ? `<span class="badge">${escapeHtml(p.Year)}</span>` : "",
-].filter(Boolean).join("");
+    const badges = [
+      p.Client ? `<span class="badge">${escapeHtml(p.Client)}</span>` : "",
+      region ? `<span class="badge">${escapeHtml(region)}</span>` : "",
+      showCountry ? `<span class="badge">${escapeHtml(country)}</span>` : "",
+      p.Service ? `<span class="badge">${escapeHtml(p.Service)}</span>` : "",
+      p.Year ? `<span class="badge">${escapeHtml(p.Year)}</span>` : "",
+    ].filter(Boolean).join("");
 
+    return `
+      <div class="card">
+        <h3 style="margin:0 0 6px;">${escapeHtml(p.Title || "")}</h3>
+        ${p.Summary
+          ? `<p class="lead" style="margin:0;">${escapeHtml(p.Summary)}</p>`
+          : `<p class="lead" style="margin:0;">&nbsp;</p>`}
+        <div class="badges" style="margin-top:12px;">${badges}</div>
+      </div>
+    `;
+  }).join("");
+}
 
-        return `
-          <div class="card">
-            <h3 style="margin:0 0 6px;">${escapeHtml(p.Title || "")}</h3>
-            ${p.Summary ? `<p class="lead" style="margin:0;">${escapeHtml(p.Summary)}</p>` : `<p class="lead" style="margin:0;">&nbsp;</p>`}
-            <div class="badges" style="margin-top:12px;">${badges}</div>
-          </div>
-        `;
-      }).join("");
-    }
 
     async function initProjects() {
       try {
