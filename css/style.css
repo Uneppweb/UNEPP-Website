@@ -1418,3 +1418,57 @@ margin:0 0 10px;
   .filters-row{ flex-wrap: wrap; }
   .filter-field{ flex: 1 1 200px; }
 }
+/* ===== Projects filters: final layout fix (override) ===== */
+
+/* Force two rows no matter what */
+#projects-portfolio .filters-two-rows{
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px;
+}
+
+/* Row 1: Search should fill the full line */
+#projects-portfolio .filters-row-search{
+  display: flex !important;
+  width: 100%;
+}
+
+#projects-portfolio .filters-row-search .filter-field{
+  flex: 1 1 100% !important;
+  width: 100%;
+}
+
+#projects-portfolio .filters-row-search input[type="search"]{
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Row 2: dropdowns in one line, but flexible (no overflow) */
+#projects-portfolio .filters-row-selects{
+  display: flex !important;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: nowrap;     /* keep one line on desktop */
+}
+
+/* Make each dropdown field flexible instead of fixed width */
+#projects-portfolio .filters-row-selects .filter-field{
+  flex: 1 1 0 !important;     /* share row width equally */
+  min-width: 140px;           /* don’t collapse too much */
+}
+
+/* Reset stays fixed */
+#projects-portfolio .filters-row-selects #reset{
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* Mobile: allow wrapping */
+@media (max-width: 1100px){
+  #projects-portfolio .filters-row-selects{
+    flex-wrap: wrap;
+  }
+  #projects-portfolio .filters-row-selects .filter-field{
+    flex: 1 1 220px !important;
+  }
+}
