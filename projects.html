@@ -1,202 +1,319 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Projects | UNEPP</title>
-<meta name="description" content="UNEPP project portfolio across Egypt, MENA and international markets." />
-<link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | UNEPP</title>
+  <meta name="description" content="UNEPP project portfolio across Egypt, MENA and international markets covering feasibility, FEED, detailed engineering, PMC and procurement." />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-<header class="nav">
-  <div class="container nav-inner">
-    <a class="brand" href="index.html">
-      <img src="assets/logo.png" alt="UNEPP logo" class="logo" />
-      <div>
-        <h1>UNEPP</h1>
-        <small>United Engineers for Petroleum Projects</small>
-      </div>
-    </a>
+  <!-- Header -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="UNEPP logo" class="logo" />
+        <div>
+          <h1>UNEPP</h1>
+          <small>United Engineers for Petroleum Projects</small>
+        </div>
+      </a>
 
-    <nav class="menu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="capabilities.html">Capabilities</a>
-      <a href="projects.html">Projects</a>
-      <a href="news.html">News</a>
-      <a href="careers.html">Career</a>
-      <a class="cta" href="contact.html">Contact Us</a>
-    </nav>
-  </div>
-</header>
+      <nav class="menu" aria-label="Primary">
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="about.html">About Us</a>
+        <a data-nav href="capabilities.html">Capabilities</a>
+        <a data-nav href="projects.html">Projects</a>
+        <a data-nav href="news.html">News</a>
+        <a data-nav href="careers.html">Career</a>
+        <a data-nav class="cta" href="contact.html">Contact Us</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="container about-layout">
+  <!-- Page layout (left index + content) -->
+  <main class="container about-layout">
+    <!-- Left index -->
+    <aside class="about-index">
+      <b>Projects</b>
+      <nav>
+        <a href="#projects-portfolio">Projects Portfolio</a>
+        <a href="#projects-showcase">Projects Showcase</a>
+      </nav>
+    </aside>
 
-<!-- LEFT INDEX -->
-<aside class="about-index">
-  <b>Projects</b>
-  <nav>
-    <a href="#portfolio">Projects Portfolio</a>
-    <a href="#showcase">Projects Showcase</a>
-  </nav>
-</aside>
+    <!-- Page content -->
+    <div class="about-content">
 
-<div class="about-content">
+      <!-- Projects Portfolio -->
+      <section class="section" id="projects-portfolio">
+        <div class="section-intro">
+          <h2>Projects Portfolio</h2>
+          <p class="lead">
+            Explore selected UNEPP and UNIFIED references across feasibility, FEED, detailed engineering,
+            procurement support, and project delivery.
+          </p>
+        </div>
 
-<!-- ========================= -->
-<!-- PROJECTS PORTFOLIO -->
-<!-- ========================= -->
-<section class="section" id="portfolio">
+        <!-- Filters -->
+        <div class="card" style="margin-top:14px;">
+          <div class="grid" style="grid-template-columns: 1fr 1fr 1fr 1fr auto; gap:12px; align-items:end;">
 
-<div class="section-intro">
-<h2>Projects Portfolio</h2>
-<p class="lead">
-Explore UNEPP’s full historical project portfolio across regions and services.
-</p>
-</div>
+            <div>
+              <label class="kicker" for="client" style="display:block; margin-bottom:6px;">Client</label>
+              <select id="client" style="width:100%;">
+                <option value="">All</option>
+              </select>
+            </div>
 
-<div class="card">
+            <div>
+              <label class="kicker" for="region" style="display:block; margin-bottom:6px;">Region</label>
+              <select id="region" style="width:100%;">
+                <option value="">All</option>
+              </select>
+            </div>
 
-<div class="grid" style="grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap:12px;">
+            <div>
+              <label class="kicker" for="service" style="display:block; margin-bottom:6px;">Service</label>
+              <select id="service" style="width:100%;">
+                <option value="">All</option>
+              </select>
+            </div>
 
-<select id="client">
-<option value="">Client</option>
-</select>
+            <div>
+              <label class="kicker" for="year" style="display:block; margin-bottom:6px;">Year</label>
+              <select id="year" style="width:100%;">
+                <option value="">All</option>
+              </select>
+            </div>
 
-<select id="region">
-<option value="">Region</option>
-</select>
+            <button id="reset" class="btn" type="button">➤ Reset</button>
+          </div>
 
-<select id="service">
-<option value="">Service</option>
-</select>
+          <hr class="line" />
 
-<select id="year">
-<option value="">Year</option>
-</select>
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+            <div class="kicker" style="letter-spacing:.08em;">
+              Showing <span id="count">0</span> projects
+            </div>
+          </div>
+        </div>
 
-<button id="reset" class="btn">Reset</button>
+        <!-- Cards appear here -->
+        <div id="projectsGrid" class="projects-grid" style="margin-top:14px;"></div>
 
-</div>
+        <!-- Empty state -->
+        <div id="emptyState" class="card" style="display:none; margin-top:14px;">
+          <h3 style="margin:0 0 8px;">No matches</h3>
+          <p class="lead" style="margin:0;">Try clearing filters or selecting a different combination.</p>
+        </div>
 
-</div>
+        <!-- Error state -->
+        <div id="errorState" class="card" style="display:none; margin-top:14px;">
+          <h3 style="margin:0 0 8px;">Couldn’t load projects</h3>
+          <p class="lead" style="margin:0;">
+            Please confirm <b>data/projects.json</b> exists and the path matches exactly (case-sensitive).
+          </p>
+        </div>
+      </section>
 
-<!-- PROJECT CARDS -->
-<section class="section">
-<div id="projectsGrid" class="projects-grid"></div>
+      <!-- Projects Showcase (placeholder for later) -->
+      <section class="section" id="projects-showcase">
+        <div class="section-intro">
+          <h2>Projects Showcase</h2>
+          <p class="lead">
+            A curated selection of project highlights will be added here (summary pages and key references).
+          </p>
+        </div>
 
-<div id="emptyState" class="card" style="display:none; margin-top:14px;">
-<h3>No matches</h3>
-<p class="lead">Adjust filters or reset.</p>
-</div>
-</section>
+        <div class="card">
+          <p class="lead" style="margin:0;">
+            Coming soon: featured project summaries, key deliverables, and selected case studies.
+          </p>
+        </div>
+      </section>
 
-</section>
+    </div><!-- /.about-content -->
+  </main>
 
-<!-- ========================= -->
-<!-- PROJECT SHOWCASE -->
-<!-- ========================= -->
-<section class="section" id="showcase">
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      © <span id="y"></span> United Engineers for Petroleum Projects (UNEPP)
+    </div>
+  </footer>
 
-<div class="section-intro">
-<h2>Projects Showcase</h2>
-<p class="lead">
-Selected highlight projects will be presented here with detailed summaries and visuals.
-</p>
-</div>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
 
-<div class="card">
-<p class="lead" style="margin:0;">
-Coming soon – curated flagship project case studies.
-</p>
-</div>
+    const els = {
+      client: document.getElementById("client"),
+      region: document.getElementById("region"),
+      service: document.getElementById("service"),
+      year: document.getElementById("year"),
+      reset: document.getElementById("reset"),
+      grid: document.getElementById("projectsGrid"),
+      count: document.getElementById("count"),
+      empty: document.getElementById("emptyState"),
+      error: document.getElementById("errorState"),
+    };
 
-</section>
+    let allProjects = [];
 
-</div>
-</main>
+    function escapeHtml(str){
+      return String(str ?? "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
 
-<footer class="footer">
-<div class="container">
-© <span id="y"></span> United Engineers for Petroleum Projects (UNEPP)
-</div>
-</footer>
+    function yearNum(y){
+      const n = Number(String(y || "").trim());
+      return Number.isFinite(n) ? n : 0;
+    }
 
-<script>
-document.getElementById("y").textContent = new Date().getFullYear();
+    function uniqSorted(arr){
+      return [...new Set(arr
+        .filter(v => v !== null && v !== undefined && String(v).trim() !== "")
+        .map(v => String(v).trim())
+      )].sort((a,b)=>a.localeCompare(b));
+    }
 
-const els = {
-client: document.getElementById("client"),
-region: document.getElementById("region"),
-service: document.getElementById("service"),
-year: document.getElementById("year"),
-reset: document.getElementById("reset"),
-grid: document.getElementById("projectsGrid"),
-empty: document.getElementById("emptyState")
-};
+    function fillSelect(select, values){
+      select.innerHTML =
+        '<option value="">All</option>' +
+        values.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("");
+    }
 
-let allProjects = [];
+    function render(projects){
+      // Sort by Year DESC
+      projects.sort((a,b)=> yearNum(b.Year) - yearNum(a.Year));
 
-function uniqSorted(arr){
-return [...new Set(arr.filter(Boolean))].sort((a,b)=>a.localeCompare(b));
-}
+      els.count.textContent = String(projects.length);
+      els.empty.style.display = projects.length ? "none" : "block";
 
-function fillSelect(select, values){
-select.innerHTML = '<option value="">All</option>' +
-values.map(v=>`<option value="${v}">${v}</option>`).join("");
-}
+      els.grid.innerHTML = projects.map(p => {
+        const title = (p.Title || "").trim();
+        const year = (p.Year || "").trim();
+        const client = (p.Client || "").trim();
+        const company = (p.Company || "").trim();
+        const region = (p.Region || "").trim();
+        const country = (p.Country || "").trim();
+        const serviceMain = (p["Service-Main"] || "").trim();
+        const service2 = (p["Service-2"] || "").trim();
+        const category = (p.Category || "").trim();
 
+        // prevent Egypt duplication (Region=Egypt, Country=Egypt)
+        const showCountry =
+          country &&
+          (!region || country.toLowerCase() !== region.toLowerCase()) &&
+          !(region.toLowerCase() === "egypt" && country.toLowerCase() === "egypt");
 
+        // badges in the required order:
+        // Title (as header), Year, Client, Company, Region, (Country if not redundant), Service-Main, Service-2 (if any), Category (if any)
+        const badges = [
+          year ? `<span class="badge">${escapeHtml(year)}</span>` : "",
+          client ? `<span class="badge">${escapeHtml(client)}</span>` : "",
+          company ? `<span class="badge">${escapeHtml(company)}</span>` : "",
+          region ? `<span class="badge">${escapeHtml(region)}</span>` : "",
+          showCountry ? `<span class="badge">${escapeHtml(country)}</span>` : "",
+          serviceMain ? `<span class="badge">${escapeHtml(serviceMain)}</span>` : "",
+          service2 ? `<span class="badge">${escapeHtml(service2)}</span>` : "",
+          category ? `<span class="badge">${escapeHtml(category)}</span>` : "",
+        ].filter(Boolean).join("");
 
-function applyFilters(){
+        return `
+          <div class="card">
+            <h3 class="project-title" style="margin:0 0 10px; font-size:16px; color:var(--text);">
+              ${escapeHtml(title)}
+            </h3>
+            <div class="badges">${badges}</div>
+          </div>
+        `;
+      }).join("");
+    }
 
-const filtered = allProjects.filter(p=>{
-if(els.client.value && p.Client !== els.client.value) return false;
-if(els.region.value && p.Region !== els.region.value) return false;
-if(els.service.value && p["Service-Main"] !== els.service.value) return false;
-if(els.year.value && String(p.Year) !== els.year.value) return false;
-return true;
-});
+    function applyFilters(){
+      const client = els.client.value;
+      const region = els.region.value;
+      const service = els.service.value;
+      const year = els.year.value;
 
-render(filtered);
-}
+      const filtered = allProjects.filter(p => {
+        if (client && (p.Client || "").trim() !== client) return false;
+        if (region && (p.Region || "").trim() !== region) return false;
+        if (service && (p["Service-Main"] || "").trim() !== service) return false;
+        if (year && String((p.Year || "").trim()) !== String(year)) return false;
+        return true;
+      });
 
-async function init(){
+      render(filtered);
+    }
 
-try{
-const res = await fetch("data/projects.json",{cache:"no-store"});
-const data = await res.json();
-allProjects = data;
+    async function init(){
+      try{
+        // Required elements check
+        if (!els.grid || !els.client || !els.region || !els.service || !els.year) {
+          throw new Error("Missing required HTML elements (check ids: projectsGrid, client, region, service, year).");
+        }
 
-fillSelect(els.client, uniqSorted(allProjects.map(p=>p.Client)));
-fillSelect(els.region, uniqSorted(allProjects.map(p=>p.Region)));
-fillSelect(els.service, uniqSorted(allProjects.map(p=>p["Service-Main"])));
-fillSelect(els.year, uniqSorted(allProjects.map(p=>String(p.Year))).reverse());
+        const res = await fetch("data/projects.json", { cache:"no-store" });
+        if (!res.ok) throw new Error("Fetch failed: " + res.status);
 
-render(allProjects);
+        const data = await res.json();
+        allProjects = Array.isArray(data) ? data : [];
 
-els.client.addEventListener("change",applyFilters);
-els.region.addEventListener("change",applyFilters);
-els.service.addEventListener("change",applyFilters);
-els.year.addEventListener("change",applyFilters);
+        // Normalize to expected keys (handles minor case/key variations)
+        allProjects = allProjects.map(p => ({
+          id: p.id ?? p.ID ?? "",
+          Title: p.Title ?? p.title ?? "",
+          Year: p.Year ?? p.year ?? "",
+          Client: p.Client ?? p.client ?? "",
+          Company: p.Company ?? p.company ?? "",
+          Region: p.Region ?? p.region ?? "",
+          Country: p.Country ?? p.country ?? "",
+          "Service-Main": p["Service-Main"] ?? p.ServiceMain ?? p["Service Main"] ?? p.serviceMain ?? "",
+          "Service-2": p["Service-2"] ?? p.Service2 ?? p["Service 2"] ?? p.service2 ?? "",
+          Category: p.Category ?? p.category ?? "",
+        }));
 
-els.reset.addEventListener("click",()=>{
-els.client.value="";
-els.region.value="";
-els.service.value="";
-els.year.value="";
-render(allProjects);
-});
+        // Fill filters
+        fillSelect(els.client, uniqSorted(allProjects.map(p => p.Client)));
+        fillSelect(els.region, uniqSorted(allProjects.map(p => p.Region)));
+        fillSelect(els.service, uniqSorted(allProjects.map(p => p["Service-Main"])));
 
-}catch(e){
-console.error(e);
-}
-}
+        const years = uniqSorted(allProjects.map(p => p.Year)).sort((a,b)=> yearNum(b) - yearNum(a));
+        fillSelect(els.year, years);
 
-init();
-</script>
+        // Initial render
+        render(allProjects);
+
+        // Events
+        els.client.addEventListener("change", applyFilters);
+        els.region.addEventListener("change", applyFilters);
+        els.service.addEventListener("change", applyFilters);
+        els.year.addEventListener("change", applyFilters);
+
+        els.reset.addEventListener("click", () => {
+          els.client.value = "";
+          els.region.value = "";
+          els.service.value = "";
+          els.year.value = "";
+          render(allProjects);
+        });
+
+      } catch (e){
+        console.error(e);
+        els.error.style.display = "block";
+      }
+    }
+
+    init();
+  </script>
 
 </body>
 </html>
