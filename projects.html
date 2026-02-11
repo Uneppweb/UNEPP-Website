@@ -46,7 +46,8 @@
 
       <!-- Filters -->
       <div class="card" style="margin-top:14px;">
-        <div class="grid" style="grid-template-columns: 1.3fr 1fr 1fr 1fr; align-items:end;">
+        <!-- added Year column -->
+        <div class="grid" style="grid-template-columns: 1.3fr 1fr 1fr 1fr .7fr; align-items:end;">
           <div class="item" style="background: transparent; border: 0; padding: 0;">
             <label class="kicker" for="q" style="display:block; margin-bottom:6px;">Search</label>
             <input id="q" type="search" placeholder="Search projects, clients, country..." style="
@@ -93,6 +94,22 @@
           <div class="item" style="background: transparent; border: 0; padding: 0;">
             <label class="kicker" for="service" style="display:block; margin-bottom:6px;">Service</label>
             <select id="service" style="
+              width:100%;
+              padding:12px 12px;
+              border-radius:12px;
+              border:1px solid var(--line);
+              background: rgba(255,255,255,.04);
+              color: var(--text);
+              outline: none;
+            ">
+              <option value="">All</option>
+            </select>
+          </div>
+
+          <!-- Year filter -->
+          <div class="item" style="background: transparent; border: 0; padding: 0;">
+            <label class="kicker" for="year" style="display:block; margin-bottom:6px;">Year</label>
+            <select id="year" style="
               width:100%;
               padding:12px 12px;
               border-radius:12px;
@@ -155,6 +172,7 @@
       client: document.getElementById("client"),
       region: document.getElementById("region"),
       service: document.getElementById("service"),
+      year: document.getElementById("year"),
       reset: document.getElementById("reset"),
       grid: document.getElementById("projectsGrid"),
       count: document.getElementById("count"),
@@ -170,7 +188,9 @@
 
     function fillSelect(selectEl, values) {
       const current = selectEl.value;
-      selectEl.innerHTML = '<option value="">All</option>' + values.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("");
+      selectEl.innerHTML =
+        '<option value="">All</option>' +
+        values.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("");
       selectEl.value = current; // keep selection when re-filling
     }
 
@@ -196,54 +216,58 @@
       const client = els.client.value;
       const region = els.region.value;
       const service = els.service.value;
+      const year = els.year.value;
 
       const filtered = allProjects.filter(p => {
         if (client && p.Client !== client) return false;
         if (region && p.Region !== region) return false;
         if (service && p.Service !== service) return false;
+        if (year && String(p.Year) !== year) return false;
         if (!matchText(p, q)) return false;
         return true;
       });
 
+      // Recent years first
+      filtered.sort((a,b) => (parseInt(b.Year,10) || 0) - (parseInt(a.Year,10) || 0));
+
       render(filtered);
     }
 
-function render(projects) {
-  els.count.textContent = String(projects.length);
-  els.empty.style.display = projects.length ? "none" : "block";
+    function render(projects) {
+      els.count.textContent = String(projects.length);
+      els.empty.style.display = projects.length ? "none" : "block";
 
-  els.grid.innerHTML = projects.map(p => {
-    const region = String(p.Region || "").trim();
-    const country = String(p.Country || "").trim();
+      els.grid.innerHTML = projects.map(p => {
+        const region = String(p.Region || "").trim();
+        const country = String(p.Country || "").trim();
 
-    // Egypt projects: show only Egypt
-    // Other MENA / International: show Region + Country (if present)
-    const showCountry =
-      country &&
-      region &&
-      region !== "Egypt" &&
-      country.toLowerCase() !== region.toLowerCase();
+        // Egypt projects: show only Egypt
+        // Other MENA / International: show Region + Country (if present)
+        const showCountry =
+          country &&
+          region &&
+          region !== "Egypt" &&
+          country.toLowerCase() !== region.toLowerCase();
 
-    const badges = [
-      p.Client ? `<span class="badge">${escapeHtml(p.Client)}</span>` : "",
-      region ? `<span class="badge">${escapeHtml(region)}</span>` : "",
-      showCountry ? `<span class="badge">${escapeHtml(country)}</span>` : "",
-      p.Service ? `<span class="badge">${escapeHtml(p.Service)}</span>` : "",
-      p.Year ? `<span class="badge">${escapeHtml(p.Year)}</span>` : "",
-    ].filter(Boolean).join("");
+        const badges = [
+          p.Client ? `<span class="badge">${escapeHtml(p.Client)}</span>` : "",
+          region ? `<span class="badge">${escapeHtml(region)}</span>` : "",
+          showCountry ? `<span class="badge">${escapeHtml(country)}</span>` : "",
+          p.Service ? `<span class="badge">${escapeHtml(p.Service)}</span>` : "",
+          p.Year ? `<span class="badge">${escapeHtml(p.Year)}</span>` : "",
+        ].filter(Boolean).join("");
 
-    return `
-      <div class="card">
-        <h3 style="margin:0 0 6px;">${escapeHtml(p.Title || "")}</h3>
-        ${p.Summary
-          ? `<p class="lead" style="margin:0;">${escapeHtml(p.Summary)}</p>`
-          : `<p class="lead" style="margin:0;">&nbsp;</p>`}
-        <div class="badges" style="margin-top:12px;">${badges}</div>
-      </div>
-    `;
-  }).join("");
-}
-
+        return `
+          <div class="card">
+            <h3 style="margin:0 0 6px;">${escapeHtml(p.Title || "")}</h3>
+            ${p.Summary
+              ? `<p class="lead" style="margin:0;">${escapeHtml(p.Summary)}</p>`
+              : `<p class="lead" style="margin:0;">&nbsp;</p>`}
+            <div class="badges" style="margin-top:12px;">${badges}</div>
+          </div>
+        `;
+      }).join("");
+    }
 
     async function initProjects() {
       try {
@@ -251,7 +275,6 @@ function render(projects) {
         if (!res.ok) throw new Error("Fetch failed: " + res.status);
         const data = await res.json();
 
-        // normalize expected keys (in case of minor variations)
         allProjects = (Array.isArray(data) ? data : []).map(p => ({
           id: p.id ?? "",
           Title: p.Title ?? p.title ?? "",
@@ -271,7 +294,13 @@ function render(projects) {
         fillSelect(els.region, uniqSorted(allProjects.map(p => p.Region)));
         fillSelect(els.service, uniqSorted(allProjects.map(p => p.Service)));
 
-        // Initial render
+        // Years: numeric desc
+        const years = [...new Set(allProjects.map(p => String(p.Year || "").trim()).filter(Boolean))];
+        years.sort((a,b) => (parseInt(b,10) || 0) - (parseInt(a,10) || 0));
+        fillSelect(els.year, years);
+
+        // Initial render (sorted by year desc)
+        allProjects.sort((a,b) => (parseInt(b.Year,10) || 0) - (parseInt(a.Year,10) || 0));
         render(allProjects);
 
         // Wire events
@@ -279,12 +308,15 @@ function render(projects) {
         els.client.addEventListener("change", applyFilters);
         els.region.addEventListener("change", applyFilters);
         els.service.addEventListener("change", applyFilters);
+        els.year.addEventListener("change", applyFilters);
 
         els.reset.addEventListener("click", () => {
           els.q.value = "";
           els.client.value = "";
           els.region.value = "";
           els.service.value = "";
+          els.year.value = "";
+          allProjects.sort((a,b) => (parseInt(b.Year,10) || 0) - (parseInt(a.Year,10) || 0));
           render(allProjects);
         });
 
