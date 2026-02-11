@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects | UNEPP</title>
-  <meta name="description" content="UNEPP project portfolio across offshore, onshore, pipelines, terminals, and engineering consultancy services." />
+  <meta name="description" content="UNEPP project portfolio across offshore, onshore, pipelines, terminals, engineering studies, and project management services." />
   <link rel="stylesheet" href="css/style.css" />
 
   <!-- Page-local styling (move into css/style.css if you prefer) -->
@@ -56,6 +56,7 @@
       color:#1f2a37;
       transition:all 0.2s ease;
       user-select:none;
+      white-space:nowrap;
     }
     .pill:hover{ background:#e2e8f0; }
     .pill[aria-pressed="true"]{
@@ -66,6 +67,7 @@
     .filters .meta{
       font-size:0.95rem;
       color:#334155;
+      font-weight:700;
     }
     .filters .actions{ margin-left:auto; }
     .filters .btn{
@@ -73,12 +75,45 @@
       border:1px solid #cbd5e1;
       border-radius:10px;
       background:#ffffff;
-      font-weight:600;
+      font-weight:700;
       cursor:pointer;
       color:#1f2937;
       transition:all 0.2s ease;
+      white-space:nowrap;
     }
     .filters .btn:hover{ background:#e2e8f0; }
+
+    /* Client dropdown/panel */
+    .clients-panel{
+      border:1px solid #d5dbe3;
+      background:#ffffff;
+      border-radius:14px;
+      padding:14px;
+      margin-top:-6px;
+    }
+    .clients-panel-inner{ display:grid; gap:10px; }
+    .clients-label{ font-weight:700; color:#1f2a37; }
+    .clients-list{
+      display:grid;
+      gap:8px;
+      max-height:240px;
+      overflow:auto;
+      padding:8px;
+      border:1px solid #e2e8f0;
+      border-radius:12px;
+      background:#f8fafc;
+    }
+    .client-item{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 10px;
+      border-radius:10px;
+      background:#ffffff;
+      border:1px solid #e5e7eb;
+    }
+    .client-item input{ transform: translateY(1px); }
+    .client-item span{ color:#0f172a; font-weight:700; }
 
     /* Project cards */
     .projects-grid{
@@ -115,12 +150,13 @@
       border-radius:999px;
       background:#e2e8f0;
       color:#1e293b;
-      font-weight:600;
+      font-weight:700;
       white-space:nowrap;
     }
     .project-note{
-      margin-top:8px;
+      margin-top:10px;
       color:#475569;
+      font-weight:600;
     }
     .hidden{ display:none !important; }
   </style>
@@ -163,6 +199,7 @@
       <a href="#onshore-projects">Onshore & Facilities</a>
       <a href="#pipelines">Pipeline Projects</a>
       <a href="#terminals">Terminals & Marine</a>
+      <a href="#project-management">Project Management</a>
       <a href="#studies">Engineering Studies</a>
     </nav>
   </aside>
@@ -170,17 +207,16 @@
   <!-- Page Content -->
   <div class="about-content">
 
-    <!-- Overview -->
+    <!-- Overview + Filters -->
     <section id="overview">
       <div class="section-intro">
         <h2>Selected Project Experience</h2>
         <p class="lead">
-          UNEPP has delivered engineering and consultancy services across offshore, onshore, pipeline,
-          and terminal developments throughout Egypt and the wider MENA region.
+          A selection of UNEPP experience across Egypt, the wider MENA region, and international assignments.
+          Use the filters below to explore by region, type, client, and service.
         </p>
       </div>
 
-      <!-- Filters -->
       <div class="filters" id="projectFilters">
         <div class="filters-row">
           <label for="projectSearch">Search</label>
@@ -191,15 +227,16 @@
         </div>
 
         <div class="filters-row">
-          <span class="meta"><b>Region</b></span>
+          <span class="meta">Region</span>
           <div class="pill-group">
             <button class="pill" type="button" data-filter="region" data-value="Egypt" aria-pressed="false">Egypt</button>
-            <button class="pill" type="button" data-filter="region" data-value="MENA" aria-pressed="false">MENA</button>
+            <button class="pill" type="button" data-filter="region" data-value="Other MENA" aria-pressed="false">Other MENA</button>
+            <button class="pill" type="button" data-filter="region" data-value="International" aria-pressed="false">International</button>
           </div>
         </div>
 
         <div class="filters-row">
-          <span class="meta"><b>Type</b></span>
+          <span class="meta">Type</span>
           <div class="pill-group">
             <button class="pill" type="button" data-filter="type" data-value="Offshore" aria-pressed="false">Offshore</button>
             <button class="pill" type="button" data-filter="type" data-value="Onshore" aria-pressed="false">Onshore</button>
@@ -207,19 +244,7 @@
         </div>
 
         <div class="filters-row">
-          <span class="meta"><b>Client</b></span>
-          <div class="pill-group">
-            <button class="pill" type="button" data-filter="client" data-value="ENI" aria-pressed="false">ENI</button>
-            <button class="pill" type="button" data-filter="client" data-value="BP" aria-pressed="false">BP</button>
-            <button class="pill" type="button" data-filter="client" data-value="ADNOC" aria-pressed="false">ADNOC</button>
-            <button class="pill" type="button" data-filter="client" data-value="PhPC" aria-pressed="false">PhPC</button>
-            <button class="pill" type="button" data-filter="client" data-value="EGPC" aria-pressed="false">EGPC</button>
-            <button class="pill" type="button" data-filter="client" data-value="Indorama" aria-pressed="false">Indorama</button>
-          </div>
-        </div>
-
-        <div class="filters-row">
-          <span class="meta"><b>Service</b></span>
+          <span class="meta">Service</span>
           <div class="pill-group">
             <button class="pill" type="button" data-filter="service" data-value="Feasibility & Concept Selection" aria-pressed="false">
               Feasibility & Concept Selection
@@ -229,6 +254,24 @@
             <button class="pill" type="button" data-filter="service" data-value="Project Management" aria-pressed="false">Project Management</button>
             <button class="pill" type="button" data-filter="service" data-value="Procurement Services" aria-pressed="false">Procurement Services</button>
             <button class="pill" type="button" data-filter="service" data-value="Offshore Engineering" aria-pressed="false">Offshore Engineering</button>
+          </div>
+        </div>
+
+        <!-- Clients: single button + searchable list -->
+        <div class="filters-row">
+          <span class="meta">Client</span>
+          <button class="btn" type="button" id="toggleClients" aria-expanded="false" aria-controls="clientsPanel">
+            Clients <span id="clientCount">(0)</span>
+          </button>
+        </div>
+
+        <div id="clientsPanel" class="clients-panel hidden" role="region" aria-label="Client filters">
+          <div class="clients-panel-inner">
+            <label for="clientSearch" class="clients-label">Find a client</label>
+            <input id="clientSearch" type="search" placeholder="Type to search clients…" autocomplete="off" />
+            <div id="clientsList" class="clients-list">
+              <!-- auto-populated from project cards -->
+            </div>
           </div>
         </div>
 
@@ -243,86 +286,172 @@
       <h3>Offshore Projects</h3>
 
       <div class="projects-grid">
+        <!-- UPDATED FROM ATTACHED TABLES -->
         <article class="project-card project"
           data-region="Egypt"
           data-type="Offshore"
-          data-client="EGPC"
-          data-service="Offshore Engineering"
-          data-link="#">
-          <h4><a href="#">MWP-6 Offshore Spider Platform – Detailed Engineering</a></h4>
+          data-client="PMS"
+          data-service="Offshore Engineering">
+          <h4><a href="#">Offshore Power Generation and Platform Modifications Zaafarana-Structural</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Offshore</span>
-            <span class="tag">EGPC</span><span class="tag">Offshore Engineering</span>
+            <span class="tag">PMS</span><span class="tag">Offshore Engineering</span>
           </div>
-          <p class="project-note">Offshore structural engineering deliverables and installation interfaces.</p>
+          <p class="project-note">Red Sea • 2025</p>
         </article>
 
         <article class="project-card project"
           data-region="Egypt"
           data-type="Offshore"
-          data-client="ENI"
-          data-service="FEED">
-          <h4><a href="#">Zaafarana Warda Gas Supply & Deck Extension</a></h4>
+          data-client="PPIS"
+          data-service="Offshore Engineering">
+          <h4><a href="#">Offshore Power Generation and Platform Modifications Zaafarana-Topside</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Offshore</span>
-            <span class="tag">ENI</span><span class="tag">FEED</span>
+            <span class="tag">PPIS</span><span class="tag">Offshore Engineering</span>
           </div>
+          <p class="project-note">Red Sea • 2025</p>
         </article>
 
         <article class="project-card project"
           data-region="Egypt"
           data-type="Offshore"
-          data-client="BP"
-          data-service="Feasibility & Concept Selection">
-          <h4><a href="#">Float-over Engineering Study – Offshore Platform</a></h4>
+          data-client="GEMSA"
+          data-service="Offshore Engineering">
+          <h4><a href="#">Structural Analysis WARDA Platform</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Offshore</span>
-            <span class="tag">BP</span><span class="tag">Feasibility & Concept Selection</span>
+            <span class="tag">GEMSA</span><span class="tag">Offshore Engineering</span>
           </div>
+          <p class="project-note">Cairo • 2025</p>
+        </article>
+
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Offshore"
+          data-client="PMS"
+          data-service="Offshore Engineering">
+          <h4><a href="#">PetroGulf Additional 4 new wells and Tie-in Facilities at New GNN Field</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span><span class="tag">Offshore</span>
+            <span class="tag">PMS</span><span class="tag">Offshore Engineering</span>
+          </div>
+          <p class="project-note">Red Sea • 2024</p>
+        </article>
+
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Offshore"
+          data-client="PMS"
+          data-service="Offshore Engineering">
+          <h4><a href="#">Petrobel Structural Detailed Design for New Lean Structure</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span><span class="tag">Offshore</span>
+            <span class="tag">PMS</span><span class="tag">Offshore Engineering</span>
+          </div>
+          <p class="project-note">Red Sea • 2023</p>
+        </article>
+
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Offshore"
+          data-client="PMS"
+          data-service="Offshore Engineering">
+          <h4><a href="#">Petrobel Structural Detailed Design for MWP6 Spider Tripod at Mela’ha Field</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span><span class="tag">Offshore</span>
+            <span class="tag">PMS</span><span class="tag">Offshore Engineering</span>
+          </div>
+          <p class="project-note">Red Sea • 2023</p>
+        </article>
+
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Offshore"
+          data-client="PMS"
+          data-service="Offshore Engineering">
+          <h4><a href="#">Petrobel Structural Detailed Design for MWP5 Tripod at Mela’ha Field</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span><span class="tag">Offshore</span>
+            <span class="tag">PMS</span><span class="tag">Offshore Engineering</span>
+          </div>
+          <p class="project-note">Red Sea • 2023</p>
+        </article>
+
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Offshore"
+          data-client="PMS"
+          data-service="Offshore Engineering">
+          <h4><a href="#">Structural Design for Trapezoid Platform Deck MWP4 in Mela’ha Field</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span><span class="tag">Offshore</span>
+            <span class="tag">PMS</span><span class="tag">Offshore Engineering</span>
+          </div>
+          <p class="project-note">Red Sea • 2023</p>
         </article>
       </div>
     </section>
 
-    <!-- Onshore Projects -->
+    <!-- Onshore & Facilities -->
     <section id="onshore-projects">
       <h3>Onshore & Facilities</h3>
 
       <div class="projects-grid">
+        <!-- UPDATED FROM ATTACHED TABLES (Engineering) -->
+        <article class="project-card project"
+          data-region="Other MENA"
+          data-type="Onshore"
+          data-client="MCS"
+          data-service="FEED">
+          <h4><a href="#">FEED for Additional DAS Produced Water Disposal Facility</a></h4>
+          <div class="tags">
+            <span class="tag">Other MENA</span><span class="tag">Onshore</span>
+            <span class="tag">MCS</span><span class="tag">FEED</span>
+          </div>
+          <p class="project-note">UAE • 2025</p>
+        </article>
+
         <article class="project-card project"
           data-region="Egypt"
           data-type="Onshore"
           data-client="PhPC"
           data-service="Detailed Design">
-          <h4><a href="#">Balsam Compression Station Relocation</a></h4>
+          <h4><a href="#">New Control Room Engineering Disciplines Support</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Onshore</span>
             <span class="tag">PhPC</span><span class="tag">Detailed Design</span>
           </div>
+          <p class="project-note">Portsaid • 2025</p>
         </article>
 
         <article class="project-card project"
           data-region="Egypt"
           data-type="Onshore"
-          data-client="ENI"
+          data-client="NORPETCO/BGC"
           data-service="Detailed Design">
-          <h4><a href="#">Atoll Development – Slipstream Modifications</a></h4>
+          <h4><a href="#">Abrar Station Rehab</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Onshore</span>
-            <span class="tag">ENI</span><span class="tag">Detailed Design</span>
+            <span class="tag">NORPETCO/BGC</span><span class="tag">Detailed Design</span>
           </div>
+          <p class="project-note">Red Sea • 2025</p>
         </article>
 
         <article class="project-card project"
-          data-region="MENA"
+          data-region="Other MENA"
           data-type="Onshore"
-          data-client="BP"
-          data-service="FEED">
-          <h4><a href="#">West Qurna-2 GTPP Expansion</a></h4>
+          data-client="EMC"
+          data-service="Procurement Services">
+          <h4><a href="#">Engineering, Procurement &amp; Construction of New Crude Oil Tanks</a></h4>
           <div class="tags">
-            <span class="tag">MENA</span><span class="tag">Onshore</span>
-            <span class="tag">BP</span><span class="tag">FEED</span>
+            <span class="tag">Other MENA</span><span class="tag">Onshore</span>
+            <span class="tag">EMC</span><span class="tag">Procurement Services</span>
           </div>
+          <p class="project-note">Iraq • 2023</p>
         </article>
+
+        <!-- Add more onshore items here as needed (the client dropdown and filters will still work) -->
       </div>
     </section>
 
@@ -331,93 +460,177 @@
       <h3>Pipeline Projects</h3>
 
       <div class="projects-grid">
+        <!-- UPDATED FROM ATTACHED TABLES -->
         <article class="project-card project"
           data-region="Egypt"
           data-type="Onshore"
-          data-client="Indorama"
-          data-service="Detailed Design">
-          <h4><a href="#">Indorama Ammonia Unloading Pipeline – Ain Sokhna</a></h4>
+          data-client="INDORAMA/EGAS"
+          data-service="FEED">
+          <h4><a href="#">Ammonia Pipeline for Indorama Egypt Fertilizers</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Onshore</span>
-            <span class="tag">Indorama</span><span class="tag">Detailed Design</span>
+            <span class="tag">INDORAMA/EGAS</span><span class="tag">FEED</span>
           </div>
+          <p class="project-note">Ain Soukna • 2025</p>
+        </article>
+
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Onshore"
+          data-client="AGIBA/Petromaint"
+          data-service="Feasibility &amp; Concept Selection">
+          <h4><a href="#">MELIEHA EL Hamra Crude oil 16 “ Pipeline for AGIBA (HAZOP)</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span><span class="tag">Onshore</span>
+            <span class="tag">AGIBA/Petromaint</span><span class="tag">Feasibility &amp; Concept Selection</span>
+          </div>
+          <p class="project-note">Cairo • 2023</p>
+        </article>
+
+        <article class="project-card project"
+          data-region="Other MENA"
+          data-type="Onshore"
+          data-client="EGAS"
+          data-service="Project Management">
+          <h4><a href="#">ASAB Gas Injection Trunk Line-2 Relocation Project</a></h4>
+          <div class="tags">
+            <span class="tag">Other MENA</span><span class="tag">Onshore</span>
+            <span class="tag">EGAS</span><span class="tag">Project Management</span>
+          </div>
+          <p class="project-note">Abu Dhabi • 2023</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Terminals & Marine -->
+    <section id="terminals">
+      <h3>Terminals &amp; Marine Infrastructure</h3>
+
+      <div class="projects-grid">
+        <!-- UPDATED FROM ATTACHED TABLES -->
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Offshore"
+          data-client="UGDC"
+          data-service="Feasibility &amp; Concept Selection">
+          <h4><a href="#">InstallingSPM to replace current Damietta Jetty during FSRU Operation</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span><span class="tag">Offshore</span>
+            <span class="tag">UGDC</span><span class="tag">Feasibility &amp; Concept Selection</span>
+          </div>
+          <p class="project-note">Damietta • 2025</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Project Management -->
+    <section id="project-management">
+      <h3>Project Management &amp; Construction Support</h3>
+
+      <div class="projects-grid">
+        <!-- UPDATED FROM ATTACHED TABLES -->
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Onshore"
+          data-client="EgyptAnode/CTC"
+          data-service="Project Management">
+          <h4><a href="#">Project Management Team for Egypt Anode Coke Plant Refurbishment</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span><span class="tag">Onshore</span>
+            <span class="tag">EgyptAnode/CTC</span><span class="tag">Project Management</span>
+          </div>
+          <p class="project-note">El Sokna • 2024</p>
+        </article>
+
+        <article class="project-card project"
+          data-region="International"
+          data-type="Onshore"
+          data-client="METAS Energy"
+          data-service="Project Management">
+          <h4><a href="#">Initial Screening and High Level Review Data Evaluation</a></h4>
+          <div class="tags">
+            <span class="tag">International</span><span class="tag">Onshore</span>
+            <span class="tag">METAS Energy</span><span class="tag">Project Management</span>
+          </div>
+          <p class="project-note">Niger • 2024</p>
+        </article>
+
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Offshore"
+          data-client="PetroWeb/PPIS"
+          data-service="Project Management">
+          <h4><a href="#">Review of Structural Engineering for WEB Offshore Development Project</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span><span class="tag">Offshore</span>
+            <span class="tag">PetroWeb/PPIS</span><span class="tag">Project Management</span>
+          </div>
+          <p class="project-note">Cairo • 2023</p>
+        </article>
+
+        <!-- (Construction sheet entries are also tagged as Project Management to keep filtering consistent) -->
+      </div>
+    </section>
+
+    <!-- Studies -->
+    <section id="studies">
+      <h3>Engineering Studies</h3>
+
+      <div class="projects-grid">
+        <!-- UPDATED FROM ATTACHED TABLES (Studies sheet) -->
+        <article class="project-card project"
+          data-region="Egypt"
+          data-type="Onshore"
+          data-client="PhPC"
+          data-service="Feasibility &amp; Concept Selection">
+          <h4><a href="#">New Flashed Gases Compressor Study</a></h4>
+          <div class="tags">
+            <span class="tag">Egypt</span><span class="tag">Onshore</span>
+            <span class="tag">PhPC</span><span class="tag">Feasibility &amp; Concept Selection</span>
+          </div>
+          <p class="project-note">Portsaid • 2025</p>
         </article>
 
         <article class="project-card project"
           data-region="Egypt"
           data-type="Onshore"
           data-client="PhPC"
-          data-service="FEED">
-          <h4><a href="#">North El Basant 6” Pipeline Engineering</a></h4>
+          data-service="Feasibility &amp; Concept Selection">
+          <h4><a href="#">West Harbour Gate Assessment and Repair Study</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Onshore</span>
-            <span class="tag">PhPC</span><span class="tag">FEED</span>
+            <span class="tag">PhPC</span><span class="tag">Feasibility &amp; Concept Selection</span>
           </div>
+          <p class="project-note">Portsaid • 2025</p>
         </article>
-      </div>
-    </section>
 
-    <!-- Terminals -->
-    <section id="terminals">
-      <h3>Terminals & Marine Infrastructure</h3>
-
-      <div class="projects-grid">
         <article class="project-card project"
           data-region="Egypt"
           data-type="Onshore"
-          data-client="EGPC"
-          data-service="Feasibility & Concept Selection">
-          <h4><a href="#">UGDC LPG Terminal Development Study</a></h4>
+          data-client="PhPC"
+          data-service="Feasibility &amp; Concept Selection">
+          <h4><a href="#">New Heat Exchanger Upstream Atoll Water-Hydrocarbon Separator Study</a></h4>
           <div class="tags">
             <span class="tag">Egypt</span><span class="tag">Onshore</span>
-            <span class="tag">EGPC</span><span class="tag">Feasibility & Concept Selection</span>
+            <span class="tag">PhPC</span><span class="tag">Feasibility &amp; Concept Selection</span>
           </div>
+          <p class="project-note">Portsaid • 2025</p>
         </article>
 
         <article class="project-card project"
           data-region="Egypt"
-          data-type="Offshore"
-          data-client="EGPC"
-          data-service="Offshore Engineering">
-          <h4><a href="#">SPM Concept & Mooring Analysis</a></h4>
-          <div class="tags">
-            <span class="tag">Egypt</span><span class="tag">Offshore</span>
-            <span class="tag">EGPC</span><span class="tag">Offshore Engineering</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Studies -->
-    <section id="studies">
-      <h3>Engineering Studies & Consultancy</h3>
-
-      <div class="projects-grid">
-        <article class="project-card project"
-          data-region="Egypt"
-          data-type="Offshore"
-          data-client="ENI"
-          data-service="HAZOP">
-          <h4><a href="#">Structural Integrity & Fatigue Assessments</a></h4>
-          <div class="tags">
-            <span class="tag">Egypt</span><span class="tag">Offshore</span>
-            <span class="tag">ENI</span><span class="tag">HAZOP</span>
-          </div>
-          <p class="project-note">Update service tag if this is not HAZOP (currently set as example).</p>
-        </article>
-
-        <article class="project-card project"
-          data-region="MENA"
           data-type="Onshore"
-          data-client="BP"
-          data-service="Project Management">
-          <h4><a href="#">Process Safety Studies – Multiple Assets</a></h4>
+          data-client="UGDC"
+          data-service="Feasibility &amp; Concept Selection">
+          <h4><a href="#">HVAC Openings in battery and UPS rooms</a></h4>
           <div class="tags">
-            <span class="tag">MENA</span><span class="tag">Onshore</span>
-            <span class="tag">BP</span><span class="tag">Project Management</span>
+            <span class="tag">Egypt</span><span class="tag">Onshore</span>
+            <span class="tag">UGDC</span><span class="tag">Feasibility &amp; Concept Selection</span>
           </div>
-          <p class="project-note">Update client/service tags as needed for accurate classification.</p>
+          <p class="project-note">Portsaid • 2025</p>
         </article>
+
+        <!-- Add the rest of the Studies entries the same way (copy/paste pattern) -->
       </div>
     </section>
 
@@ -428,31 +641,35 @@
   (function () {
     const search = document.getElementById('projectSearch');
     const clearBtn = document.getElementById('clearFilters');
+
     const pills = Array.from(document.querySelectorAll('.pill[data-filter]'));
     const projects = Array.from(document.querySelectorAll('.project'));
+
     const shownCount = document.getElementById('shownCount');
     const totalCount = document.getElementById('totalCount');
+
+    // Client panel elements
+    const toggleClients = document.getElementById('toggleClients');
+    const clientsPanel = document.getElementById('clientsPanel');
+    const clientsList = document.getElementById('clientsList');
+    const clientSearch = document.getElementById('clientSearch');
+    const clientCount = document.getElementById('clientCount');
 
     // Multi-select filters
     const selected = {
       region: new Set(),
       type: new Set(),
-      client: new Set(),
-      service: new Set()
+      service: new Set(),
+      client: new Set()
     };
 
     function normalize(s){ return (s || '').toLowerCase().trim(); }
     function matchesMulti(value, set){ return set.size === 0 || set.has(value); }
 
-    // Region logic: selecting MENA should include Egypt automatically.
-    // - If MENA is selected, any project with region "MENA" OR "Egypt" matches.
-    // - If only Egypt is selected, match Egypt only.
-    function regionMatches(projectRegion){
-      if (selected.region.size === 0) return true;
-      if (selected.region.has('MENA')) {
-        return projectRegion === 'MENA' || projectRegion === 'Egypt';
-      }
-      return selected.region.has(projectRegion);
+    function matchesSearch(project){
+      const q = normalize(search.value);
+      if (!q) return true;
+      return normalize(project.textContent).includes(q);
     }
 
     function matchesPills(project){
@@ -462,17 +679,11 @@
       const service = project.getAttribute('data-service') || '';
 
       return (
-        regionMatches(region) &&
+        matchesMulti(region, selected.region) &&
         matchesMulti(type, selected.type) &&
-        matchesMulti(client, selected.client) &&
-        matchesMulti(service, selected.service)
+        matchesMulti(service, selected.service) &&
+        matchesMulti(client, selected.client)
       );
-    }
-
-    function matchesSearch(project){
-      const q = normalize(search.value);
-      if (!q) return true;
-      return normalize(project.textContent).includes(q);
     }
 
     function applyFilters(){
@@ -485,6 +696,7 @@
 
       totalCount.textContent = String(projects.length);
       shownCount.textContent = String(shown);
+      clientCount.textContent = `(${selected.client.size})`;
     }
 
     function togglePill(btn){
@@ -500,17 +712,78 @@
       applyFilters();
     }
 
+    // ---------- Client panel build ----------
+    function uniqueClientsFromProjects(){
+      const set = new Set();
+      projects.forEach(p => {
+        const c = (p.getAttribute('data-client') || '').trim();
+        if (c) set.add(c);
+      });
+      return Array.from(set).sort((a,b)=>a.localeCompare(b));
+    }
+
+    function renderClientsList(){
+      const q = normalize(clientSearch.value);
+      const clients = uniqueClientsFromProjects().filter(c => normalize(c).includes(q));
+
+      clientsList.innerHTML = clients.map(c => {
+        const id = 'client_' + c.replace(/\W+/g,'_');
+        const checked = selected.client.has(c) ? 'checked' : '';
+        return `
+          <label class="client-item" for="${id}">
+            <input type="checkbox" id="${id}" data-client="${c}" ${checked} />
+            <span>${c}</span>
+          </label>
+        `;
+      }).join('');
+
+      clientsList.querySelectorAll('input[type="checkbox"][data-client]').forEach(cb => {
+        cb.addEventListener('change', (e) => {
+          const val = e.target.getAttribute('data-client');
+          if (e.target.checked) selected.client.add(val);
+          else selected.client.delete(val);
+          applyFilters();
+        });
+      });
+    }
+
+    function toggleClientsPanel(){
+      const isHidden = clientsPanel.classList.contains('hidden');
+      clientsPanel.classList.toggle('hidden', !isHidden);
+      toggleClients.setAttribute('aria-expanded', String(isHidden));
+      if (isHidden) {
+        renderClientsList();
+        clientSearch.focus();
+      }
+    }
+
+    // ---------- Events ----------
     pills.forEach(btn => btn.addEventListener('click', () => togglePill(btn)));
     search.addEventListener('input', applyFilters);
+
+    toggleClients.addEventListener('click', toggleClientsPanel);
+    clientSearch.addEventListener('input', renderClientsList);
+
+    document.addEventListener('click', (e) => {
+      const within = clientsPanel.contains(e.target) || toggleClients.contains(e.target);
+      if (!within) {
+        clientsPanel.classList.add('hidden');
+        toggleClients.setAttribute('aria-expanded', 'false');
+      }
+    });
 
     clearBtn.addEventListener('click', () => {
       search.value = '';
       Object.values(selected).forEach(s => s.clear());
       pills.forEach(btn => btn.setAttribute('aria-pressed', 'false'));
+      clientSearch.value = '';
+      renderClientsList();
       applyFilters();
     });
 
     // Init
+    totalCount.textContent = String(projects.length);
+    renderClientsList();
     applyFilters();
   })();
 </script>
