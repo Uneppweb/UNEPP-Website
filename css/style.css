@@ -1334,3 +1334,9 @@ input[type="search"]::placeholder{
   max-width: 900px;
   margin: 0 auto;
 }
+/* Projects page grid: force 1 column */
+#projectsGrid.projects-grid{
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: 14px;
+}
