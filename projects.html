@@ -57,89 +57,88 @@
           </p>
         </div>
 
-<!-- Filters -->
-<div class="card" style="margin-top:14px;">
+        <!-- Filters (Search on its own row, dropdowns on the next row) -->
+        <div class="card projects-filters">
 
-  <div class="filters-two-rows">
+          <div class="filters-two-rows">
 
-    <!-- Row 1: General Search (one full line) -->
-    <div class="filters-row filters-row-search">
-      <div class="filter-field filter-search">
-        <label class="kicker" for="keyword" style="display:block; margin-bottom:6px;">Search</label>
-        <input
-          type="search"
-          id="keyword"
-          placeholder="Search by title, client, service, country..."
-          autocomplete="off"
-        />
-      </div>
-    </div>
+            <!-- Row 1: General Search -->
+            <div class="filters-row filters-row-search">
+              <div class="filter-field filter-search">
+                <label class="kicker" for="keyword">Search</label>
+                <input
+                  type="search"
+                  id="keyword"
+                  placeholder="Search by title, client, service, country..."
+                  autocomplete="off"
+                />
+              </div>
+            </div>
 
-    <!-- Row 2: Dropdowns + Reset (one line) -->
-    <div class="filters-row filters-row-selects">
+            <!-- Row 2: Dropdowns + Reset -->
+            <div class="filters-row filters-row-selects">
 
-      <div class="filter-field">
-        <label class="kicker" for="company" style="display:block; margin-bottom:6px;">Company</label>
-        <select id="company">
-          <option value="">All</option>
-        </select>
-      </div>
+              <div class="filter-field">
+                <label class="kicker" for="company">Company</label>
+                <select id="company">
+                  <option value="">All</option>
+                </select>
+              </div>
 
-      <div class="filter-field">
-        <label class="kicker" for="client" style="display:block; margin-bottom:6px;">Client</label>
-        <select id="client">
-          <option value="">All</option>
-        </select>
-      </div>
+              <div class="filter-field">
+                <label class="kicker" for="client">Client</label>
+                <select id="client">
+                  <option value="">All</option>
+                </select>
+              </div>
 
-      <div class="filter-field">
-        <label class="kicker" for="region" style="display:block; margin-bottom:6px;">Region</label>
-        <select id="region">
-          <option value="">All</option>
-        </select>
-      </div>
+              <div class="filter-field">
+                <label class="kicker" for="region">Region</label>
+                <select id="region">
+                  <option value="">All</option>
+                </select>
+              </div>
 
-      <div class="filter-field">
-        <label class="kicker" for="service" style="display:block; margin-bottom:6px;">Service</label>
-        <select id="service">
-          <option value="">All</option>
-        </select>
-      </div>
+              <div class="filter-field">
+                <label class="kicker" for="service">Service</label>
+                <select id="service">
+                  <option value="">All</option>
+                </select>
+              </div>
 
-      <div class="filter-field">
-        <label class="kicker" for="year" style="display:block; margin-bottom:6px;">Year</label>
-        <select id="year">
-          <option value="">All</option>
-        </select>
-      </div>
+              <div class="filter-field">
+                <label class="kicker" for="year">Year</label>
+                <select id="year">
+                  <option value="">All</option>
+                </select>
+              </div>
 
-      <button id="reset" class="btn" type="button">➤ Reset</button>
-    </div>
+              <button id="reset" class="btn" type="button">➤ Reset</button>
+            </div>
 
-  </div>
+          </div>
 
-  <hr class="line" />
+          <hr class="line" />
 
-  <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-    <div class="kicker" style="letter-spacing:.08em;">
-      Showing <span id="count">0</span> projects
-    </div>
-  </div>
+          <div class="projects-meta">
+            <div class="kicker">
+              Showing <span id="count">0</span> projects
+            </div>
+          </div>
 
-</div>
-
+        </div>
 
         <!-- Cards appear here -->
-        <div id="projectsGrid" class="projects-grid" style="margin-top:14px;"></div>
+        <div id="projectsGrid" class="projects-grid"></div>
 
         <!-- Empty state -->
-        <div id="emptyState" class="card" style="display:none; margin-top:14px;">
+        <div id="emptyState" class="card" style="display:none;">
           <h3 style="margin:0 0 8px;">No matches</h3>
           <p class="lead" style="margin:0;">Try clearing filters or selecting a different combination.</p>
         </div>
 
         <!-- Error state -->
-        <div id="errorState" class="card" style="display:none; margin-top:14px;">
+        <div id="errorState" class="card" style="display:none;">
           <h3 style="margin:0 0 8px;">Couldn’t load projects</h3>
           <p class="lead" style="margin:0;">
             Please confirm <b>data/projects.json</b> exists and the path matches exactly (case-sensitive).
@@ -206,6 +205,16 @@
       return Number.isFinite(n) ? n : 0;
     }
 
+    function normCompany(v){
+      const s = String(v || "").trim();
+      if (!s) return "";
+      const t = s.toLowerCase();
+      if (t.includes("unified")) return "UNIFIED";
+      if (t.includes("unepp")) return "UNEPP";
+      // fallback: keep original (but trimmed)
+      return s;
+    }
+
     function uniqSorted(arr){
       return [...new Set(arr
         .filter(v => v !== null && v !== undefined && String(v).trim() !== "")
@@ -220,6 +229,7 @@
     }
 
     function render(projects){
+      // Sort by Year DESC
       projects.sort((a,b)=> yearNum(b.Year) - yearNum(a.Year));
 
       els.count.textContent = String(projects.length);
@@ -236,11 +246,13 @@
         const service2 = (p["Service-2"] || "").trim();
         const category = (p.Category || "").trim();
 
+        // prevent Egypt duplication (Region=Egypt, Country=Egypt)
         const showCountry =
           country &&
           (!region || country.toLowerCase() !== region.toLowerCase()) &&
           !(region.toLowerCase() === "egypt" && country.toLowerCase() === "egypt");
 
+        // badges order: Year, Client, Company, Region, (Country if not redundant), Service-Main, Service-2, Category
         const badges = [
           year ? `<span class="badge">${escapeHtml(year)}</span>` : "",
           client ? `<span class="badge">${escapeHtml(client)}</span>` : "",
@@ -254,7 +266,7 @@
 
         return `
           <div class="card">
-            <h3 class="project-title" style="margin:0 0 10px; font-size:16px; color:var(--text);">
+            <h3 class="project-title">
               ${escapeHtml(title)}
             </h3>
             <div class="badges">${badges}</div>
@@ -278,6 +290,7 @@
         if (service && (p["Service-Main"] || "").trim() !== service) return false;
         if (year && String((p.Year || "").trim()) !== String(year)) return false;
 
+        // General keyword search across key fields
         if (keyword){
           const searchableText = [
             p.Title,
@@ -302,7 +315,8 @@
 
     async function init(){
       try{
-        if (!els.grid || !els.client || !els.region || !els.service || !els.year || !els.company || !els.keyword) {
+        // Required elements check
+        if (!els.grid || !els.keyword || !els.company || !els.client || !els.region || !els.service || !els.year) {
           throw new Error("Missing required HTML elements (check ids: projectsGrid, keyword, company, client, region, service, year).");
         }
 
@@ -312,12 +326,13 @@
         const data = await res.json();
         allProjects = Array.isArray(data) ? data : [];
 
+        // Normalize to expected keys (handles minor case/key variations)
         allProjects = allProjects.map(p => ({
           id: p.id ?? p.ID ?? "",
           Title: p.Title ?? p.title ?? "",
           Year: p.Year ?? p.year ?? "",
           Client: p.Client ?? p.client ?? "",
-          Company: p.Company ?? p.company ?? "",
+          Company: normCompany(p.Company ?? p.company ?? ""),
           Region: p.Region ?? p.region ?? "",
           Country: p.Country ?? p.country ?? "",
           "Service-Main": p["Service-Main"] ?? p.ServiceMain ?? p["Service Main"] ?? p.serviceMain ?? "",
@@ -334,6 +349,7 @@
         const years = uniqSorted(allProjects.map(p => p.Year)).sort((a,b)=> yearNum(b) - yearNum(a));
         fillSelect(els.year, years);
 
+        // Initial render
         render(allProjects);
 
         // Events
