@@ -1156,3 +1156,139 @@ html{
     font-size: 19px;
   }
 }
+.filters{
+  display:grid;
+  gap:14px;
+  padding:18px;
+  border:1px solid #d5dbe3;
+  border-radius:14px;
+  margin:16px 0 28px;
+  background:#f7f9fc;
+}
+
+.filters-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+}
+
+.filters label{
+  font-weight:700;
+  color:#1f2a37;
+}
+
+.filters input[type="search"]{
+  flex:1 1 260px;
+  padding:10px 14px;
+  border:1px solid #cbd5e1;
+  border-radius:10px;
+  background:#ffffff;
+  color:#1f2a37;
+  font-size:0.95rem;
+}
+
+.pill-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.pill{
+  padding:8px 14px;
+  border:1px solid #cbd5e1;
+  border-radius:999px;
+  background:#ffffff;
+  cursor:pointer;
+  font-size:0.9rem;
+  font-weight:600;
+  color:#1f2a37;
+  transition:all 0.2s ease;
+}
+
+.pill:hover{
+  background:#e2e8f0;
+}
+
+.pill[aria-pressed="true"]{
+  background:#0f172a;
+  color:#ffffff;
+  border-color:#0f172a;
+}
+
+.filters .meta{
+  font-size:0.95rem;
+  color:#334155;
+}
+
+.filters .btn{
+  padding:8px 14px;
+  border:1px solid #cbd5e1;
+  border-radius:10px;
+  background:#ffffff;
+  font-weight:600;
+  cursor:pointer;
+  color:#1f2937;
+  transition:all 0.2s ease;
+}
+
+.filters .btn:hover{
+  background:#e2e8f0;
+}
+
+/* Project cards */
+
+.projects-grid{
+  display:grid;
+  gap:16px;
+  margin:12px 0 28px;
+}
+
+.project-card{
+  border:1px solid #d5dbe3;
+  border-radius:16px;
+  padding:18px;
+  background:#ffffff;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  transition:all 0.2s ease;
+}
+
+.project-card:hover{
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  transform:translateY(-2px);
+}
+
+.project-card h4{
+  margin:0 0 10px;
+  font-size:1.05rem;
+  color:#0f172a;
+}
+
+.project-card h4 a{
+  color:#0f172a;
+  text-decoration:none;
+}
+
+.project-card h4 a:hover{
+  text-decoration:underline;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.tag{
+  font-size:0.8rem;
+  padding:5px 10px;
+  border-radius:999px;
+  background:#e2e8f0;
+  color:#1e293b;
+  font-weight:600;
+}
+
+.project-note{
+  margin-top:8px;
+  color:#475569;
+}
