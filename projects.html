@@ -105,6 +105,13 @@
       <option value="">All</option>
     </select>
   </div>
+  
+<div class="filter-field">
+  <label class="kicker" for="category">Category</label>
+  <select id="category">
+    <option value="">All</option>
+  </select>
+</div>
 
   <div class="filter-field">
     <label class="kicker" for="year">Year</label>
@@ -180,19 +187,20 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    const els = {
-      keyword: document.getElementById("keyword"),
-      company: document.getElementById("company"),
-      client: document.getElementById("client"),
-      region: document.getElementById("region"),
-      service: document.getElementById("service"),
-      year: document.getElementById("year"),
-      reset: document.getElementById("reset"),
-      grid: document.getElementById("projectsGrid"),
-      count: document.getElementById("count"),
-      empty: document.getElementById("emptyState"),
-      error: document.getElementById("errorState"),
-    };
+const els = {
+  keyword: document.getElementById("keyword"),
+  company: document.getElementById("company"),
+  client: document.getElementById("client"),
+  region: document.getElementById("region"),
+  service: document.getElementById("service"),
+  category: document.getElementById("category"), // NEW
+  year: document.getElementById("year"),
+  reset: document.getElementById("reset"),
+  grid: document.getElementById("projectsGrid"),
+  count: document.getElementById("count"),
+  empty: document.getElementById("emptyState"),
+  error: document.getElementById("errorState"),
+};
 
     let allProjects = [];
 
@@ -280,43 +288,46 @@
       }).join("");
     }
 
-    function applyFilters(){
-      const keyword = (els.keyword.value || "").toLowerCase().trim();
-      const company = els.company.value;
-      const client = els.client.value;
-      const region = els.region.value;
-      const service = els.service.value;
-      const year = els.year.value;
+function applyFilters(){
+  const keyword = (els.keyword.value || "").toLowerCase().trim();
+  const company = els.company.value;
+  const client = els.client.value;
+  const region = els.region.value;
+  const service = els.service.value;
+  const category = els.category.value; // NEW
+  const year = els.year.value;
 
-      const filtered = allProjects.filter(p => {
-        if (company && (p.Company || "").trim() !== company) return false;
-        if (client && (p.Client || "").trim() !== client) return false;
-        if (region && (p.Region || "").trim() !== region) return false;
-        if (service && (p["Service-Main"] || "").trim() !== service) return false;
-        if (year && String((p.Year || "").trim()) !== String(year)) return false;
+  const filtered = allProjects.filter(p => {
 
-        // General keyword search across key fields
-        if (keyword){
-          const searchableText = [
-            p.Title,
-            p.Client,
-            p.Company,
-            p.Region,
-            p.Country,
-            p["Service-Main"],
-            p["Service-2"],
-            p.Category,
-            p.Year
-          ].join(" ").toLowerCase();
+    if (company && (p.Company || "").trim() !== company) return false;
+    if (client && (p.Client || "").trim() !== client) return false;
+    if (region && (p.Region || "").trim() !== region) return false;
+    if (service && (p["Service-Main"] || "").trim() !== service) return false;
+    if (category && (p.Category || "").trim() !== category) return false; // NEW
+    if (year && String((p.Year || "").trim()) !== String(year)) return false;
 
-          if (!searchableText.includes(keyword)) return false;
-        }
+    if (keyword){
+      const searchableText = [
+        p.Title,
+        p.Client,
+        p.Company,
+        p.Region,
+        p.Country,
+        p["Service-Main"],
+        p["Service-2"],
+        p.Category,
+        p.Year
+      ].join(" ").toLowerCase();
 
-        return true;
-      });
-
-      render(filtered);
+      if (!searchableText.includes(keyword)) return false;
     }
+
+    return true;
+  });
+
+  render(filtered);
+}
+
 
     async function init(){
       try{
@@ -346,10 +357,11 @@
         }));
 
         // Fill filters
-        fillSelect(els.company, uniqSorted(allProjects.map(p => p.Company)));
-        fillSelect(els.client, uniqSorted(allProjects.map(p => p.Client)));
-        fillSelect(els.region, uniqSorted(allProjects.map(p => p.Region)));
-        fillSelect(els.service, uniqSorted(allProjects.map(p => p["Service-Main"])));
+fillSelect(els.company, uniqSorted(allProjects.map(p => p.Company)));
+fillSelect(els.client, uniqSorted(allProjects.map(p => p.Client)));
+fillSelect(els.region, uniqSorted(allProjects.map(p => p.Region)));
+fillSelect(els.service, uniqSorted(allProjects.map(p => p["Service-Main"])));
+fillSelect(els.category, uniqSorted(allProjects.map(p => p.Category))); // NEW
 
         const years = uniqSorted(allProjects.map(p => p.Year)).sort((a,b)=> yearNum(b) - yearNum(a));
         fillSelect(els.year, years);
@@ -363,17 +375,20 @@
         els.client.addEventListener("change", applyFilters);
         els.region.addEventListener("change", applyFilters);
         els.service.addEventListener("change", applyFilters);
+        els.category.addEventListener("change", applyFilters);
         els.year.addEventListener("change", applyFilters);
 
-        els.reset.addEventListener("click", () => {
-          els.keyword.value = "";
-          els.company.value = "";
-          els.client.value = "";
-          els.region.value = "";
-          els.service.value = "";
-          els.year.value = "";
-          render(allProjects);
-        });
+els.reset.addEventListener("click", () => {
+  els.keyword.value = "";
+  els.company.value = "";
+  els.client.value = "";
+  els.region.value = "";
+  els.service.value = "";
+  els.category.value = ""; // NEW
+  els.year.value = "";
+  render(allProjects);
+});
+
 
       } catch (e){
         console.error(e);
