@@ -408,7 +408,7 @@ body.home .marquee:hover .marquee-track{
 }
 
 /* =========================================
-   ABOUT – Our Values (EXACT colors from attached diagram)
+   ABOUT – Our Values (user-provided exact RGB)
    ========================================= */
 
 #our-values .item{
@@ -417,40 +417,31 @@ body.home .marquee:hover .marquee-track{
   box-shadow: 0 10px 22px rgba(0,0,0,.25);
 }
 
-/* HSE (top segment) */
-#our-values .value-hse{
-  background:#05425e;
+/* HSE – Pink */
+#our-values .value-hse{ background:#E82776; }
+
+/* Quality – Gold */
+#our-values .value-quality{ background:#EAAF00; }
+
+/* Best Resources – Green */
+#our-values .value-resources{ background:#40D15F; }
+
+/* Client Integration – Turquoise */
+#our-values .value-client{ background:#00A1F4; }
+
+/* Codes and Standards – Red */
+#our-values .value-standards{ background:#F42F45; }
+
+/* Responsive to Market – Purple */
+#our-values .value-responsive{ background:#C621CB; }
+
+/* Improve readability on the Gold box */
+#our-values .value-quality,
+#our-values .value-quality span,
+#our-values .value-quality b{
+  color:#0b1220; /* dark text only for gold */
 }
 
-/* Quality (top-right orange segment) */
-#our-values .value-quality{
-  background:#ba5018;
-}
-
-/* Best Resources (right green segment) */
-#our-values .value-resources{
-  background:#0c5516;
-}
-
-/* Client Integration (bottom blue segment) */
-#our-values .value-client{
-  background:#0075a3;
-}
-
-/* Codes and Standards (bottom-left purple segment) */
-#our-values .value-standards{
-  background:#7b166f;
-}
-
-/* Responsive to Market (left green segment) */
-#our-values .value-responsive{
-  background:#2b7114;
-}
-
-/* Keep text crisp */
-#our-values .item span{
-  color:#ffffff;
-}
 
 /* =========================
    Leadership (kept compatible)
