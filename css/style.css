@@ -388,25 +388,19 @@ body.home .marquee:hover .marquee-track{
 /* =========================
    Values section helpers
    ========================= */
-
 .values-layout{
   display:grid;
   grid-template-columns: 360px 1fr;
   gap:28px;
   align-items:center;
 }
-
-.values-visual{
-  text-align:center;
-}
-
+.values-visual{ text-align:center; }
 .values-visual img{
   max-width:100%;
   height:auto;
   border-radius:50%;
   box-shadow: var(--shadow);
 }
-
 .values-grid{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
@@ -414,55 +408,48 @@ body.home .marquee:hover .marquee-track{
 }
 
 /* =========================================
-   ABOUT – Pixel-Matched Value Box Colors
-   (Aligned to our-values diagram tones)
+   ABOUT – Value colors (matched to attached diagram)
    ========================================= */
 
 #our-values .item{
   color:#ffffff;
   border:none;
   box-shadow: 0 12px 28px rgba(0,0,0,.25);
-  transition: transform .2s ease, box-shadow .2s ease;
 }
 
-#our-values .item:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.35);
-}
-
-/* HSE – Deep Royal Blue */
+/* HSE (sampled base ≈ #064461) */
 #our-values .value-hse{
-  background: linear-gradient(135deg, #1f4ed8, #0c1e4a);
+  background: linear-gradient(135deg, #0c5475, #032635);
 }
 
-/* Quality – Cyan Blue */
+/* Quality (sampled base ≈ #d2703e) */
 #our-values .value-quality{
-  background: linear-gradient(135deg, #00a6e6, #005f99);
+  background: linear-gradient(135deg, #f7864c, #743e22);
 }
 
-/* Responsive to Market – Violet */
-#our-values .value-responsive{
-  background: linear-gradient(135deg, #6a3fd8, #2e1a63);
-}
-
-/* Best Resources – Emerald */
+/* Best Resources (sampled base ≈ #1e6728) */
 #our-values .value-resources{
-  background: linear-gradient(135deg, #00b37e, #046c4e);
+  background: linear-gradient(135deg, #287c33, #113916);
 }
 
-/* Codes & Standards – Slate Blue */
-#our-values .value-standards{
-  background: linear-gradient(135deg, #2f4f7f, #121c2d);
-}
-
-/* Client Integration – Teal */
+/* Client Integration (sampled base ≈ #1079a2) */
 #our-values .value-client{
-  background: linear-gradient(135deg, #008f8f, #054747);
+  background: linear-gradient(135deg, #1890c0, #094259);
 }
 
-/* Text inside value boxes */
+/* Codes and Standards (sampled base ≈ #933288) */
+#our-values .value-standards{
+  background: linear-gradient(135deg, #ae3fa1, #511c4b);
+}
+
+/* Responsive to Market (sampled base ≈ #4f9237) */
+#our-values .value-responsive{
+  background: linear-gradient(135deg, #60ad44, #2b511e);
+}
+
+/* Text tone refinement */
 #our-values .item span{
-  color:#eaf2ff;
+  color:#eef5ff;
 }
 
 
