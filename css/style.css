@@ -408,7 +408,7 @@ body.home .marquee:hover .marquee-track{
 }
 
 /* =========================================
-   ABOUT – Exact Solid Colors (Pixel Matched)
+   ABOUT – Our Values (EXACT colors from attached diagram)
    ========================================= */
 
 #our-values .item{
@@ -417,41 +417,40 @@ body.home .marquee:hover .marquee-track{
   box-shadow: 0 10px 22px rgba(0,0,0,.25);
 }
 
-/* HSE */
+/* HSE (top segment) */
 #our-values .value-hse{
-  background:#064461;
+  background:#05425e;
 }
 
-/* Quality */
+/* Quality (top-right orange segment) */
 #our-values .value-quality{
-  background:#d2703e;
+  background:#ba5018;
 }
 
-/* Best Resources */
+/* Best Resources (right green segment) */
 #our-values .value-resources{
-  background:#1e6728;
+  background:#0c5516;
 }
 
-/* Client Integration */
+/* Client Integration (bottom blue segment) */
 #our-values .value-client{
-  background:#1079a2;
+  background:#0075a3;
 }
 
-/* Codes and Standards */
+/* Codes and Standards (bottom-left purple segment) */
 #our-values .value-standards{
-  background:#933288;
+  background:#7b166f;
 }
 
-/* Responsive to Market */
+/* Responsive to Market (left green segment) */
 #our-values .value-responsive{
-  background:#4f9237;
+  background:#2b7114;
 }
 
-/* Ensure text stays crisp */
+/* Keep text crisp */
 #our-values .item span{
   color:#ffffff;
 }
-
 
 /* =========================
    Leadership (kept compatible)
