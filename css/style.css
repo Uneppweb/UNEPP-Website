@@ -851,3 +851,12 @@ body.projects .filters-row-search input[type="search"]{
 #milestones .card b{
   color:#000000;
 }
+/* =========================================
+   ABOUT – Center Titles in Our Values Boxes
+   ========================================= */
+
+#our-values .item b{
+  display:block;
+  text-align:center;
+  margin-bottom:8px;
+}
