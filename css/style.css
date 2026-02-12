@@ -622,4 +622,23 @@ body.capabilities .item span,
 body.capabilities .item p{
   text-align: justify;  /* maintain consistency */
 }
+/* =========================================
+   CAPABILITIES: Center top images
+   ========================================= */
+
+/* If image is inside capability-visual wrapper */
+body.capabilities .capability-visual{
+  text-align: center;
+}
+
+body.capabilities .capability-visual img{
+  margin: 0 auto;
+}
+
+/* If image is directly inside a section or card */
+body.capabilities .section img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
