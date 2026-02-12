@@ -1566,3 +1566,20 @@ margin:0 0 10px;
   width: 260px;
   height: 170px;
 }
+/* Home hero slider (3 photos, no duplicates) */
+.hero-slider{
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+
+.hero-slider-track{
+  display: flex;
+  transition: transform 700ms ease;
+}
+
+.hero-slider-track img{
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
