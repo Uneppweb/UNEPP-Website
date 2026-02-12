@@ -1557,3 +1557,12 @@ margin:0 0 10px;
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+/* Home slider when used inside the hero right column */
+.hero-slider{
+  padding: 12px;
+}
+
+.hero-slider .slider-track img{
+  width: 260px;
+  height: 170px;
+}
