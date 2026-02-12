@@ -1735,55 +1735,60 @@ html, body{
   max-width: 100% !important;
 }
 /* =========================
-   HOME ONLY (scoped)
+   HOME ONLY: stop horizontal stretch
    ========================= */
-body.home .home-hero{ display:grid; gap:18px; }
-body.home .home-row{ min-width:0; }
-
-body.home .home-row-3{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap:14px;
-  align-items:stretch;
+body.home{
+  overflow-x: clip; /* prevents the page from becoming wider */
 }
-body.home .home-row-3 > .card{ min-width:0; height:100%; }
+body.home .container,
+body.home main,
+body.home section{
+  max-width: 100%;
+}
+
+/* Home layout rows */
+body.home .home-hero{ display: grid; gap: 18px; }
+body.home .home-row{ min-width: 0; }
+
+/* Bottom two boxes equal width */
+body.home .home-row-3{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+body.home .home-row-3 > .card{ min-width: 0; height: 100%; }
 
 @media (max-width: 900px){
   body.home .home-row-3{ grid-template-columns: 1fr; }
 }
 
-/* Marquee (HOME ONLY) */
+/* =========================
+   HOME ONLY: marquee (continuous left -> right)
+   ========================= */
 body.home .marquee{
-  width:100%;
-  overflow:hidden;
-  border-radius:14px;
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.04);
-  padding:10px;
+  width: 100%;
+  overflow: hidden;          /* key: clips the wide track */
 }
 
 body.home .marquee-track{
-  display:flex;
-  gap:16px;
-  align-items:center;
-  width:max-content;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  width: max-content;        /* ok because marquee clips it */
   will-change: transform;
   animation: marqueeLTR 26s linear infinite;
 }
 
 body.home .marquee-track img{
-  width:320px;
-  height:185px;
-  object-fit:cover;
-  border-radius:12px;
-  border:1px solid var(--line);
-  flex-shrink:0;
-  display:block;
+  width: 320px;
+  height: 185px;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
 }
 
 @keyframes marqueeLTR{
   from { transform: translateX(-50%); }
   to   { transform: translateX(0); }
 }
-
-body.home .marquee:hover .marquee-track{ animation-play-state: paused; }
