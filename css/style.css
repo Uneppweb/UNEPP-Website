@@ -573,4 +573,30 @@ body.home .card p{
 #leadership .leader .leader-desc{
   color: #c7d0e6;
 }
+/* =========================================
+   ABOUT: Make section statements fill width
+   (keep "Our Values" boxes unchanged)
+   ========================================= */
+
+/* Make About section intro statements full width + justified */
+body.about .section-intro .lead{
+  max-width: none;
+  text-align: justify;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Also make normal About paragraphs in section cards fill width */
+body.about .card .lead{
+  max-width: none;
+  text-align: justify;
+}
+
+/* IMPORTANT: keep the "Our Values" grid box text unchanged */
+body.about #our-values .item span,
+body.about #our-values .item p,
+body.about #our-values .item .lead{
+  max-width: none;        /* ok */
+  text-align: justify;    /* keep as-is, but ensure not overridden */
+}
 
