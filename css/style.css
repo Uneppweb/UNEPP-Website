@@ -658,4 +658,25 @@ body.projects .card .lead{
   max-width: none;
   text-align: justify;
 }
+/* =========================================
+   PROJECTS: Make SEARCH box full width
+   ========================================= */
+
+/* Ensure search row occupies full container width */
+body.projects .filters-row-search{
+  display: flex;
+  width: 100%;
+}
+
+/* Make the search field stretch completely */
+body.projects .filters-row-search .filter-field{
+  flex: 1 1 100%;
+  width: 100%;
+}
+
+/* Force input to fill available space */
+body.projects .filters-row-search input[type="search"]{
+  width: 100%;
+  max-width: none;
+}
 
