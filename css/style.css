@@ -705,11 +705,5 @@ body.projects .filters-row-search input[type="search"]{
   width: 100%;
   max-width: none;
 }
-.nav{
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-}
+
 
