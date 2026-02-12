@@ -148,6 +148,17 @@
           </div>
         </div>
 
+        <!-- Space between filters box and listed cards should match card-to-card spacing (CSS already controls this). -->
+
+        <!-- Start state (shown until at least one filter is applied) -->
+        <div id="startState" class="card" style="display:none; margin-top:14px;">
+          <h3 style="margin:0 0 8px;">Select a filter to view projects</h3>
+          <p class="lead" style="margin:0;">
+            To keep the page fast and easy to browse, projects are hidden until you apply at least one filter
+            (or type a keyword).
+          </p>
+        </div>
+
         <!-- Cards appear here -->
         <div id="projectsGrid" class="projects-grid"></div>
 
@@ -227,6 +238,7 @@
       reset: document.getElementById("reset"),
       grid: document.getElementById("projectsGrid"),
       count: document.getElementById("count"),
+      start: document.getElementById("startState"),
       empty: document.getElementById("emptyState"),
       error: document.getElementById("errorState"),
     };
@@ -311,7 +323,40 @@
       }).join("");
     }
 
+    function hasActiveFilters(){
+      const keyword = (els.keyword.value || "").trim();
+      return Boolean(
+        keyword ||
+        els.company.value ||
+        els.client.value ||
+        els.region.value ||
+        els.service.value ||
+        els.category.value ||
+        els.year.value
+      );
+    }
+
+    function showStartState(show){
+      if (!els.start) return;
+      els.start.style.display = show ? "block" : "none";
+    }
+
+    function clearResults(){
+      els.grid.innerHTML = "";
+      els.count.textContent = "0";
+      els.empty.style.display = "none";
+    }
+
     function applyFilters(){
+      // Gate: do not show all projects unless at least one filter is active
+      if (!hasActiveFilters()){
+        showStartState(true);
+        clearResults();
+        return;
+      }
+
+      showStartState(false);
+
       const keyword = (els.keyword.value || "").toLowerCase().trim();
       const company = els.company.value;
       const client = els.client.value;
@@ -352,8 +397,8 @@
 
     async function init(){
       try{
-        if (!els.grid || !els.keyword || !els.company || !els.client || !els.region || !els.service || !els.year) {
-          throw new Error("Missing required HTML elements (check ids: projectsGrid, keyword, company, client, region, service, year).");
+        if (!els.grid || !els.keyword || !els.company || !els.client || !els.region || !els.service || !els.category || !els.year) {
+          throw new Error("Missing required HTML elements (check ids: projectsGrid, keyword, company, client, region, service, category, year).");
         }
 
         const res = await fetch("data/projects.json", { cache:"no-store" });
@@ -384,8 +429,11 @@
         const years = uniqSorted(allProjects.map(p => p.Year)).sort((a,b)=> yearNum(b) - yearNum(a));
         fillSelect(els.year, years);
 
-        render(allProjects);
+        // Initial state: show prompt (hide cards) until at least one filter is applied
+        showStartState(true);
+        clearResults();
 
+        // Events
         els.keyword.addEventListener("input", applyFilters);
         els.company.addEventListener("change", applyFilters);
         els.client.addEventListener("change", applyFilters);
@@ -402,11 +450,12 @@
           els.service.value = "";
           els.category.value = "";
           els.year.value = "";
-          render(allProjects);
+          applyFilters(); // stays hidden until user selects a filter again
         });
 
       } catch (e){
         console.error(e);
+        showStartState(false);
         els.error.style.display = "block";
       }
     }
