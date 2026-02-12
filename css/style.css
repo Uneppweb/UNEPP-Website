@@ -199,12 +199,28 @@ body.home .home-hero{
 body.home .home-row{ min-width:0; }
 
 /* Bottom row: equal cards */
+/* Desktop: 3 equal columns */
 body.home .home-row-3{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap:14px;
-  align-items:stretch;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  align-items: stretch;
 }
+
+/* Tablet: 2 per row */
+@media (max-width: 1200px){
+  body.home .home-row-3{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: stack */
+@media (max-width: 768px){
+  body.home .home-row-3{
+    grid-template-columns: 1fr;
+  }
+}
+
 
 body.home .home-row-3 > .card{ height:100%; }
 
