@@ -599,4 +599,27 @@ body.about #our-values .item .lead{
   max-width: none;        /* ok */
   text-align: justify;    /* keep as-is, but ensure not overridden */
 }
+/* =========================================
+   CAPABILITIES: Section statements full width
+   ========================================= */
+
+/* Make section intro statements fill width + justified */
+body.capabilities .section-intro .lead{
+  max-width: none;
+  text-align: justify;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* If any capability cards contain .lead text */
+body.capabilities .card .lead{
+  max-width: none;
+  text-align: justify;
+}
+
+/* Keep internal capability grid boxes unchanged */
+body.capabilities .item span,
+body.capabilities .item p{
+  text-align: justify;  /* maintain consistency */
+}
 
