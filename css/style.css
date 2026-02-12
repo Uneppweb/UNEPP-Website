@@ -201,10 +201,11 @@ body.home .home-row{ min-width:0; }
 /* Bottom row: equal cards */
 body.home .home-row-3{
   display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap:14px;
   align-items:stretch;
 }
+
 body.home .home-row-3 > .card{ height:100%; }
 
 /* Home marquee slider (continuous left -> right) */
@@ -502,8 +503,15 @@ body.home .marquee:hover .marquee-track{
   .grid{ grid-template-columns:1fr; }
   .split{ grid-template-columns:1fr; }
 
-  body.home .home-row-3{ grid-template-columns:1fr; }
-  body.home .marquee-track img{ width:280px; height:165px; }
+  /* Home: 3 boxes -> stack on mobile */
+  body.home .home-row-3{
+    grid-template-columns: 1fr;
+  }
+
+  body.home .marquee-track img{
+    width:280px;
+    height:165px;
+  }
 
   .values-layout{ grid-template-columns:1fr; }
   .values-grid{ grid-template-columns:1fr; }
@@ -518,11 +526,13 @@ body.home .marquee:hover .marquee-track{
   .company-line{ grid-template-columns: 1fr; }
   .company-logo{ width:110px; }
 }
+
 /* Home: justify text in ALL cards */
 body.home .card p{
   text-align: justify;
-  max-width: none;   /* remove width limitation inside cards */
+  max-width: none;  /* remove width limitation inside cards */
 }
+
 /* =======================================
    ABOUT – Restore Leadership Box Colors
    ======================================= */
