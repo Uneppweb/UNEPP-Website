@@ -72,6 +72,15 @@
           <div class="filters-two-rows">
 
             <!-- Row 1: General Search -->
+            
+            <!-- Start state message inside filters -->
+            <div id="startState" class="filter-start-message" style="margin-bottom:14px;">
+              <p class="lead" style="margin:0;">
+                <strong>Select a filter to view projects.</strong><br>
+                To keep the page fast and easy to browse, projects are hidden until you apply at least one filter (or type a keyword).
+              </p>
+            </div>
+
             <div class="filters-row filters-row-search">
               <div class="filter-field filter-search">
                 <label class="kicker" for="keyword">Search</label>
@@ -149,17 +158,7 @@
         </div>
 
         <!-- Space between filters box and listed cards should match card-to-card spacing (CSS already controls this). -->
-
-        <!-- Start state (shown until at least one filter is applied) -->
-        <div id="startState" class="card" style="display:none; margin-top:14px;">
-          <h3 style="margin:0 0 8px;">Select a filter to view projects</h3>
-          <p class="lead" style="margin:0;">
-            To keep the page fast and easy to browse, projects are hidden until you apply at least one filter
-            (or type a keyword).
-          </p>
-        </div>
-
-        <!-- Cards appear here -->
+<!-- Cards appear here -->
         <div id="projectsGrid" class="projects-grid"></div>
 
         <!-- Empty state -->
