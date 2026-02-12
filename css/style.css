@@ -89,51 +89,6 @@ p, span, li{ text-align: justify; }
   font-weight:700;
 }
 
-
-/* =========================
-   Mobile nav (hamburger)
-   ========================= */
-.nav-toggle{
-  display:none;
-  width:44px;
-  height:44px;
-  border:1px solid #e5e7eb;
-  background:#fff;
-  border-radius:12px;
-  padding:10px;
-  cursor:pointer;
-}
-.nav-toggle span{
-  display:block;
-  height:2px;
-  background:#111827;
-  margin:6px 0;
-  border-radius:2px;
-}
-
-@media (max-width: 900px){
-  /* keep header tidy on mobile */
-  .nav-inner{ height:auto; padding:10px 0; gap:10px; align-items:flex-start; }
-  .brand{ gap:10px; }
-  .logo{ height:36px; }
-  .brand small{ display:none; }
-
-  .nav-toggle{ display:inline-flex; align-items:center; justify-content:center; }
-
-  /* hide desktop menu; show as dropdown when header has .open */
-  .menu{
-    display:none;
-    width:100%;
-    flex-direction:column;
-    align-items:stretch;
-    gap:6px;
-    padding:10px 0 6px;
-  }
-  .nav.open .menu{ display:flex; }
-
-  .menu a{ padding:12px 12px; border-radius:12px; }
-  .menu a.cta{ text-align:center; }
-}
 /* =========================
    Footer (Light)
    ========================= */
