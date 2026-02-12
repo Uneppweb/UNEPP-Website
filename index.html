@@ -1,137 +1,72 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UNEPP | Oil & Gas Engineering & Project Services</title>
-  <meta name="description" content="United Engineers for Petroleum Projects (UNEPP) delivers engineering and project services across all phases of oil & gas development—from concept to commissioning. Operating in coordination with UNIFIED to serve the wider MENA region." />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
+/* =========================
+   Home page: 3-row hero layout
+   ========================= */
 
-<body>
+.home-hero{
+  display: grid;
+  gap: 18px;
+}
 
-  <!-- Header / Navigation -->
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/logo.png" alt="UNEPP logo" class="logo" />
-        <div>
-          <h1>UNEPP</h1>
-          <small>United Engineers for Petroleum Projects</small>
-        </div>
-      </a>
+/* Row 3: two cards side-by-side */
+.home-row-3{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
 
-      <nav class="menu" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="capabilities.html">Capabilities</a>
-        <a href="projects.html">Projects</a>
-        <a href="news.html">News</a>
-        <a href="careers.html">Career</a>
-        <a class="cta" href="contact.html">Contact Us</a>
-      </nav>
-    </div>
-  </header>
+@media (max-width: 900px){
+  .home-row-3{
+    grid-template-columns: 1fr;
+  }
+}
 
-  <!-- Hero -->
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
+/* =========================
+   Marquee slider (LEFT -> RIGHT, continuous)
+   ========================= */
 
-        <!-- LEFT COLUMN -->
-        <div>
-          <div class="card">
-            <div class="kicker">Driving Excellence. From Concept to Delivery.</div>
+.marquee{
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  padding: 10px;
+}
 
-            <h2>YOUR PARTNER IN SUCCESS</h2>
+.marquee-track{
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  align-items: center;
+  will-change: transform;
 
-            <p class="lead">
-              United Engineers for Petroleum Projects (UNEPP) is an independent, privately owned company,
-              established and registered in Egypt in 2008. We deliver comprehensive engineering and project
-              services across all phases of oil and gas development — from concept to commissioning — built on
-              a strong foundation of engineering excellence and reliable project execution.
-            </p>
+  /* Continuous left -> right */
+  animation: marqueeLTR 24s linear infinite;
+}
 
-            <a href="about.html" class="btn" style="margin-top:16px;">
-              ➤ Learn Who We Are
-            </a>
-          </div>
-        </div>
+.marquee-track img{
+  width: 360px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+  display: block;
+}
 
-        <!-- RIGHT COLUMN -->
-        <aside class="hero-cards">
+/* Start halfway left, move to 0 (right direction) */
+@keyframes marqueeLTR{
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
 
-          <!-- Sliding photos (ONLY ONCE, here) -->
-          <div class="card" style="padding:14px;">
-            <div class="kicker" style="margin-bottom:10px;">PROJECT HIGHLIGHTS</div>
+/* Optional: pause on hover */
+.marquee:hover .marquee-track{
+  animation-play-state: paused;
+}
 
-            <div class="hero-slider" aria-label="UNEPP project highlights">
-              <div class="hero-slider-track" id="heroSliderTrack">
-                <img src="assets/images/home-01.png" alt="Pipeline construction and lifting operations" />
-                <img src="assets/images/home-02.png" alt="Offshore structure fabrication and construction" />
-                <img src="assets/images/home-03.png" alt="3D model and detailed engineering design" />
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Capabilities that Power Project Success</h3>
-            <p>Integrated Thinking. Measurable Results.</p>
-            <a href="capabilities.html" class="btn" style="margin-top:12px;">
-              ➤ Explore Our Capabilities
-            </a>
-          </div>
-
-          <div class="card">
-            <h3>Our Work in Action</h3>
-            <p>Real Projects. Real Performance.</p>
-            <a href="projects.html" class="btn" style="margin-top:12px;">
-              ➤ Browse our Pojects Showcase
-            </a>
-          </div>
-
-        </aside>
-
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      © <span id="y"></span> United Engineers for Petroleum Projects (UNEPP)
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    // Simple 3-image slider: moves left -> right, one image at a time
-    (function(){
-      const track = document.getElementById("heroSliderTrack");
-      if(!track) return;
-
-      const slides = Array.from(track.querySelectorAll("img"));
-      let i = 0;
-      let dir = 1; // 1 = left->right (0 -> 1 -> 2), then reverse (2 -> 1 -> 0)
-
-      function go(index){
-        track.style.transform = `translateX(${-index * 100}%)`;
-      }
-
-      // ensure each image takes full width of the viewport
-      slides.forEach(img => { img.style.width = "100%"; img.style.flex = "0 0 100%"; });
-
-      setInterval(() => {
-        if (i === slides.length - 1) dir = -1;
-        else if (i === 0) dir = 1;
-        i += dir;
-        go(i);
-      }, 3500);
-
-      go(0);
-    })();
-  </script>
-
-</body>
-</html>
+@media (max-width: 900px){
+  .marquee-track img{
+    width: 280px;
+    height: 165px;
+  }
+}
