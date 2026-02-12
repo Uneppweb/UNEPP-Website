@@ -1593,9 +1593,15 @@ margin:0 0 10px;
 
 .home-row-3{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 14px;
+  align-items: stretch;
 }
+
+.home-row-3 > .card{
+  height: 100%;
+}
+
 
 @media (max-width: 900px){
   .home-row-3{
@@ -1650,4 +1656,25 @@ margin:0 0 10px;
 }
 html, body{
   overflow-x: hidden;
+}
+/* Marquee: keep it inside the container */
+.marquee{
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track{
+  width: auto;              /* remove max-content expansion effect */
+  max-width: 100%;
+}
+.marquee-track{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  will-change: transform;
+  animation: marqueeLTR 26s linear infinite;
+}
+.marquee-track img{
+  width: 320px;
+  height: 185px;
 }
