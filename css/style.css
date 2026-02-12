@@ -96,10 +96,14 @@ p, span, li{ text-align: justify; }
   background:#ffffff;
   color:#111827;
   border-top:1px solid #e5e7eb;
-  padding:26px 0;
-  font-size:14px;
+  padding:14px 0;   /* reduced from 26px */
+  font-size:13px;
+  line-height:1.4;
 }
-.footer a{ color:#111827; }
+
+.footer a{
+  color:#111827;
+}
 
 /* =========================
    Common UI
