@@ -1678,3 +1678,27 @@ html, body{
   width: 320px;
   height: 185px;
 }
+/* ===== HARD STOP: prevent any horizontal overflow anywhere ===== */
+html, body { width: 100%; max-width: 100%; overflow-x: hidden !important; }
+main, section, header, footer { max-width: 100%; overflow-x: hidden; }
+
+/* 100vw often causes overflow due to scrollbar width */
+.nav, .hero, .footer { width: 100%; max-width: 100%; }
+
+/* Media should never exceed its parent */
+img, video, svg, canvas { max-width: 100%; height: auto; }
+
+/* Container must remain confined */
+.container { width: 100%; max-width: var(--max); margin: 0 auto; }
+
+/* Row 3: force equal widths (no content pushing wider) */
+.home-row-3{
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 14px;
+}
+.home-row-3 > .card{ min-width: 0; }
+
+/* Marquee must never contribute to page width */
+.marquee{ width: 100%; max-width: 100%; overflow: hidden; }
+.marquee-track{ max-width: 100%; }
