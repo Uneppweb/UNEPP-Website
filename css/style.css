@@ -1648,3 +1648,6 @@ margin:0 0 10px;
     height: 165px;
   }
 }
+html, body{
+  overflow-x: hidden;
+}
