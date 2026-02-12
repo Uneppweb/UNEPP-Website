@@ -1494,3 +1494,6 @@ margin:0 0 10px;
 #projects-portfolio .projects-grid{
   margin-top: 0;
 }
+.company-card .lead{
+  max-width: none;
+}
