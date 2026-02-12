@@ -417,9 +417,13 @@ body.home .marquee:hover .marquee-track{
   box-shadow: 0 10px 22px rgba(0,0,0,.25);
 }
 
+/* =========================================
+   ABOUT – Updated Our Values Colors
+   ========================================= */
+
 /* HSE – Pink */
-#our-values .value-hse{ 
-  background:#E82776; 
+#our-values .value-hse{
+  background:#E82676;
 }
 
 /* Quality – Dark Yellow */
@@ -427,25 +431,26 @@ body.home .marquee:hover .marquee-track{
   background:#BF8C00;
 }
 
-
-/* Best Resources – Green */
-#our-values .value-resources{ 
-  background:#40D15F; 
+/* Best Resources – Dark Green */
+#our-values .value-resources{
+  background:#29903F;
 }
 
-/* Client Integration – Turquoise */
-#our-values .value-client{ 
-  background:#00A1F4; 
+/* Client Integration – Dark Blue */
+#our-values .value-client{
+  background:#006AAB;
 }
 
 /* Codes and Standards – Red */
-#our-values .value-standards{ 
-  background:#F42F45; 
+#our-values .value-standards{
+  background:#BD2031;
 }
 
-/* Responsive to Market – Purple */
-#our-values .value-responsive{ 
-  background:#C621CB; 
+/* Responsive to Market – Dark Purple */
+#our-values .value-responsive{
+  background:#821285;
+}
+
 }
 
 /* Force ALL text inside value boxes to white */
