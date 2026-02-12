@@ -523,4 +523,54 @@ body.home .card p{
   text-align: justify;
   max-width: none;   /* remove width limitation inside cards */
 }
+/* =======================================
+   ABOUT – Restore Leadership Box Colors
+   ======================================= */
+
+/* Base leadership card container */
+#leadership .leadership-card{
+  background: #ffffff;
+  border: 1px solid #e4e8f0;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+}
+
+/* Reset generic leader override */
+#leadership .leader{
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+/* CEO – executive gradient */
+#leadership .leader.ceo{
+  background: linear-gradient(
+    135deg,
+    #1c3faa,
+    #0b1220
+  );
+  border: 1px solid rgba(70,176,255,0.55);
+}
+
+/* VPP + VPO – executive accent */
+#leadership .leader-exec{
+  background: linear-gradient(
+    135deg,
+    #102243,
+    #0f2f3a
+  );
+  border: 1px solid rgba(124,247,208,0.45);
+}
+
+/* Text inside leadership boxes */
+#leadership .leader b{
+  color: #ffffff;
+}
+
+#leadership .leader span{
+  color: #9fc5ff;
+}
+
+#leadership .leader .leader-desc{
+  color: #c7d0e6;
+}
 
