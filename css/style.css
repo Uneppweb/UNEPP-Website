@@ -422,10 +422,11 @@ body.home .marquee:hover .marquee-track{
   background:#E82776; 
 }
 
-/* Quality – Gold */
-#our-values .value-quality{ 
-  background:#EAAF00; 
+/* Quality – Dark Yellow */
+#our-values .value-quality{
+  background:#BF8C00;
 }
+
 
 /* Best Resources – Green */
 #our-values .value-resources{ 
