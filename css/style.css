@@ -1,3 +1,9 @@
+/* =========================================================
+   UNEPP Website — CLEAN CONSOLIDATED style.css (no duplicates)
+   Fixes: horizontal stretch + equal width cards + marquee
+   ========================================================= */
+
+/* ---------- Theme + Reset ---------- */
 :root{
   --bg:#0b1220;
   --panel:#0f1a31;
@@ -8,13 +14,20 @@
   --card:rgba(255,255,255,.06);
   --shadow: 0 12px 30px rgba(0,0,0,.35);
   --radius: 18px;
---max: 1600px;
-
+  --max: 1600px;
 }
 
-*{box-sizing:border-box}
-html,body{margin:0; padding:0}
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+html{
+  scroll-behavior:smooth;
+  max-width:100%;
+  overflow-x:clip; /* key: prevents “stretch” without breaking layout */
+}
 body{
+  max-width:100%;
+  overflow-x:clip;
+
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color:var(--text);
   background: radial-gradient(900px 500px at 15% 0%, rgba(70,176,255,.18), transparent 50%),
@@ -23,1714 +36,320 @@ body{
   line-height:1.55;
 }
 
-a{color:inherit; text-decoration:none}
-.container{max-width:var(--max); margin:0 auto; padding:0 20px}
+a{ color:inherit; text-decoration:none; }
+img, video, svg, canvas{ max-width:100%; height:auto; }
 
-.nav{
-  position:sticky; top:0; z-index:10;
-  backdrop-filter: blur(10px);
-  background: rgba(11,18,32,.75);
-  border-bottom:1px solid var(--line);
+/* Optional typography preference (you had this) */
+p, span, li{ text-align: justify; }
+
+/* ---------- Layout Container ---------- */
+.container{
+  width:100%;
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 20px;
 }
+
+/* ---------- Header (Light Theme) ---------- */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+
+  background:#ffffff;
+  border-bottom:1px solid #e5e7eb;
+  backdrop-filter:none;
+}
+
 .nav-inner{
-  display:flex; align-items:center; justify-content:space-between;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
   height:72px;
 }
-.brand{display:flex; gap:14px; align-items:center}
-.logo{
-  height: 42px;
-  width: auto;
-  display: block;
-}
-.brand h1{font-size:16px; margin:0}
-.brand small{display:block; color:var(--muted); margin-top:2px}
 
-.menu{display:flex; gap:18px; align-items:center}
+.brand{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+.logo{ height:42px; width:auto; display:block; }
+.brand h1{ font-size:16px; margin:0; color:#111827; }
+.brand small{ display:block; margin-top:2px; color:#111827; }
+
+.menu{ display:flex; gap:18px; align-items:center; }
 .menu a{
-  color:var(--muted);
+  color:#111827;
   padding:10px 10px;
   border-radius:12px;
 }
-.menu a:hover{color:var(--text); background: var(--card)}
+.menu a:hover{ background:rgba(0,0,0,0.04); color:#000; }
+
 .cta{
   background: linear-gradient(135deg, var(--brand), #7cf7d0);
   color:#07101f !important;
   font-weight:700;
 }
 
-.hero{
-  padding:72px 0 34px;
+/* ---------- Footer (Light Theme) ---------- */
+.footer{
+  background:#ffffff;
+  color:#111827;
+  border-top:1px solid #e5e7eb;
+  padding:26px 0;
+  font-size:14px;
 }
-.hero-grid{
-  display:grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap:26px;
-  align-items:stretch;
-}
-.kicker{color:var(--muted); letter-spacing:.12em; text-transform:uppercase; font-size:12px}
-h2{font-size:42px; margin:10px 0 10px; line-height:1.12}
-.lead{color:var(--muted); font-size:16px; max-width:58ch}
+.footer a{ color:#111827; }
 
-.hero-cards{
-  display:grid;
-  gap:14px;
+/* ---------- Common UI ---------- */
+.kicker{
+  color:var(--muted);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-size:12px;
 }
+
+h2{
+  font-size:42px;
+  margin:10px 0 10px;
+  line-height:1.12;
+}
+.lead{
+  color:var(--muted);
+  font-size:16px;
+  max-width:58ch;
+  margin-bottom:16px;
+}
+.lead + .lead{ margin-top:16px; }
+
+.btn{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:12px;
+  background: linear-gradient(135deg, var(--brand), #7cf7d0);
+  color:#07101f;
+  font-weight:800;
+  text-decoration:none;
+  border:0;
+}
+.btn:hover{ filter:brightness(1.02); }
+
 .card{
-  background: rgba(255,255,255,.06);
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding:18px;
   box-shadow: var(--shadow);
+  min-width:0; /* prevents overflow in grids */
 }
-.card h3{margin:0 0 6px; font-size:16px}
-.card p{margin:0; color:var(--muted); font-size:14px}
+.card h3{ margin:0 0 6px; font-size:16px; }
+.card p{ margin:0; color:var(--muted); font-size:14px; }
 
-.badges{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0}
-.badge{
+hr.line{ border:none; border-top:1px solid var(--line); margin:18px 0; }
+
+.section{
+  padding:34px 0;
+  scroll-margin-top:90px; /* sticky header offset */
+}
+.section h2, .section h3{ text-align:center; }
+
+/* ---------- Hero (base) ---------- */
+.hero{ padding:72px 0 34px; }
+
+/* ---------- Home Page (3 rows) ---------- */
+.home-hero{
+  display:grid;
+  gap:18px;
+}
+.home-row{ min-width:0; }
+
+/* Row 3: two equal cards */
+.home-row-3{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:14px;
+  align-items:stretch;
+}
+.home-row-3 > .card{ height:100%; }
+
+/* ---------- Marquee (Row 2) — continuous LEFT -> RIGHT ---------- */
+/* IMPORTANT: NO “width:100% !important” on .marquee-track */
+.marquee{
+  width:100%;
+  overflow:hidden;          /* clips the wide track => no page stretch */
+  border-radius:14px;
   border:1px solid var(--line);
   background: rgba(255,255,255,.04);
-  padding:8px 10px;
-  border-radius:999px;
-  color:var(--muted);
-  font-size:13px;
+  padding:10px;
 }
 
-.section{padding:34px 0}
-.section h3{font-size:22px; margin:0 0 12px}
-.grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:14px;
+.marquee-track{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  width:max-content;        /* correct for marquee */
+  will-change: transform;
+  animation: marqueeLTR 26s linear infinite;
 }
+
+.marquee-track img{
+  width:320px;
+  height:185px;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid var(--line);
+  flex-shrink:0;
+  display:block;
+}
+
+/* continuous LEFT -> RIGHT (no ping-pong) */
+@keyframes marqueeLTR{
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee:hover .marquee-track{ animation-play-state: paused; }
+
+/* ---------- About page layout (Left index + content) ---------- */
+.about-layout{
+  display:grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap:36px;
+  align-items:start;
+}
+
+.about-index{
+  position:sticky;
+  top:96px;
+  height:fit-content;
+  padding:16px;
+  border-radius: var(--radius);
+  background:#ffffff;
+  color:#000;
+  border:1px solid #e0e0e0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.about-index b{
+  display:block;
+  margin-bottom:12px;
+  font-size:13px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:#000;
+}
+
+.about-index nav{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.about-index a{
+  font-size:14px;
+  color:#000;
+  padding:6px 10px;
+  border-radius:8px;
+  outline:none;
+}
+
+.about-index a:hover{
+  background:#f2f2f2;
+  color:#000;
+}
+
+.about-index a.active,
+.about-index a:focus,
+.about-index a:active{
+  font-weight:700;
+  background:#f2f2f2;
+  border-left:4px solid #000;
+  padding-left:6px;
+}
+
+.about-content{ min-width:0; }
+
+/* ---------- Company overview white card ---------- */
+.company-card{
+  background:#ffffff;
+  color:#0b1220;
+  border:1px solid #e4e8f0;
+}
+.company-card .lead,
+.company-card p{
+  color:#2a2f3a;
+  max-width:none; /* fill the card */
+}
+.brand-unepp{ color:#0b5ed7; font-weight:800; }
+.brand-unified{ color:#2fae8f; font-weight:800; }
+.brand-regulator{ color:#6b7a90; font-weight:700; }
+
+.company-line{
+  display:grid;
+  grid-template-columns: 130px 1fr;
+  gap:18px;
+  align-items:start;
+  margin:18px 0;
+}
+.company-logo{
+  width:130px;
+  height:auto;
+  display:block;
+  margin-top:6px;
+}
+.company-line p{ margin:0; }
+
+/* ---------- Values / visuals ---------- */
+.values-layout{
+  display:grid;
+  grid-template-columns: 360px 1fr;
+  gap:28px;
+  align-items:center;
+}
+.values-visual{ text-align:center; }
+.values-visual img{
+  max-width:100%;
+  height:auto;
+  border-radius:50%;
+  box-shadow: var(--shadow);
+}
+.values-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap:14px; }
+
 .item{
   border:1px solid var(--line);
   background: rgba(255,255,255,.04);
   border-radius: var(--radius);
   padding:18px;
 }
-.item b{display:block; margin-bottom:6px}
-.item span{color:var(--muted); font-size:14px}
+.item b{ display:block; margin-bottom:6px; }
+.item span{ color:var(--muted); font-size:14px; display:block; hyphens:auto; }
 
-.split{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:14px;
-}
-
-.footer{
-  border-top:1px solid var(--line);
-  padding:26px 0;
-  color:var(--muted);
-  font-size:14px;
-}
-
-hr.line{border:none; border-top:1px solid var(--line); margin:18px 0}
-
-@media (max-width: 900px){
-  h2{font-size:34px}
-  .hero-grid{grid-template-columns:1fr}
-  .grid{grid-template-columns:1fr}
-  .split{grid-template-columns:1fr}
-  .menu{gap:8px}
-}
-/* Buttons: consistent on dark theme */
-.btn{
-  display: inline-block;
-  padding: 10px 14px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--brand), #7cf7d0);
-  color: #07101f;
-  font-weight: 800;
-  text-decoration: none;
-  border: 0;
-}
-.btn:hover{
-  filter: brightness(1.02);
-}
-
-/* Leadership team grid */
-.leadership{
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-/* Leadership card */
-.leader{
-  text-align: center;
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(255,255,255,.04);
-}
-
-/* Leadership photo */
-.leader img{
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto 12px;
-  border: 1px solid var(--line);
-}
-
-/* Leadership text */
-.leader b{
-  display: block;
-  margin-bottom: 4px;
-}
-.leader span{
-  color: var(--muted);
-  font-size: 14px;
-}
-
-/* Lists (e.g., milestones) look clean */
-.section ul{
-  margin: 10px 0 0;
-  padding-left: 18px;
-}
-.section li{
-  margin: 8px 0;
-  color: var(--muted);
-}
-.section li b{
-  color: var(--text);
-}
-.card.full {
-  grid-column: 1 / -1;
-}
-/* Force this specific card to fill available width */
-.card.leadership-note{
-  width: 100%;
-  max-width: none;
-  display: block;
-}
-/* Leadership layout refinements */
-.leader.ceo{
-  max-width: 320px;
-  margin: 0 auto;
-}
-
-.leadership.two-col{
-  grid-template-columns: repeat(2, minmax(220px, 1fr));
-}
-
-@media (max-width: 700px){
-  .leadership.two-col{
-    grid-template-columns: 1fr;
-  }
-}
-/* Leadership role descriptions */
-.leader-desc{
-  margin-top: 10px;
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-/* Full-width section intros (e.g. Leadership heading + text) */
-.section-intro{
-  max-width: none;
-  width: 100%;
-  margin-bottom: 18px;
-}
-/* Centered section heading + intro text (use for Leadership intro) */
-.section-intro{
-  width: 100%;
-  margin: 0 auto 18px;
-  text-align: center;
-}
-
-.section-intro .lead{
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 78ch; /* wider so it feels 'full' and not cramped */
-}
-p, span, li{
-  text-align: justify;
-}
-.badge{
-  cursor: pointer;
-}
-.badge:hover{
-  background: rgba(255,255,255,.08);
-}
-/* Capability workflow image */
-.capability-visual{
-  margin: 24px auto 0;
-  text-align: center;
-}
-
-.capability-visual img{
-  max-width: 100%;
-  height: auto;
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--line);
-}
-html{
-  scroll-behavior: smooth;
-}
-
-/* Prevent sticky header from hiding section titles */
-.section{
-  scroll-margin-top: 90px;
-}
-/* ================================
-   Header & Footer – Light Theme
-   ================================ */
-
-/* Header */
-.nav{
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  backdrop-filter: none;
-}
-
-.nav .brand h1,
-.nav .brand small,
-.nav .menu a{
-  color: #111827; /* near-black */
-}
-
-/* Navigation hover */
-.nav .menu a:hover{
-  background: rgba(0,0,0,0.04);
-  color: #000;
-}
-
-/* Keep CTA readable */
-.nav .menu .cta{
-  color: #07101f !important;
-}
-
-/* Footer */
-.footer{
-  background: #ffffff;
-  color: #111827;
-  border-top: 1px solid #e5e7eb;
-}
-/* Company overview logo + text layout */
-.company-line{
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.company-logo{
-  width: 64px;
-  height: auto;
-  flex-shrink: 0;
-}
-
-/* Mobile-friendly stacking */
-@media (max-width: 768px){
-  .company-line{
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .company-logo{
-    width: 56px;
-  }
-}
-
-.footer a{
-  color: #111827;
-}
-/* Company overview: logo + text layout (fixed alignment + full width text) */
-.company-line{
-  display: grid;
-  grid-template-columns: 130px 1fr; /* logo column + text column */
-  gap: 18px;
-  align-items: start;              /* align to top (first line area) */
-  margin: 18px 0;
-}
-
-.company-line p{
-  margin: 0;                       /* remove default paragraph top margin */
-}
-
-.company-line .lead{
-  max-width: none;                 /* IMPORTANT: remove 58ch limit */
-}
-
-/* Bigger logos */
-.company-logo{
-  width: 130px;                    /* increase size */
-  height: auto;
-  display: block;
-  margin-top: 6px;                 /* nudges to align with first text line */
-}
-
-/* Mobile */
-@media (max-width: 768px){
-  .company-line{
-    grid-template-columns: 1fr;
-  }
-  .company-logo{
-    width: 110px;
-    margin-top: 0;
-  }
-}
-/* Force justification inside Our Values boxes */
-.section .item span{
-  text-align: justify;
-  display: block;          /* important for justification */
-}
-.section .item span{
-  hyphens: auto;
-}
-/* Our Values layout */
-.values-layout{
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 28px;
-  align-items: center;
-}
-
-/* Values diagram */
-.values-visual{
-  text-align: center;
-}
-
-.values-visual img{
-  max-width: 100%;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: var(--shadow);
-}
-
-/* Ensure grid behaves inside values section */
-.values-grid{
-  grid-template-columns: repeat(2, 1fr);
-}
-
-/* Mobile */
-@media (max-width: 900px){
-  .values-layout{
-    grid-template-columns: 1fr;
-  }
-
-  .values-grid{
-    grid-template-columns: 1fr;
-  }
-}
-/* HSE value styling – match diagram color */
-.value-hse{
-  background: linear-gradient(135deg, #e12a7b, #b21e5d);
-  border-color: rgba(255,255,255,0.25);
-}
-
-.value-hse b,
-.value-hse span{
-  color: #ffffff;
-}
-
-/* ================================
-   Our Values – Color Matched Boxes
-   ================================ */
-
-/* Common text color for colored boxes */
-.value-hse b, .value-hse span,
-.value-quality b, .value-quality span,
-.value-responsive b, .value-responsive span,
-.value-resources b, .value-resources span,
-.value-standards b, .value-standards span,
-.value-client b, .value-client span{
-  color: #ffffff;
-}
-
-/* HSE – Magenta */
-.value-hse{
-  background: linear-gradient(135deg, #e12a7b, #b21e5d);
-  border-color: rgba(255,255,255,0.25);
-}
-
-/* Quality – Gold */
-.value-quality{
-  background: linear-gradient(135deg, #f2b705, #c99700);
-  border-color: rgba(255,255,255,0.25);
-}
-
-/* Responsive to Market – Purple */
-.value-responsive{
-  background: linear-gradient(135deg, #8a1c8f, #5e1361);
-  border-color: rgba(255,255,255,0.25);
-}
-
-/* Best Resources – Green */
-.value-resources{
-  background: linear-gradient(135deg, #3bb54a, #278a34);
-  border-color: rgba(255,255,255,0.25);
-}
-
-/* Codes and Standards – Red */
-.value-standards{
-  background: linear-gradient(135deg, #e53935, #b71c1c);
-  border-color: rgba(255,255,255,0.25);
-}
-
-/* Client Integration – Blue */
-.value-client{
-  background: linear-gradient(135deg, #00a3e0, #0077b6);
-  border-color: rgba(255,255,255,0.25);
-}
-
-.item[class^="value-"]:hover{
-  transform: translateY(-4px);
-  transition: transform .2s ease;
-}
-.company-line{
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 18px;
-  align-items: start;
-  margin: 18px 0;
-}
-
-.company-line p{ margin: 0; }
-.company-line .lead{ max-width: none; }
-
-.company-logo{
-  width: 130px;
-  height: auto;
-  display: block;
-  margin-top: 6px;
-}
-
-/* Emphasis style (optional but consistent) */
-.company-highlight{
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 1.65;
-}
-
-@media (max-width: 768px){
-  .company-line{ grid-template-columns: 1fr; }
-  .company-logo{ width: 110px; margin-top: 0; }
-}
-/* Company name color accents */
-.brand-unepp{
-  color: var(--brand);        /* your main UNEPP blue */
-  font-weight: 700;
-}
-
-.brand-unified{
-  color: #3bb54a;             /* muted professional green */
-  font-weight: 700;
-}
-.company-line{
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 18px;
-  align-items: start;
-  margin: 18px 0;
-}
-
-.company-line p{ margin: 0; }
-.company-line .lead{ max-width: none; }
-
-.company-logo{
-  width: 130px;
-  height: auto;
-  display: block;
-  margin-top: 6px;
-}
-
-.company-highlight{
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 1.65;
-}
-
-.brand-unepp{ color: var(--brand); font-weight: 700; }
-.brand-unified{ color: #3bb54a; font-weight: 700; }
-
-@media (max-width: 768px){
-  .company-line{ grid-template-columns: 1fr; }
-  .company-logo{ width: 110px; margin-top: 0; }
-}
-.company-line{
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 18px;
-  align-items: start;
-  margin: 18px 0;
-}
-
-.company-line p{ margin: 0; }
-.company-line .lead{ max-width: none; }
-
-.company-logo{
-  width: 130px;
-  height: auto;
-  display: block;
-  margin-top: 6px;
-}
-
-.company-highlight{
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 1.65;
-}
-
-.brand-unepp{ color: var(--brand); font-weight: 700; }
-.brand-unified{ color: #3bb54a; font-weight: 700; }
-
-@media (max-width: 768px){
-  .company-line{ grid-template-columns: 1fr; }
-  .company-logo{ width: 110px; margin-top: 0; }
-}
-/* Company Overview: let lead paragraphs use full width */
-.company-overview .lead{
-  max-width: none;
-}
-/* Regulatory / authority names (EGAS, EGPC) */
-.brand-regulator{
-  color: #9bb3c9;      /* subtle steel-blue */
-  font-weight: 700;
-}
-/* =========================
-   Leadership color styling
-   ========================= */
-
-/* CEO – primary leadership (same family as Values main tone) */
-.leader-ceo{
-  background: linear-gradient(
-    135deg,
-    rgba(70,176,255,0.18),
-    rgba(70,176,255,0.08)
-  );
-  border-color: rgba(70,176,255,0.45);
-}
-
-/* VPP & VPO – executive leadership (same color for both) */
-.leader-exec{
-  background: linear-gradient(
-    135deg,
-    rgba(124,247,208,0.18),
-    rgba(124,247,208,0.08)
-  );
-  border-color: rgba(124,247,208,0.45);
-}
-
-/* Keep text crisp */
-.leader-ceo b,
-.leader-exec b{
-  color: var(--text);
-}
-
-/* Optional: slightly emphasize leadership photos */
-.leader-ceo img,
-.leader-exec img{
-  border: 2px solid rgba(255,255,255,0.25);
-}
-/* Leadership titles – make roles more visible */
-.leader span{
-  display: block;
-  margin-top: 2px;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #ffffff;
-  text-align: center;   /* ✅ THIS is the missing piece */
-}
-/* Optional: subtle separator effect */
-.leader span::after{
-  content: "";
-  display: block;
-  width: 32px;
-  height: 2px;
-  margin: 6px auto 0;
-  background: rgba(255,255,255,0.35);
-  border-radius: 2px;
-}
-.leader span::after{
-  opacity: 0.6;
-}
-/* =========================
-   Company Milestones styling
-   (match Leadership Team)
-   ========================= */
-
-.section ul li{
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--muted);
-}
-
-/* Milestone year + title (like leadership names) */
-.section ul li b{
-  display: block;
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: 0.02em;
-  color: var(--text);
-  margin-bottom: 2px;
-}
-/* Center major section titles (Leadership, Milestones, etc.) */
-.section > h2,
-.section > h3{
-  text-align: center;
-}
-/* Force-center section titles (Leadership, Milestones, etc.) */
-.section h2,
-.section h3{
-  text-align: center;
-}
-/* =========================
-   About page: LEFT INDEX COLUMN
-   ========================= */
-
-.about-layout{
-  display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
-  gap: 36px;
-  align-items: start;
-}
-
-/* Left index column */
-.about-index{
-  position: sticky;
-  top: 96px; /* below header */
-  height: fit-content;
-  padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(255,255,255,.04);
-}
-
-/* Index title */
-.about-index b{
-  display: block;
-  margin-bottom: 12px;
-  font-size: 13px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-/* Index links */
-.about-index nav{
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.about-index a{
-  font-size: 14px;
-  color: var(--muted);
-  padding: 6px 10px;
-  border-radius: 8px;
-}
-
-.about-index a:hover{
-  background: var(--card);
-  color: var(--text);
-}
-
-/* Content column */
-.about-content{
-  min-width: 0;
-}
-
-/* Mobile: hide index */
-@media (max-width: 900px){
-  .about-layout{
-    grid-template-columns: 1fr;
-  }
-
-  .about-index{
-    display: none;
-  }
-}
-.about-index{ outline: 3px solid red; }
-/* About page index – white background, black text */
-.about-index{
-  background: #ffffff;
-  color: #000000;
-  border: 1px solid #e0e0e0;
-}
-
-/* Title */
-.about-index b{
-  color: #000000;
-}
-
-/* Links */
-.about-index a{
-  color: #000000;
-}
-
-/* Hover state */
-.about-index a:hover{
-  background: #f2f2f2;
-  color: #000000;
-}
-.about-index{
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-/* Active section highlight in About index */
-.about-index a.active{
-  font-weight: 700;
-  background: #f2f2f2;
-  border-left: 4px solid #000000;
-  padding-left: 6px;
-}
-/* Highlight clicked section link (CSS-only) */
-.about-index a:focus,
-.about-index a:active{
-  font-weight: 700;
-  background: #f2f2f2;
-  border-left: 4px solid #000000;
-  padding-left: 6px;
-}
-.about-index a{
-  outline: none;
-}
-
-.about-index a:hover{
-  background: #f2f2f2;
-}
-/* Office cards: push buttons to bottom */
-.office-card{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.office-content{
-  flex-grow: 1;
-}
-
-.office-card .btn{
-  margin-top: 16px;
-  align-self: flex-start; /* keeps button left-aligned */
-}
-/* Space above ISO certification buttons */
-.iso-buttons .btn{
-  margin-top: 14px;
-  margin-right: 10px;
-}
-/* Improve spacing between lead paragraphs */
-.lead{
-  margin-bottom: 16px;
-}
-/* Force spacing between consecutive lead paragraphs */
-.lead + .lead{
-  margin-top: 16px;
-}
-/* Company Overview – White card + dark text */
-.company-card{
-  background: #ffffff;
-  color: #0b1220;
-  border: 1px solid #e4e8f0;
-}
-
-/* Paragraphs inside the white card */
-.company-card .lead,
-.company-card p{
-  color: #2a2f3a;
-}
-
-/* Brand highlights on white */
-.company-card .brand-unepp{
-  color: #0b5ed7;
-  font-weight: 800;
-}
-.company-card .brand-unified{
-  color: #2fae8f;
-  font-weight: 800;
-}
-.company-card .brand-regulator{
-  color: #6b7a90;
-  font-weight: 700;
-}
-
-/* Keep button readable on white */
-.company-card .btn{
-  color: #07101f;
-}
-/* ISO codes – strong, consistent emphasis */
-.iso-code{
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: var(--text); /* or #0b1220 if inside white cards */
-}
-/* Our Values – card background only */
-#our-values .card{
-  background: #ffffff;          /* or very light grey */
-  border: 1px solid #e4e8f0;
-  box-shadow: 0 12px 30px rgba(0,0,0,.08);
-}
-
-/* Keep text readable on white card */
-#our-values .card p,
-#our-values .card .lead{
-  color: #2a2f3a;
-}
-/* Leadership section – card background only */
-#leadership .leadership-card{
-  background: #ffffff;          /* or #f7f9fc if you want softer */
-  border: 1px solid #e4e8f0;
-  box-shadow: 0 12px 30px rgba(0,0,0,.10);
-  color: #0b1220;
-}
-
-/* Ensure section intro text stays readable on white */
-#leadership .leadership-card p,
-#leadership .leadership-card .lead{
-  color: #2a2f3a;
-}
-/* Improve leader box contrast on light (white) cards */
-.leadership-card .leader{
-  background: rgba(255,255,255,0.75);
-  border: 1px solid rgba(11,18,32,0.15);
-}
-
-/* CEO – slightly stronger to keep hierarchy */
-.leadership-card .leader-ceo{
-  background: linear-gradient(
-    135deg,
-    rgba(70,176,255,0.28),
-    rgba(124,247,208,0.22)
-  );
-  border: 1px solid rgba(11,18,32,0.18);
-}
-
-/* VPP / VPO – clean, readable white */
-.leadership-card .leader-exec{
-  background: rgba(255,255,255,0.85);
-  border: 1px solid rgba(11,18,32,0.15);
-}
-/* === Leadership boxes: force dark backgrounds for all roles === */
-
-/* Base leader card */
-.leader{
-  background: #0f1a31; /* same as dark panel */
-  border: 1px solid rgba(255,255,255,0.18);
-  color: #e8edf7;
-}
-
-/* Ensure text inside stays readable */
-.leader b{
-  color: #ffffff;
-}
-.leader span{
-  color: #a9b4cc;
-}
-.leader .leader-desc{
-  color: #c7d0e6;
-}
-
-/* CEO – slightly stronger accent */
-.leader-ceo{
-  background: linear-gradient(
-    135deg,
-    #102243,
-    #0f2f3a
-  );
-  border: 1px solid rgba(70,176,255,0.45);
-}
-
-/* VPP + VPO */
-.leader-exec{
-  background: #0f1a31;
-  border: 1px solid rgba(255,255,255,0.18);
-}
-/* FORCE dark boxes for CEO + VPP + VPO (only inside the Leadership card) */
-#leadership .leadership-card .leader{
-  background: #0f1a31 !important;
-  border: 1px solid rgba(255,255,255,0.18) !important;
-  color: #e8edf7 !important;
-}
-
-/* Make all text readable on dark */
-#leadership .leadership-card .leader b{
-  color: #ffffff !important;
-}
-#leadership .leadership-card .leader span{
-  color: #a9b4cc !important;
-}
-#leadership .leadership-card .leader .leader-desc{
-  color: #c7d0e6 !important;
-}
-
-/* CEO: slightly stronger accent so it still feels “primary” */
-#leadership .leadership-card .leader.ceo,
-#leadership .leadership-card .leader-ceo{
-  background: linear-gradient(135deg, #102243, #0f2f3a) !important;
-  border: 1px solid rgba(70,176,255,0.40) !important;
-}
-
-/* VPP + VPO explicitly */
-#leadership .leadership-card .leader-exec{
-  background: #0f1a31 !important;
-  border: 1px solid rgba(255,255,255,0.18) !important;
-}
-/* CEO ONLY – distinctive executive color */
-#leadership .leadership-card .leader.ceo,
-#leadership .leadership-card .leader-ceo{
-  background: linear-gradient(
-    135deg,
-    #1c3faa,   /* deep executive blue */
-    #0b1220   /* UNEPP dark */
-  ) !important;
-
-  border: 1px solid rgba(70,176,255,0.55) !important;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-}
-#leadership .leader.ceo span{
-  color: #9fc5ff !important;
-  font-weight: 700;
-}
-/* === Company Milestones – match Leadership styling === */
-#milestones .card{
-  background: #0f1a31;            /* same dark panel tone */
-  border: 1px solid rgba(255,255,255,0.18);
-  color: #e8edf7;
-}
-
-/* Milestones list text */
-#milestones .card li{
-  color: #c7d0e6;
-}
-
-/* Emphasize milestone titles / years */
-#milestones .card li b{
-  color: #ffffff;
-  font-weight: 700;
-}
-
-/* Improve spacing & readability */
-#milestones .card ul{
-  margin-top: 6px;
-}
-#milestones .card li{
-  margin: 10px 0;
-  line-height: 1.6;
-}
-/* === Company Milestones – white card with dark text === */
-#milestones .card{
-  background: #ffffff;
-  border: 1px solid #e4e8f0;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
-  color: #0b1220;
-}
-
-/* Milestones text */
-#milestones .card li{
-  color: #2a2f3a;
-}
-
-/* Milestone titles / years */
-#milestones .card li b{
-  color: #0b1220;
-  font-weight: 700;
-}
-
-/* Improve spacing */
-#milestones .card li{
-  margin: 10px 0;
-  line-height: 1.6;
-}
-/* === HSE & Quality – white cards with dark text (buttons untouched) === */
-#hse-quality .card{
-  background: #ffffff;
-  border: 1px solid #e4e8f0;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
-  color: #0b1220;
-}
-
-/* Paragraph text inside HSE & Quality cards */
-#hse-quality .card p{
-  color: #2a2f3a;
-}
-
-/* Section headings inside cards (HSE / Quality titles) */
-#hse-quality .card h3{
-  color: #0b1220;
-  font-weight: 700;
-}
-
-/* Keep ISO buttons exactly as they are */
-#hse-quality .card .btn{
-  /* intentionally untouched */
-}
-/* === Office Locations – white cards with dark text (links untouched) === */
-#locations .office-card{
-  background: #ffffff;
-  border: 1px solid #e4e8f0;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
-  color: #0b1220;
-
-  /* keep your bottom-aligned buttons working */
-  display: flex;
-  flex-direction: column;
-}
-
-/* Text inside office cards */
-#locations .office-card span{
-  color: #2a2f3a;
-}
-
-/* Office titles */
-#locations .office-card b{
-  color: #0b1220;
-  font-weight: 700;
-}
-
-/* Keep buttons at the bottom and unchanged */
-#locations .office-card .btn{
-  margin-top: auto;
-}
-/* === Section lead text: larger & clearer across the site === */
-.section .lead{
-  font-size: 18px;          /* was ~16px */
-  line-height: 1.7;
-  max-width: 75ch;          /* better readability on large screens */
-}
-
-/* On larger screens, give it a bit more presence */
-@media (min-width: 900px){
-  .section .lead{
-    font-size: 19px;
-  }
-}
-/* === Unified section header style (About Us + Capabilities) === */
-
-/* Main section titles */
-.section-intro h2,
-.section-intro h3{
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 0.2px;
-  margin-bottom: 10px;
-  color: var(--text);
-}
-
-/* Lead text under section headers */
-.section-intro .lead{
-  font-size: 18px;
-  line-height: 1.7;
-  max-width: 75ch;
-}
-
-/* Desktop enhancement */
-@media (min-width: 900px){
-  .section-intro h2,
-  .section-intro h3{
-    font-size: 30px;
-  }
-
-  .section-intro .lead{
-    font-size: 19px;
-  }
-}
-/* === Unified section header style (About Us + Capabilities) === */
-
-/* Main section titles */
-.section-intro h2,
-.section-intro h3{
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 0.2px;
-  margin-bottom: 10px;
-  color: var(--text);
-}
-
-/* Lead text under section headers */
-.section-intro .lead{
-  font-size: 18px;
-  line-height: 1.7;
-  max-width: 75ch;
-}
-
-/* Desktop enhancement */
-@media (min-width: 900px){
-  .section-intro h2,
-  .section-intro h3{
-    font-size: 30px;
-  }
-
-  .section-intro .lead{
-    font-size: 19px;
-  }
-}
-.filters{
-  display:grid;
-  gap:14px;
-  padding:18px;
-  border:1px solid #d5dbe3;
-  border-radius:14px;
-  margin:16px 0 28px;
-  background:#f7f9fc;
-}
-
-.filters-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  align-items:center;
-}
-
-.filters label{
-  font-weight:700;
-  color:#1f2a37;
-}
-
-.filters input[type="search"]{
-  flex:1 1 260px;
-  padding:10px 14px;
-  border:1px solid #cbd5e1;
-  border-radius:10px;
-  background:#ffffff;
-  color:#1f2a37;
-  font-size:0.95rem;
-}
-
-.pill-group{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-
-.pill{
-  padding:8px 14px;
-  border:1px solid #cbd5e1;
-  border-radius:999px;
-  background:#ffffff;
-  cursor:pointer;
-  font-size:0.9rem;
-  font-weight:600;
-  color:#1f2a37;
-  transition:all 0.2s ease;
-}
-
-.pill:hover{
-  background:#e2e8f0;
-}
-
-.pill[aria-pressed="true"]{
-  background:#0f172a;
-  color:#ffffff;
-  border-color:#0f172a;
-}
-
-.filters .meta{
-  font-size:0.95rem;
-  color:#334155;
-}
-
-.filters .btn{
-  padding:8px 14px;
-  border:1px solid #cbd5e1;
-  border-radius:10px;
-  background:#ffffff;
-  font-weight:600;
-  cursor:pointer;
-  color:#1f2937;
-  transition:all 0.2s ease;
-}
-
-.filters .btn:hover{
-  background:#e2e8f0;
-}
-
-/* Project cards */
-
+/* ---------- Projects page basics (kept minimal) ---------- */
 .projects-grid{
   display:grid;
+  grid-template-columns:1fr;
   gap:16px;
-  margin:12px 0 28px;
 }
 
-.project-card{
-  border:1px solid #d5dbe3;
-  border-radius:16px;
-  padding:18px;
-  background:#ffffff;
-  box-shadow:0 4px 12px rgba(0,0,0,0.05);
-  transition:all 0.2s ease;
-}
-
-.project-card:hover{
-  box-shadow:0 6px 18px rgba(0,0,0,0.08);
-  transform:translateY(-2px);
-}
-
-.project-card h4{
-  margin:0 0 10px;
-  font-size:1.05rem;
-  color:#0f172a;
-}
-
-.project-card h4 a{
-  color:#0f172a;
-  text-decoration:none;
-}
-
-.project-card h4 a:hover{
-  text-decoration:underline;
-}
-
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-}
-
-.tag{
-  font-size:0.8rem;
-  padding:5px 10px;
-  border-radius:999px;
-  background:#e2e8f0;
-  color:#1e293b;
-  font-weight:600;
-}
-
-.project-note{
-  margin-top:8px;
-  color:#475569;
-}
-/* --- Projects filters: improve dropdown visibility --- */
-select, input[type="search"]{
-  color: var(--text);
-  font-weight: 600;
-}
-
-select{
-  background: rgba(255,255,255,.10);
-  border: 1px solid var(--line);
-}
-
-/* Dropdown list (opened options) */
-select option{
-  background: #0b1220;   /* solid dark so text is readable */
-  color: #e8edf7;        /* bright text */
-}
-
-/* Placeholder-like text in search */
-input[type="search"]::placeholder{
-  color: rgba(232,237,247,.70);
-}
-/* Projects card title */
-.project-title{
-  margin: 0 0 6px;
-  font-size: 1.05rem;     /* smaller than section headers */
-  font-weight: 600;
-  line-height: 1.35;
-  color: #0b1220;         /* clean dark tone */
-}
-/* Projects card title */
-.project-title{
-  margin: 0 0 6px;
-  font-size: 1.05rem;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--text);   /* restores white theme color */
-}
-.projects-grid{
-  grid-template-columns: 1fr;
-  max-width: 900px;
-  margin: 0 auto;
-}
-/* Projects page grid: force 1 column */
-#projectsGrid.projects-grid{
-  display: grid;
-  grid-template-columns: 1fr !important;
-  gap: 14px;
-}
-/* ONE CARD PER LINE */
-.projects-grid{
-display:grid;
-grid-template-columns:1fr;
-gap:16px;
-}
-
-/* Smaller white title */
-.project-title{
-font-size:1.05rem;
-color:#ffffff;
-margin:0 0 10px;
-}
-/* =========================
-   Projects Filters Layout
-   ========================= */
-
-.filters-two-rows{
-  display: grid;
-  gap: 12px;
-}
-
-/* each row is one line */
-.filters-row{
-  display: flex;
-  gap: 12px;
-  align-items: flex-end;
-  flex-wrap: nowrap; /* keep on ONE line */
-}
-
-/* Search row: stretch full width */
-.filter-search{
-  flex: 1 1 auto;
-}
-
-/* Dropdown row fields sizing */
-.filter-field{
-  flex: 0 0 180px;  /* consistent dropdown widths */
-}
-
-.filters-row-selects select{
-  width: 100%;
-}
-
-/* Reset button sizing */
-.filters-row-selects .btn{
-  flex: 0 0 auto;
-  white-space: nowrap;
-}
-
-/* Make inputs/selects more readable (fix faint text) */
-#projects-portfolio input[type="search"],
-#projects-portfolio select{
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.22);
-  background: rgba(255,255,255,0.12);
-  color: var(--text);
-  font-weight: 700;
-}
-
-/* Stronger placeholder (was too faint) */
-#projects-portfolio input[type="search"]::placeholder{
-  color: rgba(232,237,247,0.92);
-  font-weight: 600;
-}
-
-/* If the browser draws the "x" clear icon too faint */
-#projects-portfolio input[type="search"]::-webkit-search-cancel-button{
-  filter: brightness(1.2);
-}
-
-/* Responsive: allow wrapping on small screens */
-@media (max-width: 1100px){
-  .filters-row{ flex-wrap: wrap; }
-  .filter-field{ flex: 1 1 200px; }
-}
-/* ===== Projects filters: final layout fix (override) ===== */
-
-/* Force two rows no matter what */
-#projects-portfolio .filters-two-rows{
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 14px;
-}
-
-/* Row 1: Search should fill the full line */
-#projects-portfolio .filters-row-search{
-  display: flex !important;
-  width: 100%;
-}
-
-#projects-portfolio .filters-row-search .filter-field{
-  flex: 1 1 100% !important;
-  width: 100%;
-}
-
-#projects-portfolio .filters-row-search input[type="search"]{
-  width: 100% !important;
-  max-width: none !important;
-}
-
-/* Row 2: dropdowns in one line, but flexible (no overflow) */
-#projects-portfolio .filters-row-selects{
-  display: flex !important;
-  gap: 12px;
-  align-items: flex-end;
-  flex-wrap: nowrap;     /* keep one line on desktop */
-}
-
-/* Make each dropdown field flexible instead of fixed width */
-#projects-portfolio .filters-row-selects .filter-field{
-  flex: 1 1 0 !important;     /* share row width equally */
-  min-width: 140px;           /* don’t collapse too much */
-}
-
-/* Reset stays fixed */
-#projects-portfolio .filters-row-selects #reset{
-  flex: 0 0 auto;
-  white-space: nowrap;
-}
-
-/* Mobile: allow wrapping */
-@media (max-width: 1100px){
-  #projects-portfolio .filters-row-selects{
-    flex-wrap: wrap;
-  }
-  #projects-portfolio .filters-row-selects .filter-field{
-    flex: 1 1 220px !important;
-  }
-}
-/* Reset button on its own line */
-#projects-portfolio .filters-row-reset{
-  display: flex;
-  justify-content: flex-end;   /* right align */
-  margin-top: 4px;
-}
-
-#projects-portfolio #reset{
-  flex: 0 0 auto !important;
-  width: auto !important;
-  padding: 8px 18px;
-}
-/* Space between filters card and first project card */
-#projects-portfolio .projects-filters{
-  margin-bottom: 16px;   /* same as project card gap */
-}
-
-/* Ensure project grid doesn't collapse spacing */
-#projects-portfolio .projects-grid{
-  margin-top: 0;
-}
-.company-card .lead{
-  max-width: none;
-}
-/* =========================
-   Home Page Image Slider
-   ========================= */
-
-.image-slider{
-  overflow: hidden;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.slider-track{
-  display: flex;
-  gap: 20px;
-  animation: scrollImages 25s linear infinite;
-}
-
-.slider-track img{
-  width: 380px;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  flex-shrink: 0;
-}
-
-/* Smooth horizontal movement */
-@keyframes scrollImages{
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-/* =========================
-   Home Page Image Slider
-   ========================= */
-
-.image-slider{
-  overflow: hidden;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.slider-track{
-  display: flex;
-  gap: 20px;
-  animation: scrollImages 25s linear infinite;
-}
-
-.slider-track img{
-  width: 380px;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  flex-shrink: 0;
-}
-
-/* Smooth horizontal movement */
-@keyframes scrollImages{
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-/* Home slider when used inside the hero right column */
-.hero-slider{
-  padding: 12px;
-}
-
-.hero-slider .slider-track img{
-  width: 260px;
-  height: 170px;
-}
-/* Home hero slider (3 photos, no duplicates) */
-.hero-slider{
-  overflow: hidden;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-}
-
-.hero-slider-track{
-  display: flex;
-  transition: transform 700ms ease;
-}
-
-.hero-slider-track img{
-  height: 180px;
-  object-fit: cover;
-  display: block;
-}
-/* =========================
-   Home: 3-row layout
-   ========================= */
-.home-hero{
-  display: grid;
-  gap: 18px;
-}
-
-.home-row-3{
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 14px;
-  align-items: stretch;
-}
-
-.home-row-3 > .card{
-  height: 100%;
-}
-
-
+/* ---------- Responsive ---------- */
 @media (max-width: 900px){
-  .home-row-3{
-    grid-template-columns: 1fr;
-  }
-}
+  h2{ font-size:34px; }
+  .menu{ gap:8px; }
+  .about-layout{ grid-template-columns:1fr; }
+  .about-index{ display:none; }
 
-/* =========================
-   Marquee (continuous LEFT -> RIGHT)
-   ========================= */
-.marquee{
-  overflow: hidden;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.04);
-  padding: 10px;
-}
+  .home-row-3{ grid-template-columns:1fr; }
 
-.marquee-track{
-  display: flex;
-  gap: 16px;
-  width: max-content;
-  align-items: center;
-  animation: marqueeLTR 26s linear infinite;
-  will-change: transform;
-}
+  .values-layout{ grid-template-columns:1fr; }
+  .values-grid{ grid-template-columns:1fr; }
 
-.marquee-track img{
-  width: 360px;
-  height: 190px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  flex-shrink: 0;
-  display: block;
-}
-
-@keyframes marqueeLTR{
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
-}
-
-.marquee:hover .marquee-track{
-  animation-play-state: paused;
-}
-
-@media (max-width: 900px){
   .marquee-track img{
-    width: 280px;
-    height: 165px;
+    width:280px;
+    height:165px;
   }
 }
-html, body{
-  overflow-x: hidden;
-}
-/* Marquee: keep it inside the container */
-.marquee{
-  overflow: hidden;
-  width: 100%;
-}
 
-.marquee-track{
-  width: auto;              /* remove max-content expansion effect */
-  max-width: 100%;
-}
-.marquee-track{
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  will-change: transform;
-  animation: marqueeLTR 26s linear infinite;
-}
-.marquee-track img{
-  width: 320px;
-  height: 185px;
-}
-/* ===== HARD STOP: prevent any horizontal overflow anywhere ===== */
-html, body { width: 100%; max-width: 100%; overflow-x: hidden !important; }
-main, section, header, footer { max-width: 100%; overflow-x: hidden; }
-
-/* 100vw often causes overflow due to scrollbar width */
-.nav, .hero, .footer { width: 100%; max-width: 100%; }
-
-/* Media should never exceed its parent */
-img, video, svg, canvas { max-width: 100%; height: auto; }
-
-/* Container must remain confined */
-.container { width: 100%; max-width: var(--max); margin: 0 auto; }
-
-/* Row 3: force equal widths (no content pushing wider) */
-.home-row-3{
-  display: grid;
-  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
-  gap: 14px;
-}
-.home-row-3 > .card{ min-width: 0; }
-
-/* Marquee must never contribute to page width */
-.marquee{ width: 100%; max-width: 100%; overflow: hidden; }
-.marquee-track{ max-width: 100%; }
-/* HARD FIX: remove any 100vw-based stretching */
-.home-hero,
-.home-row,
-.home-row > .card{
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-/* Ensure text elements can't force width */
-.home-row .kicker,
-.home-row h2,
-.home-row p{
-  max-width: 100% !important;
-}
-
-/* Also kill any accidental 100vw */
-.hero, .section, .card{
-  max-width: 100%;
-}
-/* Prevent any element from creating horizontal scroll */
-html, body{
-  overflow-x: hidden !important;
-}
-.hero,
-.section,
-.home-row,
-.card,
-.marquee,
-.marquee-track {
-  width: 100% !important;
-  max-width: 100% !important;
+@media (max-width: 768px){
+  .company-line{ grid-template-columns:1fr; }
+  .company-logo{ width:110px; margin-top:0; }
 }
