@@ -1527,3 +1527,33 @@ margin:0 0 10px;
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+/* =========================
+   Home Page Image Slider
+   ========================= */
+
+.image-slider{
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.slider-track{
+  display: flex;
+  gap: 20px;
+  animation: scrollImages 25s linear infinite;
+}
+
+.slider-track img{
+  width: 380px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+/* Smooth horizontal movement */
+@keyframes scrollImages{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
