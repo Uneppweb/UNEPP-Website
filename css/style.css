@@ -641,4 +641,21 @@ body.capabilities .section img{
   margin-left: auto;
   margin-right: auto;
 }
+/* =========================================
+   PROJECTS: Section statement full width
+   ========================================= */
+
+/* Make Projects section intro statement full width + justified */
+body.projects .section-intro .lead{
+  max-width: none;
+  text-align: justify;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* If there are any .lead paragraphs inside cards */
+body.projects .card .lead{
+  max-width: none;
+  text-align: justify;
+}
 
