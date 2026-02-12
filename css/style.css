@@ -865,3 +865,13 @@ body.projects .filters-row-search input[type="search"]{
   text-align:center;
   margin-bottom:8px;
 }
+/* =========================================
+   ABOUT – Force Our Values Text to White
+   ========================================= */
+
+#our-values .item,
+#our-values .item b,
+#our-values .item span,
+#our-values .item p{
+  color:#ffffff !important;
+}
