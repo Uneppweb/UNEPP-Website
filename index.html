@@ -6,6 +6,71 @@
   <title>UNEPP | Oil & Gas Engineering & Project Services</title>
   <meta name="description" content="United Engineers for Petroleum Projects (UNEPP) delivers engineering and project services across all phases of oil & gas development—from concept to commissioning. Operating in coordination with UNIFIED to serve the wider MENA region." />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- HARD FIX: prevent any horizontal stretching (overrides conflicting CSS) -->
+  <style>
+    html, body { max-width: 100%; overflow-x: hidden; }
+
+    /* Home 3-row layout */
+    .home-hero{ display:grid; gap:18px; }
+
+    /* Row 3: force equal cards */
+    .home-row-3{
+      display:grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap:14px;
+      align-items: stretch;
+    }
+    .home-row-3 > .card{ height:100%; }
+
+    @media (max-width: 900px){
+      .home-row-3{ grid-template-columns: 1fr; }
+    }
+
+    /* Marquee: CONFINE width + clip overflow so it cannot stretch page */
+    .marquee{
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      position: relative;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding: 10px;
+    }
+
+    .marquee-track{
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      width: max-content;              /* ok because marquee clips it */
+      will-change: transform;
+      animation: marqueeLTR 26s linear infinite;
+      transform: translate3d(-50%,0,0);
+    }
+
+    .marquee-track img{
+      width: 360px;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      flex-shrink: 0;
+      display: block;
+    }
+
+    /* Continuous LEFT -> RIGHT (no ping-pong) */
+    @keyframes marqueeLTR{
+      from { transform: translate3d(-50%,0,0); }
+      to   { transform: translate3d(0,0,0); }
+    }
+
+    .marquee:hover .marquee-track{ animation-play-state: paused; }
+
+    @media (max-width: 900px){
+      .marquee-track img{ width: 280px; height: 165px; }
+    }
+  </style>
 </head>
 
 <body>
