@@ -408,48 +408,48 @@ body.home .marquee:hover .marquee-track{
 }
 
 /* =========================================
-   ABOUT – Value colors (matched to attached diagram)
+   ABOUT – Exact Solid Colors (Pixel Matched)
    ========================================= */
 
 #our-values .item{
   color:#ffffff;
   border:none;
-  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+  box-shadow: 0 10px 22px rgba(0,0,0,.25);
 }
 
-/* HSE (sampled base ≈ #064461) */
+/* HSE */
 #our-values .value-hse{
-  background: linear-gradient(135deg, #0c5475, #032635);
+  background:#064461;
 }
 
-/* Quality (sampled base ≈ #d2703e) */
+/* Quality */
 #our-values .value-quality{
-  background: linear-gradient(135deg, #f7864c, #743e22);
+  background:#d2703e;
 }
 
-/* Best Resources (sampled base ≈ #1e6728) */
+/* Best Resources */
 #our-values .value-resources{
-  background: linear-gradient(135deg, #287c33, #113916);
+  background:#1e6728;
 }
 
-/* Client Integration (sampled base ≈ #1079a2) */
+/* Client Integration */
 #our-values .value-client{
-  background: linear-gradient(135deg, #1890c0, #094259);
+  background:#1079a2;
 }
 
-/* Codes and Standards (sampled base ≈ #933288) */
+/* Codes and Standards */
 #our-values .value-standards{
-  background: linear-gradient(135deg, #ae3fa1, #511c4b);
+  background:#933288;
 }
 
-/* Responsive to Market (sampled base ≈ #4f9237) */
+/* Responsive to Market */
 #our-values .value-responsive{
-  background: linear-gradient(135deg, #60ad44, #2b511e);
+  background:#4f9237;
 }
 
-/* Text tone refinement */
+/* Ensure text stays crisp */
 #our-values .item span{
-  color:#eef5ff;
+  color:#ffffff;
 }
 
 
