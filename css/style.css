@@ -518,8 +518,9 @@ body.home .marquee:hover .marquee-track{
   .company-line{ grid-template-columns: 1fr; }
   .company-logo{ width:110px; }
 }
-/* Home hero text justification fix */
-body.home .home-row .lead{
+/* Home: justify text in ALL cards */
+body.home .card p{
   text-align: justify;
-  max-width: none;   /* ensures text fills the full card width */
+  max-width: none;   /* remove width limitation inside cards */
 }
+
