@@ -913,3 +913,31 @@ header.nav{
 html{ overflow-x: hidden; }
 body{ overflow-x: hidden; overflow-y: visible; }
 main{ overflow: visible; }
+/* =========================================
+   HOME – Force footer to appear (restore normal scroll)
+   ========================================= */
+
+/* Ensure the page can scroll vertically */
+html, body{
+  height: auto !important;
+  overflow-y: auto !important;
+}
+
+/* Keep only horizontal clipping */
+body.home{
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+/* Ensure hero doesn't lock the viewport height */
+body.home .hero{
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* Make footer definitely render on top of backgrounds */
+body.home footer.footer{
+  display: block !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
