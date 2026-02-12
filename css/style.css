@@ -1583,3 +1583,68 @@ margin:0 0 10px;
   object-fit: cover;
   display: block;
 }
+/* =========================
+   Home: 3-row layout
+   ========================= */
+.home-hero{
+  display: grid;
+  gap: 18px;
+}
+
+.home-row-3{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 900px){
+  .home-row-3{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   Marquee (continuous LEFT -> RIGHT)
+   ========================= */
+.marquee{
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  padding: 10px;
+}
+
+.marquee-track{
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  align-items: center;
+  animation: marqueeLTR 26s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track img{
+  width: 360px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+  display: block;
+}
+
+@keyframes marqueeLTR{
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee:hover .marquee-track{
+  animation-play-state: paused;
+}
+
+@media (max-width: 900px){
+  .marquee-track img{
+    width: 280px;
+    height: 165px;
+  }
+}
