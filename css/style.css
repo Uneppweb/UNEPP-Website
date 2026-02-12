@@ -804,3 +804,33 @@ body.projects .filters-row-search input[type="search"]{
 #leadership .leader-ceo{
   grid-column: auto;
 }
+/* =========================================
+   ABOUT – Leadership Layout (CEO Centered)
+   ========================================= */
+
+/* First row (CEO only) */
+#leadership .leadership:first-of-type{
+  display:flex;
+  justify-content:center;
+}
+
+/* Make CEO same width as the two below */
+#leadership .leader-ceo{
+  width:100%;
+  max-width:420px;   /* match width of bottom boxes */
+}
+
+/* Bottom two leaders */
+#leadership .two-col{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:14px;
+  margin-top:14px;
+}
+
+/* Mobile stacking */
+@media (max-width: 768px){
+  #leadership .two-col{
+    grid-template-columns: 1fr;
+  }
+}
