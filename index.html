@@ -87,7 +87,11 @@
         </div>
       </a>
 
-      <nav class="menu" aria-label="Primary">
+<button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryMenu">
+  <span></span><span></span><span></span>
+</button>
+
+      <nav id="primaryMenu" class="menu" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="capabilities.html">Capabilities</a>
@@ -194,5 +198,6 @@
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 
+  <script src="js/main.js"></script>
 </body>
 </html>
