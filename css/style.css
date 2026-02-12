@@ -834,3 +834,19 @@ body.projects .filters-row-search input[type="search"]{
     grid-template-columns: 1fr;
   }
 }
+/* =========================================
+   ABOUT – Milestones White Card Override
+   ========================================= */
+
+#milestones .card{
+  background:#ffffff;
+  color:#000000;
+  border:1px solid #e4e8f0;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+}
+
+/* Ensure list text stays black */
+#milestones .card li,
+#milestones .card b{
+  color:#000000;
+}
