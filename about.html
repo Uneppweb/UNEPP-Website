@@ -119,11 +119,11 @@
   </div>
 
   <div class="card">
-    <div class="values-layout">
+    <div class="values-stage-unepp">
 
       <!-- LEFT: Wheel -->
-      <div class="values-visual values-wrapper" aria-label="UNEPP values wheel">
-        <div class="values-rotating" id="valuesWheel">
+      <div class="values-wheel-unepp" aria-label="UNEPP values wheel">
+        <div class="values-wheel-rotator-unepp" id="valuesWheel">
           <img
             src="assets/images/our-values.png"
             alt="UNEPP core values: HSE, Quality, Best Resources, Client Integration, Codes and Standards, Responsive to Market"
@@ -131,30 +131,29 @@
         </div>
 
         <!-- Static center title -->
-        <div class="values-center" aria-hidden="true">
-          <h2>UNEPP<br>VALUES</h2>
+        <div class="values-wheel-center-unepp" aria-hidden="true">
+          <div class="values-wheel-center-text-unepp">UNEPP<br>VALUES</div>
         </div>
       </div>
 
-      <!-- RIGHT: ONE dynamic box -->
-      <div class="value-box" id="valueBox" aria-live="polite">
-        <h3 class="value-title fade show" id="valueTitle"></h3>
-        <p class="value-desc fade show" id="valueDesc"></p>
+      <!-- RIGHT: Dynamic Box -->
+      <div class="values-box-unepp" id="valueBox" aria-live="polite">
+        <h3 class="values-box-title-unepp fade show" id="valueTitle"></h3>
+        <p class="values-box-desc-unepp fade show" id="valueDesc"></p>
       </div>
 
     </div>
 
-    <!-- Hidden measurer (keeps box height fixed to max text) -->
-    <div class="measure-wrap" id="measureWrap" aria-hidden="true">
-      <div class="measure-box" id="measureBox">
-        <h3 class="measure-title" id="measureTitle"></h3>
-        <p class="measure-desc" id="measureDesc"></p>
+    <!-- Hidden measurer (keeps box height stable) -->
+    <div class="values-measure-wrap-unepp" id="measureWrap" aria-hidden="true">
+      <div class="values-measure-box-unepp" id="measureBox">
+        <h3 class="values-measure-title-unepp" id="measureTitle"></h3>
+        <p class="values-measure-desc-unepp" id="measureDesc"></p>
       </div>
     </div>
 
   </div>
 
-  <!-- JS: auto-rotate + update box (you can move this to your main JS file later) -->
   <script>
   (function(){
     const wheel = document.getElementById("valuesWheel");
@@ -205,10 +204,7 @@
       }
     ];
 
-    // Timing (increase to allow reading)
-    const intervalMs = 5000; // 5s per value
-
-    // Continuous clockwise rotation
+    const intervalMs = 5000; // readable
     let index = 0;
     let rotation = 0;
     const stepAngle = 60;
@@ -229,7 +225,7 @@
 
     function next(){
       index = (index + 1) % values.length;
-      rotation += stepAngle; // keeps increasing => no snap-back
+      rotation += stepAngle;
       wheel.style.transform = `rotate(${rotation}deg)`;
       updateContent(index);
     }
@@ -241,7 +237,6 @@
       const measureWrap = document.getElementById("measureWrap");
       if(!measureBox || !measureTitle || !measureDesc || !measureWrap) return;
 
-      // match measurer width to live box width so height calc is accurate
       const w = box.getBoundingClientRect().width;
       measureWrap.style.width = w + "px";
       measureBox.style.width = w + "px";
@@ -269,6 +264,7 @@
   })();
   </script>
 </section>
+
 
  
       <!-- Leadership Team -->
