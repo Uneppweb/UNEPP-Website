@@ -1223,3 +1223,40 @@ body.home footer.footer{
   justify-content:center;  /* keeps group centered */
   gap:60px;                /* proper visual breathing room */
 }
+#our-values .values-grid,
+#our-values .values-grid .item{
+  display: none !important;
+}
+/* ===== FORCE VALUES LAYOUT FIX ===== */
+
+#our-values .values-stage-unepp{
+  display: grid !important;
+  grid-template-columns: 520px 520px;
+  justify-content: center;
+  align-items: center;
+  column-gap: 60px;
+}
+
+#our-values .values-wheel-unepp{
+  width: 520px !important;
+  height: 520px !important;
+}
+
+#our-values .values-box-unepp{
+  max-width: 520px !important;
+  width: 100%;
+}
+#our-values .values-box-title-unepp{
+  font-size: 36px !important;   /* Larger */
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  margin-bottom: 16px !important;
+}
+#our-values .values-box-desc-unepp{
+  font-size: 18px !important;   /* Bigger */
+  line-height: 1.75 !important;
+  color: #ffffff !important;    /* Force white */
+  opacity: 1 !important;        /* Remove faint look */
+  text-align: justify !important;
+  text-justify: inter-word;
+}
