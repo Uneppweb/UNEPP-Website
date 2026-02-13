@@ -120,67 +120,156 @@
 
   <div class="card">
     <div class="values-layout">
-      <div class="values-visual">
-        <img
-          src="assets/images/our-values.png"
-          alt="UNEPP core values: HSE, Quality, Best Resources, Client Integration, Codes and Standards, Responsive to Market"
-        />
+
+      <!-- LEFT: Wheel -->
+      <div class="values-visual values-wrapper" aria-label="UNEPP values wheel">
+        <div class="values-rotating" id="valuesWheel">
+          <img
+            src="assets/images/our-values.png"
+            alt="UNEPP core values: HSE, Quality, Best Resources, Client Integration, Codes and Standards, Responsive to Market"
+          />
+        </div>
+
+        <!-- Static center title -->
+        <div class="values-center" aria-hidden="true">
+          <h2>UNEPP<br>VALUES</h2>
+        </div>
       </div>
 
-      <div class="grid values-grid">
+      <!-- RIGHT: ONE dynamic box -->
+      <div class="value-box" id="valueBox" aria-live="polite">
+        <h3 class="value-title fade show" id="valueTitle"></h3>
+        <p class="value-desc fade show" id="valueDesc"></p>
+      </div>
 
-        <div class="item value-hse">
-          <b>HSE</b>
-          <span>
-            We are uncompromising in our commitment to Health, Safety, and Environmental protection.
-            Safeguarding people, assets, and the environment is embedded in every phase of our work.
-          </span>
-        </div>
+    </div>
 
-        <div class="item value-quality">
-          <b>Quality</b>
-          <span>
-            Quality defines our reputation. Through disciplined processes, technical excellence,
-            and continuous improvement, we deliver reliable and compliant engineering solutions.
-          </span>
-        </div>
-
-        <div class="item value-responsive">
-          <b>Responsive to Market</b>
-          <span>
-            We proactively adapt to evolving industry dynamics, regulatory changes,
-            and client needs—turning complexity into opportunity with agility and foresight.
-          </span>
-        </div>
-
-        <div class="item value-resources">
-          <b>Best Resources</b>
-          <span>
-            We invest in highly qualified professionals, advanced engineering tools,
-            and innovative technologies to ensure efficient, value-driven project delivery.
-          </span>
-        </div>
-
-        <div class="item value-standards">
-          <b>Codes and Standards</b>
-          <span>
-            Strict adherence to international codes, standards, and best practices
-            ensures technical integrity, safety compliance, and long-term asset reliability.
-          </span>
-        </div>
-
-        <div class="item value-client">
-          <b>Client Integration</b>
-          <span>
-            We build strong, collaborative partnerships with our clients—integrating seamlessly
-            with their teams to co-develop solutions founded on trust, transparency, and performance.
-          </span>
-        </div>
-
+    <!-- Hidden measurer (keeps box height fixed to max text) -->
+    <div class="measure-wrap" id="measureWrap" aria-hidden="true">
+      <div class="measure-box" id="measureBox">
+        <h3 class="measure-title" id="measureTitle"></h3>
+        <p class="measure-desc" id="measureDesc"></p>
       </div>
     </div>
+
   </div>
+
+  <!-- JS: auto-rotate + update box (you can move this to your main JS file later) -->
+  <script>
+  (function(){
+    const wheel = document.getElementById("valuesWheel");
+    const box = document.getElementById("valueBox");
+    const titleEl = document.getElementById("valueTitle");
+    const descEl = document.getElementById("valueDesc");
+
+    if(!wheel || !box || !titleEl || !descEl) return;
+
+    // Sequence required:
+    // HSE, Responsive, Codes, Integration, Best Resources, Quality
+    const values = [
+      {
+        key: "HSE",
+        color: "rgb(232,38,118)",
+        desc:
+          "We are uncompromising in our commitment to Health, Safety, and Environmental protection. Safeguarding people, assets, and the environment is embedded in every phase of our work."
+      },
+      {
+        key: "Responsive to Market",
+        color: "rgb(130,18,133)",
+        desc:
+          "We proactively adapt to evolving industry dynamics, regulatory changes, and client needs—turning complexity into opportunity with agility and foresight."
+      },
+      {
+        key: "Codes and Standards",
+        color: "rgb(189,32,49)",
+        desc:
+          "Strict adherence to international codes, standards, and best practices ensures technical integrity, safety compliance, and long-term asset reliability."
+      },
+      {
+        key: "Client Integration",
+        color: "rgb(0,106,171)",
+        desc:
+          "We build strong, collaborative partnerships with our clients—integrating seamlessly with their teams to co-develop solutions founded on trust, transparency, and performance."
+      },
+      {
+        key: "Best Resources",
+        color: "rgb(41,144,63)",
+        desc:
+          "We invest in highly qualified professionals, advanced engineering tools, and innovative technologies to ensure efficient, value-driven project delivery."
+      },
+      {
+        key: "Quality",
+        color: "rgb(191,140,0)",
+        desc:
+          "Quality defines our reputation. Through disciplined processes, technical excellence, and continuous improvement, we deliver reliable and compliant engineering solutions."
+      }
+    ];
+
+    // Timing (increase to allow reading)
+    const intervalMs = 5000; // 5s per value
+
+    // Continuous clockwise rotation
+    let index = 0;
+    let rotation = 0;
+    const stepAngle = 60;
+
+    function updateContent(i){
+      titleEl.classList.remove("show");
+      descEl.classList.remove("show");
+
+      setTimeout(() => {
+        titleEl.textContent = values[i].key;
+        descEl.textContent  = values[i].desc;
+        box.style.backgroundColor = values[i].color;
+
+        titleEl.classList.add("show");
+        descEl.classList.add("show");
+      }, 180);
+    }
+
+    function next(){
+      index = (index + 1) % values.length;
+      rotation += stepAngle; // keeps increasing => no snap-back
+      wheel.style.transform = `rotate(${rotation}deg)`;
+      updateContent(index);
+    }
+
+    function setMaxHeight(){
+      const measureBox = document.getElementById("measureBox");
+      const measureTitle = document.getElementById("measureTitle");
+      const measureDesc = document.getElementById("measureDesc");
+      const measureWrap = document.getElementById("measureWrap");
+      if(!measureBox || !measureTitle || !measureDesc || !measureWrap) return;
+
+      // match measurer width to live box width so height calc is accurate
+      const w = box.getBoundingClientRect().width;
+      measureWrap.style.width = w + "px";
+      measureBox.style.width = w + "px";
+
+      let maxH = 0;
+      for(const v of values){
+        measureTitle.textContent = v.key;
+        measureDesc.textContent  = v.desc;
+        const h = measureBox.getBoundingClientRect().height;
+        if(h > maxH) maxH = h;
+      }
+      box.style.minHeight = Math.ceil(maxH) + "px";
+    }
+
+    // Init
+    updateContent(0);
+    box.style.backgroundColor = values[0].color;
+
+    window.addEventListener("load", () => {
+      setMaxHeight();
+      setInterval(next, intervalMs);
+    });
+
+    window.addEventListener("resize", setMaxHeight);
+  })();
+  </script>
 </section>
+
  
       <!-- Leadership Team -->
 <section class="section" id="leadership">
