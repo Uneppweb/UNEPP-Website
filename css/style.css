@@ -1130,30 +1130,43 @@ body.home footer.footer{
 
 /* Dynamic Box */
 #our-values .values-box-unepp{
-  flex:1 1 auto;
-  max-width:520px;
-  border-radius:16px;
-  padding:24px;
+  flex:0 1 460px;              /* fixed readable width */
+  max-width:460px;
+  margin-left:auto;            /* keeps space from wheel */
+  margin-right:auto;           /* balances space inside card */
+  border-radius:18px;
+  padding:26px 28px;
   color:#fff;
-  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;      /* vertical centering */
+  text-align:center;           /* horizontal centering */
+  box-shadow:0 12px 34px rgba(0,0,0,0.16);
   transition:background-color .35s ease;
 }
 
+
 #our-values .values-box-title-unepp{
-  margin:0 0 12px;
+#our-values .values-box-title-unepp{
+  margin:0 0 14px;
   font-size:28px;
   font-weight:900;
   text-align:center;
+  color:#ffffff;
 }
 
 #our-values .values-box-desc-unepp{
-  margin:0;
+  margin:0 auto;
   font-size:15px;
-  line-height:1.65;
+  line-height:1.7;
+  max-width:420px;        /* centers readable paragraph block */
   text-align:justify;
   text-justify:inter-word;
   hyphens:auto;
+  color:#ffffff;          /* ensure always white */
+  opacity:1;
 }
+
 
 /* Fade */
 #our-values .fade{
@@ -1203,4 +1216,10 @@ body.home footer.footer{
   #our-values .values-wheel-center-text-unepp{ font-size:22px; }
   #our-values .values-box-title-unepp{ font-size:18px; }
   #our-values .values-box-desc-unepp{ font-size:13px; }
+}
+#our-values .values-stage-unepp{
+  display:flex;
+  align-items:center;
+  justify-content:center;  /* keeps group centered */
+  gap:60px;                /* proper visual breathing room */
 }
