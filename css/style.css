@@ -451,8 +451,6 @@ body.home .marquee:hover .marquee-track{
   background:#821285;
 }
 
-}
-
 /* Force ALL text inside value boxes to white */
 #our-values .item b,
 #our-values .item span,
@@ -1147,7 +1145,6 @@ body.home footer.footer{
 
 
 #our-values .values-box-title-unepp{
-#our-values .values-box-title-unepp{
   margin:0 0 14px;
   font-size:28px;
   font-weight:900;
@@ -1259,4 +1256,48 @@ body.home footer.footer{
   opacity: 1 !important;        /* Remove faint look */
   text-align: justify !important;
   text-justify: inter-word;
+}
+
+/* =========================================
+   OUR VALUES – Wheel + Dynamic Box (FINAL OVERRIDES)
+   ========================================= */
+#our-values .values-stage-unepp{
+  display:grid !important;
+  grid-template-columns: 520px 1fr;
+  align-items:center;
+  column-gap: 60px;
+}
+
+#our-values .values-wheel-unepp{ justify-self:start; }
+
+#our-values .values-box-unepp{
+  width: min(520px, 100%);
+  justify-self:center; /* centers between wheel edge and card right edge */
+  background: rgba(255,255,255,.06); /* JS will override with value color */
+  color:#ffffff !important;
+}
+
+/* Typography */
+#our-values .values-box-title-unepp{
+  font-size: 36px !important;
+  font-weight: 900 !important;
+  color:#ffffff !important;
+  text-align:center;
+  margin: 0 0 16px !important;
+}
+
+#our-values .values-box-desc-unepp{
+  font-size: 18px !important;
+  line-height: 1.75 !important;
+  color:#ffffff !important;
+  opacity: 1 !important;
+  text-align: justify !important;
+  text-justify: inter-word;
+  hyphens:auto;
+}
+
+/* Hide any legacy values grid if still present somewhere */
+#our-values .values-grid,
+#our-values .values-layout{
+  display:none !important;
 }
