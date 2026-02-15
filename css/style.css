@@ -926,11 +926,7 @@ body.projects .filters-row-search input[type="search"]{
    HOME – Force footer to appear (restore normal scroll)
    ========================================= */
 
-/* Ensure the page can scroll vertically */
-html, body{
-  height: auto !important;
-  overflow-y: auto !important;
-}
+
 
 /* Ensure hero doesn't lock the viewport height */
 body.home .hero{
