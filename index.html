@@ -9,8 +9,11 @@
 
   <!-- HARD FIX: prevent any horizontal stretching (overrides conflicting CSS) -->
   <style>
-html, body { max-width: 100%; }
-body { overflow-x: clip; }  /* keeps sticky working better than hidden */
+html, body { max-width: 100%; overflow-x: visible; }
+
+/* prevent horizontal stretching without touching the scroll container */
+main { overflow-x: clip; }     /* or: hidden; */
+
 
     /* Home 3-row layout */
     .home-hero{ display:grid; gap:18px; }
