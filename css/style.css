@@ -920,29 +920,7 @@ body.projects .filters-row-search input[type="search"]{
 #our-values .item p{
   color:#ffffff !important;
 }
-/* =========================================
-   HOME – Ensure footer is visible
-   ========================================= */
 
-/* Make page layout flow correctly to footer */
-html, body { height: 100%; }
-
-body{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-main{
-  flex: 1 0 auto;
-}
-
-footer.footer{
-  flex: 0 0 auto;
-  display: block;
-  position: relative;
-  z-index: 1;
-}
 
 /* =========================================
    HOME – Force footer to appear (restore normal scroll)
