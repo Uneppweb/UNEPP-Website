@@ -1302,3 +1302,17 @@ body.home footer.footer{
 #our-values .values-layout{
   display:none !important;
 }
+/* Ensure footer sticks to bottom when content is short */
+html, body {
+  height: 100%;
+}
+
+body.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.home main {
+  flex: 1;
+}
