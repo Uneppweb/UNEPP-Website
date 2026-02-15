@@ -353,7 +353,7 @@ UNEPP has developed robust capabilities in offshore engineering, with an annual 
 </script>
 
 <script>
-/* === PM Sequence auto-overlay (scoped to .pm-seq) === */
+/* === PM Sequence auto-overlay (looping) === */
 (function(){
   const root = document.querySelector('.pm-seq');
   if(!root) return;
@@ -362,21 +362,25 @@ UNEPP has developed robust capabilities in offshore engineering, with an annual 
   const base = frames.find(f => f.classList.contains('is-base'));
   const overlays = frames.filter(f => f !== base);
 
-  let idx = -1;              // -1 means only base
-  const delayMs = 3000;      // reading time per step (ms)
+  let idx = -1;               
+  const delayMs = 8000;       // <-- adjust speed here (8s example)
 
-  // Start clean
-  overlays.forEach(f => f.classList.remove('is-revealed'));
+  function resetSequence(){
+    overlays.forEach(f => f.classList.remove('is-revealed'));
+    idx = -1;
+  }
 
-  const t = setInterval(()=>{
+  setInterval(()=>{
     if(idx >= overlays.length - 1){
-      clearInterval(t);      // stop at final
-      return;
+      resetSequence();        // restart from blank
+    } else {
+      idx += 1;
+      overlays[idx].classList.add('is-revealed');
     }
-    idx += 1;
-    overlays[idx].classList.add('is-revealed');
   }, delayMs);
+
 })();
 </script>
+
 </body>
 </html>
