@@ -58,22 +58,15 @@ html, body {
   max-width: 100%;
 }
 
-body {
-  overflow-x: hidden; /* Prevent horizontal scroll without breaking sticky */
-}
-
 /* Sticky Header */
 .nav{
-  position: -webkit-sticky; /* Safari support */
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999; /* Strong stacking priority */
-
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  backdrop-filter: none;
+  z-index: 9999;
+  background:#ffffff;
+  border-bottom:1px solid #e5e7eb;
+  backdrop-filter:none;
 }
 
 /* Inner Header Layout */
@@ -235,12 +228,19 @@ hr.line{ border:none; border-top:1px solid var(--line); margin:18px 0; }
 .hero-cards{ display:grid; gap:14px; }
 
 /* =========================
-   HOME ONLY (index.html)
-   Add in index.html: <body class="home">
+   HOME ONLY (index.html) – Sticky-friendly overflow fix
    ========================= */
+
+/* DO NOT set overflow on body if you want sticky to work reliably */
 body.home{
-  overflow-x: hidden; /* stop Home from stretching */
+  overflow-x: visible;
 }
+
+/* Clip/hide horizontal overflow on content instead */
+body.home main{
+  overflow-x: hidden; /* or use: overflow-x: clip; */
+}
+
 
 body.home .home-hero{
   display:grid;
@@ -943,21 +943,7 @@ footer.footer{
   position: relative;
   z-index: 1;
 }
-/* =========================================
-   HOME – Restore sticky header
-   ========================================= */
 
-header.nav{
-  position: sticky !important;
-  top: 0;
-  z-index: 9999;
-}
-
-/* Sticky breaks if a parent has overflow hidden/auto.
-   Keep horizontal clipping only, and ensure vertical overflow is visible. */
-html{ overflow-x: hidden; }
-body{ overflow-x: hidden; overflow-y: visible; }
-main{ overflow: visible; }
 /* =========================================
    HOME – Force footer to appear (restore normal scroll)
    ========================================= */
@@ -965,12 +951,6 @@ main{ overflow: visible; }
 /* Ensure the page can scroll vertically */
 html, body{
   height: auto !important;
-  overflow-y: auto !important;
-}
-
-/* Keep only horizontal clipping */
-body.home{
-  overflow-x: hidden !important;
   overflow-y: auto !important;
 }
 
