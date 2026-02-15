@@ -6,6 +6,54 @@
   <title>Capabilities | UNEPP</title>
   <meta name="description" content="UNEPP capabilities across feasibility studies, FEED and detailed engineering, project and construction management, procurement, offshore engineering, tools and standards compliance." />
   <link rel="stylesheet" href="css/style.css" />
+<style>
+/* === PM Sequence (scoped) === */
+.pm-seq{ margin-top: 6px; }
+.pm-seq-stage{
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,.15);
+  background: #fff;
+}
+.pm-seq-frame{
+  width: 100%;
+  height: auto;
+  display: none;
+}
+.pm-seq-frame.is-active{ display:block; }
+
+.pm-seq-controls{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.pm-seq-btn{
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(15,26,49,.92);
+  color: #e8edf7;
+  cursor:pointer;
+}
+.pm-seq-btn:hover{ filter: brightness(1.08); }
+.pm-seq-meta{
+  color: rgba(10,20,40,.7);
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(0,0,0,.08);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+@media (prefers-reduced-motion: reduce){
+  .pm-seq *{ transition: none !important; animation: none !important; }
+}
+</style>
 </head>
 
 <body class="capabilities">
@@ -190,13 +238,29 @@
   <!-- CARD: image + boxes -->
   <div class="card">
 
-    <!-- Project Management workflow image -->
-    <div class="capability-visual">
-      <img
-        src="assets/images/Projects-Management.png"
-        alt="Project lifecycle from initiation through conceptual design, FEED, detailed engineering, procurement, construction, commissioning, and close-out"
-      />
-    </div>
+    <!-- Project Management workflow (animated sequence) -->
+<div class="capability-visual pm-seq" aria-label="Project lifecycle sequence">
+  <div class="pm-seq-stage" role="img" aria-label="Project lifecycle from initiation to close-out">
+    <img src="assets/images/pm/Slide1.JPG" alt="Blank project road map" class="pm-seq-frame is-active" loading="eager" decoding="async">
+    <img src="assets/images/pm/Slide2.JPG" alt="Step 1: Project Initiation" class="pm-seq-frame" loading="lazy" decoding="async">
+    <img src="assets/images/pm/Slide3.JPG" alt="Step 2: Conceptual Design" class="pm-seq-frame" loading="lazy" decoding="async">
+    <img src="assets/images/pm/Slide4.JPG" alt="Step 3: FEED" class="pm-seq-frame" loading="lazy" decoding="async">
+    <img src="assets/images/pm/Slide5.JPG" alt="Step 4: Detailed Engineering" class="pm-seq-frame" loading="lazy" decoding="async">
+    <img src="assets/images/pm/Slide6.JPG" alt="Step 5: Procurement" class="pm-seq-frame" loading="lazy" decoding="async">
+    <img src="assets/images/pm/Slide7.JPG" alt="Step 6: Construction" class="pm-seq-frame" loading="lazy" decoding="async">
+    <img src="assets/images/pm/Slide8.JPG" alt="Step 7: Commissioning & Start Up" class="pm-seq-frame" loading="lazy" decoding="async">
+    <img src="assets/images/pm/Slide9.JPG" alt="Step 8: Project Close Out" class="pm-seq-frame" loading="lazy" decoding="async">
+    <img src="assets/images/pm/Slide10.JPG" alt="Final: Full project lifecycle" class="pm-seq-frame" loading="lazy" decoding="async">
+  </div>
+
+  <div class="pm-seq-controls" aria-label="Sequence controls">
+    <button type="button" class="pm-seq-btn" data-action="prev" aria-label="Previous step">Prev</button>
+    <button type="button" class="pm-seq-btn" data-action="play" aria-label="Play sequence">Play</button>
+    <button type="button" class="pm-seq-btn" data-action="pause" aria-label="Pause sequence">Pause</button>
+    <button type="button" class="pm-seq-btn" data-action="next" aria-label="Next step">Next</button>
+    <span class="pm-seq-meta" aria-live="polite"><span class="pm-seq-step">Step 1</span> / 10</span>
+  </div>
+</div>
 
     <!-- Boxes -->
     <div class="split">
@@ -306,5 +370,54 @@ UNEPP has developed robust capabilities in offshore engineering, with an annual 
   document.getElementById("y").textContent = new Date().getFullYear();
 </script>
 
+<script>
+/* === PM Sequence controller (scoped to .pm-seq) === */
+(function(){
+  const root = document.querySelector('.pm-seq');
+  if(!root) return;
+
+  const frames = Array.from(root.querySelectorAll('.pm-seq-frame'));
+  const stepEl = root.querySelector('.pm-seq-step');
+  const total = frames.length;
+
+  let idx = 0;
+  let timer = null;
+  let delayMs = 5000; // 5s per step (adjust as needed)
+
+  function show(i){
+    idx = Math.max(0, Math.min(total-1, i));
+    frames.forEach((f,k)=>f.classList.toggle('is-active', k===idx));
+    if(stepEl) stepEl.textContent = `Step ${idx+1}`;
+  }
+
+  function play(){
+    pause();
+    timer = setInterval(()=>{
+      if(idx >= total-1){ pause(); return; }
+      show(idx+1);
+    }, delayMs);
+  }
+
+  function pause(){
+    if(timer){ clearInterval(timer); timer = null; }
+  }
+
+  function next(){ pause(); show(idx+1); }
+  function prev(){ pause(); show(idx-1); }
+
+  root.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.pm-seq-btn');
+    if(!btn) return;
+    const action = btn.getAttribute('data-action');
+    if(action === 'play') play();
+    if(action === 'pause') pause();
+    if(action === 'next') next();
+    if(action === 'prev') prev();
+  });
+
+  // Start at first frame
+  show(0);
+})();
+</script>
 </body>
 </html>
