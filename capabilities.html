@@ -7,51 +7,43 @@
   <meta name="description" content="UNEPP capabilities across feasibility studies, FEED and detailed engineering, project and construction management, procurement, offshore engineering, tools and standards compliance." />
   <link rel="stylesheet" href="css/style.css" />
 <style>
-/* === PM Sequence (scoped) === */
+/* === PM Sequence (auto overlay) === */
 .pm-seq{ margin-top: 6px; }
+
 .pm-seq-stage{
   position: relative;
   width: 100%;
-  max-width: 100%;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0,0,0,.15);
   background: #fff;
 }
+
+/* Stack all frames on top of each other */
 .pm-seq-frame{
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: auto;
-  display: none;
+  opacity: 0;
+  transition: opacity .7s ease;
+  pointer-events: none;
 }
-.pm-seq-frame.is-active{ display:block; }
 
-.pm-seq-controls{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  justify-content:center;
-  margin-top: 12px;
-  flex-wrap: wrap;
+/* First image defines the height/layout */
+.pm-seq-frame.is-base{
+  position: relative;
+  display: block;
+  opacity: 1;
 }
-.pm-seq-btn{
-  padding: 8px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,.15);
-  background: rgba(15,26,49,.92);
-  color: #e8edf7;
-  cursor:pointer;
+
+/* Any revealed frame fades in and stays visible */
+.pm-seq-frame.is-revealed{
+  opacity: 1;
 }
-.pm-seq-btn:hover{ filter: brightness(1.08); }
-.pm-seq-meta{
-  color: rgba(10,20,40,.7);
-  background: rgba(255,255,255,.85);
-  border: 1px solid rgba(0,0,0,.08);
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 13px;
-}
+
 @media (prefers-reduced-motion: reduce){
-  .pm-seq *{ transition: none !important; animation: none !important; }
+  .pm-seq-frame{ transition:none !important; }
 }
 </style>
 </head>
@@ -238,10 +230,10 @@
   <!-- CARD: image + boxes -->
   <div class="card">
 
-    <!-- Project Management workflow (animated sequence) -->
+    <!-- Project Management workflow (auto overlay sequence) -->
 <div class="capability-visual pm-seq" aria-label="Project lifecycle sequence">
   <div class="pm-seq-stage" role="img" aria-label="Project lifecycle from initiation to close-out">
-    <img src="assets/images/pm/Slide1.JPG" alt="Blank project road map" class="pm-seq-frame is-active" loading="eager" decoding="async">
+    <img src="assets/images/pm/Slide1.JPG" alt="Blank project road map" class="pm-seq-frame is-base" loading="eager" decoding="async">
     <img src="assets/images/pm/Slide2.JPG" alt="Step 1: Project Initiation" class="pm-seq-frame" loading="lazy" decoding="async">
     <img src="assets/images/pm/Slide3.JPG" alt="Step 2: Conceptual Design" class="pm-seq-frame" loading="lazy" decoding="async">
     <img src="assets/images/pm/Slide4.JPG" alt="Step 3: FEED" class="pm-seq-frame" loading="lazy" decoding="async">
@@ -251,14 +243,6 @@
     <img src="assets/images/pm/Slide8.JPG" alt="Step 7: Commissioning & Start Up" class="pm-seq-frame" loading="lazy" decoding="async">
     <img src="assets/images/pm/Slide9.JPG" alt="Step 8: Project Close Out" class="pm-seq-frame" loading="lazy" decoding="async">
     <img src="assets/images/pm/Slide10.JPG" alt="Final: Full project lifecycle" class="pm-seq-frame" loading="lazy" decoding="async">
-  </div>
-
-  <div class="pm-seq-controls" aria-label="Sequence controls">
-    <button type="button" class="pm-seq-btn" data-action="prev" aria-label="Previous step">Prev</button>
-    <button type="button" class="pm-seq-btn" data-action="play" aria-label="Play sequence">Play</button>
-    <button type="button" class="pm-seq-btn" data-action="pause" aria-label="Pause sequence">Pause</button>
-    <button type="button" class="pm-seq-btn" data-action="next" aria-label="Next step">Next</button>
-    <span class="pm-seq-meta" aria-live="polite"><span class="pm-seq-step">Step 1</span> / 10</span>
   </div>
 </div>
 
@@ -371,52 +355,29 @@ UNEPP has developed robust capabilities in offshore engineering, with an annual 
 </script>
 
 <script>
-/* === PM Sequence controller (scoped to .pm-seq) === */
+/* === PM Sequence auto-overlay (scoped to .pm-seq) === */
 (function(){
   const root = document.querySelector('.pm-seq');
   if(!root) return;
 
   const frames = Array.from(root.querySelectorAll('.pm-seq-frame'));
-  const stepEl = root.querySelector('.pm-seq-step');
-  const total = frames.length;
+  const base = frames.find(f => f.classList.contains('is-base'));
+  const overlays = frames.filter(f => f !== base);
 
-  let idx = 0;
-  let timer = null;
-  let delayMs = 5000; // 5s per step (adjust as needed)
+  let idx = -1;              // -1 means only base
+  const delayMs = 5000;      // reading time per step (ms)
 
-  function show(i){
-    idx = Math.max(0, Math.min(total-1, i));
-    frames.forEach((f,k)=>f.classList.toggle('is-active', k===idx));
-    if(stepEl) stepEl.textContent = `Step ${idx+1}`;
-  }
+  // Start clean
+  overlays.forEach(f => f.classList.remove('is-revealed'));
 
-  function play(){
-    pause();
-    timer = setInterval(()=>{
-      if(idx >= total-1){ pause(); return; }
-      show(idx+1);
-    }, delayMs);
-  }
-
-  function pause(){
-    if(timer){ clearInterval(timer); timer = null; }
-  }
-
-  function next(){ pause(); show(idx+1); }
-  function prev(){ pause(); show(idx-1); }
-
-  root.addEventListener('click', (e)=>{
-    const btn = e.target.closest('.pm-seq-btn');
-    if(!btn) return;
-    const action = btn.getAttribute('data-action');
-    if(action === 'play') play();
-    if(action === 'pause') pause();
-    if(action === 'next') next();
-    if(action === 'prev') prev();
-  });
-
-  // Start at first frame
-  show(0);
+  const t = setInterval(()=>{
+    if(idx >= overlays.length - 1){
+      clearInterval(t);      // stop at final
+      return;
+    }
+    idx += 1;
+    overlays[idx].classList.add('is-revealed');
+  }, delayMs);
 })();
 </script>
 </body>
