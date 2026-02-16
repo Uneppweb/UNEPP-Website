@@ -19,6 +19,12 @@
   /* Typography */
 --text:#0b1324;      /* nearly black navy */
 --muted:#334155;     /* medium slate */
+ body,
+p,
+li,
+span{
+  color: var(--text);
+}
 
   /* Brand */
   --brand:#0f3d8a;
@@ -217,12 +223,17 @@ h2{
 }
 
 .lead{
-  color:var(--muted);
-  font-size:16px;
-  max-width:58ch;
-  margin-bottom:16px;
+  color: var(--text);        /* change from muted to main text */
+  font-size: 1.05rem;        /* ~18px (corporate feel) */
+  max-width: 65ch;           /* slightly wider for white layout */
+  margin-bottom: 16px;
+  line-height: 1.75;
 }
-.lead + .lead{ margin-top:16px; }
+
+.lead + .lead{
+  margin-top: 16px;
+}
+
 
 .btn{
   display:inline-block;
