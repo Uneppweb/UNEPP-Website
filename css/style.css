@@ -495,7 +495,10 @@ body.home .marquee:hover .marquee-track{
 
 .brand-unepp{ color:#0b5ed7; font-weight:800; }
 .brand-unified{ color:#2fae8f; font-weight:800; }
-.brand-regulator{ color:#6b7a90; font-weight:700; }
+.brand-regulator{
+  color:#0f172a;     /* strong navy-charcoal */
+  font-weight:700;
+}
 
 .company-line{
   display:grid;
