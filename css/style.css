@@ -1322,3 +1322,50 @@ body.home {
 body.home main {
   flex: 1;
 }
+/* =========================================
+   CAPABILITIES – Software Continuous Marquee
+   ========================================= */
+
+body.capabilities .software-marquee{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  padding: 18px 10px;
+  margin-top: 10px;
+}
+
+body.capabilities .software-track{
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: max-content;
+  will-change: transform;
+  animation: softwareLTR 28s linear infinite;
+  transform: translate3d(-50%,0,0);
+}
+
+body.capabilities .software-track img{
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* makes logos white */
+  opacity: 0.85;
+  transition: 0.3s ease;
+}
+
+body.capabilities .software-track img:hover{
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+@keyframes softwareLTR{
+  from { transform: translate3d(-50%,0,0); }
+  to   { transform: translate3d(0,0,0); }
+}
+
+body.capabilities .software-marquee:hover .software-track{
+  animation-play-state: paused;
+}
