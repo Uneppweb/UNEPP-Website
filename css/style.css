@@ -1351,10 +1351,10 @@ body.capabilities .software-track img{
   height: 60px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1); /* makes logos white */
   opacity: 0.85;
   transition: 0.3s ease;
 }
+
 
 body.capabilities .software-track img:hover{
   opacity: 1;
