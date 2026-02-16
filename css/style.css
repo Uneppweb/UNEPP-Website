@@ -9,17 +9,26 @@
    Theme + Base
    ========================= */
 :root{
+  /* Core Layout */
   --bg:#ffffff;
   --panel:#ffffff;
-  --text:#1f2937;
-  --muted:#64748b;
-  --brand:#0b5ed7;        /* can adjust later */
-  --line:rgba(0,0,0,.08);
   --card:#ffffff;
-  --shadow:0 6px 18px rgba(0,0,0,.06);
   --radius:18px;
   --max:1600px;
+
+  /* Typography */
+  --text:#111827;          /* slightly deeper charcoal */
+  --muted:#6b7280;         /* softer gray for lead text */
+
+  /* Brand (Corporate Engineering Blue) */
+  --brand:#0f3d8a;         /* deeper, more executive blue */
+  --brand-light:#1d4ed8;   /* hover / accent */
+
+  /* Lines & Shadows */
+  --line:rgba(0,0,0,.06);
+  --shadow:0 8px 22px rgba(0,0,0,.05);
 }
+
 
 
 *{ box-sizing:border-box; }
