@@ -17,8 +17,8 @@
   --max:1600px;
 
   /* Typography */
-  --text:#111827;
-  --muted:#6b7280;
+--text:#0b1324;      /* nearly black navy */
+--muted:#334155;     /* medium slate */
 
   /* Brand */
   --brand:#0f3d8a;
@@ -245,7 +245,11 @@ h2{
   min-width:0; /* prevents grid overflow */
 }
 .card h3{ margin:0 0 6px; }
-.card p{ margin:0; color:var(--muted); font-size:14px; }
+.card p{
+  margin:0;
+  color:var(--text);
+  font-size:1rem;
+}
 
 hr.line{ border:none; border-top:1px solid var(--line); margin:18px 0; }
 
