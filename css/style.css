@@ -1343,7 +1343,7 @@ body.capabilities .software-track{
   gap: 60px;
   width: max-content;
   will-change: transform;
-  animation: softwareLTR 28s linear infinite;
+  animation: softwareLTR 40s linear infinite;
   transform: translate3d(-50%,0,0);
 }
 
