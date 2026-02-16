@@ -1368,3 +1368,9 @@ body.capabilities .software-track img:hover{
 body.capabilities .software-marquee:hover .software-track{
   animation-play-state: paused;
 }
+body.capabilities .software-logo img{
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
