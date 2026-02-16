@@ -17,17 +17,55 @@
   --max:1600px;
 
   /* Typography */
-  --text:#111827;          /* slightly deeper charcoal */
-  --muted:#6b7280;         /* softer gray for lead text */
+  --text:#111827;
+  --muted:#6b7280;
 
-  /* Brand (Corporate Engineering Blue) */
-  --brand:#0f3d8a;         /* deeper, more executive blue */
-  --brand-light:#1d4ed8;   /* hover / accent */
+  /* Brand */
+  --brand:#0f3d8a;
+  --brand-light:#1d4ed8;
 
   /* Lines & Shadows */
   --line:rgba(0,0,0,.06);
   --shadow:0 8px 22px rgba(0,0,0,.05);
 }
+
+/* =========================================
+   Corporate-modern typography (UNEPP)
+   ========================================= */
+
+html{ font-size: 17px; }
+
+body{
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,h2,h3,h4{
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h2{
+  font-size: clamp(30px, 2.6vw, 40px);
+  margin: 10px 0 12px;
+}
+
+h3{
+  font-size: clamp(18px, 1.35vw, 22px);
+  margin: 0 0 8px;
+}
+
+.card h3{ margin:0 0 6px; } /* remove forced 16px */
+
+.lead{
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 65ch;
+}
+
 
 
 
