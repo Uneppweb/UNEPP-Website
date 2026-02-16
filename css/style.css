@@ -1344,7 +1344,6 @@ body.capabilities .software-track{
   width: max-content;
   will-change: transform;
   animation: softwareLTR 40s linear infinite;
-  transform: translate3d(-50%,0,0);
 }
 
 body.capabilities .software-track img{
@@ -1362,8 +1361,8 @@ body.capabilities .software-track img:hover{
 }
 
 @keyframes softwareLTR{
-  from { transform: translate3d(-50%,0,0); }
-  to   { transform: translate3d(0,0,0); }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 body.capabilities .software-marquee:hover .software-track{
