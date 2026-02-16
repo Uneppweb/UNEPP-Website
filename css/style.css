@@ -9,17 +9,18 @@
    Theme + Base
    ========================= */
 :root{
-  --bg:#0b1220;
-  --panel:#0f1a31;
-  --text:#e8edf7;
-  --muted:#a9b4cc;
-  --brand:#46b0ff;
-  --line:rgba(255,255,255,.12);
-  --card:rgba(255,255,255,.06);
-  --shadow: 0 12px 30px rgba(0,0,0,.35);
-  --radius: 18px;
-  --max: 1600px;
+  --bg:#ffffff;
+  --panel:#ffffff;
+  --text:#1f2937;
+  --muted:#64748b;
+  --brand:#0b5ed7;        /* can adjust later */
+  --line:rgba(0,0,0,.08);
+  --card:#ffffff;
+  --shadow:0 6px 18px rgba(0,0,0,.06);
+  --radius:18px;
+  --max:1600px;
 }
+
 
 *{ box-sizing:border-box; }
 html,body{ margin:0; padding:0; }
@@ -27,10 +28,11 @@ html{ scroll-behavior:smooth; }
 
 body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--text);
-  background: var(--bg);     /* Clean solid background for ALL pages */
-  line-height:1.55;
+  color:#1f2937;
+  background:#ffffff;
+  line-height:1.6;
 }
+
 
 /* Home only: keep the glow / radial accents */
 body.home{
