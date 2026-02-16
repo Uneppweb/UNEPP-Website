@@ -1340,7 +1340,7 @@ body.capabilities .software-marquee{
 body.capabilities .software-track{
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 28px;
   width: max-content;
   will-change: transform;
   animation: softwareLTR 40s linear infinite;
