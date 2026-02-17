@@ -1544,3 +1544,18 @@ body.about .about-section{
 body.about .about-section.is-active{
   display:block;
 }
+/* =========================================
+   Active left index button (match .btn style)
+   ========================================= */
+
+.about-index nav a.is-active{
+  background: linear-gradient(135deg, var(--brand), #7cf7d0);
+  color: #07101f !important;
+  font-weight: 800;
+  border: 0;
+  box-shadow: var(--shadow);
+}
+
+.about-index nav a.is-active:hover{
+  filter: brightness(1.02);
+}
