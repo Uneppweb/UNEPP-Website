@@ -6,22 +6,6 @@
   <title>About Us | UNEPP</title>
   <meta name="description" content="About United Engineers for Petroleum Projects (UNEPP) – company overview, values, leadership team, milestones, certifications, and regional presence across Egypt and the MENA region." />
   <link rel="stylesheet" href="css/style.css" />
-
-  <!-- About: Single-section view (tabs via left index)
-       (Keeping here so it works even if style.css cache is old) -->
-
-  <style>
-  /* About: tab sections (use native hidden attribute) */
-  body.about .about-section[hidden]{ display:none !important; }
-
-  /* optional: highlight active link */
-  .about-index a.active{
-    background: rgba(255,255,255,.06);
-    border: 1px solid var(--line);
-  }
-</style>
-
-
 </head>
 
 <body class="about">
@@ -67,7 +51,7 @@
     <div class="about-content">
 
       <!-- Company Overview -->
-      <section class="section about-section company-overview" id="company-overview">
+      <section class="section company-overview" id="company-overview">
         <h2>Company Overview</h2>
 
         <div class="card company-card">
@@ -86,11 +70,11 @@
           <div class="company-line">
             <img src="assets/unified-logo.png" alt="UNIFIED logo" class="company-logo" />
             <p class="lead company-highlight">
-              To extend our regional presence across the MENA region, our UAE-registered sister company,
-              <strong class="brand-unified">Unified Engineering Consultancy Limited (UNIFIED)</strong>, was independently established in 2023.
+              <strong class="brand-unified">Unified Engineering Consultancy Limited (UNIFIED)</strong>, our UAE-registered sister company, was independently established in 2023 to extend our regional presence across the MENA region.
             </p>
           </div>
 
+          <!-- Group statement -->
           <p class="lead">
             Although UNEPP and UNIFIED are independently registered entities, they share the same group of shareholders and operate in close
             coordination. Together, they provide integrated engineering, procurement, and project management services across the full project
@@ -122,39 +106,166 @@
         </div>
       </section>
 
-    <!-- Our Values -->
-<section class="section about-section" id="our-values">
-  <div class="section-intro full-width">
-    <h2>Our Values</h2>
-    <p class="lead">
-      Our value drivers are not just theoretical ideals; they are the pillars upon which we build our daily activities,
-      our long-term strategies, and our vision for the future.
-    </p>
-  </div>
+      <!-- Our Values -->
+      <section class="section" id="our-values">
+        <div class="section-intro full-width">
+          <h2>Our Values</h2>
+          <p class="lead">
+            Our values are the foundation of our corporate culture and operational philosophy.
+            They guide our decisions, shape our partnerships, and define the standards by which
+            we measure performance and success across every project we undertake.
+          </p>
+        </div>
 
-  <div class="card">
-    <div class="values-layout">
-      <div class="values-visual">
-        <img
-          src="assets/images/our-values.png"
-          alt="UNEPP core values: HSE, Quality, Best Resources, Client Integration, Codes and Standards, Responsive to Market"
-        />
-      </div>
+        <div class="card">
+          <div class="values-stage-unepp">
 
-      <div class="grid values-grid">
-        <div class="item value-hse"><b>HSE</b><span>Our commitment to HSE is unwavering. We believe that a safe working environment is a fundamental right.</span></div>
-        <div class="item value-quality"><b>Quality</b><span>Quality is the hallmark of our brand. We strive for excellence in everything we do.</span></div>
-        <div class="item value-responsive"><b>Responsive to Market</b><span>We adapt quickly to changing conditions, anticipate trends, and turn challenges into opportunities.</span></div>
-        <div class="item value-resources"><b>Best Resources</b><span>We invest in the best people, tools, and technologies to deliver efficient, innovative solutions.</span></div>
-        <div class="item value-standards"><b>Codes and Standards</b><span>Adherence to international codes and standards is non-negotiable.</span></div>
-        <div class="item value-client"><b>Client Integration</b><span>We work collaboratively with clients, co-creating solutions through trust and communication.</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+            <!-- LEFT: Wheel -->
+            <div class="values-wheel-unepp" aria-label="UNEPP values wheel">
+              <div class="values-wheel-rotator-unepp" id="valuesWheel">
+                <img
+                  src="assets/images/our-values.png"
+                  alt="UNEPP core values: HSE, Quality, Best Resources, Client Integration, Codes and Standards, Responsive to Market"
+                />
+              </div>
+
+              <!-- Static center title -->
+              <div class="values-wheel-center-unepp" aria-hidden="true">
+                <div class="values-wheel-center-text-unepp">UNEPP<br>VALUES</div>
+              </div>
+            </div>
+
+            <!-- RIGHT: Dynamic Box -->
+            <div class="values-box-unepp" id="valueBox" aria-live="polite">
+              <h3 class="values-box-title-unepp fade show" id="valueTitle"></h3>
+              <p class="values-box-desc-unepp fade show" id="valueDesc"></p>
+            </div>
+
+          </div>
+
+          <!-- Hidden measurer (keeps box height stable) -->
+          <div class="values-measure-wrap-unepp" id="measureWrap" aria-hidden="true">
+            <div class="values-measure-box-unepp" id="measureBox">
+              <h3 class="values-measure-title-unepp" id="measureTitle"></h3>
+              <p class="values-measure-desc-unepp" id="measureDesc"></p>
+            </div>
+          </div>
+
+        </div>
+
+        <script>
+          (function(){
+            const wheel = document.getElementById("valuesWheel");
+            const box = document.getElementById("valueBox");
+            const titleEl = document.getElementById("valueTitle");
+            const descEl = document.getElementById("valueDesc");
+
+            if(!wheel || !box || !titleEl || !descEl) return;
+
+            // Sequence required:
+            // HSE, Responsive, Codes, Integration, Best Resources, Quality
+            const values = [
+              {
+                key: "HSE",
+                color: "rgb(232,38,118)",
+                desc:
+                  "We are uncompromising in our commitment to Health, Safety, and Environmental protection. Safeguarding people, assets, and the environment is embedded in every phase of our work."
+              },
+              {
+                key: "Responsive to Market",
+                color: "rgb(130,18,133)",
+                desc:
+                  "We proactively adapt to evolving industry dynamics, regulatory changes, and client needs—turning complexity into opportunity with agility and foresight."
+              },
+              {
+                key: "Codes and Standards",
+                color: "rgb(189,32,49)",
+                desc:
+                  "Strict adherence to international codes, standards, and best practices ensures technical integrity, safety compliance, and long-term asset reliability."
+              },
+              {
+                key: "Client Integration",
+                color: "rgb(0,106,171)",
+                desc:
+                  "We build strong, collaborative partnerships with our clients—integrating seamlessly with their teams to co-develop solutions founded on trust, transparency, and performance."
+              },
+              {
+                key: "Best Resources",
+                color: "rgb(41,144,63)",
+                desc:
+                  "We invest in highly qualified professionals, advanced engineering tools, and innovative technologies to ensure efficient, value-driven project delivery."
+              },
+              {
+                key: "Quality",
+                color: "rgb(191,140,0)",
+                desc:
+                  "Quality defines our reputation. Through disciplined processes, technical excellence, and continuous improvement, we deliver reliable and compliant engineering solutions."
+              }
+            ];
+
+            const intervalMs = 5000; // readable
+            let index = 0;
+            let rotation = 0;
+            const stepAngle = 60;
+
+            function updateContent(i){
+              titleEl.classList.remove("show");
+              descEl.classList.remove("show");
+
+              setTimeout(() => {
+                titleEl.textContent = values[i].key;
+                descEl.textContent  = values[i].desc;
+                box.style.backgroundColor = values[i].color;
+
+                titleEl.classList.add("show");
+                descEl.classList.add("show");
+              }, 180);
+            }
+
+            function next(){
+              index = (index + 1) % values.length;
+              rotation += stepAngle;
+              wheel.style.transform = `rotate(${rotation}deg)`;
+              updateContent(index);
+            }
+
+            function setMaxHeight(){
+              const measureBox = document.getElementById("measureBox");
+              const measureTitle = document.getElementById("measureTitle");
+              const measureDesc = document.getElementById("measureDesc");
+              const measureWrap = document.getElementById("measureWrap");
+              if(!measureBox || !measureTitle || !measureDesc || !measureWrap) return;
+
+              const w = box.getBoundingClientRect().width;
+              measureWrap.style.width = w + "px";
+              measureBox.style.width = w + "px";
+
+              let maxH = 0;
+              for(const v of values){
+                measureTitle.textContent = v.key;
+                measureDesc.textContent  = v.desc;
+                const h = measureBox.getBoundingClientRect().height;
+                if(h > maxH) maxH = h;
+              }
+              box.style.minHeight = Math.ceil(maxH) + "px";
+            }
+
+            // Init
+            updateContent(0);
+            box.style.backgroundColor = values[0].color;
+
+            window.addEventListener("load", () => {
+              setMaxHeight();
+              setInterval(next, intervalMs);
+            });
+
+            window.addEventListener("resize", setMaxHeight);
+          })();
+        </script>
+      </section>
 
       <!-- Leadership Team -->
-      <section class="section about-section" id="leadership">
+      <section class="section" id="leadership">
         <div class="section-intro">
           <h2>Leadership Team</h2>
           <p class="lead">
@@ -164,6 +275,8 @@
         </div>
 
         <div class="card leadership-card">
+
+          <!-- CEO – full width -->
           <div class="grid leadership">
             <div class="leader ceo leader-ceo">
               <img src="assets/leadership/ahmed-sanad.jpg" alt="Ahmed Sanad - Chief Executive Officer (CEO)" />
@@ -176,6 +289,7 @@
             </div>
           </div>
 
+          <!-- VPP + VPO -->
           <div class="grid leadership two-col" style="margin-top:14px;">
             <div class="leader leader-exec">
               <img src="assets/leadership/sameh-kassem.png" alt="Sameh Kassem - Vice President of Projects (VPP)" />
@@ -199,11 +313,12 @@
               </p>
             </div>
           </div>
+
         </div>
       </section>
 
       <!-- Company Milestones -->
-      <section class="section about-section" id="milestones">
+      <section class="section" id="milestones">
         <div class="section-intro">
           <h2>Company Milestones</h2>
           <p class="lead">
@@ -227,7 +342,7 @@
       </section>
 
       <!-- HSE and Quality -->
-      <section class="section about-section" id="hse-quality">
+      <section class="section" id="hse-quality">
         <div class="section-intro">
           <h2>HSE and Quality</h2>
           <p class="lead">
@@ -271,13 +386,17 @@
         </div>
       </section>
 
-      <!-- Our Partners -->
-      <section class="section about-section" id="partners">
+      <!-- Our Partners (AFTER HSE & Quality, BEFORE Office Locations) -->
+      <section class="section" id="partners">
         <div class="section-intro">
           <h2>Our Partners</h2>
 
+          <p class="lead" style="margin-bottom:10px;">
+            <strong>Trusted by leading energy and industrial clients across Egypt and the MENA region.</strong>
+          </p>
+
           <p class="lead">
-            UNEPP and UNIFIED have built trusted, long-term relationships with leading international operators,
+            UNEPP and UNIFIED have built, long-term relationships with leading international operators,
             national oil companies, and industrial clients across Egypt and the wider MENA region.
           </p>
 
@@ -292,136 +411,105 @@
             discipline, with many engagements developing into repeat collaborations built on reliability,
             transparency, and consistent performance.
           </p>
-
-          <p class="lead" style="margin-bottom:10px;">
-            <strong>Trusted by leading energy and industrial clients across Egypt and the MENA region.</strong>
-          </p>
         </div>
 
         <div class="card">
           <div class="partners-marquee" aria-label="Our Partners logos">
             <div class="partners-track">
-              <!-- Logo stream -->
-              <img src="assets/partners/abu-qir.png" alt="Abu Qir" loading="lazy" />
-              <img src="assets/partners/ades.png" alt="ADES" loading="lazy" />
-              <img src="assets/partners/agiba.png" alt="AGIBA" loading="lazy" />
-              <img src="assets/partners/alhazem.png" alt="Al Hazem" loading="lazy" />
-              <img src="assets/partners/apm.png" alt="APM" loading="lazy" />
-              <img src="assets/partners/arfada.png" alt="Arfada" loading="lazy" />
-              <img src="assets/partners/arma.png" alt="ARMA" loading="lazy" />
-              <img src="assets/partners/burullus.png" alt="Burullus" loading="lazy" />
-              <img src="assets/partners/chevron.png" alt="Chevron" loading="lazy" />
-              <img src="assets/partners/ecg.png" alt="ECG" loading="lazy" />
-              <img src="assets/partners/egas.png" alt="EGAS" loading="lazy" />
-              <img src="assets/partners/elhamra.png" alt="El Hamra" loading="lazy" />
-              <img src="assets/partners/emc.png" alt="EMC" loading="lazy" />
-              <img src="assets/partners/ethydco.png" alt="ETHYDCO" loading="lazy" />
-              <img src="assets/partners/expro.png" alt="Expro" loading="lazy" />
-              <img src="assets/partners/gimpetco.png" alt="GIMPETCO" loading="lazy" />
-              <img src="assets/partners/gpc.png" alt="GPC" loading="lazy" />
-              <img src="assets/partners/hassan-allam.png" alt="Hassan Allam" loading="lazy" />
-              <img src="assets/partners/johnson.png" alt="Johnson" loading="lazy" />
-              <img src="assets/partners/khalda.png" alt="Khalda" loading="lazy" />
-              <img src="assets/partners/kharafi.png" alt="Kharafi" loading="lazy" />
-              <img src="assets/partners/methanex.png" alt="Methanex" loading="lazy" />
-              <img src="assets/partners/mhc.png" alt="MHC" loading="lazy" />
-              <img src="assets/partners/natgas.png" alt="NatGas" loading="lazy" />
-              <img src="assets/partners/national.png" alt="National" loading="lazy" />
-              <img src="assets/partners/norpetco.png" alt="Norpetco" loading="lazy" />
-              <img src="assets/partners/orascom.png" alt="Orascom" loading="lazy" />
-              <img src="assets/partners/petrodara.png" alt="Petrodara" loading="lazy" />
-              <img src="assets/partners/petrogulf.png" alt="Petrogulf" loading="lazy" />
-              <img src="assets/partners/petrojet.png" alt="Petrojet" loading="lazy" />
-              <img src="assets/partners/petromaint.png" alt="Petromaint" loading="lazy" />
-              <img src="assets/partners/petrosilah.png" alt="Petrosilah" loading="lazy" />
-              <img src="assets/partners/pico.png" alt="PICO" loading="lazy" />
-              <img src="assets/partners/pms.png" alt="PMS" loading="lazy" />
-              <img src="assets/partners/ppc.png" alt="PPC" loading="lazy" />
-              <img src="assets/partners/rosetta.png" alt="Rosetta" loading="lazy" />
-              <img src="assets/partners/taqa.png" alt="TAQA" loading="lazy" />
-              <img src="assets/partners/total-solutions.png" alt="Total Solutions" loading="lazy" />
-              <img src="assets/partners/veolia.png" alt="Veolia" loading="lazy" />
-              <img src="assets/partners/wasco.png" alt="WASCO" loading="lazy" />
-              <img src="assets/partners/west-bakr.png" alt="West Bakr" loading="lazy" />
 
-              <!-- Repeat once for seamless loop -->
-              <img src="assets/partners/abu-qir.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/ades.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/agiba.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/alhazem.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/apm.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/arfada.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/arma.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/burullus.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/chevron.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/ecg.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/egas.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/elhamra.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/emc.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/ethydco.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/expro.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/gimpetco.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/gpc.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/hassan-allam.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/johnson.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/khalda.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/kharafi.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/methanex.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/mhc.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/natgas.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/national.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/norpetco.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/orascom.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/petrodara.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/petrogulf.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/petrojet.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/petromaint.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/petrosilah.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/pico.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/pms.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/ppc.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/rosetta.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/taqa.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/total-solutions.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/veolia.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/wasco.png" alt="" aria-hidden="true" loading="lazy" />
-              <img src="assets/partners/west-bakr.png" alt="" aria-hidden="true" loading="lazy" />
+              <!-- Logo stream (FULL COLOR) -->
+              <img src="assets/partners/abu-qir.png" alt="Abu Qir" />
+              <img src="assets/partners/ades.png" alt="ADES" />
+              <img src="assets/partners/agiba.png" alt="AGIBA" />
+              <img src="assets/partners/alhazem.png" alt="Al Hazem" />
+              <img src="assets/partners/apm.png" alt="APM" />
+              <img src="assets/partners/arfada.png" alt="Arfada" />
+              <img src="assets/partners/arma.png" alt="ARMA" />
+              <img src="assets/partners/burullus.png" alt="Burullus" />
+              <img src="assets/partners/chevron.png" alt="Chevron" />
+              <img src="assets/partners/ecg.png" alt="ECG" />
+              <img src="assets/partners/egas.png" alt="EGAS" />
+              <img src="assets/partners/elhamra.png" alt="El Hamra" />
+              <img src="assets/partners/emc.png" alt="EMC" />
+              <img src="assets/partners/ethydco.png" alt="ETHYDCO" />
+              <img src="assets/partners/expro.png" alt="Expro" />
+              <img src="assets/partners/gimpetco.png" alt="GIMPETCO" />
+              <img src="assets/partners/gpc.png" alt="GPC" />
+              <img src="assets/partners/hassan-allam.png" alt="Hassan Allam" />
+              <img src="assets/partners/johnson.png" alt="Johnson" />
+              <img src="assets/partners/khalda.png" alt="Khalda" />
+              <img src="assets/partners/kharafi.png" alt="Kharafi" />
+              <img src="assets/partners/methanex.png" alt="Methanex" />
+              <img src="assets/partners/mhc.png" alt="MHC" />
+              <img src="assets/partners/natgas.png" alt="NatGas" />
+              <img src="assets/partners/national.png" alt="National" />
+              <img src="assets/partners/norpetco.png" alt="Norpetco" />
+              <img src="assets/partners/orascom.png" alt="Orascom" />
+              <img src="assets/partners/petrodara.png" alt="Petrodara" />
+              <img src="assets/partners/petrogulf.png" alt="Petrogulf" />
+              <img src="assets/partners/petrojet.png" alt="Petrojet" />
+              <img src="assets/partners/petromaint.png" alt="Petromaint" />
+              <img src="assets/partners/petrosilah.png" alt="Petrosilah" />
+              <img src="assets/partners/pico.png" alt="PICO" />
+              <img src="assets/partners/pms.png" alt="PMS" />
+              <img src="assets/partners/ppc.png" alt="PPC" />
+              <img src="assets/partners/rosetta.png" alt="Rosetta" />
+              <img src="assets/partners/taqa.png" alt="TAQA" />
+              <img src="assets/partners/total-solutions.png" alt="Total Solutions" />
+              <img src="assets/partners/veolia.png" alt="Veolia" />
+              <img src="assets/partners/wasco.png" alt="WASCO" />
+              <img src="assets/partners/west-bakr.png" alt="West Bakr" />
+
+              <!-- Repeat once (same order) for seamless continuous loop -->
+              <img src="assets/partners/abu-qir.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/ades.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/agiba.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/alhazem.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/apm.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/arfada.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/arma.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/burullus.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/chevron.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/ecg.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/egas.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/elhamra.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/emc.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/ethydco.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/expro.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/gimpetco.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/gpc.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/hassan-allam.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/johnson.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/khalda.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/kharafi.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/methanex.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/mhc.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/natgas.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/national.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/norpetco.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/orascom.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/petrodara.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/petrogulf.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/petrojet.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/petromaint.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/petrosilah.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/pico.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/pms.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/ppc.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/rosetta.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/taqa.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/total-solutions.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/veolia.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/wasco.png" alt="" aria-hidden="true" />
+              <img src="assets/partners/west-bakr.png" alt="" aria-hidden="true" />
+
             </div>
           </div>
         </div>
-
-        <!-- Partners marquee styles (inlined to avoid CSS cache issues) -->
-        <style>
-          #partners .partners-marquee{
-            width:100%;
-            overflow:hidden;
-            border-radius:14px;
-            border:1px solid var(--line);
-            background: rgba(255,255,255,.04);
-            padding:14px;
-            overflow-x:hidden;
-            position:relative;
-          }
-          #partners .partners-track{
-            display:flex;
-            gap:36px;
-            align-items:center;
-            width:max-content;
-          }
-          #partners .partners-track img{
-            height:42px;
-            width:auto;
-            flex-shrink:0;
-          }
-          @media (max-width: 900px){
-            #partners .partners-track{ gap:26px; }
-            #partners .partners-track img{ height:38px; }
-          }
-        </style>
       </section>
 
       <!-- Office Locations -->
-      <section class="section about-section" id="locations">
+      <section class="section" id="locations">
         <div class="section-intro">
           <h2>Our Office Locations</h2>
           <p class="lead">
@@ -468,75 +556,58 @@
     </div>
   </footer>
 
+  <!-- Bottom scripts (keeps full page visible + ensures #partners exists before marquee starts) -->
   <script>
     // Footer year
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // About: show one section at a time (left index = tabs) — robust (uses hidden attribute)
-    (() => {
-      const links = [...document.querySelectorAll('.about-index a[href^="#"]')];
-      const sections = [...document.querySelectorAll('body.about .about-section')];
-      if (!links.length || !sections.length) return;
+    // Partners marquee + 404 logging
+    (function(){
+      const SPEED = 14; // pixels per second
 
-      function show(id, updateHash = true){
-        sections.forEach(s => s.hidden = true);
-        links.forEach(a => a.classList.remove('active'));
+      function initPartners(){
+        const marquee = document.querySelector('#partners .partners-marquee');
+        const track   = document.querySelector('#partners .partners-track');
+        if (!marquee || !track) return;
 
-        const target = document.getElementById(id);
-        const link = links.find(a => a.getAttribute('href') === '#' + id);
-
-        if (target) target.hidden = false;
-        if (link) link.classList.add('active');
-
-        if (updateHash) history.replaceState(null, '', '#' + id);
-      }
-
-      links.forEach(a => {
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          const id = a.getAttribute('href').slice(1);
-          show(id, true);
-          document.querySelector('.about-content')?.scrollIntoView({ behavior:'smooth', block:'start' });
+        // Logs missing partner logos (404s) in the Console
+        track.querySelectorAll('img').forEach(img => {
+          img.addEventListener('error', () => console.log('Missing logo:', img.getAttribute('src')));
         });
-      });
 
-      const initial = (location.hash || '#company-overview').slice(1);
-      show(initial, false);
-    })();
+        let last = performance.now();
+        let paused = false;
 
-    // Partners marquee: crisp continuous scroll in Chrome (scrollLeft loop)
-    (() => {
-      const marquee = document.querySelector('#partners .partners-marquee');
-      const track = document.querySelector('#partners .partners-track');
-      if (!marquee || !track) return;
+        marquee.addEventListener('mouseenter', () => paused = true);
+        marquee.addEventListener('mouseleave', () => paused = false);
 
-      const SPEED = (window.innerWidth < 900) ? 10 : 14;
+        function tick(now){
+          const dt = (now - last) / 1000;
+          last = now;
 
-      let last = performance.now();
-      let paused = false;
+          if (!paused){
+            marquee.scrollLeft += SPEED * dt;
 
-      marquee.addEventListener('mouseenter', () => paused = true);
-      marquee.addEventListener('mouseleave', () => paused = false);
-
-      function tick(now){
-        const dt = (now - last) / 1000;
-        last = now;
-
-        if (!paused){
-          marquee.scrollLeft += SPEED * dt;
-          const half = track.scrollWidth / 2;
-          if (half > 0 && marquee.scrollLeft >= half){
-            marquee.scrollLeft -= half;
+            // Because the list is duplicated, loop when we've scrolled half the track
+            const half = track.scrollWidth / 2;
+            if (marquee.scrollLeft >= half){
+              marquee.scrollLeft -= half;
+            }
           }
+
+          requestAnimationFrame(tick);
         }
 
+        marquee.scrollLeft = 0;
         requestAnimationFrame(tick);
       }
 
-      marquee.scrollLeft = 0;
-      requestAnimationFrame(tick);
+      if (document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", initPartners);
+      } else {
+        initPartners();
+      }
     })();
   </script>
-
 </body>
 </html>
