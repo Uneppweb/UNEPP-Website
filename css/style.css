@@ -1536,3 +1536,11 @@ body.capabilities .software-logo img{
 @media (max-width: 900px){
   .partners-track img{ height:40px; }
 }
+/* ABOUT: Single-section view (left index acts like tabs) */
+body.about .about-section{
+  display:none;
+}
+
+body.about .about-section.is-active{
+  display:block;
+}
