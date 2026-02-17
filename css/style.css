@@ -235,8 +235,13 @@ h2{
   margin-top: 16px;
 }
 
+/* =========================================
+   Primary Buttons (Gold)
+   ========================================= */
+
 .btn,
-.cta{
+.cta,
+.about-index nav a.is-active{
   display:inline-block;
   padding:12px 18px;
   border-radius:8px;
@@ -248,11 +253,34 @@ h2{
   transition:all 0.25s ease;
 }
 
+/* Hover effect */
 .btn:hover,
-.cta:hover{
+.cta:hover,
+.about-index nav a.is-active:hover{
   background:#E5B93F;              /* slightly darker on hover */
   transform:translateY(-1px);
 }
+/* =========================================
+   Left index active link = same as .btn
+   Applies to About / Capabilities / Projects / News / Careers / Contact
+   ========================================= */
+
+.about-index nav a.is-active,
+.about-index nav a[aria-current="page"],
+.about-index nav a[aria-current="true"]{
+  background: var(--btn-bg);
+  color: var(--btn-text) !important;
+  font-weight:800;
+  border:0;
+  box-shadow: var(--btn-shadow);
+}
+
+.about-index nav a.is-active:hover,
+.about-index nav a[aria-current="page"]:hover,
+.about-index nav a[aria-current="true"]:hover{
+  filter:brightness(1.02);
+}
+
 
 .card{
   background: var(--card);
@@ -1559,3 +1587,7 @@ body.about .about-section.is-active{
 .about-index nav a.is-active:hover{
   filter: brightness(1.02);
 }
+  /* Button palette (single source of truth) */
+  --btn-bg: linear-gradient(135deg, var(--brand), #7cf7d0);
+  --btn-text: #07101f;
+  --btn-shadow: var(--shadow);
