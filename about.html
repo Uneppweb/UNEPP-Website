@@ -4,8 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About Us | UNEPP</title>
-  <meta name="description" content="About United Engineers for Petroleum Projects (UNEPP) – company overview, values, leadership team, milestones, certifications, and regional presence across Egypt and the MENA region." />
+  <meta name="description" content="About United Engineers for Petroleum Projects (UNEPP) – company overview, values, leadership team, milestones, certifications, and regional presence across the MENA region." />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- About-page only: section-by-section view (no other files needed) -->
+  <style>
+    /* Make left index behave like a section switcher */
+    .about-content .section{ display:none; }
+    .about-content .section.is-active{ display:block; }
+
+    .about-index nav a{
+      display:block;
+      padding:8px 10px;
+      border-radius:10px;
+      text-decoration:none;
+    }
+    .about-index nav a.is-active{
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--line);
+    }
+
+    /* Ensure Our Values doesn't create extra "tail" space */
+    #our-values{ overflow:hidden; }
+  </style>
 </head>
 
 <body class="about">
@@ -37,13 +58,13 @@
     <aside class="about-index">
       <b>On this page</b>
       <nav>
-        <a href="#company-overview">Company Overview</a>
-        <a href="#our-values">Our Values</a>
-        <a href="#leadership">Leadership Team</a>
-        <a href="#milestones">Company Milestones</a>
-        <a href="#hse-quality">HSE &amp; Quality</a>
-        <a href="#partners">Our Partners</a>
-        <a href="#locations">Office Locations</a>
+        <a href="#company-overview" data-section-link>Company Overview</a>
+        <a href="#our-values" data-section-link>Our Values</a>
+        <a href="#leadership" data-section-link>Leadership Team</a>
+        <a href="#milestones" data-section-link>Company Milestones</a>
+        <a href="#hse-quality" data-section-link>HSE &amp; Quality</a>
+        <a href="#partners" data-section-link>Our Partners</a>
+        <a href="#locations" data-section-link>Office Locations</a>
       </nav>
     </aside>
 
@@ -55,7 +76,6 @@
         <h2>Company Overview</h2>
 
         <div class="card company-card">
-
           <!-- UNEPP -->
           <div class="company-line">
             <img src="assets/unepp-logo.png" alt="UNEPP logo" class="company-logo" />
@@ -102,7 +122,6 @@
           <div class="iso-buttons">
             <a class="btn" href="#">➤ Watch Our Company Overview</a>
           </div>
-
         </div>
       </section>
 
@@ -117,9 +136,8 @@
           </p>
         </div>
 
-        <div class="card">
+        <div class="card" id="valuesCard">
           <div class="values-stage-unepp">
-
             <!-- LEFT: Wheel -->
             <div class="values-wheel-unepp" aria-label="UNEPP values wheel">
               <div class="values-wheel-rotator-unepp" id="valuesWheel">
@@ -140,7 +158,6 @@
               <h3 class="values-box-title-unepp fade show" id="valueTitle"></h3>
               <p class="values-box-desc-unepp fade show" id="valueDesc"></p>
             </div>
-
           </div>
 
           <!-- Hidden measurer (keeps box height stable) -->
@@ -150,118 +167,8 @@
               <p class="values-measure-desc-unepp" id="measureDesc"></p>
             </div>
           </div>
-
         </div>
-
-        <script>
-          (function(){
-            const wheel = document.getElementById("valuesWheel");
-            const box = document.getElementById("valueBox");
-            const titleEl = document.getElementById("valueTitle");
-            const descEl = document.getElementById("valueDesc");
-
-            if(!wheel || !box || !titleEl || !descEl) return;
-
-            // Sequence required:
-            // HSE, Responsive, Codes, Integration, Best Resources, Quality
-            const values = [
-              {
-                key: "HSE",
-                color: "rgb(232,38,118)",
-                desc:
-                  "We are uncompromising in our commitment to Health, Safety, and Environmental protection. Safeguarding people, assets, and the environment is embedded in every phase of our work."
-              },
-              {
-                key: "Responsive to Market",
-                color: "rgb(130,18,133)",
-                desc:
-                  "We proactively adapt to evolving industry dynamics, regulatory changes, and client needs—turning complexity into opportunity with agility and foresight."
-              },
-              {
-                key: "Codes and Standards",
-                color: "rgb(189,32,49)",
-                desc:
-                  "Strict adherence to international codes, standards, and best practices ensures technical integrity, safety compliance, and long-term asset reliability."
-              },
-              {
-                key: "Client Integration",
-                color: "rgb(0,106,171)",
-                desc:
-                  "We build strong, collaborative partnerships with our clients—integrating seamlessly with their teams to co-develop solutions founded on trust, transparency, and performance."
-              },
-              {
-                key: "Best Resources",
-                color: "rgb(41,144,63)",
-                desc:
-                  "We invest in highly qualified professionals, advanced engineering tools, and innovative technologies to ensure efficient, value-driven project delivery."
-              },
-              {
-                key: "Quality",
-                color: "rgb(191,140,0)",
-                desc:
-                  "Quality defines our reputation. Through disciplined processes, technical excellence, and continuous improvement, we deliver reliable and compliant engineering solutions."
-              }
-            ];
-
-            const intervalMs = 5000; // readable
-            let index = 0;
-            let rotation = 0;
-            const stepAngle = 60;
-
-            function updateContent(i){
-              titleEl.classList.remove("show");
-              descEl.classList.remove("show");
-
-              setTimeout(() => {
-                titleEl.textContent = values[i].key;
-                descEl.textContent  = values[i].desc;
-                box.style.backgroundColor = values[i].color;
-
-                titleEl.classList.add("show");
-                descEl.classList.add("show");
-              }, 180);
-            }
-
-            function next(){
-              index = (index + 1) % values.length;
-              rotation += stepAngle;
-              wheel.style.transform = `rotate(${rotation}deg)`;
-              updateContent(index);
-            }
-
-            function setMaxHeight(){
-              const measureBox = document.getElementById("measureBox");
-              const measureTitle = document.getElementById("measureTitle");
-              const measureDesc = document.getElementById("measureDesc");
-              const measureWrap = document.getElementById("measureWrap");
-              if(!measureBox || !measureTitle || !measureDesc || !measureWrap) return;
-
-              const w = box.getBoundingClientRect().width;
-              measureWrap.style.width = w + "px";
-              measureBox.style.width = w + "px";
-
-              let maxH = 0;
-              for(const v of values){
-                measureTitle.textContent = v.key;
-                measureDesc.textContent  = v.desc;
-                const h = measureBox.getBoundingClientRect().height;
-                if(h > maxH) maxH = h;
-              }
-              box.style.minHeight = Math.ceil(maxH) + "px";
-            }
-
-            // Init
-            updateContent(0);
-            box.style.backgroundColor = values[0].color;
-
-            window.addEventListener("load", () => {
-              setMaxHeight();
-              setInterval(next, intervalMs);
-            });
-
-            window.addEventListener("resize", setMaxHeight);
-          })();
-        </script>
+        <!-- NOTE: “break after displaying its card” is achieved because other sections are hidden unless clicked -->
       </section>
 
       <!-- Leadership Team -->
@@ -275,7 +182,6 @@
         </div>
 
         <div class="card leadership-card">
-
           <!-- CEO – full width -->
           <div class="grid leadership">
             <div class="leader ceo leader-ceo">
@@ -313,7 +219,6 @@
               </p>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -386,7 +291,7 @@
         </div>
       </section>
 
-      <!-- Our Partners (AFTER HSE & Quality, BEFORE Office Locations) -->
+      <!-- Our Partners -->
       <section class="section" id="partners">
         <div class="section-intro">
           <h2>Our Partners</h2>
@@ -416,7 +321,6 @@
         <div class="card">
           <div class="partners-marquee" aria-label="Our Partners logos">
             <div class="partners-track">
-
               <!-- Logo stream (FULL COLOR) -->
               <img src="assets/partners/abu-qir.png" alt="Abu Qir" />
               <img src="assets/partners/ades.png" alt="ADES" />
@@ -502,7 +406,6 @@
               <img src="assets/partners/veolia.png" alt="" aria-hidden="true" />
               <img src="assets/partners/wasco.png" alt="" aria-hidden="true" />
               <img src="assets/partners/west-bakr.png" alt="" aria-hidden="true" />
-
             </div>
           </div>
         </div>
@@ -556,16 +459,135 @@
     </div>
   </footer>
 
-  <!-- Bottom scripts (keeps full page visible + ensures #partners exists before marquee starts) -->
   <script>
     // Footer year
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // Partners marquee + 404 logging
+    // ---------- SECTION SWITCHER (Left index controls what is visible) ----------
     (function(){
-      const SPEED = 14; // pixels per second
+      const content = document.querySelector(".about-content");
+      const sections = Array.from(content.querySelectorAll(".section"));
+      const links = Array.from(document.querySelectorAll("[data-section-link]"));
 
-      function initPartners(){
+      // lazy init flags
+      let valuesInited = false;
+      let partnersInited = false;
+
+      function setActiveLink(id){
+        links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === "#" + id));
+      }
+
+      function showSection(id){
+        // fallback: first section
+        const targetId = (id && document.getElementById(id)) ? id : (sections[0] ? sections[0].id : "");
+        sections.forEach(s => s.classList.toggle("is-active", s.id === targetId));
+        setActiveLink(targetId);
+
+        // Keep view stable (no anchor jump)
+        content.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        // Lazy init heavy sections only when opened
+        if (targetId === "our-values" && !valuesInited){
+          valuesInited = true;
+          initValuesWheel();
+        }
+        if (targetId === "partners" && !partnersInited){
+          partnersInited = true;
+          initPartnersMarquee();
+        }
+      }
+
+      // Intercept left index clicks
+      links.forEach(a => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          const id = (a.getAttribute("href") || "").replace("#", "");
+          history.replaceState(null, "", "#" + id);
+          showSection(id);
+        });
+      });
+
+      // On load: open hash section if any, else first
+      const initial = (location.hash || "").replace("#", "");
+      showSection(initial);
+
+      // ---------- OUR VALUES (start only when section is shown) ----------
+      function initValuesWheel(){
+        const wheel = document.getElementById("valuesWheel");
+        const box = document.getElementById("valueBox");
+        const titleEl = document.getElementById("valueTitle");
+        const descEl = document.getElementById("valueDesc");
+        if(!wheel || !box || !titleEl || !descEl) return;
+
+        const values = [
+          { key:"HSE", color:"rgb(232,38,118)", desc:"We are uncompromising in our commitment to Health, Safety, and Environmental protection. Safeguarding people, assets, and the environment is embedded in every phase of our work." },
+          { key:"Responsive to Market", color:"rgb(130,18,133)", desc:"We proactively adapt to evolving industry dynamics, regulatory changes, and client needs—turning complexity into opportunity with agility and foresight." },
+          { key:"Codes and Standards", color:"rgb(189,32,49)", desc:"Strict adherence to international codes, standards, and best practices ensures technical integrity, safety compliance, and long-term asset reliability." },
+          { key:"Client Integration", color:"rgb(0,106,171)", desc:"We build strong, collaborative partnerships with our clients—integrating seamlessly with their teams to co-develop solutions founded on trust, transparency, and performance." },
+          { key:"Best Resources", color:"rgb(41,144,63)", desc:"We invest in highly qualified professionals, advanced engineering tools, and innovative technologies to ensure efficient, value-driven project delivery." },
+          { key:"Quality", color:"rgb(191,140,0)", desc:"Quality defines our reputation. Through disciplined processes, technical excellence, and continuous improvement, we deliver reliable and compliant engineering solutions." }
+        ];
+
+        const intervalMs = 5000;
+        let index = 0;
+        let rotation = 0;
+        const stepAngle = 60;
+
+        function updateContent(i){
+          titleEl.classList.remove("show");
+          descEl.classList.remove("show");
+          setTimeout(() => {
+            titleEl.textContent = values[i].key;
+            descEl.textContent  = values[i].desc;
+            box.style.backgroundColor = values[i].color;
+            titleEl.classList.add("show");
+            descEl.classList.add("show");
+          }, 180);
+        }
+
+        function next(){
+          index = (index + 1) % values.length;
+          rotation += stepAngle;
+          wheel.style.transform = `rotate(${rotation}deg)`;
+          updateContent(index);
+        }
+
+        function setMaxHeight(){
+          const measureBox = document.getElementById("measureBox");
+          const measureTitle = document.getElementById("measureTitle");
+          const measureDesc = document.getElementById("measureDesc");
+          const measureWrap = document.getElementById("measureWrap");
+          if(!measureBox || !measureTitle || !measureDesc || !measureWrap) return;
+
+          const w = box.getBoundingClientRect().width;
+          measureWrap.style.width = w + "px";
+          measureBox.style.width = w + "px";
+
+          let maxH = 0;
+          for(const v of values){
+            measureTitle.textContent = v.key;
+            measureDesc.textContent  = v.desc;
+            const h = measureBox.getBoundingClientRect().height;
+            if(h > maxH) maxH = h;
+          }
+          box.style.minHeight = Math.ceil(maxH) + "px";
+        }
+
+        updateContent(0);
+        box.style.backgroundColor = values[0].color;
+
+        // now that section is visible, sizes are correct
+        setTimeout(() => {
+          setMaxHeight();
+          setInterval(next, intervalMs);
+        }, 60);
+
+        window.addEventListener("resize", setMaxHeight);
+      }
+
+      // ---------- PARTNERS MARQUEE (start only when section is shown) ----------
+      function initPartnersMarquee(){
+        const SPEED = 14; // pixels per second
         const marquee = document.querySelector('#partners .partners-marquee');
         const track   = document.querySelector('#partners .partners-track');
         if (!marquee || !track) return;
@@ -587,25 +609,16 @@
 
           if (!paused){
             marquee.scrollLeft += SPEED * dt;
-
-            // Because the list is duplicated, loop when we've scrolled half the track
             const half = track.scrollWidth / 2;
-            if (marquee.scrollLeft >= half){
+            if (half > 0 && marquee.scrollLeft >= half){
               marquee.scrollLeft -= half;
             }
           }
-
           requestAnimationFrame(tick);
         }
 
         marquee.scrollLeft = 0;
         requestAnimationFrame(tick);
-      }
-
-      if (document.readyState === "loading"){
-        document.addEventListener("DOMContentLoaded", initPartners);
-      } else {
-        initPartners();
       }
     })();
   </script>
