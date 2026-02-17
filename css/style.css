@@ -398,32 +398,37 @@ body.home .marquee:hover .marquee-track{
   border:1px solid var(--line);
   background: rgba(255,255,255,.04);
   padding:14px;
+  transform: translateZ(0);
 }
 
 .partners-track{
   display:flex;
-  gap:36px;
+  gap:28px;
   align-items:center;
   width:max-content;
   will-change: transform;
-  animation: partnersScroll 100s linear infinite; /* slower = you’ll see all logos */
+  transform: translate3d(0,0,0);
+  backface-visibility: hidden;
+  animation: partnersScroll 120s linear infinite;
 }
 
 .partners-track img{
   height:42px;
   width:auto;
   flex-shrink:0;
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
 }
 
-/* Scroll by HALF the track width, since you duplicated the list */
 @keyframes partnersScroll{
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-50%,0,0); }
 }
 
 .partners-marquee:hover .partners-track{
   animation-play-state: paused;
 }
+
 
 @media (max-width: 900px){
   .partners-track{ gap:26px; animation-duration: 105s; }
