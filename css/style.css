@@ -406,7 +406,7 @@ body.home .marquee:hover .marquee-track{
   align-items:center;
   width:max-content;
   will-change: transform;
-  animation: partnersScroll 55s linear infinite; /* slower = you’ll see all logos */
+  animation: partnersScroll 90s linear infinite; /* slower = you’ll see all logos */
 }
 
 .partners-track img{
@@ -426,7 +426,7 @@ body.home .marquee:hover .marquee-track{
 }
 
 @media (max-width: 900px){
-  .partners-track{ gap:26px; animation-duration: 65s; }
+  .partners-track{ gap:26px; animation-duration: 105s; }
   .partners-track img{ height:38px; }
 }
 
