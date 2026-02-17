@@ -461,6 +461,27 @@
 
     init();
   </script>
+<script>
+(function(){
+  const links = Array.from(document.querySelectorAll('aside nav a[href^="#"]'));
+  if (!links.length) return;
+
+  function setActive(hash){
+    links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === hash));
+  }
+
+  // On click
+  links.forEach(a => {
+    a.addEventListener("click", () => setActive(a.getAttribute("href")));
+  });
+
+  // On load (if URL has a hash), otherwise pick first
+  setActive(location.hash && links.some(a => a.getAttribute("href") === location.hash)
+    ? location.hash
+    : links[0].getAttribute("href")
+  );
+})();
+</script>
 
 </body>
 </html>
