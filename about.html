@@ -9,10 +9,16 @@
 
   <!-- About: Single-section view (tabs via left index)
        (Keeping here so it works even if style.css cache is old) -->
-  <style>
-    body.about .about-section{ display:none; }
-    body.about .about-section.is-active{ display:block; }
-  </style>
+<style>
+  body.about .about-section{ display:none; }
+
+  /* IMPORTANT: do NOT force block — restore the section’s original display (grid/flex/etc.) */
+  body.about .about-section.is-active{
+    display: block;   /* fallback */
+    display: revert;  /* best: uses whatever .section originally is in style.css */
+  }
+</style>
+
 </head>
 
 <body class="about">
