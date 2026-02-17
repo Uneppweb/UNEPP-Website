@@ -93,7 +93,7 @@
   <aside class="about-index">
     <b>Capabilities</b>
     <nav>
-      <a href="#top">Overview</a>
+<a href="#overview">Overview</a>
       <a href="#feasibility">Feasibility & Concept Selection</a>
       <a href="#feed-design">FEED & Detailed Design</a>
       <a href="#project-management">Project & Construction Management</a>
@@ -108,19 +108,20 @@
 
 
 
-      <div class="section-intro">
-        <h2>Comprehensive Services Across the Full Project Lifecycle</h2>
-        <p class="lead">
-          UNEPP delivers integrated engineering, procurement, and project management services from early-phase studies
-          through design, construction, commissioning, and operational support—aligned with international standards
-          and client requirements.
-        </p>
-      </div>
-      <!-- Anchor badges -->
-      <div class="badges">
+<section class="section" id="overview" data-panel="1">
+  <div class="section-intro">
+    <h2>Comprehensive Services Across the Full Project Lifecycle</h2>
+    <p class="lead">
+      UNEPP delivers integrated engineering, procurement, and project management services from early-phase studies
+      through design, construction, commissioning, and operational support—aligned with international standards
+      and client requirements.
+    </p>
+  </div>
 
-      </div>
-    </section>
+  <!-- Anchor badges (optional, keep empty or remove) -->
+  <div class="badges"></div>
+</section>
+
 
 <!-- Feasibility -->
 <section class="section" id="feasibility">
@@ -473,7 +474,7 @@ UNEPP has developed robust capabilities in offshore engineering, with an annual 
   const main = document.querySelector("main");
   if (!main) return;
 
-  const sections = Array.from(main.querySelectorAll("section[id]"));
+const sections = Array.from(main.querySelectorAll("section[data-panel='1'][id]"));
   if (!sections.length) return;
 
   // Map id -> section (fast lookup)
