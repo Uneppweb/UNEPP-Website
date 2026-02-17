@@ -484,7 +484,15 @@
         setActiveLink(targetId);
 
         // Keep view stable (no anchor jump)
-        content.scrollIntoView({ behavior: "smooth", block: "start" });
+// Scroll to the selected section title (with header offset)
+const el = document.getElementById(targetId);
+if (el){
+  const header = document.querySelector(".nav");
+  const offset = (header ? header.getBoundingClientRect().height : 0) + 10;
+  const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
+
 
         // Lazy init heavy sections only when opened
         if (targetId === "our-values" && !valuesInited){
