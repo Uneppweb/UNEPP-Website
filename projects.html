@@ -6,6 +6,13 @@
   <title>Projects | UNEPP</title>
   <meta name="description" content="UNEPP project portfolio across Egypt, MENA and international markets covering feasibility, FEED, detailed engineering, PMC and procurement." />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Projects: one-section-at-a-time (page-local) -->
+  <style>
+    body[data-switcher="on"] main section[data-panel="1"][id]{ display:none; }
+    body[data-switcher="on"] main section[data-panel="1"][id].is-active{ display:block; }
+    body[data-switcher="on"] main{ min-height:60vh; }
+  </style>
 </head>
 
 <body class="projects">
@@ -49,7 +56,7 @@
     <div class="about-content">
 
       <!-- Projects Portfolio -->
-      <section class="section" id="projects-portfolio">
+      <section class="section" id="projects-portfolio" data-panel="1">
         <div class="section-intro">
           <h2>Projects Portfolio</h2>
 
@@ -71,8 +78,6 @@
         <div class="card projects-filters">
           <div class="filters-two-rows">
 
-            <!-- Row 1: General Search -->
-            
             <!-- Start state message inside filters -->
             <div id="startState" class="filter-start-message" style="margin-bottom:14px;">
               <p class="lead" style="margin:0;">
@@ -157,8 +162,7 @@
           </div>
         </div>
 
-        <!-- Space between filters box and listed cards should match card-to-card spacing (CSS already controls this). -->
-<!-- Cards appear here -->
+        <!-- Cards appear here -->
         <div id="projectsGrid" class="projects-grid"></div>
 
         <!-- Empty state -->
@@ -174,11 +178,10 @@
             Please confirm <b>data/projects.json</b> exists and the path matches exactly (case-sensitive).
           </p>
         </div>
-
       </section>
 
-      <!-- Projects Showcase (anchor target for left index) -->
-      <section class="section" id="projects-showcase">
+      <!-- Projects Showcase -->
+      <section class="section" id="projects-showcase" data-panel="1">
         <div class="section-intro">
           <h2>Projects Showcase</h2>
           <p class="lead">
@@ -347,7 +350,6 @@
     }
 
     function applyFilters(){
-      // Gate: do not show all projects unless at least one filter is active
       if (!hasActiveFilters()){
         showStartState(true);
         clearResults();
@@ -374,15 +376,8 @@
 
         if (keyword){
           const searchableText = [
-            p.Title,
-            p.Client,
-            p.Company,
-            p.Region,
-            p.Country,
-            p["Service-Main"],
-            p["Service-2"],
-            p.Category,
-            p.Year
+            p.Title, p.Client, p.Company, p.Region, p.Country,
+            p["Service-Main"], p["Service-2"], p.Category, p.Year
           ].join(" ").toLowerCase();
 
           if (!searchableText.includes(keyword)) return false;
@@ -428,11 +423,9 @@
         const years = uniqSorted(allProjects.map(p => p.Year)).sort((a,b)=> yearNum(b) - yearNum(a));
         fillSelect(els.year, years);
 
-        // Initial state: show prompt (hide cards) until at least one filter is applied
         showStartState(true);
         clearResults();
 
-        // Events
         els.keyword.addEventListener("input", applyFilters);
         els.company.addEventListener("change", applyFilters);
         els.client.addEventListener("change", applyFilters);
@@ -449,7 +442,7 @@
           els.service.value = "";
           els.category.value = "";
           els.year.value = "";
-          applyFilters(); // stays hidden until user selects a filter again
+          applyFilters();
         });
 
       } catch (e){
@@ -461,27 +454,55 @@
 
     init();
   </script>
-<script>
-(function(){
-  const links = Array.from(document.querySelectorAll('aside nav a[href^="#"]'));
-  if (!links.length) return;
 
-  function setActive(hash){
-    links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === hash));
-  }
+  <!-- Projects section switcher (panels only) -->
+  <script>
+  (function(){
+    document.body.setAttribute("data-switcher","on");
 
-  // On click
-  links.forEach(a => {
-    a.addEventListener("click", () => setActive(a.getAttribute("href")));
-  });
+    const header = document.querySelector(".nav");
+    const aside = document.querySelector("aside");
+    const links = aside ? Array.from(aside.querySelectorAll("nav a[href^='#']")) : [];
+    if (!links.length) return;
 
-  // On load (if URL has a hash), otherwise pick first
-  setActive(location.hash && links.some(a => a.getAttribute("href") === location.hash)
-    ? location.hash
-    : links[0].getAttribute("href")
-  );
-})();
-</script>
+    const main = document.querySelector("main");
+    if (!main) return;
+
+    const panels = Array.from(main.querySelectorAll("section[data-panel='1'][id]"));
+    if (!panels.length) return;
+
+    const byId = new Map(panels.map(s => [s.id, s]));
+
+    function setActiveLink(id){
+      links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === "#" + id));
+    }
+
+    function showOnly(id){
+      const target = byId.get(id) || panels[0];
+      if (!target) return;
+
+      panels.forEach(s => s.classList.toggle("is-active", s === target));
+      setActiveLink(target.id);
+
+      const offset = (header ? header.getBoundingClientRect().height : 0) + 10;
+      const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+
+    links.forEach(a => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        const id = (a.getAttribute("href") || "").slice(1);
+        history.replaceState(null, "", "#" + id);
+        showOnly(id);
+      });
+    });
+
+    const hash = (location.hash || "").slice(1);
+    const defaultId = (links[0].getAttribute("href") || "").slice(1);
+    showOnly(byId.has(hash) ? hash : defaultId);
+  })();
+  </script>
 
 </body>
 </html>
