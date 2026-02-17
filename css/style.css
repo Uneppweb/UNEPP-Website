@@ -42,7 +42,7 @@ aside nav a.is-active:hover{
   /* Typography */
 --text:#0b1324;      /* nearly black navy */
 --muted:#334155;     /* medium slate */
- body,
+ ,
 p,
 li,
 span{
@@ -65,7 +65,7 @@ span{
 
 html{ font-size: 17px; }
 
-body{
+{
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -100,10 +100,10 @@ h3{
 
 
 *{ box-sizing:border-box; }
-html,body{ margin:0; padding:0; }
+html,{ margin:0; padding:0; }
 html{ scroll-behavior:smooth; }
 
-body{
+{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color:#1f2937;
   background:#ffffff;
@@ -112,7 +112,7 @@ body{
 
 
 /* Home only: keep the glow / radial accents */
-body.home{
+.home{
   background: radial-gradient(900px 500px at 15% 0%, rgba(70,176,255,.18), transparent 50%),
               radial-gradient(700px 500px at 85% 10%, rgba(88,255,196,.10), transparent 45%),
               var(--bg);
@@ -139,7 +139,7 @@ p, span, li{ text-align: justify; }
    ========================= */
 
 /* Ensure sticky is not broken by page overflow */
-html, body {
+html,  {
   max-width: 100%;
 }
 
@@ -359,27 +359,27 @@ hr.line{ border:none; border-top:1px solid var(--line); margin:18px 0; }
    HOME ONLY (index.html) – Sticky-friendly overflow fix
    ========================= */
 
-/* DO NOT set overflow on body if you want sticky to work reliably */
-body.home{
+/* DO NOT set overflow on  if you want sticky to work reliably */
+.home{
   overflow-x: visible;
 }
 
 /* Clip/hide horizontal overflow on content instead */
-body.home main{
+.home main{
   overflow-x: hidden; /* or use: overflow-x: clip; */
 }
 
 
-body.home .home-hero{
+.home .home-hero{
   display:grid;
   gap:18px;
 }
 
-body.home .home-row{ min-width:0; }
+.home .home-row{ min-width:0; }
 
 /* Bottom row: equal cards */
 /* Desktop: 3 equal columns */
-body.home .home-row-3{
+.home .home-row-3{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
@@ -388,23 +388,23 @@ body.home .home-row-3{
 
 /* Tablet: 2 per row */
 @media (max-width: 1200px){
-  body.home .home-row-3{
+  .home .home-row-3{
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* Mobile: stack */
 @media (max-width: 768px){
-  body.home .home-row-3{
+  .home .home-row-3{
     grid-template-columns: 1fr;
   }
 }
 
 
-body.home .home-row-3 > .card{ height:100%; }
+.home .home-row-3 > .card{ height:100%; }
 
 /* Home marquee slider (continuous left -> right) */
-body.home .marquee{
+.home .marquee{
   width:100%;
   overflow:hidden; /* key: clips the long track */
   border-radius:14px;
@@ -413,7 +413,7 @@ body.home .marquee{
   padding:10px;
 }
 
-body.home .marquee-track{
+.home .marquee-track{
   display:inline-flex; /* key: avoids widening layout calculations */
   gap:16px;
   align-items:center;
