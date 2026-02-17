@@ -391,6 +391,7 @@ body.home .marquee:hover .marquee-track{
 /* =========================
    ABOUT: Our Partners (logo marquee)
    ========================= */
+/* Our Partners — crisp scrolling marquee (Chrome-friendly) */
 .partners-marquee{
   width:100%;
   overflow:hidden;
@@ -398,27 +399,25 @@ body.home .marquee:hover .marquee-track{
   border:1px solid var(--line);
   background: rgba(255,255,255,.04);
   padding:14px;
-  transform: translateZ(0);
+
+  /* Important: make it a scroll container but hide scrollbar */
+  overflow-x: hidden;
+  position: relative;
 }
 
 .partners-track{
   display:flex;
-  gap:28px;
+  gap:36px;
   align-items:center;
-  width:max-content;
-  will-change: transform;
-  transform: translate3d(0,0,0);
-  backface-visibility: hidden;
-  animation: partnersScroll 120s linear infinite;
+  width:max-content; /* track can be wider than container */
 }
 
 .partners-track img{
   height:42px;
   width:auto;
   flex-shrink:0;
-  transform: translateZ(0);
-  image-rendering: -webkit-optimize-contrast;
 }
+
 
 @keyframes partnersScroll{
   from { transform: translate3d(0,0,0); }
