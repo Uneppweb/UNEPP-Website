@@ -6,64 +6,59 @@
   <title>Capabilities | UNEPP</title>
   <meta name="description" content="UNEPP capabilities across feasibility studies, FEED and detailed engineering, project and construction management, procurement, offshore engineering, tools and standards compliance." />
   <link rel="stylesheet" href="css/style.css" />
-<style>
-/* === PM Sequence (auto overlay) === */
-.pm-seq{ margin-top: 6px; }
-
-.pm-seq-stage{
-  position: relative;
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0,0,0,.15);
-  background: #fff;
-}
-
-/* Stack all frames on top of each other */
-.pm-seq-frame{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: auto;
-  opacity: 0;
-  transition: opacity .7s ease;
-  pointer-events: none;
-}
-
-
-  
-/* First image defines the height/layout */
-.pm-seq-frame.is-base{
-  position: relative;
-  display: block;
-  opacity: 1;
-}
-
-/* Any revealed frame fades in and stays visible */
-.pm-seq-frame.is-revealed{
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce){
-  .pm-seq-frame{ transition:none !important; }
-}
-</style>
 
   <style>
-  /* One-section-at-a-time behavior (page-local) */
-  body[data-switcher="on"] main section[id]{ display:none; }
-  body[data-switcher="on"] main section[id].is-active{ display:block; }
+    /* === PM Sequence (auto overlay) === */
+    .pm-seq{ margin-top: 6px; }
 
-  /* Optional: keep layout tidy */
-  body[data-switcher="on"] main{ min-height: 60vh; }
-</style>
+    .pm-seq-stage{
+      position: relative;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,.15);
+      background: #fff;
+    }
 
-  
+    /* Stack all frames on top of each other */
+    .pm-seq-frame{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      transition: opacity .7s ease;
+      pointer-events: none;
+    }
+
+    /* First image defines the height/layout */
+    .pm-seq-frame.is-base{
+      position: relative;
+      display: block;
+      opacity: 1;
+    }
+
+    /* Any revealed frame fades in and stays visible */
+    .pm-seq-frame.is-revealed{
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .pm-seq-frame{ transition:none !important; }
+    }
+  </style>
+
+  <style>
+    /* One-section-at-a-time behavior (page-local) — ONLY panels participate */
+    body[data-switcher="on"] main section[data-panel="1"][id]{ display:none; }
+    body[data-switcher="on"] main section[data-panel="1"][id].is-active{ display:block; }
+
+    /* Optional: keep layout tidy */
+    body[data-switcher="on"] main{ min-height: 60vh; }
+  </style>
 </head>
 
 <body class="capabilities">
-<div id="top"></div>
-
 <header class="nav">
   <div class="container nav-inner">
     <a class="brand" href="index.html">
@@ -87,13 +82,13 @@
 </header>
 
 <!-- Same left index layout as About Us -->
-<main id="top" class="container about-layout">
+<main id="capabilities" class="container about-layout">
 
   <!-- Left index -->
   <aside class="about-index">
     <b>Capabilities</b>
     <nav>
-<a href="#overview">Overview</a>
+      <a href="#overview">Overview</a>
       <a href="#feasibility">Feasibility & Concept Selection</a>
       <a href="#feed-design">FEED & Detailed Design</a>
       <a href="#project-management">Project & Construction Management</a>
@@ -106,215 +101,188 @@
   <!-- Page content -->
   <div class="about-content">
 
-
-
-<section class="section" id="overview" data-panel="1">
-  <div class="section-intro">
-    <h2>Comprehensive Services Across the Full Project Lifecycle</h2>
-    <p class="lead">
-      UNEPP delivers integrated engineering, procurement, and project management services from early-phase studies
-      through design, construction, commissioning, and operational support—aligned with international standards
-      and client requirements.
-    </p>
-  </div>
-
-  <!-- Anchor badges (optional, keep empty or remove) -->
-  <div class="badges"></div>
-</section>
-
-
-<!-- Feasibility -->
-<section class="section" id="feasibility">
-  <div class="section-intro">
-    <h3>Feasibility Studies and Concept Selection</h3>
-    <p class="lead">
-      UNEPP offers comprehensive Engineering Studies and Concept Selection services to support clients in making informed, risk-mitigated, and cost-effective decisions during the early phases of project development. Our capabilities are tailored to ensure alignment with technical, operational, and regulatory requirements across a wide range of sectors, including oil & gas, petrochemical, and infrastructure. We support informed, risk-mitigated, and cost-effective decisions during early project development
-      across oil & gas, petrochemical, and infrastructure sectors. 
-    </p>
-  </div>
-
-  <!-- Card wrapper -->
-  <div class="card">
-
-    <!-- Feasibility workflow image -->
-    <div class="capability-visual">
-      <img
-        src="assets/images/concept-selection-flow.png"
-        alt="Concept selection and appraisal workflow from opportunity input through concept selection report"
-      />
-    </div>
-
-    <!-- Capability boxes -->
-    <div class="grid" style="margin-top:18px;">
-      <div class="item">
-        <b>Feasibility Studies</b>
-        <span>Assess the technical and economic viability of proposed developments.</span>
+    <!-- Overview (ONLY title + statement) -->
+    <section class="section" id="overview" data-panel="1">
+      <div class="section-intro">
+        <h2>Comprehensive Services Across the Full Project Lifecycle</h2>
+        <p class="lead">
+          UNEPP delivers integrated engineering, procurement, and project management services from early-phase studies
+          through design, construction, commissioning, and operational support—aligned with international standards
+          and client requirements.
+        </p>
       </div>
 
-      <div class="item">
-        <b>Concepts Screening</b>
-        <span>Comparative evaluations of development alternatives based on performance, safety, operability, and lifecycle cost criteria.</span>
+      <!-- Anchor badges (optional, keep empty or remove) -->
+      <div class="badges"></div>
+    </section>
+
+    <!-- Feasibility -->
+    <section class="section" id="feasibility" data-panel="1">
+      <div class="section-intro">
+        <h3>Feasibility Studies and Concept Selection</h3>
+        <p class="lead">
+          UNEPP offers comprehensive Engineering Studies and Concept Selection services to support clients in making informed, risk-mitigated, and cost-effective decisions during the early phases of project development. Our capabilities are tailored to ensure alignment with technical, operational, and regulatory requirements across a wide range of sectors, including oil & gas, petrochemical, and infrastructure. We support informed, risk-mitigated, and cost-effective decisions during early project development
+          across oil & gas, petrochemical, and infrastructure sectors.
+        </p>
       </div>
 
-      <div class="item">
-        <b>Technology Assessment</b>
-        <span>Fit-for-purpose solutions that align with project objectives and site conditions.</span>
+      <div class="card">
+        <div class="capability-visual">
+          <img
+            src="assets/images/concept-selection-flow.png"
+            alt="Concept selection and appraisal workflow from opportunity input through concept selection report"
+          />
+        </div>
+
+        <div class="grid" style="margin-top:18px;">
+          <div class="item">
+            <b>Feasibility Studies</b>
+            <span>Assess the technical and economic viability of proposed developments.</span>
+          </div>
+
+          <div class="item">
+            <b>Concepts Screening</b>
+            <span>Comparative evaluations of development alternatives based on performance, safety, operability, and lifecycle cost criteria.</span>
+          </div>
+
+          <div class="item">
+            <b>Technology Assessment</b>
+            <span>Fit-for-purpose solutions that align with project objectives and site conditions.</span>
+          </div>
+
+          <div class="item">
+            <b>Process Simulation</b>
+            <span>Validate key assumptions and support early-stage decision-making.</span>
+          </div>
+
+          <div class="item">
+            <b>Pre-FEED Deliverables</b>
+            <span>Define project scope, execution strategies, and interface requirements.</span>
+          </div>
+
+          <div class="item">
+            <b>Risk & Safety Integration</b>
+            <span>HAZID, ENVID, and preliminary QRA.</span>
+          </div>
+        </div>
       </div>
-
-      <div class="item">
-        <b>Process Simulation</b>
-        <span>Validate key assumptions and support early-stage decision-making.</span>
-      </div>
-
-      <div class="item">
-        <b>Pre-FEED Deliverables</b>
-        <span>Define project scope, execution strategies, and interface requirements.</span>
-      </div>
-
-      <div class="item">
-        <b>Risk & Safety Integration</b>
-        <span>HAZID, ENVID, and preliminary QRA.</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
+    </section>
 
     <!-- FEED -->
-  <section class="section" id="feed-design">
-  <div class="section-intro">
-    <h3>FEED, Conceptual and Detailed Design</h3>
-    <p class="lead">
-      UNEPP provides end-to-end engineering design services spanning Conceptual Design, Front-End Engineering Design (FEED), and Detailed Engineering. Our capabilities are built on a multi-disciplinary foundation that enables us to deliver optimized, constructible, and cost-effective engineering solutions for complex onshore and offshore projects.
-    </p>
-  </div>
-
- 
-  <!-- CARD START -->
-  <div class="card">
-
-    <!-- FEED workflow image -->
-    <div class="capability-visual">
-      <img
-        src="assets/images/FEED.png"
-        alt="FEED engineering workflow including scope definition, cost estimation, risk management, design optimization, and regulatory compliance"
-      />
-    </div>
-
-    <!-- FEED content -->
-    <div class="split">
-      <div class="item">
-        <b>Conceptual & FEED Engineering</b>
-        <span>
-          • Process philosophies and design criteria<br/>
-          • Concept selection and scope definition<br/>
-          • Risk assessments and constructability reviews<br/>
-          • Cost estimation and schedule development
-        </span>
+    <section class="section" id="feed-design" data-panel="1">
+      <div class="section-intro">
+        <h3>FEED, Conceptual and Detailed Design</h3>
+        <p class="lead">
+          UNEPP provides end-to-end engineering design services spanning Conceptual Design, Front-End Engineering Design (FEED), and Detailed Engineering. Our capabilities are built on a multi-disciplinary foundation that enables us to deliver optimized, constructible, and cost-effective engineering solutions for complex onshore and offshore projects.
+        </p>
       </div>
 
-      <div class="item">
-        <b>Basic & Detailed Engineering</b>
-        <span>
-          • Process & systems engineering<br/>
-          • Mechanical & HVAC engineering<br/>
-          • Electrical, instrumentation & control<br/>
-          • Piping, pipelines & MTOs<br/>
-          • Civil, structural & materials engineering
-        </span>
+      <div class="card">
+        <div class="capability-visual">
+          <img
+            src="assets/images/FEED.png"
+            alt="FEED engineering workflow including scope definition, cost estimation, risk management, design optimization, and regulatory compliance"
+          />
+        </div>
+
+        <div class="split">
+          <div class="item">
+            <b>Conceptual & FEED Engineering</b>
+            <span>
+              • Process philosophies and design criteria<br/>
+              • Concept selection and scope definition<br/>
+              • Risk assessments and constructability reviews<br/>
+              • Cost estimation and schedule development
+            </span>
+          </div>
+
+          <div class="item">
+            <b>Basic & Detailed Engineering</b>
+            <span>
+              • Process & systems engineering<br/>
+              • Mechanical & HVAC engineering<br/>
+              • Electrical, instrumentation & control<br/>
+              • Piping, pipelines & MTOs<br/>
+              • Civil, structural & materials engineering
+            </span>
+          </div>
+        </div>
       </div>
-    </div>
-
-  </div>
-  <!-- CARD END -->
-
-</section>
-
+    </section>
 
     <!-- Project Management -->
-<section class="section" id="project-management">
-  <div class="section-intro">
-    <h3>Full Lifecycle Integrated Project Solutions</h3>
-    <p class="lead">
-      UNEPP offers integrated Project and Construction services tailored to meet the complex demands of oil and gas, infrastructure, and industrial developments. Our capabilities span the full project lifecycle—from planning and cost control through construction supervision and mechanical completion - ensuring successful delivery within budget, schedule, and quality parameters.
-    </p>
-  </div>
-
-  <!-- CARD: image + boxes -->
-  <div class="card">
-
-    <!-- Project Management workflow (auto overlay sequence) -->
-<div class="capability-visual pm-seq" aria-label="Project lifecycle sequence">
-  <div class="pm-seq-stage" role="img" aria-label="Project lifecycle from initiation to close-out">
-    <img src="assets/images/pm/Slide1.JPG" alt="Step 1: Project Initiation" class="pm-seq-frame is-base" loading="eager" decoding="async">
-    <img src="assets/images/pm/Slide2.JPG" alt="Step 2: Conceptual Design" class="pm-seq-frame" loading="lazy" decoding="async">
-    <img src="assets/images/pm/Slide3.JPG" alt="Step 3: FEED" class="pm-seq-frame" loading="lazy" decoding="async">
-    <img src="assets/images/pm/Slide4.JPG" alt="Step 4: Detailed Engineering" class="pm-seq-frame" loading="lazy" decoding="async">
-    <img src="assets/images/pm/Slide5.JPG" alt="Step 5: Procurement" class="pm-seq-frame" loading="lazy" decoding="async">
-    <img src="assets/images/pm/Slide6.JPG" alt="Step 6: Construction" class="pm-seq-frame" loading="lazy" decoding="async">
-    <img src="assets/images/pm/Slide7.JPG" alt="Step 7: Commissioning & Start Up" class="pm-seq-frame" loading="lazy" decoding="async">
-    <img src="assets/images/pm/Slide8.JPG" alt="Step 8: Project Close Out" class="pm-seq-frame" loading="lazy" decoding="async">
-  </div>
-</div>
-
-    <!-- Boxes -->
-    <div class="split">
-      <div class="item">
-        <b>Project Management</b>
-        <span>
-          • Planning and scheduling<br/>
-          • Cost control and reporting<br/>
-          • Contractor coordination<br/>
-          • HSE supervision and compliance
-        </span>
+    <section class="section" id="project-management" data-panel="1">
+      <div class="section-intro">
+        <h3>Full Lifecycle Integrated Project Solutions</h3>
+        <p class="lead">
+          UNEPP offers integrated Project and Construction services tailored to meet the complex demands of oil and gas, infrastructure, and industrial developments. Our capabilities span the full project lifecycle—from planning and cost control through construction supervision and mechanical completion - ensuring successful delivery within budget, schedule, and quality parameters.
+        </p>
       </div>
 
-      <div class="item">
-        <b>Construction</b>
-        <span>
-          • Pipeline construction<br/>
-          • Equipment installation<br/>
-          • Steel structures and piping<br/>
-          • Electrical & instrumentation works
-        </span>
+      <div class="card">
+
+        <div class="capability-visual pm-seq" aria-label="Project lifecycle sequence">
+          <div class="pm-seq-stage" role="img" aria-label="Project lifecycle from initiation to close-out">
+            <img src="assets/images/pm/Slide1.JPG" alt="Step 1: Project Initiation" class="pm-seq-frame is-base" loading="eager" decoding="async">
+            <img src="assets/images/pm/Slide2.JPG" alt="Step 2: Conceptual Design" class="pm-seq-frame" loading="lazy" decoding="async">
+            <img src="assets/images/pm/Slide3.JPG" alt="Step 3: FEED" class="pm-seq-frame" loading="lazy" decoding="async">
+            <img src="assets/images/pm/Slide4.JPG" alt="Step 4: Detailed Engineering" class="pm-seq-frame" loading="lazy" decoding="async">
+            <img src="assets/images/pm/Slide5.JPG" alt="Step 5: Procurement" class="pm-seq-frame" loading="lazy" decoding="async">
+            <img src="assets/images/pm/Slide6.JPG" alt="Step 6: Construction" class="pm-seq-frame" loading="lazy" decoding="async">
+            <img src="assets/images/pm/Slide7.JPG" alt="Step 7: Commissioning & Start Up" class="pm-seq-frame" loading="lazy" decoding="async">
+            <img src="assets/images/pm/Slide8.JPG" alt="Step 8: Project Close Out" class="pm-seq-frame" loading="lazy" decoding="async">
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="item">
+            <b>Project Management</b>
+            <span>
+              • Planning and scheduling<br/>
+              • Cost control and reporting<br/>
+              • Contractor coordination<br/>
+              • HSE supervision and compliance
+            </span>
+          </div>
+
+          <div class="item">
+            <b>Construction</b>
+            <span>
+              • Pipeline construction<br/>
+              • Equipment installation<br/>
+              • Steel structures and piping<br/>
+              • Electrical & instrumentation works
+            </span>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
+    <!-- Procurement -->
+    <section class="section" id="procurement" data-panel="1">
+      <div class="section-intro">
+        <h3>Procurement Services</h3>
+        <p class="lead">
+          UNEPP offers comprehensive procurement services tailored to meet the demanding requirements of the oil and gas industry. Our procurement approach is built on a foundation of technical expertise, global sourcing experience, and a deep understanding of project-driven supply chain needs. Our services include:
+        </p>
+      </div>
 
-
-<!-- Procurement -->
-<section class="section" id="procurement">
-  <div class="section-intro">
-    <h3>Procurement Services</h3>
-    <p class="lead">
-UNEPP offers comprehensive procurement services tailored to meet the demanding requirements of the oil and gas industry. Our procurement approach is built on a foundation of technical expertise, global sourcing experience, and a deep understanding of project-driven supply chain needs. Our services include:
-    </p>
-  </div>
-
-  <!-- CARD: image + boxes -->
-  <div class="card">
-
-    <!-- Procurement strategy image -->
-    <div class="capability-visual">
-      <img
-        src="assets/images/Procurement.png"
-        alt="UNEPP procurement strategy including requirements definition, market analysis, supplier selection, contract management, procurement planning, order management, logistics, quality control, supplier relationship management, and risk management"
-      />
-    </div>
-
-  </div>
-</section>
-
+      <div class="card">
+        <div class="capability-visual">
+          <img
+            src="assets/images/Procurement.png"
+            alt="UNEPP procurement strategy including requirements definition, market analysis, supplier selection, contract management, procurement planning, order management, logistics, quality control, supplier relationship management, and risk management"
+          />
+        </div>
+      </div>
+    </section>
 
     <!-- Offshore -->
-    <section class="section" id="offshore">
+    <section class="section" id="offshore" data-panel="1">
       <div class="section-intro">
         <h3>Specialized Offshore Engineering Services</h3>
         <p class="lead">
-UNEPP has developed robust capabilities in offshore engineering, with an annual average of 150,000 man-hours dedicated to Greenfield and Brownfield offshore projects. Our specialized experience spans across Front-End Engineering Design (FEED), detailed engineering, offshore installation analysis, and transportation studies—supporting clients in achieving safe, efficient, and cost-effective marine operations.
+          UNEPP has developed robust capabilities in offshore engineering, with an annual average of 150,000 man-hours dedicated to Greenfield and Brownfield offshore projects. Our specialized experience spans across Front-End Engineering Design (FEED), detailed engineering, offshore installation analysis, and transportation studies—supporting clients in achieving safe, efficient, and cost-effective marine operations.
         </p>
       </div>
 
@@ -325,74 +293,67 @@ UNEPP has developed robust capabilities in offshore engineering, with an annual 
       </div>
     </section>
 
-<!-- Tools -->
-<section class="section" id="tools-software">
-  <div class="section-intro">
-    <h3>Tools and Software Capabilities</h3>
-    <p class="lead">
-      UNEPP leverages a wide range of advanced engineering, design, and project management software tools to deliver high-quality, efficient,
-      and compliant solutions across all project phases. Our multidisciplinary teams are proficient in industry-leading platforms, enabling precise
-      modeling, simulation, analysis, and documentation. Our software capabilities include:
-    </p>
-  </div>
-
-  <!-- CARD: marquee -->
-  <div class="card">
-
-    <div class="software-marquee" aria-label="Engineering Software Tools">
-      <div class="software-track">
-
-        <!-- FIRST SET -->
-        <span class="software-logo"><img src="assets/software/Aspen-HYSYS.png" alt="Aspen HYSYS" /></span>
-        <span class="software-logo"><img src="assets/software/autocad.png" alt="AutoCAD" /></span>
-        <span class="software-logo"><img src="assets/software/autopipe.png" alt="AutoPIPE" /></span>
-        <span class="software-logo"><img src="assets/software/caesar-II.png" alt="CAESAR II" /></span>
-        <span class="software-logo"><img src="assets/software/dyna6.1.png" alt="DYNA 6.1" /></span>
-        <span class="software-logo"><img src="assets/software/OLGA.png" alt="OLGA" /></span>
-        <span class="software-logo"><img src="assets/software/orcaflex.png" alt="OrcaFlex" /></span>
-        <span class="software-logo"><img src="assets/software/pdms.png" alt="AVEVA PDMS" /></span>
-        <span class="software-logo"><img src="assets/software/phapro.png" alt="PHAPro" /></span>
-        <span class="software-logo"><img src="assets/software/phast.png" alt="PHAST" /></span>
-        <span class="software-logo"><img src="assets/software/pipesim.png" alt="PIPESIM" /></span>
-        <span class="software-logo"><img src="assets/software/PRCI.png" alt="PRCI" /></span>
-        <span class="software-logo"><img src="assets/software/pvtsim.png" alt="PVTsim" /></span>
-        <span class="software-logo"><img src="assets/software/sacs.png" alt="SACS" /></span>
-        <span class="software-logo"><img src="assets/software/safeti.png" alt="Safeti" /></span>
-        <span class="software-logo"><img src="assets/software/sageprofile.png" alt="SageProfile" /></span>
-        <span class="software-logo"><img src="assets/software/SAP.png" alt="SAP2000" /></span>
-        <span class="software-logo"><img src="assets/software/staadpro.png" alt="STAAD Pro" /></span>
-        <span class="software-logo"><img src="assets/software/usfos.png" alt="USFOS" /></span>
-
-        <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
-        <span class="software-logo"><img src="assets/software/Aspen-HYSYS.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/autocad.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/autopipe.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/caesar-II.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/dyna6.1.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/OLGA.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/orcaflex.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/pdms.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/phapro.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/phast.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/pipesim.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/PRCI.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/pvtsim.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/sacs.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/safeti.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/sageprofile.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/SAP.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/staadpro.png" alt="" aria-hidden="true" /></span>
-        <span class="software-logo"><img src="assets/software/usfos.png" alt="" aria-hidden="true" /></span>
-
+    <!-- Tools -->
+    <section class="section" id="tools-software" data-panel="1">
+      <div class="section-intro">
+        <h3>Tools and Software Capabilities</h3>
+        <p class="lead">
+          UNEPP leverages a wide range of advanced engineering, design, and project management software tools to deliver high-quality, efficient,
+          and compliant solutions across all project phases. Our multidisciplinary teams are proficient in industry-leading platforms, enabling precise
+          modeling, simulation, analysis, and documentation. Our software capabilities include:
+        </p>
       </div>
-    </div>
 
-  </div>
-</section>
+      <div class="card">
+        <div class="software-marquee" aria-label="Engineering Software Tools">
+          <div class="software-track">
 
+            <!-- FIRST SET -->
+            <span class="software-logo"><img src="assets/software/Aspen-HYSYS.png" alt="Aspen HYSYS" /></span>
+            <span class="software-logo"><img src="assets/software/autocad.png" alt="AutoCAD" /></span>
+            <span class="software-logo"><img src="assets/software/autopipe.png" alt="AutoPIPE" /></span>
+            <span class="software-logo"><img src="assets/software/caesar-II.png" alt="CAESAR II" /></span>
+            <span class="software-logo"><img src="assets/software/dyna6.1.png" alt="DYNA 6.1" /></span>
+            <span class="software-logo"><img src="assets/software/OLGA.png" alt="OLGA" /></span>
+            <span class="software-logo"><img src="assets/software/orcaflex.png" alt="OrcaFlex" /></span>
+            <span class="software-logo"><img src="assets/software/pdms.png" alt="AVEVA PDMS" /></span>
+            <span class="software-logo"><img src="assets/software/phapro.png" alt="PHAPro" /></span>
+            <span class="software-logo"><img src="assets/software/phast.png" alt="PHAST" /></span>
+            <span class="software-logo"><img src="assets/software/pipesim.png" alt="PIPESIM" /></span>
+            <span class="software-logo"><img src="assets/software/PRCI.png" alt="PRCI" /></span>
+            <span class="software-logo"><img src="assets/software/pvtsim.png" alt="PVTsim" /></span>
+            <span class="software-logo"><img src="assets/software/sacs.png" alt="SACS" /></span>
+            <span class="software-logo"><img src="assets/software/safeti.png" alt="Safeti" /></span>
+            <span class="software-logo"><img src="assets/software/sageprofile.png" alt="SageProfile" /></span>
+            <span class="software-logo"><img src="assets/software/SAP.png" alt="SAP2000" /></span>
+            <span class="software-logo"><img src="assets/software/staadpro.png" alt="STAAD Pro" /></span>
+            <span class="software-logo"><img src="assets/software/usfos.png" alt="USFOS" /></span>
 
+            <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
+            <span class="software-logo"><img src="assets/software/Aspen-HYSYS.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/autocad.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/autopipe.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/caesar-II.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/dyna6.1.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/OLGA.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/orcaflex.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/pdms.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/phapro.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/phast.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/pipesim.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/PRCI.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/pvtsim.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/sacs.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/safeti.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/sageprofile.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/SAP.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/staadpro.png" alt="" aria-hidden="true" /></span>
+            <span class="software-logo"><img src="assets/software/usfos.png" alt="" aria-hidden="true" /></span>
 
-
+          </div>
+        </div>
+      </div>
+    </section>
 
   </div><!-- /.about-content -->
 </main>
@@ -417,8 +378,8 @@ UNEPP has developed robust capabilities in offshore engineering, with an annual 
   const base = frames.find(f => f.classList.contains('is-base'));
   const overlays = frames.filter(f => f !== base);
 
-  let idx = -1;               
-  const delayMs = 3000;       // <-- adjust speed here (8s example)
+  let idx = -1;
+  const delayMs = 3000; // adjust speed here
 
   function resetSequence(){
     overlays.forEach(f => f.classList.remove('is-revealed'));
@@ -427,57 +388,32 @@ UNEPP has developed robust capabilities in offshore engineering, with an annual 
 
   setInterval(()=>{
     if(idx >= overlays.length - 1){
-      resetSequence();        // restart from blank
+      resetSequence();
     } else {
       idx += 1;
       overlays[idx].classList.add('is-revealed');
     }
   }, delayMs);
-
-})();
-</script>
-<script>
-(function(){
-  const links = Array.from(document.querySelectorAll('aside nav a[href^="#"]'));
-  if (!links.length) return;
-
-  function setActive(hash){
-    links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === hash));
-  }
-
-  // On click
-  links.forEach(a => {
-    a.addEventListener("click", () => setActive(a.getAttribute("href")));
-  });
-
-  // On load (if URL has a hash), otherwise pick first
-  setActive(location.hash && links.some(a => a.getAttribute("href") === location.hash)
-    ? location.hash
-    : links[0].getAttribute("href")
-  );
 })();
 </script>
 
 <script>
+/* === Section Switcher (Capabilities) — panels only === */
 (function(){
-  // Turn on switcher for this page only
   document.body.setAttribute("data-switcher","on");
 
   const header = document.querySelector(".nav");
-
-  // Left index links: first <aside> nav links that point to #sections
   const aside = document.querySelector("aside");
   const links = aside ? Array.from(aside.querySelectorAll("nav a[href^='#']")) : [];
   if (!links.length) return;
 
-  // Target sections: any <section id="..."> inside <main>
   const main = document.querySelector("main");
   if (!main) return;
 
-const sections = Array.from(main.querySelectorAll("section[data-panel='1'][id]"));
+  // Only panels participate
+  const sections = Array.from(main.querySelectorAll("section[data-panel='1'][id]"));
   if (!sections.length) return;
 
-  // Map id -> section (fast lookup)
   const byId = new Map(sections.map(s => [s.id, s]));
 
   function setActiveLink(id){
@@ -488,17 +424,14 @@ const sections = Array.from(main.querySelectorAll("section[data-panel='1'][id]")
     const target = byId.get(id) || sections[0];
     if (!target) return;
 
-    // Show only target section
     sections.forEach(s => s.classList.toggle("is-active", s === target));
     setActiveLink(target.id);
 
-    // Scroll to the section title (with sticky header offset)
     const offset = (header ? header.getBoundingClientRect().height : 0) + 10;
     const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top: y, behavior: "smooth" });
   }
 
-  // Intercept clicks
   links.forEach(a => {
     a.addEventListener("click", (e) => {
       e.preventDefault();
@@ -508,16 +441,11 @@ const sections = Array.from(main.querySelectorAll("section[data-panel='1'][id]")
     });
   });
 
-  // On load: show hash section if it exists, otherwise first link’s target
   const hash = (location.hash || "").slice(1);
   const defaultId = (links[0].getAttribute("href") || "").slice(1);
   showOnly(byId.has(hash) ? hash : defaultId);
 })();
 </script>
 
-
-
-
-  
 </body>
 </html>
