@@ -16,6 +16,13 @@
   --radius:18px;
   --max:1600px;
 
+  /* Button colors */
+  --btn-bg: #F2C94C;
+  --btn-bg-hover: #E5B93F;
+  --btn-text: #111827;
+}
+
+
   /* Typography */
 --text:#0b1324;      /* nearly black navy */
 --muted:#334155;     /* medium slate */
@@ -1588,8 +1595,3 @@ body.about .about-section.is-active{
   background:#E5B93F !important;
   transform:translateY(-1px);
 }
-
-  /* Button palette (single source of truth) */
-  --btn-bg: linear-gradient(135deg, var(--brand), #7cf7d0);
-  --btn-text: #07101f;
-  --btn-shadow: var(--shadow);
