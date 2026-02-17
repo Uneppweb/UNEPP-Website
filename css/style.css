@@ -406,7 +406,7 @@ body.home .marquee:hover .marquee-track{
   align-items:center;
   width:max-content;
   will-change: transform;
-  animation: partnersScroll 90s linear infinite; /* slower = you’ll see all logos */
+  animation: partnersScroll 100s linear infinite; /* slower = you’ll see all logos */
 }
 
 .partners-track img{
