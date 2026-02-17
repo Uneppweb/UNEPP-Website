@@ -389,6 +389,48 @@ body.home .marquee:hover .marquee-track{
 }
 
 /* =========================
+   ABOUT: Our Partners (logo marquee)
+   ========================= */
+.partners-marquee{
+  width:100%;
+  overflow:hidden;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  padding:14px;
+}
+
+.partners-track{
+  display:inline-flex;
+  gap:36px;
+  align-items:center;
+  will-change: transform;
+  animation: partnersLTR 32s linear infinite; /* slower for many logos */
+}
+
+.partners-track img{
+  height:42px;
+  width:auto;
+  flex: 0 0 auto;
+  opacity: 1; /* full color */
+}
+
+@keyframes partnersLTR{
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.partners-marquee:hover .partners-track{
+  animation-play-state: paused;
+}
+
+@media (max-width: 900px){
+  .partners-track{ gap:26px; }
+  .partners-track img{ height:38px; }
+}
+
+
+/* =========================
    Generic grids (Capabilities/Other)
    ========================= */
 .grid{
