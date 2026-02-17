@@ -9,15 +9,18 @@
 
   <!-- About: Single-section view (tabs via left index)
        (Keeping here so it works even if style.css cache is old) -->
-<style>
-  body.about .about-section{ display:none; }
 
-  /* IMPORTANT: do NOT force block — restore the section’s original display (grid/flex/etc.) */
-  body.about .about-section.is-active{
-    display: block;   /* fallback */
-    display: revert;  /* best: uses whatever .section originally is in style.css */
+  <style>
+  /* About: tab sections (use native hidden attribute) */
+  body.about .about-section[hidden]{ display:none !important; }
+
+  /* optional: highlight active link */
+  .about-index a.active{
+    background: rgba(255,255,255,.06);
+    border: 1px solid var(--line);
   }
 </style>
+
 
 </head>
 
@@ -470,37 +473,43 @@
     document.getElementById("y").textContent = new Date().getFullYear();
 
     // About: show one section at a time (left index = tabs)
-    (() => {
-      const links = [...document.querySelectorAll('.about-index a[href^="#"]')];
-      const sections = [...document.querySelectorAll('body.about .about-section')];
-      if (!links.length || !sections.length) return;
+ <script>
+  // About: show one section at a time (left index = tabs) — robust (uses hidden attribute)
+  (() => {
+    const links = [...document.querySelectorAll('.about-index a[href^="#"]')];
+    const sections = [...document.querySelectorAll('body.about .about-section')];
+    if (!links.length || !sections.length) return;
 
-      function setActive(id, updateHash = true){
-        sections.forEach(s => s.classList.remove('is-active'));
-        links.forEach(a => a.classList.remove('active'));
+    function show(id, updateHash = true){
+      // hide all sections
+      sections.forEach(s => s.hidden = true);
+      links.forEach(a => a.classList.remove('active'));
 
-        const target = document.getElementById(id);
-        const link = links.find(a => a.getAttribute('href') === '#' + id);
+      const target = document.getElementById(id);
+      const link = links.find(a => a.getAttribute('href') === '#' + id);
 
-        if (target) target.classList.add('is-active');
-        if (link) link.classList.add('active');
+      if (target) target.hidden = false;
+      if (link) link.classList.add('active');
 
-        if (updateHash) history.replaceState(null, '', '#' + id);
-      }
+      if (updateHash) history.replaceState(null, '', '#' + id);
+    }
 
-      links.forEach(a => {
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          const id = a.getAttribute('href').slice(1);
-          setActive(id, true);
-          document.querySelector('.about-content')?.scrollIntoView({ behavior:'smooth', block:'start' });
-        });
+    // clicks
+    links.forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        show(id, true);
+        document.querySelector('.about-content')?.scrollIntoView({ behavior:'smooth', block:'start' });
       });
+    });
 
-      // Default: company overview, or hash if user landed on a specific section
-      const initial = (location.hash || '#company-overview').slice(1);
-      setActive(initial, false);
-    })();
+    // default
+    const initial = (location.hash || '#company-overview').slice(1);
+    show(initial, false);
+  })();
+</script>
+
 
     // Partners marquee: crisp continuous scroll in Chrome (scrollLeft loop)
     (() => {
