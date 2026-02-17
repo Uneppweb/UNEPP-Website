@@ -21,6 +21,22 @@
   --btn-bg-hover: #E5B93F;
   --btn-text: #111827;
 }
+/* Active item in ANY left sidebar index */
+aside nav a.is-active{
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  font-weight:700;
+  border:none;
+  border-radius:8px;
+  padding:12px 18px;
+  display:inline-block;
+  transition:all 0.25s ease;
+}
+
+aside nav a.is-active:hover{
+  background: var(--btn-bg-hover) !important;
+  transform:translateY(-1px);
+}
 
 
   /* Typography */
