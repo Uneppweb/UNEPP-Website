@@ -1612,3 +1612,14 @@ body.about .about-section.is-active{
   background:#E5B93F !important;
   transform:translateY(-1px);
 }
+/* ===============================
+   Capabilities Section Titles
+   Match other page headings
+   =============================== */
+
+.capabilities .section-intro h3{
+  font-size: 28px;        /* match your h2 size if 28px */
+  font-weight: 800;       /* same bold weight */
+  margin: 0 0 12px;
+  color: #111827;
+}
