@@ -1490,3 +1490,43 @@ body.capabilities .software-logo img{
   backface-visibility: hidden;
   transform: translateZ(0);
 }
+/* =========================
+   ABOUT: Our Partners (logo marquee)
+   ========================= */
+.partners-marquee{
+  width:100%;
+  overflow:hidden;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  padding:14px;
+}
+
+.partners-track{
+  display:inline-flex;
+  gap:26px;
+  align-items:center;
+  will-change: transform;
+  animation: partnersLTR 22s linear infinite;
+}
+
+.partners-track img{
+  height:46px;   /* tweak if needed */
+  width:auto;
+  flex: 0 0 auto;
+  opacity: 1;    /* full color, full opacity */
+}
+
+@keyframes partnersLTR{
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.partners-marquee:hover .partners-track{
+  animation-play-state: paused;
+}
+
+/* Slightly smaller logos on mobile */
+@media (max-width: 900px){
+  .partners-track img{ height:40px; }
+}
