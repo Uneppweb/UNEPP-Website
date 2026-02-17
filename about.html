@@ -7,6 +7,12 @@
   <meta name="description" content="About United Engineers for Petroleum Projects (UNEPP) – company overview, values, leadership team, milestones, certifications, and regional presence across Egypt and the MENA region." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
+<script>
+  // Logs missing partner logos (404s) in the Console
+  document.querySelectorAll('#partners .partners-track img').forEach(img => {
+    img.addEventListener('error', () => console.log('Missing logo:', img.getAttribute('src')));
+  });
+</script>
 
 
 
