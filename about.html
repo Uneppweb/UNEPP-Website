@@ -14,6 +14,44 @@
   });
 </script>
 
+<script>
+(() => {
+  const marquee = document.querySelector('#partners .partners-marquee');
+  const track = document.querySelector('#partners .partners-track');
+  if (!marquee || !track) return;
+
+  // Speed in pixels per second (lower = slower)
+  const SPEED = 35;
+
+  let last = performance.now();
+  let paused = false;
+
+  // Pause on hover (same behavior you like)
+  marquee.addEventListener('mouseenter', () => paused = true);
+  marquee.addEventListener('mouseleave', () => paused = false);
+
+  function tick(now){
+    const dt = (now - last) / 1000;
+    last = now;
+
+    if (!paused){
+      marquee.scrollLeft += SPEED * dt;
+
+      // Because the list is duplicated, loop when we've scrolled half the track
+      const half = track.scrollWidth / 2;
+      if (marquee.scrollLeft >= half){
+        marquee.scrollLeft -= half;
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  // Start at 0
+  marquee.scrollLeft = 0;
+  requestAnimationFrame(tick);
+})();
+</script>
 
 
   
