@@ -30,6 +30,8 @@
   pointer-events: none;
 }
 
+
+  
 /* First image defines the height/layout */
 .pm-seq-frame.is-base{
   position: relative;
@@ -46,6 +48,17 @@
   .pm-seq-frame{ transition:none !important; }
 }
 </style>
+
+  <style>
+  /* One-section-at-a-time behavior (page-local) */
+  body[data-switcher="on"] main section[id]{ display:none; }
+  body[data-switcher="on"] main section[id].is-active{ display:block; }
+
+  /* Optional: keep layout tidy */
+  body[data-switcher="on"] main{ min-height: 60vh; }
+</style>
+
+  
 </head>
 
 <body class="capabilities">
@@ -444,5 +457,66 @@ UNEPP has developed robust capabilities in offshore engineering, with an annual 
 })();
 </script>
 
+<script>
+(function(){
+  // Turn on switcher for this page only
+  document.body.setAttribute("data-switcher","on");
+
+  const header = document.querySelector(".nav");
+
+  // Left index links: first <aside> nav links that point to #sections
+  const aside = document.querySelector("aside");
+  const links = aside ? Array.from(aside.querySelectorAll("nav a[href^='#']")) : [];
+  if (!links.length) return;
+
+  // Target sections: any <section id="..."> inside <main>
+  const main = document.querySelector("main");
+  if (!main) return;
+
+  const sections = Array.from(main.querySelectorAll("section[id]"));
+  if (!sections.length) return;
+
+  // Map id -> section (fast lookup)
+  const byId = new Map(sections.map(s => [s.id, s]));
+
+  function setActiveLink(id){
+    links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === "#" + id));
+  }
+
+  function showOnly(id){
+    const target = byId.get(id) || sections[0];
+    if (!target) return;
+
+    // Show only target section
+    sections.forEach(s => s.classList.toggle("is-active", s === target));
+    setActiveLink(target.id);
+
+    // Scroll to the section title (with sticky header offset)
+    const offset = (header ? header.getBoundingClientRect().height : 0) + 10;
+    const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+
+  // Intercept clicks
+  links.forEach(a => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const id = (a.getAttribute("href") || "").slice(1);
+      history.replaceState(null, "", "#" + id);
+      showOnly(id);
+    });
+  });
+
+  // On load: show hash section if it exists, otherwise first link’s target
+  const hash = (location.hash || "").slice(1);
+  const defaultId = (links[0].getAttribute("href") || "").slice(1);
+  showOnly(byId.has(hash) ? hash : defaultId);
+})();
+</script>
+
+
+
+
+  
 </body>
 </html>
