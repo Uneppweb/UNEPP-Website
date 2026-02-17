@@ -401,23 +401,24 @@ body.home .marquee:hover .marquee-track{
 }
 
 .partners-track{
-  display:inline-flex;
+  display:flex;
   gap:36px;
   align-items:center;
+  width:max-content;
   will-change: transform;
-  animation: partnersLTR 32s linear infinite; /* slower for many logos */
+  animation: partnersScroll 55s linear infinite; /* slower = you’ll see all logos */
 }
 
 .partners-track img{
   height:42px;
   width:auto;
-  flex: 0 0 auto;
-  opacity: 1; /* full color */
+  flex-shrink:0;
 }
 
-@keyframes partnersLTR{
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
+/* Scroll by HALF the track width, since you duplicated the list */
+@keyframes partnersScroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 .partners-marquee:hover .partners-track{
@@ -425,9 +426,10 @@ body.home .marquee:hover .marquee-track{
 }
 
 @media (max-width: 900px){
-  .partners-track{ gap:26px; }
+  .partners-track{ gap:26px; animation-duration: 65s; }
   .partners-track img{ height:38px; }
 }
+
 
 
 /* =========================
