@@ -472,44 +472,37 @@
     // Footer year
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // About: show one section at a time (left index = tabs)
- <script>
-  // About: show one section at a time (left index = tabs) — robust (uses hidden attribute)
-  (() => {
-    const links = [...document.querySelectorAll('.about-index a[href^="#"]')];
-    const sections = [...document.querySelectorAll('body.about .about-section')];
-    if (!links.length || !sections.length) return;
+    // About: show one section at a time (left index = tabs) — robust (uses hidden attribute)
+    (() => {
+      const links = [...document.querySelectorAll('.about-index a[href^="#"]')];
+      const sections = [...document.querySelectorAll('body.about .about-section')];
+      if (!links.length || !sections.length) return;
 
-    function show(id, updateHash = true){
-      // hide all sections
-      sections.forEach(s => s.hidden = true);
-      links.forEach(a => a.classList.remove('active'));
+      function show(id, updateHash = true){
+        sections.forEach(s => s.hidden = true);
+        links.forEach(a => a.classList.remove('active'));
 
-      const target = document.getElementById(id);
-      const link = links.find(a => a.getAttribute('href') === '#' + id);
+        const target = document.getElementById(id);
+        const link = links.find(a => a.getAttribute('href') === '#' + id);
 
-      if (target) target.hidden = false;
-      if (link) link.classList.add('active');
+        if (target) target.hidden = false;
+        if (link) link.classList.add('active');
 
-      if (updateHash) history.replaceState(null, '', '#' + id);
-    }
+        if (updateHash) history.replaceState(null, '', '#' + id);
+      }
 
-    // clicks
-    links.forEach(a => {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        const id = a.getAttribute('href').slice(1);
-        show(id, true);
-        document.querySelector('.about-content')?.scrollIntoView({ behavior:'smooth', block:'start' });
+      links.forEach(a => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const id = a.getAttribute('href').slice(1);
+          show(id, true);
+          document.querySelector('.about-content')?.scrollIntoView({ behavior:'smooth', block:'start' });
+        });
       });
-    });
 
-    // default
-    const initial = (location.hash || '#company-overview').slice(1);
-    show(initial, false);
-  })();
-</script>
-
+      const initial = (location.hash || '#company-overview').slice(1);
+      show(initial, false);
+    })();
 
     // Partners marquee: crisp continuous scroll in Chrome (scrollLeft loop)
     (() => {
@@ -517,7 +510,6 @@
       const track = document.querySelector('#partners .partners-track');
       if (!marquee || !track) return;
 
-      // Pixels per second (lower = slower)
       const SPEED = (window.innerWidth < 900) ? 10 : 14;
 
       let last = performance.now();
@@ -532,8 +524,6 @@
 
         if (!paused){
           marquee.scrollLeft += SPEED * dt;
-
-          // Loop at half width because list is duplicated once
           const half = track.scrollWidth / 2;
           if (half > 0 && marquee.scrollLeft >= half){
             marquee.scrollLeft -= half;
