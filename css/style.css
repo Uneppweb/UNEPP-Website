@@ -1731,3 +1731,7 @@ body.projects .projects-filters .btn{
   margin-top: 16px;
 }
 */
+/* Gap above Reset row */
+body.projects .projects-filters .filters-row-reset{
+  margin-top: 20px;
+}
