@@ -1560,26 +1560,6 @@ body.capabilities .software-logo img{
   padding:14px;
 }
 
-.partners-track{
-  display:inline-flex;
-  gap:26px;
-  align-items:center;
-  will-change: transform;
-  animation: partnersLTR 22s linear infinite;
-}
-
-.partners-track img{
-  height:46px;   /* tweak if needed */
-  width:auto;
-  flex: 0 0 auto;
-  opacity: 1;    /* full color, full opacity */
-}
-
-@keyframes partnersLTR{
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
-}
-
 .partners-marquee:hover .partners-track{
   animation-play-state: paused;
 }
@@ -1630,26 +1610,12 @@ body.about .about-section.is-active{
 }
 
 /* Logo sizing */
-.partners-track img {
-  height: 75px;          /* Increase height */
-  width: auto;
-  margin: 0 35px;        /* Increase spacing slightly */
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
 
 /* Optional subtle hover */
 .partners-track img:hover {
   transform: scale(1.08);
 }
 
-/* Mobile adjustment */
-@media (max-width: 768px) {
-  .partners-track img {
-    height: 55px;
-    margin: 0 20px;
-  }
-}
 /* =========================
    Partners Marquee (CSS Animation)
    ========================= */
