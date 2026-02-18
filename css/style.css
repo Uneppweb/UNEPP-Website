@@ -1623,3 +1623,30 @@ body.about .about-section.is-active{
   margin: 0 0 12px;
   color: #111827;
 }
+/* Partners marquee container */
+.partners-marquee {
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+/* Logo sizing */
+.partners-track img {
+  height: 75px;          /* Increase height */
+  width: auto;
+  margin: 0 35px;        /* Increase spacing slightly */
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Optional subtle hover */
+.partners-track img:hover {
+  transform: scale(1.08);
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .partners-track img {
+    height: 55px;
+    margin: 0 20px;
+  }
+}
