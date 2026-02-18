@@ -1650,3 +1650,30 @@ body.about .about-section.is-active{
     margin: 0 20px;
   }
 }
+/* =========================
+   Partners Marquee (CSS Animation)
+   ========================= */
+
+.partners-marquee{
+  overflow: hidden;
+  position: relative;
+}
+
+.partners-track{
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  will-change: transform;
+  animation: partnersScroll 45s linear infinite; /* <-- SPEED HERE */
+}
+
+.partners-track img{
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+}
+
+@keyframes partnersScroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
