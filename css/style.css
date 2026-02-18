@@ -1842,3 +1842,17 @@ body.projects .projects-filters select:focus{
   border-color: var(--brand);
   outline: none;
 }
+body.projects .projects-filters input[type="search"],
+body.projects .projects-filters select{
+  background-color: #f3f6f9;
+  border: 1px solid #cbd5e1;
+  box-shadow: none;
+  transition: all 0.2s ease;
+}
+
+body.projects .projects-filters input[type="search"]:focus,
+body.projects .projects-filters select:focus{
+  background-color: #e9eef5;
+  border-color: var(--brand);
+  outline: none;
+}
