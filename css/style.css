@@ -746,13 +746,16 @@ body.home .marquee:hover .marquee-track{
 .filters input[type="search"],
 .filters select{
   width:100%;
-  padding:10px 14px;
+  height:50px;                 /* Controls box height */
+  padding:0 16px;              /* Horizontal padding only */
   border:1px solid #cbd5e1;
-  border-radius:10px;
+  border-radius:12px;
   background:#ffffff;
   color:#1f2a37;
-  font-size:0.95rem;
+  font-size:1rem;
   font-weight:600;
+  display:flex;
+  align-items:center;
 }
 
 .filters input[type="search"]::placeholder{
