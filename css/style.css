@@ -1643,3 +1643,26 @@ body.about .about-section.is-active{
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+/* Contact Page Offices */
+
+.office-card {
+  text-align: left;
+}
+
+.office-logo {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.office-logo img {
+  height: 75px;
+  object-fit: contain;
+}
+
+.office-details h3 {
+  margin: 0 0 10px 0;
+}
+
+.office-details p {
+  margin: 0 0 14px 0;
+}
