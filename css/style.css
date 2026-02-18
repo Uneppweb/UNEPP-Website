@@ -1669,9 +1669,3 @@ body.about .about-section.is-active{
 .office-details p {
   margin: 0 0 14px 0;
 }
-/* DEBUG: prove filters styles are being applied */
-body.projects .filters input[type="search"],
-body.projects .filters select{
-  height: 60px !important;
-  border: 3px solid red !important;
-}
