@@ -1739,3 +1739,34 @@ body.projects .projects-filters .btn{
 body.projects .projects-filters .filters-row-reset{
   margin-top: 20px;
 }
+/* =========================================================
+   PROJECTS — Filters polish (correct selectors)
+   ========================================================= */
+
+/* 1) Make the filter boxes “pop” (shadow) */
+body.projects .projects-filters input[type="search"],
+body.projects .projects-filters select{
+  box-shadow: 0 6px 14px rgba(0,0,0,0.10) !important;
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+
+body.projects .projects-filters input[type="search"]:focus,
+body.projects .projects-filters select:focus{
+  box-shadow: 0 10px 22px rgba(0,0,0,0.16) !important;
+  border-color: var(--brand, #46b0ff);
+  outline: none;
+}
+
+/* 2) Bigger filter titles (Search / Company / etc.) */
+body.projects .projects-filters label.kicker{
+  font-size: 0.95rem;   /* bigger than your current 12px kicker */
+  font-weight: 800;
+  letter-spacing: .10em;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+/* 3) Gap above Reset button */
+body.projects .projects-filters .filters-row-reset{
+  margin-top: 18px;
+}
