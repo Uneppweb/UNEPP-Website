@@ -4,10 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact Us | UNEPP</title>
+  <meta name="description" content="Contact UNEPP for engineering, procurement, and project management support across Egypt and the MENA region." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body>
+<body class="contact">
+
+  <!-- Header -->
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="index.html">
@@ -30,42 +33,67 @@
     </div>
   </header>
 
-  <main class="container section">
-    <h2>Contact Us</h2>
-    <p class="lead">
-      Content to be added.
-    </p>
+  <main class="container">
+    <section class="section" id="contact">
+
+      <div class="section-intro">
+        <h2>Contact Us</h2>
+        <p class="lead">
+          We welcome your inquiries and look forward to supporting your engineering and project development requirements across Egypt and the MENA region.
+        </p>
+      </div>
+
+      <!-- Office Cards -->
+      <div class="card">
+        <div class="split">
+
+          <!-- Cairo Office -->
+          <div class="item office-card">
+            <div class="office-content">
+              <b>UNEPP – Cairo Office, Egypt</b>
+              <span>
+                323 B Youssef Gohar Street,<br/>
+                South Academy B, 5th Settlement,<br/>
+                Cairo, Egypt (11835)<br/><br/>
+
+                <b>Email:</b> 
+                <a href="mailto:info@unepp.com">info@unepp.com</a><br/>
+                <b>Telephone:</b> (+202) 253 740 24<br/>
+                <b>Fax:</b> (+202) 253 740 23
+              </span>
+            </div>
+          </div>
+
+          <!-- Abu Dhabi Office -->
+          <div class="item office-card">
+            <div class="office-content">
+              <b>UNIFIED – Abu Dhabi Office, UAE</b>
+              <span>
+                Al Wahdah St., Al Nahyan, E19<br/>
+                Abu Dhabi, UAE<br/><br/>
+
+                <b>Telephone:</b> (+971) 2815 7817<br/>
+                <b>Fax:</b> (+971) 2815 7888
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      © <span id="y"></span> UNEPP
+      © <span id="y"></span> United Engineers for Petroleum Projects (UNEPP)
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
   <script>
-(function(){
-  const links = Array.from(document.querySelectorAll('aside nav a[href^="#"]'));
-  if (!links.length) return;
-
-  function setActive(hash){
-    links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === hash));
-  }
-
-  // On click
-  links.forEach(a => {
-    a.addEventListener("click", () => setActive(a.getAttribute("href")));
-  });
-
-  // On load (if URL has a hash), otherwise pick first
-  setActive(location.hash && links.some(a => a.getAttribute("href") === location.hash)
-    ? location.hash
-    : links[0].getAttribute("href")
-  );
-})();
-</script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
