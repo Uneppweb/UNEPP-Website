@@ -1691,3 +1691,43 @@ body.projects .projects-filters input[type="search"]::placeholder{
   color:#64748b;
   opacity:1;
 }
+/* =========================================================
+   Projects page — filter polish (ADD THIS AT END OF style.css)
+   ========================================================= */
+
+/* 1) Shadow + pop for filter boxes */
+body.projects .projects-filters input[type="search"],
+body.projects .projects-filters select{
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* nicer focus */
+body.projects .projects-filters input[type="search"]:focus,
+body.projects .projects-filters select:focus{
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border-color: var(--brand, #46b0ff);
+  outline: none;
+}
+
+/* 2) Bigger filter titles (SEARCH / COMPANY / etc.) */
+body.projects .projects-filters label{
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #0f172a;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+/* 3) Gap above Reset button */
+body.projects .projects-filters .filters-actions{
+  margin-top: 16px;
+}
+
+/* If your reset button is NOT inside .filters-actions, use this instead */
+/*
+body.projects .projects-filters .btn{
+  margin-top: 16px;
+}
+*/
