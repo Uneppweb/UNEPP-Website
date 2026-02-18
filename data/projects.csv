@@ -6,27 +6,27 @@ id,Title,Year,Client,Company,Region,Country,Service-Main,Service-2,Category
 2025-operating-manual-scope-verification,Operating Manual - Scope Verification,2025,PhPC,UNEPP,Egypt,Egypt,Consultancy Services,Verification,
 2025-installingspm-to-replace-current-egypt-jetty-during-fsru-operation,Installing SPM to replace current Egypt Jetty during FSRU Operation,2025,UGDC,UNEPP,Egypt,Egypt,Consultancy Services,Study,
 2025-hvac-openings-in-battery-and-ups-rooms,HVAC Openings in battery and UPS rooms,2025,UGDC,UNEPP,Egypt,Egypt,Consultancy Services,Study,
-2023-upgrade-of-piping-connection-garden-1x-to-arcadia-shams,Upgrade of Piping Connection Garden-1X to Arcadia Shams,2023,AGIBA,UNEPP,Egypt,Egypt,Study,,
-2023-feeding-the-gas-plant-through-gas-turbine-compressors,Feeding the Gas Plant through Gas Turbine Compressors,2023,AGIBA,UNEPP,Egypt,Egypt,Study,,
+2023-upgrade-of-piping-connection-garden-1x-to-arcadia-shams,Upgrade of Piping Connection Garden-1X to Arcadia Shams,2023,AGIBA,UNEPP,Egypt,Egypt,Study,,Onshore
+2023-feeding-the-gas-plant-through-gas-turbine-compressors,Feeding the Gas Plant through Gas Turbine Compressors,2023,AGIBA,UNEPP,Egypt,Egypt,Study,,Onshore
 2023-petrozenima-pipeline-flow-assurance-report,Petrozenima Pipeline,2023,ADES,UNEPP,Egypt,Egypt,Study,Flow Assurance,
-2023-melieha-el-hamra-crude-oil-16-pipeline-for-agiba,"MELIEHA EL Hamra Crude oil 16"" Pipeline",2023,AGIBA,UNEPP,Egypt,Egypt,Study,HAZOP,
+2023-melieha-el-hamra-crude-oil-16-pipeline-for-agiba,"MELIEHA EL Hamra Crude oil 16"" Pipeline",2023,AGIBA,UNEPP,Egypt,Egypt,Study,HAZOP,Onshore
 2022-gnn-8-new-field,GNN-8 New Field,2022,PMS,UNEPP,Egypt,Egypt,Study,,
-2022-sfayeh-bs-treatment-station,SFAYEH BS Treatment Station,2022,ARFADA,UNEPP,Other MENA,Syria,Study,Feasibility Study,
-2022-sfayeh-bs-treatment-station-project,SFAYEH BS Treatment Station Project,2022,ARFADA,UNEPP,Other MENA,Syria,Study,HAZOP/SIL,
+2022-sfayeh-bs-treatment-station,SFAYEH BS Treatment Station,2022,ARFADA,UNEPP,Other MENA,Syria,Study,Feasibility Study,Onshore
+2022-sfayeh-bs-treatment-station-project,SFAYEH BS Treatment Station Project,2022,ARFADA,UNEPP,Other MENA,Syria,Study,HAZOP/SIL,Onshore
 2022-new-gnn-field-development-project,New GNN Field Development Project,2022,PPIS,UNEPP,Egypt,Egypt,Study,HAZOP/SIL,
 2022-sfayah-bs-treatment-station,Sfayah BS treatment Station,2022,AGM,UNEPP,Egypt,Egypt,Study,Oil Samples Analysis,
 2021-fire-proofing-study-revalidation,Fire Proofing Study Revalidation,2021,Methanex,UNEPP,Egypt,Egypt,Study,,
 2021-for-12-pipeline-from-balsam-1-manifold-to-el-basant-2-manifold,"12"" Pipeline from Balsam-1 manifold to El Basant-2 Manifold",2021,Petrojet,UNEPP,Egypt,Egypt,Study,Flow Assurance,
-2021-crude-export-pump-technical-bid-evaluation-for-muzhil-platform,Muzhil platform Crude export pump,2021,ADES,UNEPP,Egypt,Egypt,Technical Evaluation,,
+2021-crude-export-pump-technical-bid-evaluation-for-muzhil-platform,Muzhil platform Crude export pump,2021,ADES,UNEPP,Egypt,Egypt,Technical Evaluation,,Offshore
 2020-pgm-well-g-22-conductor,PGM Well G-22 Conductor,2020,PetroGulf Misr,UNEPP,Egypt,Egypt,Study,,
 2017-norpetco-field-development,NORPETCO Field Development,2017,SAR,UNEPP,Egypt,Egypt,Study,Feasibility Study,
 2017-lpg-gas-house,LPG Gas House,2017,JOHNSON WAX,UNEPP,Egypt,Egypt,Study,Gap Analysis,
-2017-ashrarfi-new-modifications,Ashrarfi New Modifications,2017,AGIBA,UNEPP,Egypt,Egypt,Study,HAZOP,
-2017-for-melieha-oil-treatment-plant,MELIEHA Oil Treatment Plant,2017,AGIBA,UNEPP,Egypt,Egypt,Study,HAZOP,
+2017-ashrarfi-new-modifications,Ashrarfi New Modifications,2017,AGIBA,UNEPP,Egypt,Egypt,Study,HAZOP,Onshore
+2017-for-melieha-oil-treatment-plant,MELIEHA Oil Treatment Plant,2017,AGIBA,UNEPP,Egypt,Egypt,Study,HAZOP,Onshore
 2016-trucking-crude-alternatives-naser-camp-expansion,Trucking Crude Alternatives & NASER Camp Expansion,2016,PETRO DARA,UNEPP,Egypt,Egypt,Study,Feasibility Study,
 2016-24-pipeline,24” Pipeline,2016,PICO,UNEPP,Egypt,Egypt,Study,Flow Assurance,
 2015-study-for-el-wastani-gas-plant,El-Wastani gas plant,2015,WASCO,UNEPP,Egypt,Egypt,Study,HAZOP,
-2014-cpf-export-crude-oil-quality-improvement,CPF Export Crude Oil Quality Improvement,2014,ECG,UNEPP,Other MENA,Sudan,Study,HAZOP,
+2014-cpf-export-crude-oil-quality-improvement,CPF Export Crude Oil Quality Improvement,2014,ECG,UNEPP,Other MENA,Sudan,Study,HAZOP,Onshore
 2014-existing-lpg-butane-vessel,Existing LPG Butane Vessel,2014,JOHNSON WAX,UNEPP,Egypt,Egypt,Study,HAZOP,
 2014-el-basant-compression-station-one-train,El-BASANT Compression Station –One Train,2014,WASCO,UNEPP,Egypt,Egypt,Study,SIL/LOPA,
 2013-existing-lpg-butane-vessel,Existing LPG Butane Vessel,2013,JOHNSON WAX,UNEPP,Other MENA,KSA,Study,HAZOP,
@@ -40,8 +40,8 @@ id,Title,Year,Client,Company,Region,Country,Service-Main,Service-2,Category
 2012-south-annajma-epf-rampsi-staroil,South ANNAJMA EPF-RAM/PSI- STAROIL,2012,ECG,UNEPP,Egypt,Egypt,Study,HAZOP,
 2012-noddle-station,Noddle Station,2012,Petromaint,UNEPP,Egypt,Egypt,Study,HAZOP,
 2011-drilling-campaign-and-new-slots-remdial-work,Drilling Campaign and New Slots Remdial Work,2011,PPIS,UNEPP,Egypt,Egypt,Study,,
-2009-wddm-phase-v-new-systems-and-equipment,WDDM Phase V New Systems and Equipment,2009,BURULLUS/EMC,UNEPP,Egypt,Egypt,Start-up & Operating Procedures,,
-2025-structural-analysis-warda-platform,WARDA Platform,2025,GEMSA,UNEPP,Egypt,Egypt,Structural Analysis,,
+2009-wddm-phase-v-new-systems-and-equipment,WDDM Phase V New Systems and Equipment,2009,BURULLUS,UNEPP,Egypt,Egypt,Start-up & Operating Procedures,,
+2025-structural-analysis-warda-platform,WARDA Platform,2025,GEMSA,UNEPP,Egypt,Egypt,Structural Analysis,,Offshore
 2025-ammonia-pipeline-for-indorama-egypt-fertilizers,Ammonia Pipeline for Indorama Egypt Fertilizers,2025,INDORAMA,UNEPP,Egypt,Egypt,FEED,,
 2025-feed-for-additional-das-produced-water-disposal-facility,Additional DAS Produced Water Disposal Facility,2025,MCS,UNIFIED,Other MENA,UAE,FEED,,
 2025-abrar-station-rehab,Abrar Station Rehab,2025,NORPETCO,UNEPP,Egypt,Egypt,Detailed Engineering,,
@@ -49,24 +49,24 @@ id,Title,Year,Client,Company,Region,Country,Service-Main,Service-2,Category
 2025-offshore-power-generation-and-platform-modifications-zaafarana-structural,Offshore Power Generation and Platform Modifications Zaafarana-Structural,2025,PMS,UNEPP,Egypt,Egypt,Detailed Engineering,Structural,
 2025-offshore-power-generation-and-platform-modifications-zaafarana-topside,Offshore Power Generation and Platform Modifications Zaafarana-Topside,2025,PPIS,UNEPP,Egypt,Egypt,Detailed Engineering,Topside,
 2024-petrogulf-additional-4-new-wells-and-tie-in-facilities-at-new-gnn-field,PetroGulf Additional 4 new wells and Tie-in Facilities at New GNN Field,2024,PMS,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2023-engineering-procurement-construction-of-new-crude-oil-tanks,New Crude Oil Tanks,2023,EMC,UNEPP,Other MENA,Iraq,EPC,,
+2023-engineering-procurement-construction-of-new-crude-oil-tanks,New Crude Oil Tanks,2023,EMC,UNEPP,Other MENA,Iraq,EPC,,Onshore
 2023-petrobel-structural-detailed-design-for-new-lean-structure,Petrobel New Lean Structure,2023,PMS,UNEPP,Egypt,Egypt,Detailed Engineering,Structural,
-2022-cathodic-protection-design-for-gpc-gg2-platform,Cathodic Protection Design for GPC GG2 Platform,2022,ADES,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2022-agiba-new-line-to-feed-gas-generator-at-the-filtration-package,Agiba New Line to Feed Gas Generator at the Filtration Package,2022,AGIBA,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2022-basic-detailed-engineering-for-sfayeh-bs-treatment-station,SFAYEH BS Treatment Station,2022,ARFADA,UNEPP,Other MENA,Syria,Detailed Engineering,FEED,
+2022-cathodic-protection-design-for-gpc-gg2-platform,Cathodic Protection Design for GPC GG2 Platform,2022,ADES,UNEPP,Egypt,Egypt,Detailed Engineering,,Offshore
+2022-agiba-new-line-to-feed-gas-generator-at-the-filtration-package,Agiba New Line to Feed Gas Generator at the Filtration Package,2022,AGIBA,UNEPP,Egypt,Egypt,Detailed Engineering,,Onshore
+2022-basic-detailed-engineering-for-sfayeh-bs-treatment-station,SFAYEH BS Treatment Station,2022,ARFADA,UNEPP,Other MENA,Syria,Detailed Engineering,FEED,Onshore
 2022-new-gnn-epf-offshore-conductor-support-structure-pack-1,New GNN EPF-Offshore Conductor Support Structure- Pack 1,2022,PetroGulf Misr,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2022-early-production-facilities-for-new-gnn-field-development-pack-1,Early Production Facilities for New GNN Field Development-Pack 1,2022,PetroGulf Misr,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2022-petrogulf-new-gnn-epf-offshore-top-side-facilities-pack-2,PetroGulf New GNN EPF-Offshore Top Side Facilities- Pack 2,2022,PMS,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2022-wasco-balsam-compression-station,Wasco Balsam Compression Station,2022,WASCO/Petromaint,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2019-raffinate-tank,Raffinate Tank,2019,ETHYDCO,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2019-central-processing-facility-for-sdx-energy,Central Processing Facility for SDX Energy,2019,EXPRO,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2019-offshore-gemsa-platform-extension,Offshore GEMSA Platform Extension,2019,GEMSA,UNEPP,Egypt,Egypt,Detailed Engineering,,
+2019-raffinate-tank,Raffinate Tank,2019,ETHYDCO,UNEPP,Egypt,Egypt,Detailed Engineering,,Onshore
+2019-central-processing-facility-for-sdx-energy,Central Processing Facility for SDX Energy,2019,EXPRO,UNEPP,Egypt,Egypt,Detailed Engineering,,Onshore
+2019-offshore-gemsa-platform-extension,Offshore GEMSA Platform Extension,2019,GEMSA,UNEPP,Egypt,Egypt,Detailed Engineering,,Offshore
 2019-floating-roof-tank,Floating Roof Tank,2019,PPC,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2018-meleiha-manifolds,Meleiha Manifolds,2018,AGIBA,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2018-esd-system-for-meleiha-manifolds,ESD System for MELEIHA Manifolds,2018,AGIBA,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2018-tie-in-modification-inlet-separation-areagas-compression-station,Tie-in modification-inlet  Separation Area/Gas Compression Station,2018,AQP,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2018-tie-in-for-the-three-slug-catchers-to-the-compression-station,Tie-in for the Three Slug Catchers to the Compression Station,2018,EMC,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2018-gpc-10-pipeline,"GPC 10""� Pipeline",2018,EMC,UNEPP,Egypt,Egypt,Detailed Engineering,,
+2018-meleiha-manifolds,Meleiha Manifolds,2018,AGIBA,UNEPP,Egypt,Egypt,Detailed Engineering,,Onshore
+2018-esd-system-for-meleiha-manifolds,ESD System for MELEIHA Manifolds,2018,AGIBA,UNEPP,Egypt,Egypt,Detailed Engineering,,Onshore
+2018-tie-in-modification-inlet-separation-areagas-compression-station,Tie-in modification-inlet  Separation Area/Gas Compression Station,2018,AQP,UNEPP,Egypt,Egypt,Detailed Engineering,,Onshore
+2018-tie-in-for-the-three-slug-catchers-to-the-compression-station,Tie-in for the Three Slug Catchers to the Compression Station,2018,EMC,UNEPP,Egypt,Egypt,Detailed Engineering,,Onshore
+2018-gpc-10-pipeline,"GPC 10""� Pipeline",2018,EMC,UNEPP,Egypt,Egypt,Detailed Engineering,,Onshore
 2018-firefighting-network-for-ras-bakr-oil-facilities,Firefighting Network for RAS BAKR Oil Facilities,2018,GPC,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2018-ethanol-storage-tank,Ethanol Storage tank,2018,SC Johnson,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2018-pressure-vessels,Pressure Vessels,2018,VEOLIA,UNEPP,Egypt,Egypt,Design Review,,
@@ -74,32 +74,32 @@ id,Title,Year,Client,Company,Region,Country,Service-Main,Service-2,Category
 2017-tarek-nodel-compressor-relocation,TAREK NODEL Compressor Relocation,2017,KPC,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2017-relocation-of-shams-nodal-compressor,Relocation of Shams Nodal Compressor,2017,KPC,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2017-relocation-of-fuel-and-inert-gas-packages,Relocation of Fuel and Inert Gas Packages,2017,WASCO,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2016-double-deck-floating-roof-tank-design,Double deck floating Roof Tank Design,2016,Amerya,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2016-tie-in-lines-between-ppp-osbl-and-inside-sidpec-plant,Tie-in Lines between PPP – OSBL and Inside SIDPEC Plant,2016,ETHYDCO,UNEPP,Egypt,Egypt,Detailed Engineering,,
+2016-double-deck-floating-roof-tank-design,Double deck floating Roof Tank Design,2016,Amerya,UNEPP,Egypt,Egypt,Detailed Engineering,,Onshore
+2016-tie-in-lines-between-ppp-osbl-and-inside-sidpec-plant,Tie-in Lines between PPP OSBL and Inside SIDPEC Plant,2016,ETHYDCO,UNEPP,Egypt,Egypt,Detailed Engineering,,Onshore
 2016-gas-house-ventilation-system-and-humidity-control,Gas House Ventilation System and Humidity Control,2016,SAUDI JOHNSON,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2016-faraskour-gas-compression-station-project,Faraskour Gas Compression Station Project,2016,WASCO,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2015-petro-silah-company-field-as-built-drawings,Petro Silah Company Field,2015,PETROSILAH,UNEPP,Egypt,Egypt,As-built Drawings,,
 2015-west-bakr-oil-skimmer,West Bakr Oil Skimmer,2015,WEST BAKR,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2014-dammam-residential-apartments,DAMMAM Residential Apartments,2014,ALMOHILEB,UNEPP,Other MENA,KSA,Detailed Engineering,,
+2014-dammam-residential-apartments,DAMMAM Residential Apartments,2014,ALMOHILEB,UNEPP,Other MENA,KSA,Detailed Engineering,,Other
 2014-design-lightening-system-at-ew-field,Lightening System at EW field,2014,WASCO,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2014-lightening-protection-system-for-two-tanks-at-ew-plant,Lightening protection system for two tanks at EW plant,2014,WASCO,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2013-fire-fighting-network-at-ew-2-plant,Fire Fighting Network at EW-2 Plant,2013,WASCO,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2013-two-heater-separators-skids,Two Heater Separators Skids,2013,WASCO,UNEPP,Egypt,Egypt,Detailed Engineering,MRQ,
 2013-el-basant-gas-compression-station-two-trains,EL-BASANT Gas Compression Station-Two Trains,2013,WASCO,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2012-two-condensate-surge-skids-el-basant-compression-station,Two Condensate Surge Skids-El Basant Compression station,2012,Petromaint,UNEPP,Egypt,Egypt,Detailed Engineering,MRQ,
-2011-oil-tank-73,Oil Tank-73,2011,CHEVRON,UNEPP,Egypt,Egypt,As-built Drawings,,
+2011-oil-tank-73,Oil Tank-73,2011,CHEVRON,UNEPP,Egypt,Egypt,As-built Drawings,,Onshore
 2011-air-compressor-drier-skids,Air Compressor & Drier Skids,2011,PICO,UNEPP,Egypt,Egypt,Detailed Engineering,,
-2010-overhead-crane-and-structure-steel,Overhead Crane and Structure Steel,2010,AL-HAZEM,UNEPP,Egypt,Egypt,Detailed Engineering,,
+2010-overhead-crane-and-structure-steel,Overhead Crane and Structure Steel,2010,AL-HAZEM,UNEPP,Egypt,Egypt,Detailed Engineering,,Industrial
 2010-multi-tube-film-reactor-sulphonation-plant,Multi-Tube Film Reactor SULPHONATION Plant,2010,Al-INTAJ,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2010-hdeb-tank,HDEB TANK,2010,NASCOM,UNEPP,Egypt,Egypt,Detailed Engineering,,
 2008-32-transmission-line-elsadat-dahshour,32” Transmission Line ELSADAT-DAHSHOUR,2008,TAQA,UNEPP,Egypt,Egypt,Basic Engineering,,
-203-ups-unit,UPS unit,203,WASCO,UNEPP,Egypt,Egypt,Detailed Engineering,MRQ,
+203-ups-unit,UPS unit,2013,WASCO,UNEPP,Egypt,Egypt,Detailed Engineering,MRQ,
 2015-gap-analysis-of-the-gas-house-against-the-standards-lpg-plant,Gap analysis of the gas house against the standards-LPG Plant,2015,JOHNSON WAX,UNEPP,Egypt,Egypt,PMC,Engineering Review,
 2016-amapetco-platform-c,AMAPETCO Platform,2016,PICO,UNEPP,Egypt,Egypt,PMC,,
 2017-faraskur-compression-station-project,Faraskur Compression Station Project,2017,WASCO,UNEPP,Egypt,Egypt,PMC,Technical Support,
-2023-asab-gas-injection-trunk-line-2-relocation-project,ASAB Gas Injection Trunk Line-2 Relocation Project,2023,EGAS,UNEPP,Other MENA,UAE,PMC,,
+2023-asab-gas-injection-trunk-line-2-relocation-project,ASAB Gas Injection Trunk Line-2 Relocation Project,2023,EGAS,UNEPP,Other MENA,UAE,PMC,,Onshore
 2023-review-of-structural-engineering-for-web-offshore-development-project,WEB Offshore Development Project,2023,PetroWeb/PPIS,UNEPP,Egypt,Egypt,Engineering Review,Structural,
-2024-project-management-team-for-egypt-anode-coke-plant-refurbishment,Egypt Anode Coke Plant Refurbishment,2024,EgyptAnode,UNEPP,Egypt,El Sokna,PMC,,
+2024-project-management-team-for-egypt-anode-coke-plant-refurbishment,Egypt Anode Coke Plant Refurbishment,2024,EgyptAnode,UNEPP,Egypt,El Sokna,PMC,,Industrial
 2024-initial-screening-and-high-level-review-data-evaluation,Initial Screening and High Level Review Data Evaluation,2024,METAS Energy,UNEPP,International,Niger,Consultancy Services,,
 2015-chemical-cleaning-and-flushing-for-egyptian-electricity-company,Chemical Cleaning and Flushing for Egyptian Electricity Company,2015,Hassan Allam Sons,UNEPP,Egypt,Port Said,Cleaning/Flushing,,
 2014-16-24-underground-gas-pipeline,"16"" & 24"" Underground Gas Pipeline",2014,Nat Gas,UNEPP,Egypt,6th of October,Construction,,
@@ -110,15 +110,15 @@ id,Title,Year,Client,Company,Region,Country,Service-Main,Service-2,Category
 2014-gas-supply-system-to-moubark-city,Gas Supply System to MOUBARK City,2014,Nat Gas,UNEPP,Egypt,Egypt,Construction,,
 2014-gas-supply-pipeline-to-rich-bake,Gas Supply Pipeline to Rich Bake,2014,Nat Gas,UNEPP,Egypt,Egypt,Construction,,
 2014-supply-install-for-lightening-system-for-two-condensat-tanks-at-ew-field,Lightening system for two condensat tanks at EW field,2014,WASCO,UNEPP,Egypt,Egypt,Supply,Installation,
-2012-electrical-products-factory,Electrical Products Factory,2012,Al-THORAYA,UNEPP,Egypt,Egypt,Construction,,
+2012-electrical-products-factory,Electrical Products Factory,2012,Al-THORAYA,UNEPP,Egypt,Egypt,Construction,,Industrial
 2012-28-dual-gas-piping-pipeline-at-abu-qir-thermal-power-plant,"28"" Dual Gas Piping & Pipeline at Abu-Qir Thermal Power Plant",2012,ORASCOM,UNEPP,Egypt,Egypt,Precommissioning,GLT & Purging,
-2011-gas-pipeline-of-al-shabab-power-plant,Gas Pipeline of AL-SHABAB Power Plant,2011,AL-KHARAFI,UNEPP,Egypt,Egypt,Precommissioning,Nitrogen Test/Preservation,
-2011-al-shabab-power-plant-turbines-filters-skids,AL-SHABAB Power Plant Turbines & Filters SkiDS,2011,AL-KHARAFI,UNEPP,Egypt,Egypt,Precommissioning,Nitrogen Test/Preservation,
-2011-gas-pipelines-at-egypt-power-plant,Gas Pipelines at Egypt Power Plant,2011,AL-KHARAFI,UNEPP,Egypt,Egypt,Precommissioning,Hydraulic Test/Purging,
+2011-gas-pipeline-of-al-shabab-power-plant,Gas Pipeline of AL-SHABAB Power Plant,2011,AL-KHARAFI,UNEPP,Egypt,Egypt,Precommissioning,Nitrogen Test/Preservation,Onshore
+2011-al-shabab-power-plant-turbines-filters-skids,AL-SHABAB Power Plant Turbines & Filters SkiDS,2011,AL-KHARAFI,UNEPP,Egypt,Egypt,Precommissioning,Nitrogen Test/Preservation,Onshore
+2011-gas-pipelines-at-egypt-power-plant,Gas Pipelines at Egypt Power Plant,2011,AL-KHARAFI,UNEPP,Egypt,Egypt,Precommissioning,Hydraulic Test/Purging,Onshore
 2011-20-underground-pipeline,"20"" Underground Pipeline",2011,ORASCOM,UNEPP,Egypt,Egypt,Precommissioning,Hydraulic Test/Purging,
-2011-high-pressure-piping-network-of-el-tebeen-power-plant,High-Pressure Piping Network of El-Tebeen Power Plant,2011,FERROMETALCO,UNEPP,Egypt,Egypt,Precommissioning,Pressure Test,
+2011-high-pressure-piping-network-of-el-tebeen-power-plant,High-Pressure Piping Network of El-Tebeen Power Plant,2011,FERROMETALCO,UNEPP,Egypt,Egypt,Precommissioning,Pressure Test,Industrial
 2008-mack-factory-pipe-racksteel-structurefabricationpiping-installation,MACK Factory pipe rack/steel structure,2008,Total Solution,UNEPP,Egypt,Egypt,Fabrication,Piping Installation,
-2009-three-storage-tanks-50-m3-pumps-station-including-pipe-works,Three Storage Tanks (50 m3) & Pumps Station Including Pipe works,2009,ARMA Factory,UNEPP,Egypt,Egypt,Construction,,
+2009-three-storage-tanks-50-m3-pumps-station-including-pipe-works,Three Storage Tanks (50 m3) & Pumps Station Including Pipe works,2009,ARMA Factory,UNEPP,Egypt,Egypt,Construction,,Industrial
 2018-new-ethylene-tank-project,New Ethylene Tank Project,2018,SC Johnson,UNEPP,Egypt,Egypt,EPC,,
 2014-vent-knock-out-drum-skids,Vent Knock-out Drum Skids,2014,WASCO,UNEPP,Egypt,Egypt,Fabrication,Supply,
-2014-two-condensate-surge-skids,Two Condensate Surge Skids,2014,APM,UNEPP,Egypt,Egypt,Fabrication,Supply,
+2014-two-condensate-surge-skids,Two Condensate Surge Skids,2014,APM,UNEPP,Egypt,Egypt,Fabrication,Supply,Onshore
