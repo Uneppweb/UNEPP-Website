@@ -496,10 +496,6 @@ if (el){
           valuesInited = true;
           initValuesWheel();
         }
-        if (targetId === "partners" && !partnersInited){
-          partnersInited = true;
-          initPartnersMarquee();
-        }
       }
 
       // Intercept left index clicks
@@ -590,41 +586,7 @@ if (el){
         window.addEventListener("resize", setMaxHeight);
       }
 
-      // ---------- PARTNERS MARQUEE (start only when section is shown) ----------
-      function initPartnersMarquee(){
-        const SPEED = 4; // pixels per second
-        const marquee = document.querySelector('#partners .partners-marquee');
-        const track   = document.querySelector('#partners .partners-track');
-        if (!marquee || !track) return;
 
-        // Logs missing partner logos (404s) in the Console
-        track.querySelectorAll('img').forEach(img => {
-          img.addEventListener('error', () => console.log('Missing logo:', img.getAttribute('src')));
-        });
-
-        let last = performance.now();
-        let paused = false;
-
-        marquee.addEventListener('mouseenter', () => paused = true);
-        marquee.addEventListener('mouseleave', () => paused = false);
-
-        function tick(now){
-          const dt = (now - last) / 1000;
-          last = now;
-
-          if (!paused){
-            marquee.scrollLeft += SPEED * dt;
-            const half = track.scrollWidth / 2;
-            if (half > 0 && marquee.scrollLeft >= half){
-              marquee.scrollLeft -= half;
-            }
-          }
-          requestAnimationFrame(tick);
-        }
-
-        marquee.scrollLeft = 0;
-        requestAnimationFrame(tick);
-      }
     })();
   </script>
 </body>
