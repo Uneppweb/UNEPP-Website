@@ -1669,3 +1669,25 @@ body.about .about-section.is-active{
 .office-details p {
   margin: 0 0 14px 0;
 }
+/* =========================
+   Projects filters (actual HTML classes)
+   ========================= */
+body.projects .projects-filters input[type="search"],
+body.projects .projects-filters select{
+  width:100%;
+  height:54px;           /* increase box height */
+  padding:0 16px;         /* keep it clean vertically */
+  border:1px solid #cbd5e1;
+  border-radius:12px;
+  background:#ffffff;
+  color:#1f2a37;
+  font-size:1rem;
+  font-weight:600;
+  box-sizing:border-box;
+}
+
+/* Optional: placeholder visibility */
+body.projects .projects-filters input[type="search"]::placeholder{
+  color:#64748b;
+  opacity:1;
+}
