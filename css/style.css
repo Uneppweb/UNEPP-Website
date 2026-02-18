@@ -1662,7 +1662,7 @@ body.about .about-section.is-active{
 .partners-track{
   display: inline-flex;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   will-change: transform;
   animation: partnersScroll 45s linear infinite; /* <-- SPEED HERE */
 }
