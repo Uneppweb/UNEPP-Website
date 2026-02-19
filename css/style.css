@@ -1856,3 +1856,9 @@ body.projects .projects-filters select:focus{
   border-color: var(--brand);
   outline: none;
 }
+.map-embed{
+  margin-top: 20px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
