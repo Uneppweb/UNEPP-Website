@@ -155,49 +155,49 @@ const CSV_PATH = `${base}data/careers.csv`;
     // Title,Discipline,Position,ExperienceMin,ExperienceMax,ContractType,Location,Mode,Summary,ApplyEmail,Ref
     let roles = [];
 
-    // ---- Robust CSV parser (handles quoted fields + commas inside quotes) ----
-let roles = [];
-function parseCSV(text){
-  const rows = [];
-  let row = [];
-  let cur = "";
-  let inQuotes = false;
 
-  for (let i = 0; i < text.length; i++){
-    const ch = text[i];
-    const next = text[i+1];
+    function parseCSV(text){
+      const rows = [];
+      let row = [];
+      let cur = "";
+      let inQuotes = false;
 
-    if (ch === '"' && inQuotes && next === '"'){ cur += '"'; i++; continue; }
-    if (ch === '"'){ inQuotes = !inQuotes; continue; }
+      for (let i = 0; i < text.length; i++){
+        const ch = text[i];
+        const next = text[i+1];
 
-    if (ch === "," && !inQuotes){ row.push(cur); cur = ""; continue; }
+        if (ch === '"' && inQuotes && next === '"'){ cur += '"'; i++; continue; }
+        if (ch === '"'){ inQuotes = !inQuotes; continue; }
 
-    if ((ch === "\n" || ch === "\r") && !inQuotes){
-      if (ch === "\r" && next === "\n") i++;
-      row.push(cur); cur = "";
+        if (ch === "," && !inQuotes){ row.push(cur); cur = ""; continue; }
+
+        if ((ch === "\n" || ch === "\r") && !inQuotes){
+          if (ch === "\r" && next === "\n") i++;
+          row.push(cur); cur = "";
+          if (row.some(v => (v || "").trim() !== "")) rows.push(row.map(v => (v ?? "").trim()));
+          row = [];
+          continue;
+        }
+        cur += ch;
+      }
+
+      row.push(cur);
       if (row.some(v => (v || "").trim() !== "")) rows.push(row.map(v => (v ?? "").trim()));
-      row = [];
-      continue;
+
+      // Normalize headers: trim + remove UTF-8 BOM
+      const rawHeader = rows.shift() || [];
+      const header = rawHeader.map(h => (h ?? "").replace(/^\uFEFF/, "").trim());
+
+      const data = rows.map(r => {
+        const obj = {};
+        header.forEach((h, idx) => { obj[h] = (r[idx] ?? "").trim(); });
+        return obj;
+      });
+
+      return data;
     }
-    cur += ch;
-  }
 
-  row.push(cur);
-  if (row.some(v => (v || "").trim() !== "")) rows.push(row.map(v => (v ?? "").trim()));
-
-  const rawHeader = rows.shift() || [];
-  const header = rawHeader.map(h => (h ?? "").replace(/^\uFEFF/, "").trim());
-
-  const data = rows.map(r => {
-    const obj = {};
-    header.forEach((h, idx) => { obj[h] = (r[idx] ?? "").trim(); });
-    return obj;
-  });
-
-  return data;
-}
-
-
+    // ---- Robust CSV parser (handles quoted fields + commas inside quotes) ----
     function setStatus(msg, isError=false){
       els.status.hidden = !msg;
       els.status.textContent = msg || "";
@@ -387,7 +387,7 @@ function parseCSV(text){
 
       try{
         const res = await fetch(CSV_PATH, { cache: "no-store" });
-        if (!res.ok) throw new Error("CSV not found");
+        if (!res.ok) throw new Error(`CSV fetch failed: ${res.status} ${res.statusText}`);
         const text = await res.text();
 
         roles = parseCSV(text);
@@ -398,7 +398,7 @@ function parseCSV(text){
       }catch(e){
         // No CSV yet (as you said you’ll add later) — page stays clean and hidden
         roles = [];
-        setStatus("Careers data file not found yet. Add data/careers.csv to enable listings.", true);
+        setStatus(`Careers CSV load error: ${e.message || e}. Expected at: ${CSV_PATH}`, true);
         showEmptyState();
       }
     }
