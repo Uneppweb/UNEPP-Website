@@ -4,10 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Careers | UNEPP</title>
+  <meta name="description" content="Explore career opportunities at UNEPP. Search and filter openings by discipline, position, experience, and contract type." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body>
+<body class="careers">
+
+  <!-- Header (keep consistent with your site) -->
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="index.html">
@@ -19,53 +22,414 @@
       </a>
 
       <nav class="menu" aria-label="Primary">
-        <a data-nav href="index.html">Home</a>
-        <a data-nav href="about.html">About Us</a>
-        <a data-nav href="capabilities.html">Capabilities</a>
-        <a data-nav href="projects.html">Projects</a>
-        <a data-nav href="news.html">News</a>
-        <a data-nav href="careers.html">Career</a>
-        <a data-nav class="cta" href="contact.html">Contact Us</a>
+        <a href="about.html">About</a>
+        <a href="capabilities.html">Capabilities</a>
+        <a href="projects.html">Projects</a>
+        <a class="active" href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="container section">
-    <h2>Careers</h2>
-    <p class="lead">
-      Content to be added.
-    </p>
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <div class="section-intro">
+          <h2>Careers</h2>
+          <p class="lead">
+            Explore current opportunities at UNEPP. Use the search and filters to find roles that match your discipline,
+            experience level, and contract preference.
+          </p>
+        </div>
+
+        <!-- Filters (same concept as Projects Portfolio) -->
+        <section class="projects-filters" aria-label="Career filters">
+          <div class="filters-grid">
+
+            <!-- Row 1: Search + Discipline + Position -->
+            <div class="filters-row filters-row-1">
+              <div class="filter">
+                <label for="q">Search</label>
+                <input id="q" type="search" placeholder="Keyword (e.g., FEED, pipeline, SACS, procurement)" autocomplete="off" />
+              </div>
+
+              <div class="filter">
+                <label for="discipline">Discipline</label>
+                <select id="discipline" disabled>
+                  <option value="ALL">All</option>
+                </select>
+              </div>
+
+              <div class="filter">
+                <label for="position">Position</label>
+                <select id="position" disabled>
+                  <option value="ALL">All</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Row 2: Experience + Contract Type -->
+            <div class="filters-row filters-row-2">
+              <div class="filter">
+                <label for="exp">Years of Experience</label>
+                <select id="exp">
+                  <option value="ALL">All</option>
+                  <option value="0-2">0–2</option>
+                  <option value="3-5">3–5</option>
+                  <option value="6-10">6–10</option>
+                  <option value="11-15">11–15</option>
+                  <option value="16+">16+</option>
+                </select>
+              </div>
+
+              <div class="filter">
+                <label for="contract">Contract Type</label>
+                <select id="contract" disabled>
+                  <option value="ALL">All</option>
+                </select>
+              </div>
+
+              <!-- (Optional) if you later add Location column, you can enable this quickly
+              <div class="filter">
+                <label for="location">Location</label>
+                <select id="location" disabled>
+                  <option value="ALL">All</option>
+                </select>
+              </div>
+              -->
+            </div>
+
+            <!-- Row 3: Reset -->
+            <div class="filters-row filters-row-reset">
+              <button id="reset" class="btn" type="button">➤ Reset</button>
+            </div>
+
+            <!-- Message inside filters box (like your Projects page approach) -->
+            <div class="filters-hint" id="hint">
+              Select a filter to view openings<br />
+              <span class="muted">To keep the page fast and easy to browse, roles are hidden until you apply at least one filter (or type a keyword).</span>
+            </div>
+
+            <!-- Loading / error line -->
+            <div class="filters-hint" id="status" hidden></div>
+
+          </div>
+        </section>
+
+        <!-- Results meta -->
+        <div class="projects-meta">
+          <div id="count" class="muted"></div>
+        </div>
+
+        <!-- Cards grid (reuse same grid class as Projects) -->
+        <div id="grid" class="projects-grid" aria-live="polite"></div>
+
+      </div>
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      © <span id="y"></span> UNEPP
+      © <span id="y"></span> United Engineers for Petroleum Projects (UNEPP)
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
   <script>
-(function(){
-  const links = Array.from(document.querySelectorAll('aside nav a[href^="#"]'));
-  if (!links.length) return;
+    // Footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
 
-  function setActive(hash){
-    links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === hash));
-  }
+    // =========================
+    // Careers — CSV driven
+    // =========================
+    const CSV_PATH = "data/careers.csv"; // <-- you will add this file later
 
-  // On click
-  links.forEach(a => {
-    a.addEventListener("click", () => setActive(a.getAttribute("href")));
-  });
+    const els = {
+      q: document.getElementById("q"),
+      discipline: document.getElementById("discipline"),
+      position: document.getElementById("position"),
+      exp: document.getElementById("exp"),
+      contract: document.getElementById("contract"),
+      // location: document.getElementById("location"),
+      reset: document.getElementById("reset"),
+      grid: document.getElementById("grid"),
+      count: document.getElementById("count"),
+      hint: document.getElementById("hint"),
+      status: document.getElementById("status"),
+    };
 
-  // On load (if URL has a hash), otherwise pick first
-  setActive(location.hash && links.some(a => a.getAttribute("href") === location.hash)
-    ? location.hash
-    : links[0].getAttribute("href")
-  );
-})();
-</script>
+    // Expected CSV headers (case-sensitive):
+    // Title,Discipline,Position,ExperienceMin,ExperienceMax,ContractType,Location,Mode,Summary,ApplyEmail,Ref
+    let roles = [];
+
+    // ---- Robust CSV parser (handles quoted fields + commas inside quotes) ----
+    function parseCSV(text){
+      const rows = [];
+      let row = [];
+      let cur = "";
+      let inQuotes = false;
+
+      for (let i = 0; i < text.length; i++){
+        const ch = text[i];
+        const next = text[i+1];
+
+        if (ch === '"' && inQuotes && next === '"'){ // escaped quote
+          cur += '"';
+          i++;
+          continue;
+        }
+        if (ch === '"'){
+          inQuotes = !inQuotes;
+          continue;
+        }
+        if (ch === "," && !inQuotes){
+          row.push(cur);
+          cur = "";
+          continue;
+        }
+        if ((ch === "\n" || ch === "\r") && !inQuotes){
+          if (ch === "\r" && next === "\n") i++; // skip CRLF
+          row.push(cur);
+          cur = "";
+          if (row.some(v => (v || "").trim() !== "")) rows.push(row.map(v => (v || "").trim()));
+          row = [];
+          continue;
+        }
+        cur += ch;
+      }
+
+      // last row
+      row.push(cur);
+      if (row.some(v => (v || "").trim() !== "")) rows.push(row.map(v => (v || "").trim()));
+
+      const header = rows.shift() || [];
+      const data = rows.map(r => {
+        const obj = {};
+        header.forEach((h, idx) => obj[h] = r[idx] ?? "");
+        return obj;
+      });
+
+      return data;
+    }
+
+    function setStatus(msg, isError=false){
+      els.status.hidden = !msg;
+      els.status.textContent = msg || "";
+      els.status.style.opacity = isError ? "1" : "0.9";
+    }
+
+    function uniqSorted(values){
+      return [...new Set(values.map(v => (v || "").trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+    }
+
+    function resetSelect(select){
+      select.innerHTML = `<option value="ALL">All</option>`;
+    }
+
+    function fillSelect(select, values){
+      values.forEach(v => {
+        const opt = document.createElement("option");
+        opt.value = v;
+        opt.textContent = v;
+        select.appendChild(opt);
+      });
+      select.disabled = false;
+    }
+
+    function populateFiltersFromCSV(){
+      // Reset then fill (keeps only "All" + CSV unique values)
+      resetSelect(els.discipline);
+      resetSelect(els.position);
+      resetSelect(els.contract);
+      // resetSelect(els.location);
+
+      fillSelect(els.discipline, uniqSorted(roles.map(r => r.Discipline)));
+      fillSelect(els.position,   uniqSorted(roles.map(r => r.Position)));
+      fillSelect(els.contract,   uniqSorted(roles.map(r => r.ContractType)));
+      // fillSelect(els.location,   uniqSorted(roles.map(r => r.Location)));
+    }
+
+    function hasActiveFilter(){
+      return (
+        els.q.value.trim() !== "" ||
+        els.discipline.value !== "ALL" ||
+        els.position.value !== "ALL" ||
+        els.exp.value !== "ALL" ||
+        els.contract.value !== "ALL"
+        // || els.location.value !== "ALL"
+      );
+    }
+
+    function showEmptyState(){
+      els.grid.innerHTML = "";
+      els.count.textContent = "";
+      els.hint.hidden = false;
+    }
+
+    function bucketMatch(role){
+      const b = els.exp.value;
+      if (b === "ALL") return true;
+
+      const min = Number((role.ExperienceMin || "").trim() || 0);
+      const max = Number((role.ExperienceMax || "").trim() || 99);
+
+      if (b === "0-2")   return min <= 2  && max >= 0;
+      if (b === "3-5")   return min <= 5  && max >= 3;
+      if (b === "6-10")  return min <= 10 && max >= 6;
+      if (b === "11-15") return min <= 15 && max >= 11;
+      if (b === "16+")   return max >= 16;
+
+      return true;
+    }
+
+    function matchesKeyword(role, kw){
+      if (!kw) return true;
+      const hay = Object.values(role).join(" ").toLowerCase();
+      return hay.includes(kw);
+    }
+
+    function applyFilters(){
+      if (!roles.length){
+        showEmptyState();
+        return;
+      }
+
+      if (!hasActiveFilter()){
+        showEmptyState();
+        return;
+      }
+
+      els.hint.hidden = true;
+
+      const kw = els.q.value.trim().toLowerCase();
+      const d  = els.discipline.value;
+      const p  = els.position.value;
+      const c  = els.contract.value;
+      // const l  = els.location.value;
+
+      const filtered = roles.filter(r => {
+        const okKw = matchesKeyword(r, kw);
+        const okD  = (d === "ALL" || (r.Discipline || "").trim() === d);
+        const okP  = (p === "ALL" || (r.Position || "").trim() === p);
+        const okC  = (c === "ALL" || (r.ContractType || "").trim() === c);
+        // const okL  = (l === "ALL" || (r.Location || "").trim() === l);
+        const okE  = bucketMatch(r);
+
+        return okKw && okD && okP && okC && okE; // && okL
+      });
+
+      render(filtered);
+    }
+
+    function safe(str){ return (str || "").replace(/[<>&]/g, s => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[s])); }
+
+    function render(list){
+      els.grid.innerHTML = "";
+
+      els.count.textContent = `${list.length} position(s) found`;
+
+      if (!list.length){
+        els.grid.innerHTML = `<p class="muted">No matching positions found.</p>`;
+        return;
+      }
+
+      // Optional: sort by ExperienceMin ASC then Title
+      list.sort((a,b) => (Number(a.ExperienceMin||0) - Number(b.ExperienceMin||0)) || (a.Title||"").localeCompare(b.Title||""));
+
+      els.grid.innerHTML = list.map(r => {
+        const title = safe(r.Title);
+        const disc  = safe(r.Discipline);
+        const pos   = safe(r.Position);
+        const ct    = safe(r.ContractType);
+        const loc   = safe(r.Location);
+        const mode  = safe(r.Mode);
+        const sum   = safe(r.Summary);
+        const ref   = safe(r.Ref);
+
+        const min = (r.ExperienceMin || "").trim();
+        const max = (r.ExperienceMax || "").trim();
+        const expLabel = (min || max) ? `${safe(min)}${max ? "-" + safe(max) : ""} yrs` : "";
+
+        const applyEmail = (r.ApplyEmail || "").trim();
+        const mailto = applyEmail
+          ? `mailto:${encodeURIComponent(applyEmail)}?subject=${encodeURIComponent(`Application – ${r.Title || ""}${ref ? " (" + r.Ref + ")" : ""}`)}`
+          : "";
+
+        return `
+          <article class="card">
+            <h3 class="project-title">${title}</h3>
+
+            <div class="badges">
+              ${disc ? `<span class="badge">${disc}</span>` : ""}
+              ${pos ? `<span class="badge">${pos}</span>` : ""}
+              ${expLabel ? `<span class="badge">${expLabel}</span>` : ""}
+              ${ct ? `<span class="badge">${ct}</span>` : ""}
+            </div>
+
+            ${sum ? `<p>${sum}</p>` : ""}
+
+            ${(loc || mode || ref) ? `
+              <div class="muted" style="margin-top:10px;">
+                ${loc ? `<span>${loc}</span>` : ""}
+                ${mode ? `<span>${loc ? " • " : ""}${mode}</span>` : ""}
+                ${ref ? `<span>${(loc || mode) ? " • " : ""}${ref}</span>` : ""}
+              </div>
+            ` : ""}
+
+            <div style="margin-top:14px;">
+              ${mailto ? `<a class="btn" href="${mailto}">Apply Now</a>` : `<span class="muted">Application email not specified.</span>`}
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function resetAll(){
+      els.q.value = "";
+      els.discipline.value = "ALL";
+      els.position.value = "ALL";
+      els.exp.value = "ALL";
+      els.contract.value = "ALL";
+      // els.location.value = "ALL";
+      showEmptyState();
+    }
+
+    async function init(){
+      // Start state
+      showEmptyState();
+      setStatus("Loading openings…");
+
+      try{
+        const res = await fetch(CSV_PATH, { cache: "no-store" });
+        if (!res.ok) throw new Error("CSV not found");
+        const text = await res.text();
+
+        roles = parseCSV(text);
+        populateFiltersFromCSV();
+
+        setStatus(""); // hide
+        showEmptyState(); // keep hidden until a filter/search is used
+      }catch(e){
+        // No CSV yet (as you said you’ll add later) — page stays clean and hidden
+        roles = [];
+        setStatus("Careers data file not found yet. Add data/careers.csv to enable listings.", true);
+        showEmptyState();
+      }
+    }
+
+    // Events
+    els.q.addEventListener("input", applyFilters);
+    els.discipline.addEventListener("change", applyFilters);
+    els.position.addEventListener("change", applyFilters);
+    els.exp.addEventListener("change", applyFilters);
+    els.contract.addEventListener("change", applyFilters);
+    // els.location.addEventListener("change", applyFilters);
+
+    els.reset.addEventListener("click", resetAll);
+
+    init();
+  </script>
 
 </body>
 </html>
