@@ -43,17 +43,20 @@
           </p>
         </div>
 
-   <!-- Filters -->
 <section class="projects-filters" aria-label="Career filters">
   <div class="filters-grid">
 
-    <!-- Row 1: Search (Full Width) -->
+    <!-- Hint (same style as Projects) -->
+    <div class="filters-hint" id="hint">
+      Select a filter to view openings.<br>
+      <span class="muted">To keep the page fast and easy to browse, roles are hidden until you apply at least one filter (or type a keyword).</span>
+    </div>
+
+    <!-- Row 1: Search (full width) -->
     <div class="filters-row filters-row-search">
       <div class="filter filter-full">
         <label for="q">Search</label>
-        <input id="q" type="search"
-               placeholder="Keyword (e.g., FEED, pipeline, SACS, procurement)"
-               autocomplete="off" />
+        <input id="q" type="search" placeholder="Search by title, discipline, keywords..." autocomplete="off" />
       </div>
     </div>
 
@@ -96,38 +99,16 @@
       </div>
     </div>
 
-    <!-- Gap Before Reset -->
-    <div class="filters-spacer"></div>
-
-    <!-- Reset -->
+    <!-- Reset (with gap above) -->
     <div class="filters-row filters-row-reset">
       <button id="reset" class="btn" type="button">➤ Reset</button>
-    </div>
-
-    <!-- Hint -->
-    <div class="filters-hint" id="hint">
-      Select a filter to view openings<br />
-      <span class="muted">
-        Roles are hidden until at least one filter is applied or a keyword is entered.
-      </span>
     </div>
 
     <div class="filters-hint" id="status" hidden></div>
 
   </div>
 </section>
-    
 
-        <!-- Results meta -->
-        <div class="projects-meta">
-          <div id="count" class="muted"></div>
-        </div>
-
-        <!-- Cards grid (reuse same grid class as Projects) -->
-        <div id="grid" class="projects-grid" aria-live="polite"></div>
-
-      </div>
-    </section>
   </main>
 
   <!-- Footer -->
