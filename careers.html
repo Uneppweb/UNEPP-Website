@@ -154,54 +154,8 @@
     let roles = [];
 
     // ---- Robust CSV parser (handles quoted fields + commas inside quotes) ----
-    function parseCSV(text){
-      const rows = [];
-      let row = [];
-      let cur = "";
-      let inQuotes = false;
+roles.map(r => r.Position)
 
-      for (let i = 0; i < text.length; i++){
-        const ch = text[i];
-        const next = text[i+1];
-
-        if (ch === '"' && inQuotes && next === '"'){ // escaped quote
-          cur += '"';
-          i++;
-          continue;
-        }
-        if (ch === '"'){
-          inQuotes = !inQuotes;
-          continue;
-        }
-        if (ch === "," && !inQuotes){
-          row.push(cur);
-          cur = "";
-          continue;
-        }
-        if ((ch === "\n" || ch === "\r") && !inQuotes){
-          if (ch === "\r" && next === "\n") i++; // skip CRLF
-          row.push(cur);
-          cur = "";
-          if (row.some(v => (v || "").trim() !== "")) rows.push(row.map(v => (v || "").trim()));
-          row = [];
-          continue;
-        }
-        cur += ch;
-      }
-
-      // last row
-      row.push(cur);
-      if (row.some(v => (v || "").trim() !== "")) rows.push(row.map(v => (v || "").trim()));
-
-      const header = rows.shift() || [];
-      const data = rows.map(r => {
-        const obj = {};
-        header.forEach((h, idx) => obj[h] = r[idx] ?? "");
-        return obj;
-      });
-
-      return data;
-    }
 
     function setStatus(msg, isError=false){
       els.status.hidden = !msg;
