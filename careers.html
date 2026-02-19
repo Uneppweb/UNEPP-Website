@@ -133,7 +133,9 @@
     // =========================
     // Careers — CSV driven
     // =========================
-const CSV_PATH = "/data/careers.csv";   // absolute path (best for GitHub Pages)
+const first = location.pathname.split("/").filter(Boolean)[0];
+const base = (first && !first.includes(".")) ? `/${first}/` : "/";
+const CSV_PATH = `${base}data/careers.csv`;
 
     const els = {
       q: document.getElementById("q"),
