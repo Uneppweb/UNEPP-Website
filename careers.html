@@ -43,79 +43,80 @@
           </p>
         </div>
 
-        <!-- Filters (same concept as Projects Portfolio) -->
-        <section class="projects-filters" aria-label="Career filters">
-          <div class="filters-grid">
+   <!-- Filters -->
+<section class="projects-filters" aria-label="Career filters">
+  <div class="filters-grid">
 
-            <!-- Row 1: Search + Discipline + Position -->
-            <div class="filters-row filters-row-1">
-              <div class="filter">
-                <label for="q">Search</label>
-                <input id="q" type="search" placeholder="Keyword (e.g., FEED, pipeline, SACS, procurement)" autocomplete="off" />
-              </div>
+    <!-- Row 1: Search (Full Width) -->
+    <div class="filters-row filters-row-search">
+      <div class="filter filter-full">
+        <label for="q">Search</label>
+        <input id="q" type="search"
+               placeholder="Keyword (e.g., FEED, pipeline, SACS, procurement)"
+               autocomplete="off" />
+      </div>
+    </div>
 
-              <div class="filter">
-                <label for="discipline">Discipline</label>
-                <select id="discipline" disabled>
-                  <option value="ALL">All</option>
-                </select>
-              </div>
+    <!-- Row 2: Discipline + Position -->
+    <div class="filters-row filters-row-2col">
+      <div class="filter">
+        <label for="discipline">Discipline</label>
+        <select id="discipline" disabled>
+          <option value="ALL">All</option>
+        </select>
+      </div>
 
-              <div class="filter">
-                <label for="position">Position</label>
-                <select id="position" disabled>
-                  <option value="ALL">All</option>
-                </select>
-              </div>
-            </div>
+      <div class="filter">
+        <label for="position">Position</label>
+        <select id="position" disabled>
+          <option value="ALL">All</option>
+        </select>
+      </div>
+    </div>
 
-            <!-- Row 2: Experience + Contract Type -->
-            <div class="filters-row filters-row-2">
-              <div class="filter">
-                <label for="exp">Years of Experience</label>
-                <select id="exp">
-                  <option value="ALL">All</option>
-                  <option value="0-2">0–2</option>
-                  <option value="3-5">3–5</option>
-                  <option value="6-10">6–10</option>
-                  <option value="11-15">11–15</option>
-                  <option value="16+">16+</option>
-                </select>
-              </div>
+    <!-- Row 3: Experience + Contract -->
+    <div class="filters-row filters-row-3col">
+      <div class="filter">
+        <label for="exp">Years of Experience</label>
+        <select id="exp">
+          <option value="ALL">All</option>
+          <option value="0-2">0–2</option>
+          <option value="3-5">3–5</option>
+          <option value="6-10">6–10</option>
+          <option value="11-15">11–15</option>
+          <option value="16+">16+</option>
+        </select>
+      </div>
 
-              <div class="filter">
-                <label for="contract">Contract Type</label>
-                <select id="contract" disabled>
-                  <option value="ALL">All</option>
-                </select>
-              </div>
+      <div class="filter">
+        <label for="contract">Contract Type</label>
+        <select id="contract" disabled>
+          <option value="ALL">All</option>
+        </select>
+      </div>
+    </div>
 
-              <!-- (Optional) if you later add Location column, you can enable this quickly
-              <div class="filter">
-                <label for="location">Location</label>
-                <select id="location" disabled>
-                  <option value="ALL">All</option>
-                </select>
-              </div>
-              -->
-            </div>
+    <!-- Gap Before Reset -->
+    <div class="filters-spacer"></div>
 
-            <!-- Row 3: Reset -->
-            <div class="filters-row filters-row-reset">
-              <button id="reset" class="btn" type="button">➤ Reset</button>
-            </div>
+    <!-- Reset -->
+    <div class="filters-row filters-row-reset">
+      <button id="reset" class="btn" type="button">➤ Reset</button>
+    </div>
 
-            <!-- Message inside filters box (like your Projects page approach) -->
-            <div class="filters-hint" id="hint">
-              Select a filter to view openings<br />
-              <span class="muted">To keep the page fast and easy to browse, roles are hidden until you apply at least one filter (or type a keyword).</span>
-            </div>
+    <!-- Hint -->
+    <div class="filters-hint" id="hint">
+      Select a filter to view openings<br />
+      <span class="muted">
+        Roles are hidden until at least one filter is applied or a keyword is entered.
+      </span>
+    </div>
 
-            <!-- Loading / error line -->
-            <div class="filters-hint" id="status" hidden></div>
+    <div class="filters-hint" id="status" hidden></div>
 
-          </div>
-        </section>
+  </div>
+</section>
+    
 
         <!-- Results meta -->
         <div class="projects-meta">
