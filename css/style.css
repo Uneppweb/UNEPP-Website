@@ -1977,3 +1977,10 @@ body.projects .projects-filters .filters-row-reset,
 body.careers  .projects-filters .filters-row-reset{
   margin-top:18px;
 }
+/* Careers + Projects — 4 equal filters row */
+body.projects .filters-row-4col,
+body.careers  .filters-row-4col{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap:14px;
+}
