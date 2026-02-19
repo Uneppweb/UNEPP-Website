@@ -1862,3 +1862,17 @@ body.projects .projects-filters select:focus{
   overflow: hidden;
   box-shadow: var(--shadow);
 }
+/* Make search full width */
+.filter-full {
+  width: 100%;
+}
+
+/* Ensure first row stretches */
+.filters-row-search {
+  display: flex;
+}
+
+/* Gap before reset button */
+.filters-spacer {
+  height: 20px;
+}
