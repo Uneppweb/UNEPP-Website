@@ -156,7 +156,46 @@ const CSV_PATH = `${base}data/careers.csv`;
     let roles = [];
 
     // ---- Robust CSV parser (handles quoted fields + commas inside quotes) ----
-roles.map(r => r.Position)
+let roles = [];
+function parseCSV(text){
+  const rows = [];
+  let row = [];
+  let cur = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < text.length; i++){
+    const ch = text[i];
+    const next = text[i+1];
+
+    if (ch === '"' && inQuotes && next === '"'){ cur += '"'; i++; continue; }
+    if (ch === '"'){ inQuotes = !inQuotes; continue; }
+
+    if (ch === "," && !inQuotes){ row.push(cur); cur = ""; continue; }
+
+    if ((ch === "\n" || ch === "\r") && !inQuotes){
+      if (ch === "\r" && next === "\n") i++;
+      row.push(cur); cur = "";
+      if (row.some(v => (v || "").trim() !== "")) rows.push(row.map(v => (v ?? "").trim()));
+      row = [];
+      continue;
+    }
+    cur += ch;
+  }
+
+  row.push(cur);
+  if (row.some(v => (v || "").trim() !== "")) rows.push(row.map(v => (v ?? "").trim()));
+
+  const rawHeader = rows.shift() || [];
+  const header = rawHeader.map(h => (h ?? "").replace(/^\uFEFF/, "").trim());
+
+  const data = rows.map(r => {
+    const obj = {};
+    header.forEach((h, idx) => { obj[h] = (r[idx] ?? "").trim(); });
+    return obj;
+  });
+
+  return data;
+}
 
 
     function setStatus(msg, isError=false){
