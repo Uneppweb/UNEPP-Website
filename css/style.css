@@ -1984,3 +1984,24 @@ body.careers  .filters-row-4col{
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap:14px;
 }
+/* Force filter rows to occupy full width of the filters box */
+body.projects .projects-filters .filters-row,
+body.careers  .projects-filters .filters-row{
+  width: 100%;
+}
+
+/* 4 equal columns that fill the full width (same as search row) */
+body.projects .projects-filters .filters-row-4col,
+body.careers  .projects-filters .filters-row-4col{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Ensure each filter block stretches */
+body.projects .projects-filters .filters-row-4col .filter,
+body.careers  .projects-filters .filters-row-4col .filter{
+  width: 100%;
+  min-width: 0; /* prevents overflow from long labels */
+}
