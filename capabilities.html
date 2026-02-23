@@ -247,24 +247,138 @@ We continue supporting projects through <strong class="brand-regulator">Pre-Comm
       </div>
     </section>
 
-    <!-- Procurement -->
-    <section class="section" id="procurement" data-panel="1">
-      <div class="section-intro">
-        <h3>Procurement Services</h3>
-        <p class="lead">
-          UNEPP offers comprehensive procurement services tailored to meet the demanding requirements of the oil and gas industry. Our procurement approach is built on a foundation of technical expertise, global sourcing experience, and a deep understanding of project-driven supply chain needs. Our services include:
-        </p>
-      </div>
+<!-- Procurement -->
+<section class="section" id="procurement">
+  <div class="section-intro">
+    <h3>Procurement Services</h3>
+    <p class="lead">
+      UNEPP offers comprehensive procurement services tailored to meet the demanding requirements of the oil and gas industry.
+      Our approach integrates technical evaluation, commercial alignment, and disciplined supply chain management to ensure
+      cost-effective and schedule-driven delivery.
+    </p>
+  </div>
 
-      <div class="card">
-        <div class="capability-visual">
+  <div class="card">
+
+    <div class="procurement-stage">
+
+      <!-- LEFT: Wheel -->
+      <div class="procurement-wheel" aria-label="UNEPP procurement wheel">
+        <div class="procurement-wheel-rotator" id="procWheel">
           <img
-            src="assets/images/Procurement.png"
-            alt="UNEPP procurement strategy including requirements definition, market analysis, supplier selection, contract management, procurement planning, order management, logistics, quality control, supplier relationship management, and risk management"
+            src="assets/images/Procurement1.png"
+            alt="UNEPP Procurement services wheel"
           />
         </div>
+
+        <!-- Static center title (does NOT rotate) -->
+        <div class="procurement-wheel-center" aria-hidden="true">
+          <div class="procurement-wheel-center-text">UNEPP<br>PROCUREMENT</div>
+        </div>
       </div>
-    </section>
+
+      <!-- RIGHT: Dynamic Box -->
+      <div class="procurement-box" id="procBox" aria-live="polite">
+        <h3 class="procurement-box-title fade show" id="procTitle"></h3>
+        <p class="procurement-box-desc fade show" id="procDesc"></p>
+      </div>
+
+    </div>
+
+    <!-- Hidden measurer (keeps box height stable) -->
+    <div class="procurement-measure-wrap" id="procMeasureWrap" aria-hidden="true">
+      <div class="procurement-measure-box" id="procMeasureBox">
+        <h3 class="procurement-measure-title" id="procMeasureTitle"></h3>
+        <p class="procurement-measure-desc" id="procMeasureDesc"></p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+  (function(){
+    const wheel = document.getElementById("procWheel");
+    const box = document.getElementById("procBox");
+    const titleEl = document.getElementById("procTitle");
+    const descEl  = document.getElementById("procDesc");
+
+    if(!wheel || !box || !titleEl || !descEl) return;
+
+    // 10 sections — colors EXACTLY as you provided (clockwise from 12 o'clock)
+    const items = [
+      { title:"Requirements Definition",               color:"rgb(248,111,38)",  desc:"Define technical specifications, MR packages, data sheets, and compliance requirements aligned with project standards." },
+      { title:"Market Intelligence",                   color:"rgb(29,149,194)",  desc:"Assess supplier landscape, lead times, availability, and price drivers to support sourcing decisions and schedule planning." },
+      { title:"Supplier Prequalification",             color:"rgb(36,169,205)",  desc:"Screen vendors for capability, capacity, certifications, past performance, and project-specific compliance requirements." },
+      { title:"Technical Bid Evaluation",              color:"rgb(0,185,203)",   desc:"Perform technical evaluations, clarify deviations, and confirm compliance with the requisition and applicable standards." },
+      { title:"Commercial Evaluation",                 color:"rgb(0,170,159)",   desc:"Benchmark pricing, terms, Incoterms, and payment milestones to ensure best value and contract alignment." },
+      { title:"Purchase Order & Contracting",          color:"rgb(81,182,87)",   desc:"Issue POs/contracts, define deliverables, and ensure clear interface between technical and commercial obligations." },
+      { title:"Expediting & Progress Tracking",        color:"rgb(144,191,76)",  desc:"Monitor manufacturing progress, resolve bottlenecks, and keep procurement aligned with project milestones." },
+      { title:"Inspection & Quality Control",          color:"rgb(202,210,59)",  desc:"Coordinate ITPs, inspections, FATs, document review, and NCR close-out to ensure quality and compliance." },
+      { title:"Logistics & Delivery",                  color:"rgb(248,194,29)",  desc:"Plan packing, shipping, customs, and site delivery sequencing to protect schedule and reduce handling risks." },
+      { title:"Supplier Relationship & Risk Management", color:"rgb(249,164,7)", desc:"Track performance, manage supply chain risks proactively, and drive continuous improvement with key suppliers." }
+    ];
+
+    const intervalMs = 5000;
+    const stepAngle = 36; // 360 / 10
+    let index = 0;
+    let rotation = 0;
+
+    function updateContent(i){
+      titleEl.classList.remove("show");
+      descEl.classList.remove("show");
+
+      setTimeout(() => {
+        titleEl.textContent = items[i].title;
+        descEl.textContent  = items[i].desc;
+        box.style.backgroundColor = items[i].color;
+
+        titleEl.classList.add("show");
+        descEl.classList.add("show");
+      }, 180);
+    }
+
+    function next(){
+      index = (index + 1) % items.length;
+      rotation += stepAngle;
+      wheel.style.transform = `rotate(${rotation}deg)`;
+      updateContent(index);
+    }
+
+    // Keep box height stable (same method as Our Values)
+    function setMaxHeight(){
+      const mw = document.getElementById("procMeasureWrap");
+      const mb = document.getElementById("procMeasureBox");
+      const mt = document.getElementById("procMeasureTitle");
+      const md = document.getElementById("procMeasureDesc");
+      if(!mw || !mb || !mt || !md) return;
+
+      const w = box.getBoundingClientRect().width;
+      mw.style.width = w + "px";
+      mb.style.width = w + "px";
+
+      let maxH = 0;
+      for(const it of items){
+        mt.textContent = it.title;
+        md.textContent = it.desc;
+        const h = mb.getBoundingClientRect().height;
+        if(h > maxH) maxH = h;
+      }
+      box.style.minHeight = Math.ceil(maxH) + "px";
+    }
+
+    // Init
+    updateContent(0);
+    box.style.backgroundColor = items[0].color;
+
+    window.addEventListener("load", () => {
+      setMaxHeight();
+      setInterval(next, intervalMs);
+    });
+
+    window.addEventListener("resize", setMaxHeight);
+  })();
+  </script>
+</section>
 
     <!-- Offshore -->
     <section class="section" id="offshore" data-panel="1">
