@@ -193,18 +193,27 @@ main { overflow-x: clip; }     /* or: hidden; */
 
 <!-- Footer -->
 <footer class="footer">
-  <div class="container">
-    <div style="text-align:center;">
-      © <span id="y"></span> United Engineers for Petroleum Projects (UNEPP)
+  <div class="container" style="text-align:left;">
+
+    <div>
+      © <span id="y"></span> United Engineers for Petroleum Projects (UNEPP)<br>
+      © <span id="y2"></span> Unified Engineering Consultancy LTD - L.L.C (UNIFIED)
     </div>
 
-    <div style="margin-top:10px; font-size:13px; line-height:1.6; text-align:center; opacity:.85;">
-      UNEPP and UNIFIED are independently registered legal entities under common ownership. 
-      Each company operates, contracts, and delivers services in accordance with the laws 
+    <div style="margin-top:10px; font-size:13px; line-height:1.6; opacity:.85;">
+      UNEPP and UNIFIED are independently registered legal entities under common ownership.
+      Each company operates, contracts, and delivers services in accordance with the laws
       and regulations applicable in its respective jurisdiction.
     </div>
+
   </div>
 </footer>
+
+<script>
+  const year = new Date().getFullYear();
+  document.getElementById("y").textContent = year;
+  document.getElementById("y2").textContent = year;
+</script>
 
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
