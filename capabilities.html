@@ -297,7 +297,7 @@ We continue supporting projects through <strong class="brand-regulator">Pre-Comm
 
   <script>
   (function(){
-    const wheel = document.getElementById("procWheel");
+    const wheel = document.getElementById("procWheel"); // the ROTATING div
     const box = document.getElementById("procBox");
     const titleEl = document.getElementById("procTitle");
     const descEl  = document.getElementById("procDesc");
@@ -339,8 +339,8 @@ We continue supporting projects through <strong class="brand-regulator">Pre-Comm
 
     function next(){
       index = (index + 1) % items.length;
-rotation -= stepAngle;              // anti-clockwise
-wheel.style.transform = `rotate(${rotation}deg)`;
+      rotation -= stepAngle; // anti-clockwise
+      wheel.style.transform = `rotate(${rotation}deg)`;
       updateContent(index);
     }
 
@@ -366,13 +366,25 @@ wheel.style.transform = `rotate(${rotation}deg)`;
       box.style.minHeight = Math.ceil(maxH) + "px";
     }
 
+    // ===== PAUSE ON HOVER (wheel OR box) =====
+    let paused = false;
+    const hoverTargets = [wheel, box];
+
+    hoverTargets.forEach(el => {
+      el.addEventListener("mouseenter", () => { paused = true; });
+      el.addEventListener("mouseleave", () => { paused = false; });
+    });
+
     // Init
     updateContent(0);
     box.style.backgroundColor = items[0].color;
 
     window.addEventListener("load", () => {
       setMaxHeight();
-      setInterval(next, intervalMs);
+
+      setInterval(() => {
+        if (!paused) next();
+      }, intervalMs);
     });
 
     window.addEventListener("resize", setMaxHeight);
