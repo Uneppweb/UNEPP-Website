@@ -2005,3 +2005,117 @@ body.careers  .projects-filters .filters-row-4col .filter{
   width: 100%;
   min-width: 0; /* prevents overflow from long labels */
 }
+/* =========================================
+   PROCUREMENT — Rotating Wheel + Dynamic Box
+   (scoped so it won’t affect other sections)
+   ========================================= */
+
+#procurement .procurement-stage{
+  display:grid;
+  grid-template-columns: 360px 1fr;
+  gap:28px;
+  align-items:center;
+}
+
+#procurement .procurement-wheel{
+  position:relative;
+  width:340px;
+  margin:0 auto;
+}
+
+#procurement .procurement-wheel-rotator{
+  transition:transform 1s ease;
+  transform-origin: 50% 50%;
+}
+
+#procurement .procurement-wheel img{
+  width:100%;
+  display:block;
+}
+
+/* Center text overlay (does NOT rotate) */
+#procurement .procurement-wheel-center{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+
+#procurement .procurement-wheel-center-text{
+  text-align:center;
+  font-weight:900;
+  font-size:20px;
+  letter-spacing:1px;
+  line-height:1.2;
+  color:#ffffff;
+  text-transform:uppercase;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.45);
+}
+
+/* Dynamic box */
+#procurement .procurement-box{
+  border-radius:var(--radius);
+  padding:24px;
+  color:#ffffff;
+  transition:background-color 0.6s ease;
+}
+
+#procurement .procurement-box h3{
+  margin:0 0 10px;
+  font-size:20px;
+  color:#ffffff;
+  text-align:left;
+}
+
+#procurement .procurement-box p{
+  margin:0;
+  font-size:15px;
+  line-height:1.6;
+  color:#ffffff;
+  text-align:justify;
+}
+
+/* Fade like “Our Values” */
+#procurement .fade{
+  opacity:0;
+  transform:translateY(4px);
+  transition:opacity .25s ease, transform .25s ease;
+}
+#procurement .fade.show{
+  opacity:1;
+  transform:none;
+}
+
+/* Hidden measurer (stable height, not visible) */
+#procurement .procurement-measure-wrap{
+  position:absolute;
+  left:-9999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+#procurement .procurement-measure-box{
+  padding:24px;
+}
+#procurement .procurement-measure-title{
+  margin:0 0 10px;
+  font-size:20px;
+}
+#procurement .procurement-measure-desc{
+  margin:0;
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  #procurement .procurement-stage{
+    grid-template-columns:1fr;
+  }
+  #procurement .procurement-wheel{
+    width:260px;
+  }
+}
