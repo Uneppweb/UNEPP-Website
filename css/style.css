@@ -2046,12 +2046,11 @@ body.careers  .projects-filters .filters-row-4col .filter{
 #procurement .procurement-wheel-center-text{
   text-align:center;
   font-weight:900;
-  font-size:20px;
+  font-size:18px;      /* slightly reduced for longer text */
   letter-spacing:1px;
   line-height:1.2;
-  color:#ffffff;
+  color:#000000;       /* black */
   text-transform:uppercase;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.45);
 }
 
 /* Dynamic box */
