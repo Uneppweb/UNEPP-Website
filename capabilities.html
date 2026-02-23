@@ -56,6 +56,20 @@
     /* Optional: keep layout tidy */
     body[data-switcher="on"] main{ min-height: 60vh; }
   </style>
+
+  <!-- ✅ NEW: Left index active state (orange like About Us) -->
+  <style>
+    body.capabilities .about-index nav a.active{
+      background: rgba(249,164,7,.18);
+      border-left: 4px solid rgb(249,164,7);
+      color: #111;
+      font-weight: 800;
+      padding-left: 10px;
+    }
+    body.capabilities .about-index nav a:hover{
+      background: rgba(249,164,7,.10);
+    }
+  </style>
 </head>
 
 <body class="capabilities">
@@ -91,7 +105,7 @@
       <a href="#overview">Overview</a>
       <a href="#feasibility">Feasibility & Concept Selection</a>
       <a href="#feed-design">FEED & Detailed Design</a>
-<a href="#project-management">Full Lifecycle Integrated Solutions</a>
+      <a href="#project-management">Full Lifecycle Integrated Solutions</a>
       <a href="#procurement">Procurement Services</a>
       <a href="#offshore">Specialized Offshore Engineering</a>
       <a href="#tools-software">Tools and Software</a>
@@ -111,19 +125,22 @@
           and client requirements.
         </p>
         <p class="lead">
-UNEPP supports projects from <strong class="brand-regulator">Early Feasibility Studies and Concept Selection through Pre-FEED</strong>, helping clients establish technically sound, commercially viable, and regulatory-compliant development strategies.
+          UNEPP supports projects from <strong class="brand-regulator">Early Feasibility Studies and Concept Selection through Pre-FEED</strong>, helping clients establish technically sound, commercially viable, and regulatory-compliant development strategies.
         </p>
         <p class="lead">
-Our multidisciplinary teams deliver <strong class="brand-regulator">Fully Integrated Engineering and Design Solutions</strong> across all disciplines, ensuring compliance with international standards, technical integrity, constructability, and long-term operational reliability.        </p>
+          Our multidisciplinary teams deliver <strong class="brand-regulator">Fully Integrated Engineering and Design Solutions</strong> across all disciplines, ensuring compliance with international standards, technical integrity, constructability, and long-term operational reliability.
+        </p>
         <p class="lead">
-We provide structured <strong class="brand-regulator">Procurement Engineering and Vendor Support Services</strong>, including technical evaluations and coordination, ensuring equipment and materials meet project requirements while maintaining cost efficiency and schedule alignment.        </p>
+          We provide structured <strong class="brand-regulator">Procurement Engineering and Vendor Support Services</strong>, including technical evaluations and coordination, ensuring equipment and materials meet project requirements while maintaining cost efficiency and schedule alignment.
+        </p>
         <p class="lead">
-Through disciplined <strong class="brand-regulator">Project and Construction Management</strong>, UNEPP delivers full lifecycle integrated project solutions - from concept to delivery - overseeing cost control, scheduling, contractor coordination, and quality supervision to ensure safe, efficient execution and successful delivery within defined performance targets.        </p>
+          Through disciplined <strong class="brand-regulator">Project and Construction Management</strong>, UNEPP delivers full lifecycle integrated project solutions - from concept to delivery - overseeing cost control, scheduling, contractor coordination, and quality supervision to ensure safe, efficient execution and successful delivery within defined performance targets.
+        </p>
         <p class="lead">
-We continue supporting projects through <strong class="brand-regulator">Pre-Commissioning, Commissioning, Start-up, and Operational Readiness</strong>, facilitating a smooth transition from construction to stable, optimized operations.        </p>
-              </div>
+          We continue supporting projects through <strong class="brand-regulator">Pre-Commissioning, Commissioning, Start-up, and Operational Readiness</strong>, facilitating a smooth transition from construction to stable, optimized operations.
+        </p>
+      </div>
 
-      <!-- Anchor badges (optional, keep empty or remove) -->
       <div class="badges"></div>
     </section>
 
@@ -146,35 +163,12 @@ We continue supporting projects through <strong class="brand-regulator">Pre-Comm
         </div>
 
         <div class="grid" style="margin-top:18px;">
-          <div class="item">
-            <b>Feasibility Studies</b>
-            <span>Assess the technical and economic viability of proposed developments.</span>
-          </div>
-
-          <div class="item">
-            <b>Concepts Screening</b>
-            <span>Comparative evaluations of development alternatives based on performance, safety, operability, and lifecycle cost criteria.</span>
-          </div>
-
-          <div class="item">
-            <b>Technology Assessment</b>
-            <span>Fit-for-purpose solutions that align with project objectives and site conditions.</span>
-          </div>
-
-          <div class="item">
-            <b>Process Simulation</b>
-            <span>Validate key assumptions and support early-stage decision-making.</span>
-          </div>
-
-          <div class="item">
-            <b>Pre-FEED Deliverables</b>
-            <span>Define project scope, execution strategies, and interface requirements.</span>
-          </div>
-
-          <div class="item">
-            <b>Risk & Safety Integration</b>
-            <span>HAZID, ENVID, and preliminary QRA.</span>
-          </div>
+          <div class="item"><b>Feasibility Studies</b><span>Assess the technical and economic viability of proposed developments.</span></div>
+          <div class="item"><b>Concepts Screening</b><span>Comparative evaluations of development alternatives based on performance, safety, operability, and lifecycle cost criteria.</span></div>
+          <div class="item"><b>Technology Assessment</b><span>Fit-for-purpose solutions that align with project objectives and site conditions.</span></div>
+          <div class="item"><b>Process Simulation</b><span>Validate key assumptions and support early-stage decision-making.</span></div>
+          <div class="item"><b>Pre-FEED Deliverables</b><span>Define project scope, execution strategies, and interface requirements.</span></div>
+          <div class="item"><b>Risk & Safety Integration</b><span>HAZID, ENVID, and preliminary QRA.</span></div>
         </div>
       </div>
     </section>
@@ -221,175 +215,174 @@ We continue supporting projects through <strong class="brand-regulator">Pre-Comm
       </div>
     </section>
 
-<!-- Project Management -->
-<section class="section" id="project-management" data-panel="1">
-  <div class="section-intro">
-    <h3>Full Lifecycle Integrated Solutions</h3>
-    <p class="lead">
-      UNEPP offers integrated Project and Construction services tailored to meet the complex demands of oil and gas, infrastructure, and industrial developments. Our capabilities span the full project lifecycle—from planning and cost control through construction supervision and mechanical completion - ensuring successful delivery within budget, schedule, and quality parameters.
-    </p>
-  </div>
-
-  <div class="card">
-    <div class="capability-visual pm-seq" aria-label="Project lifecycle sequence">
-      <div class="pm-seq-stage" role="img" aria-label="Project lifecycle from initiation to close-out">
-        <img src="assets/images/pm/Slide1.JPG" alt="Step 1: Project Initiation" class="pm-seq-frame is-base" loading="eager" decoding="async">
-        <img src="assets/images/pm/Slide2.JPG" alt="Step 2: Conceptual Design" class="pm-seq-frame" loading="lazy" decoding="async">
-        <img src="assets/images/pm/Slide3.JPG" alt="Step 3: FEED" class="pm-seq-frame" loading="lazy" decoding="async">
-        <img src="assets/images/pm/Slide4.JPG" alt="Step 4: Detailed Engineering" class="pm-seq-frame" loading="lazy" decoding="async">
-        <img src="assets/images/pm/Slide5.JPG" alt="Step 5: Procurement" class="pm-seq-frame" loading="lazy" decoding="async">
-        <img src="assets/images/pm/Slide6.JPG" alt="Step 6: Construction" class="pm-seq-frame" loading="lazy" decoding="async">
-        <img src="assets/images/pm/Slide7.JPG" alt="Step 7: Commissioning & Start Up" class="pm-seq-frame" loading="lazy" decoding="async">
-        <img src="assets/images/pm/Slide8.JPG" alt="Step 8: Project Close Out" class="pm-seq-frame" loading="lazy" decoding="async">
+    <!-- Project Management -->
+    <section class="section" id="project-management" data-panel="1">
+      <div class="section-intro">
+        <h3>Full Lifecycle Integrated Solutions</h3>
+        <p class="lead">
+          UNEPP offers integrated Project and Construction services tailored to meet the complex demands of oil and gas, infrastructure, and industrial developments. Our capabilities span the full project lifecycle—from planning and cost control through construction supervision and mechanical completion - ensuring successful delivery within budget, schedule, and quality parameters.
+        </p>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- Procurement -->
-<section class="section" id="procurement" data-panel="1">
-    <div class="section-intro">
-    <h3>Procurement Services</h3>
-    <p class="lead">
-      UNEPP offers comprehensive procurement services tailored to meet the demanding requirements of the oil and gas industry.
-      Our approach integrates technical evaluation, commercial alignment, and disciplined supply chain management to ensure
-      cost-effective and schedule-driven delivery.
-    </p>
-  </div>
-
-  <div class="card">
-
-    <div class="procurement-stage">
-
-      <!-- LEFT: Wheel -->
-      <div class="procurement-wheel" aria-label="UNEPP procurement wheel">
-        <div class="procurement-wheel-rotator" id="procWheel">
-          <img
-            src="assets/images/Procurement1.png"
-            alt="UNEPP Procurement services wheel"
-          />
-        </div>
-
-        <!-- Static center title (does NOT rotate) -->
-        <div class="procurement-wheel-center" aria-hidden="true">
-          <div class="procurement-wheel-center-text">UNEPP<br>PROCUREMENT<br>SERVICES</div>
+      <div class="card">
+        <div class="capability-visual pm-seq" aria-label="Project lifecycle sequence">
+          <div class="pm-seq-stage" role="img" aria-label="Project lifecycle from initiation to close-out">
+            <img src="assets/images/pm/Slide1.JPG" alt="Step 1: Project Initiation" class="pm-seq-frame is-base" loading="eager" decoding="async">
+            <img src="assets/images/pm/Slide2.JPG" alt="Step 2: Conceptual Design" class="pm-seq-frame" loading="lazy" decoding="async">
+            <img src="assets/images/pm/Slide3.JPG" alt="Step 3: FEED" class="pm-seq-frame" loading="lazy" decoding="async">
+            <img src="assets/images/pm/Slide4.JPG" alt="Step 4: Detailed Engineering" class="pm-seq-frame" loading="lazy" decoding="async">
+            <img src="assets/images/pm/Slide5.JPG" alt="Step 5: Procurement" class="pm-seq-frame" loading="lazy" decoding="async">
+            <img src="assets/images/pm/Slide6.JPG" alt="Step 6: Construction" class="pm-seq-frame" loading="lazy" decoding="async">
+            <img src="assets/images/pm/Slide7.JPG" alt="Step 7: Commissioning & Start Up" class="pm-seq-frame" loading="lazy" decoding="async">
+            <img src="assets/images/pm/Slide8.JPG" alt="Step 8: Project Close Out" class="pm-seq-frame" loading="lazy" decoding="async">
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- RIGHT: Dynamic Box -->
-      <div class="procurement-box" id="procBox" aria-live="polite">
-        <h3 class="procurement-box-title fade show" id="procTitle"></h3>
-        <p class="procurement-box-desc fade show" id="procDesc"></p>
+    <!-- Procurement -->
+    <section class="section" id="procurement" data-panel="1">
+      <div class="section-intro">
+        <h3>Procurement Services</h3>
+        <p class="lead">
+          UNEPP offers comprehensive procurement services tailored to meet the demanding requirements of the oil and gas industry.
+          Our approach integrates technical evaluation, commercial alignment, and disciplined supply chain management to ensure
+          cost-effective and schedule-driven delivery.
+        </p>
       </div>
 
-    </div>
+      <div class="card">
+        <div class="procurement-stage">
 
-    <!-- Hidden measurer (keeps box height stable) -->
-    <div class="procurement-measure-wrap" id="procMeasureWrap" aria-hidden="true">
-      <div class="procurement-measure-box" id="procMeasureBox">
-        <h3 class="procurement-measure-title" id="procMeasureTitle"></h3>
-        <p class="procurement-measure-desc" id="procMeasureDesc"></p>
+          <!-- LEFT: Wheel -->
+          <div class="procurement-wheel" aria-label="UNEPP procurement wheel">
+            <div class="procurement-wheel-rotator" id="procWheel">
+              <img
+                src="assets/images/Procurement1.png"
+                alt="UNEPP Procurement services wheel"
+              />
+            </div>
+
+            <!-- Static center title (does NOT rotate) -->
+            <div class="procurement-wheel-center" aria-hidden="true">
+              <div class="procurement-wheel-center-text">UNEPP<br>PROCUREMENT<br>SERVICES</div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Dynamic Box -->
+          <div class="procurement-box" id="procBox" aria-live="polite">
+            <h3 class="procurement-box-title fade show" id="procTitle"></h3>
+            <p class="procurement-box-desc fade show" id="procDesc"></p>
+          </div>
+
+        </div>
+
+        <!-- Hidden measurer (keeps box height stable) -->
+        <div class="procurement-measure-wrap" id="procMeasureWrap" aria-hidden="true">
+          <div class="procurement-measure-box" id="procMeasureBox">
+            <h3 class="procurement-measure-title" id="procMeasureTitle"></h3>
+            <p class="procurement-measure-desc" id="procMeasureDesc"></p>
+          </div>
+        </div>
+
       </div>
-    </div>
 
-  </div>
+      <script>
+      (function(){
+        const wheel = document.getElementById("procWheel"); // the ROTATING div
+        const box = document.getElementById("procBox");
+        const titleEl = document.getElementById("procTitle");
+        const descEl  = document.getElementById("procDesc");
 
-  <script>
-  (function(){
-    const wheel = document.getElementById("procWheel"); // the ROTATING div
-    const box = document.getElementById("procBox");
-    const titleEl = document.getElementById("procTitle");
-    const descEl  = document.getElementById("procDesc");
+        if(!wheel || !box || !titleEl || !descEl) return;
 
-    if(!wheel || !box || !titleEl || !descEl) return;
+        // 10 sections — colors EXACTLY as you provided (clockwise from 12 o'clock)
+        const items = [
+          { title:"Requirements Definition",               color:"rgb(248,111,38)",  desc:"Define technical specifications, MR packages, data sheets, and compliance requirements aligned with project standards." },
+          { title:"Market Intelligence",                   color:"rgb(29,149,194)",  desc:"Assess supplier landscape, lead times, availability, and price drivers to support sourcing decisions and schedule planning." },
+          { title:"Supplier Prequalification",             color:"rgb(36,169,205)",  desc:"Screen vendors for capability, capacity, certifications, past performance, and project-specific compliance requirements." },
+          { title:"Technical Bid Evaluation",              color:"rgb(0,185,203)",   desc:"Perform technical evaluations, clarify deviations, and confirm compliance with the requisition and applicable standards." },
+          { title:"Commercial Evaluation",                 color:"rgb(0,170,159)",   desc:"Benchmark pricing, terms, Incoterms, and payment milestones to ensure best value and contract alignment." },
+          { title:"Purchase Order & Contracting",          color:"rgb(81,182,87)",   desc:"Issue POs/contracts, define deliverables, and ensure clear interface between technical and commercial obligations." },
+          { title:"Expediting & Progress Tracking",        color:"rgb(144,191,76)",  desc:"Monitor manufacturing progress, resolve bottlenecks, and keep procurement aligned with project milestones." },
+          { title:"Inspection & Quality Control",          color:"rgb(202,210,59)",  desc:"Coordinate ITPs, inspections, FATs, document review, and NCR close-out to ensure quality and compliance." },
+          { title:"Logistics & Delivery",                  color:"rgb(248,194,29)",  desc:"Plan packing, shipping, customs, and site delivery sequencing to protect schedule and reduce handling risks." },
+          { title:"Supplier Relationship & Risk Management", color:"rgb(249,164,7)", desc:"Track performance, manage supply chain risks proactively, and drive continuous improvement with key suppliers." }
+        ];
 
-    // 10 sections — colors EXACTLY as you provided (clockwise from 12 o'clock)
-    const items = [
-      { title:"Requirements Definition",               color:"rgb(248,111,38)",  desc:"Define technical specifications, MR packages, data sheets, and compliance requirements aligned with project standards." },
-      { title:"Market Intelligence",                   color:"rgb(29,149,194)",  desc:"Assess supplier landscape, lead times, availability, and price drivers to support sourcing decisions and schedule planning." },
-      { title:"Supplier Prequalification",             color:"rgb(36,169,205)",  desc:"Screen vendors for capability, capacity, certifications, past performance, and project-specific compliance requirements." },
-      { title:"Technical Bid Evaluation",              color:"rgb(0,185,203)",   desc:"Perform technical evaluations, clarify deviations, and confirm compliance with the requisition and applicable standards." },
-      { title:"Commercial Evaluation",                 color:"rgb(0,170,159)",   desc:"Benchmark pricing, terms, Incoterms, and payment milestones to ensure best value and contract alignment." },
-      { title:"Purchase Order & Contracting",          color:"rgb(81,182,87)",   desc:"Issue POs/contracts, define deliverables, and ensure clear interface between technical and commercial obligations." },
-      { title:"Expediting & Progress Tracking",        color:"rgb(144,191,76)",  desc:"Monitor manufacturing progress, resolve bottlenecks, and keep procurement aligned with project milestones." },
-      { title:"Inspection & Quality Control",          color:"rgb(202,210,59)",  desc:"Coordinate ITPs, inspections, FATs, document review, and NCR close-out to ensure quality and compliance." },
-      { title:"Logistics & Delivery",                  color:"rgb(248,194,29)",  desc:"Plan packing, shipping, customs, and site delivery sequencing to protect schedule and reduce handling risks." },
-      { title:"Supplier Relationship & Risk Management", color:"rgb(249,164,7)", desc:"Track performance, manage supply chain risks proactively, and drive continuous improvement with key suppliers." }
-    ];
+        const intervalMs = 5000;
+        const stepAngle = 36; // 360 / 10
+        let index = 0;
+        let rotation = 0;
 
-    const intervalMs = 5000;
-    const stepAngle = 36; // 360 / 10
-    let index = 0;
-    let rotation = 0;
+        function updateContent(i){
+          titleEl.classList.remove("show");
+          descEl.classList.remove("show");
 
-    function updateContent(i){
-      titleEl.classList.remove("show");
-      descEl.classList.remove("show");
+          setTimeout(() => {
+            titleEl.textContent = items[i].title;
+            descEl.textContent  = items[i].desc;
+            box.style.backgroundColor = items[i].color;
 
-      setTimeout(() => {
-        titleEl.textContent = items[i].title;
-        descEl.textContent  = items[i].desc;
-        box.style.backgroundColor = items[i].color;
+            titleEl.classList.add("show");
+            descEl.classList.add("show");
+          }, 180);
+        }
 
-        titleEl.classList.add("show");
-        descEl.classList.add("show");
-      }, 180);
-    }
+        function next(){
+          index = (index + 1) % items.length;
+          rotation -= stepAngle; // anti-clockwise
+          wheel.style.transform = `rotate(${rotation}deg)`;
+          updateContent(index);
+        }
 
-    function next(){
-      index = (index + 1) % items.length;
-      rotation -= stepAngle; // anti-clockwise
-      wheel.style.transform = `rotate(${rotation}deg)`;
-      updateContent(index);
-    }
+        // Keep box height stable (same method as Our Values)
+        function setMaxHeight(){
+          const mw = document.getElementById("procMeasureWrap");
+          const mb = document.getElementById("procMeasureBox");
+          const mt = document.getElementById("procMeasureTitle");
+          const md = document.getElementById("procMeasureDesc");
+          if(!mw || !mb || !mt || !md) return;
 
-    // Keep box height stable (same method as Our Values)
-    function setMaxHeight(){
-      const mw = document.getElementById("procMeasureWrap");
-      const mb = document.getElementById("procMeasureBox");
-      const mt = document.getElementById("procMeasureTitle");
-      const md = document.getElementById("procMeasureDesc");
-      if(!mw || !mb || !mt || !md) return;
+          const w = box.getBoundingClientRect().width;
+          mw.style.width = w + "px";
+          mb.style.width = w + "px";
 
-      const w = box.getBoundingClientRect().width;
-      mw.style.width = w + "px";
-      mb.style.width = w + "px";
+          let maxH = 0;
+          for(const it of items){
+            mt.textContent = it.title;
+            md.textContent = it.desc;
+            const h = mb.getBoundingClientRect().height;
+            if(h > maxH) maxH = h;
+          }
+          box.style.minHeight = Math.ceil(maxH) + "px";
+        }
 
-      let maxH = 0;
-      for(const it of items){
-        mt.textContent = it.title;
-        md.textContent = it.desc;
-        const h = mb.getBoundingClientRect().height;
-        if(h > maxH) maxH = h;
-      }
-      box.style.minHeight = Math.ceil(maxH) + "px";
-    }
+        // ===== PAUSE ON HOVER (wheel OR box) =====
+        let paused = false;
+        const hoverTargets = [wheel, box];
 
-    // ===== PAUSE ON HOVER (wheel OR box) =====
-    let paused = false;
-    const hoverTargets = [wheel, box];
+        hoverTargets.forEach(el => {
+          el.addEventListener("mouseenter", () => { paused = true; });
+          el.addEventListener("mouseleave", () => { paused = false; });
+        });
 
-    hoverTargets.forEach(el => {
-      el.addEventListener("mouseenter", () => { paused = true; });
-      el.addEventListener("mouseleave", () => { paused = false; });
-    });
+        // Init
+        updateContent(0);
+        box.style.backgroundColor = items[0].color;
 
-    // Init
-    updateContent(0);
-    box.style.backgroundColor = items[0].color;
+        window.addEventListener("load", () => {
+          setMaxHeight();
 
-    window.addEventListener("load", () => {
-      setMaxHeight();
+          setInterval(() => {
+            if (!paused) next();
+          }, intervalMs);
+        });
 
-      setInterval(() => {
-        if (!paused) next();
-      }, intervalMs);
-    });
-
-    window.addEventListener("resize", setMaxHeight);
-  })();
-  </script>
-</section>
+        window.addEventListener("resize", setMaxHeight);
+      })();
+      </script>
+    </section>
 
     <!-- Offshore -->
     <section class="section" id="offshore" data-panel="1">
@@ -421,8 +414,6 @@ We continue supporting projects through <strong class="brand-regulator">Pre-Comm
       <div class="card">
         <div class="software-marquee" aria-label="Engineering Software Tools">
           <div class="software-track">
-
-            <!-- FIRST SET -->
             <span class="software-logo"><img src="assets/software/Aspen-HYSYS.png" alt="Aspen HYSYS" /></span>
             <span class="software-logo"><img src="assets/software/autocad.png" alt="AutoCAD" /></span>
             <span class="software-logo"><img src="assets/software/autopipe.png" alt="AutoPIPE" /></span>
@@ -463,7 +454,6 @@ We continue supporting projects through <strong class="brand-regulator">Pre-Comm
             <span class="software-logo"><img src="assets/software/SAP.png" alt="" aria-hidden="true" /></span>
             <span class="software-logo"><img src="assets/software/staadpro.png" alt="" aria-hidden="true" /></span>
             <span class="software-logo"><img src="assets/software/usfos.png" alt="" aria-hidden="true" /></span>
-
           </div>
         </div>
       </div>
@@ -475,9 +465,9 @@ We continue supporting projects through <strong class="brand-regulator">Pre-Comm
 <!-- Footer -->
 <footer class="footer">
   <div class="container" style="text-align:left;">
-
     <div>
-      © <span id="y"></span> United Engineers for Petroleum Projects (UNEPP)   © <span id="y2"></span> Unified Engineering Consultancy LTD - L.L.C (UNIFIED)
+      © <span id="y"></span> United Engineers for Petroleum Projects (UNEPP)
+      &nbsp;&nbsp; © <span id="y2"></span> Unified Engineering Consultancy LTD - L.L.C (UNIFIED)
     </div>
 
     <div style="margin-top:10px; font-size:13px; line-height:1.6; opacity:.85;">
@@ -485,7 +475,6 @@ We continue supporting projects through <strong class="brand-regulator">Pre-Comm
       Each company operates, contracts, and delivers services in accordance with the laws
       and regulations applicable in its respective jurisdiction.
     </div>
-
   </div>
 </footer>
 
@@ -493,10 +482,6 @@ We continue supporting projects through <strong class="brand-regulator">Pre-Comm
   const year = new Date().getFullYear();
   document.getElementById("y").textContent = year;
   document.getElementById("y2").textContent = year;
-</script>
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
 </script>
 
 <script>
