@@ -59,16 +59,17 @@
 
   <!-- ✅ NEW: Left index active state (orange like About Us) -->
   <style>
-    body.capabilities .about-index nav a.active{
-      background: rgba(249,164,7,.18);
-      border-left: 4px solid rgb(249,164,7);
-      color: #111;
-      font-weight: 800;
-      padding-left: 10px;
-    }
-    body.capabilities .about-index nav a:hover{
-      background: rgba(249,164,7,.10);
-    }
+body.capabilities .about-index nav a.active{
+  background: rgba(70,176,255,.18);   /* matches your --brand */
+  border-left: 4px solid var(--brand);
+  color: var(--brand);
+  font-weight: 800;
+  padding-left: 10px;
+}
+
+body.capabilities .about-index nav a:hover{
+  background: rgba(70,176,255,.10);
+}
   </style>
 </head>
 
