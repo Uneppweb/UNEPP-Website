@@ -339,8 +339,8 @@ We continue supporting projects through <strong class="brand-regulator">Pre-Comm
 
     function next(){
       index = (index + 1) % items.length;
-      rotation += stepAngle;
-      wheel.style.transform = `rotate(${rotation}deg)`;
+rotation -= stepAngle;              // anti-clockwise
+wheel.style.transform = `rotate(${rotation}deg)`;
       updateContent(index);
     }
 
