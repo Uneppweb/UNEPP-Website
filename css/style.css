@@ -2220,3 +2220,6 @@ body.careers .career-box .lead{
 body.careers .career-box p{
   width:100%;
 }
+body.careers .section:last-of-type{
+  padding-top:10px;
+}
