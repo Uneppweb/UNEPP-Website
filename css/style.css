@@ -2210,3 +2210,7 @@ body.careers .section:last-of-type{
 body.careers .career-box{
   margin-top:0;
 }
+/* Reduce bottom padding of section above CV */
+body.careers .section:nth-last-of-type(2){
+  padding-bottom:30px;
+}
