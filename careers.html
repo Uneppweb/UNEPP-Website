@@ -119,35 +119,46 @@
       </div>
     </section>
 
-   <section class="cv-upload-section">
+<section class="section">
   <div class="container">
-    <h2>Submit Your CV</h2>
-    <p>
-      If you do not find a suitable position, you may submit your CV for future opportunities.
-    </p>
 
-    <form action="https://formsubmit.co/info@unepp.com" method="POST" enctype="multipart/form-data">
-      
-      <div class="form-row">
-        <input type="text" name="Full Name" placeholder="Full Name" required>
-        <input type="email" name="Email" placeholder="Email Address" required>
-      </div>
+    <div class="career-box">
+      <h2>Submit Your CV</h2>
+      <p class="lead">
+        If you do not find a suitable position, you may submit your CV for future opportunities.
+      </p>
 
-      <div class="form-row">
-        <input type="text" name="Discipline" placeholder="Discipline">
-        <input type="number" name="Years of Experience" placeholder="Years of Experience">
-      </div>
+      <form action="https://formsubmit.co/info@unepp.com" method="POST" enctype="multipart/form-data" class="cv-form">
+        
+        <div class="form-row">
+          <input type="text" name="Full Name" placeholder="Full Name" required>
+          <input type="email" name="Email" placeholder="Email Address" required>
+        </div>
 
-      <div class="form-row">
-        <input type="file" name="CV" accept=".pdf,.doc,.docx" required>
-      </div>
+        <div class="form-row">
+          <input type="text" name="Discipline" placeholder="Discipline">
+          <input type="number" name="Years of Experience" placeholder="Years of Experience">
+        </div>
 
-      <button type="submit" class="btn">Submit CV</button>
+        <div class="form-row">
+          <input type="file" name="CV" accept=".pdf,.doc,.docx" required>
+        </div>
 
-      <input type="hidden" name="_captcha" value="false">
-    </form>
+        <div class="form-row consent-row">
+          <label>
+            <input type="checkbox" required>
+            I consent to UNEPP storing my data for recruitment purposes.
+          </label>
+        </div>
+
+        <button type="submit" class="btn">Submit CV</button>
+
+        <input type="hidden" name="_captcha" value="false">
+      </form>
+    </div>
+
   </div>
-</section> 
+</section>
     
   </main>
 
