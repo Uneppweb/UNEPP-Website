@@ -2201,3 +2201,12 @@ body.careers .consent-row{
 body.careers .career-box{
   margin-top:20px;
 }
+/* Reduce vertical spacing ONLY before CV box section */
+body.careers .section:last-of-type{
+  padding-top:30px;     /* reduce from default 80px */
+}
+
+/* Remove extra top margin if any */
+body.careers .career-box{
+  margin-top:0;
+}
