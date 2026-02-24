@@ -2217,3 +2217,6 @@ body.careers .section:nth-last-of-type(2){
 body.careers .career-box .lead{
   max-width:100%;
 }
+body.careers .career-box p{
+  width:100%;
+}
