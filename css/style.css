@@ -2153,3 +2153,48 @@ body.careers  .projects-filters .filters-row-4col .filter{
 .cv-upload-section input[type="file"]{
   background:#fff;
 }
+/* Career CV box — match portfolio card style */
+body.careers .career-box{
+  background:#ffffff;
+  border-radius:18px;
+  padding:40px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+  border:1px solid #eef2f7;
+  margin-top:60px;
+}
+
+body.careers .career-box h2{
+  margin-bottom:10px;
+}
+
+body.careers .career-box .lead{
+  margin-bottom:30px;
+  max-width:60ch;
+}
+
+/* Form layout */
+body.careers .cv-form .form-row{
+  display:flex;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+body.careers .cv-form input{
+  flex:1;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid #d8dee6;
+  font-size:14px;
+  background:#f8fafc;
+}
+
+body.careers .cv-form input:focus{
+  border-color:var(--brand);
+  outline:none;
+  background:#ffffff;
+}
+
+body.careers .consent-row{
+  font-size:14px;
+  color:var(--muted);
+}
