@@ -2012,14 +2012,14 @@ body.careers  .projects-filters .filters-row-4col .filter{
 
 #procurement .procurement-stage{
   display:grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: 420px 1fr;
   gap:28px;
   align-items:center;
 }
 
 #procurement .procurement-wheel{
   position:relative;
-  width:340px;
+  width:400px;
   margin:0 auto;
 }
 
@@ -2117,6 +2117,6 @@ body.careers  .projects-filters .filters-row-4col .filter{
     grid-template-columns:1fr;
   }
   #procurement .procurement-wheel{
-    width:260px;
+    width:300px;
   }
 }
